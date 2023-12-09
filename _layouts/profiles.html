@@ -2,46 +2,61 @@
 layout: page
 ---
 
-<!-- about.html -->
-      <div class="post">
-
-        <article>
-          {% if page.profiles -%}
-          {% for profile in page.profiles %}
-          <hr>
-          <div class="profile float-{%- if profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
-            {%- if profile.image %}
-              {%- assign profile_image_path = profile.image | prepend: 'assets/img/' -%}
-
-              {% if profile.image_circular %}
-                {%- assign profile_image_class = "img-fluid z-depth-1 rounded-circle" -%}
-              {% else %}
-                {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
-              {% endif %}
-
-              {% include figure.html
-              path=profile_image_path
-              class=profile_image_class
-              alt=profile.image -%}
-            {% endif -%}
-            {%- if profile.more_info %}
-            <div class="more-info">
-              {{ profile.more_info }}
-            </div>
-            {%- endif %}
-          </div>
-
-          <div class="clearfix">
-            {% if profile.content -%}
-            {% capture profile_content %}{%- include_relative {{ profile.content }} %}{% endcapture %}
-            {{ profile_content | markdownify }}
-            {%- else -%}
-            {{ content }}
-            {%- endif %}
-          </div>
-
-          {% endfor %}
-          {%- endif %}
-        </article>
-
+<!-- People.html -->
+<div class="post">
+    <article>
+        {% if page.profiles %}
+            {% assign profiles_by_category = page.profiles | group_by: 'category' %}
+            {% for category_group in profiles_by_category %}
+                <h2 class="pro_category">{{ category_group.name }}</h2>
+                {% assign details_found = false %}
+                {% for profile in category_group.items %}
+                    {% if profile.Details %}
+                        {% if details_found %}
+                            </div> 
+                            {% assign details_found = false %}
+                        {% endif %}
+                        <hr>
+                        <div class="profile float-{{ profile.align }}">
+                            {% if profile.image %}
+                                {% assign profile_image_path = profile.image | prepend: 'assets/img/' %}
+                                {% assign profile_image_class = profile.image_circular ? "img-fluid z-depth-1 rounded-circle" : "img-fluid z-depth-1 rounded" %}
+                                {% include figure.html path=profile_image_path class=profile_image_class alt=profile.image %}
+                            {% endif %}
+                            {% if profile.more_info %}
+                                <div class="more-info">
+                                    {{ profile.more_info }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="clearfix">
+                            {% if profile.content %}
+                                {% capture profile_content %}{% include_relative {{ profile.content }} %}{% endcapture %}
+                                {{ profile_content | markdownify }}
+                            {% else %}
+                                {{ content }}
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        {% if details_found == false %}
+                        <hr>
+                            <div class="profiles-grid">
+                            {% assign details_found = true %}
+                        {% endif %}
+                        <div class="profile-item">
+                            {% if profile.image %}
+                                <img src="/assets/img/{{ profile.image }}" alt="Profile Image" class="profile-img">
+                            {% endif %}
+                            <div class="profile-info">
+                                {{ profile.more_info | markdownify }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {% if details_found %}
+                    </div> 
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </article>
 </div>

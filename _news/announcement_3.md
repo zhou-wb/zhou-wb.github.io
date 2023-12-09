@@ -1,8 +1,7 @@
 ---
 layout: post
-date: 2016-01-15 07:59:00-0400
+date: 2023-09-1
 inline: true
 related_posts: false
 ---
-
-A simple inline announcement with Markdown emoji! :sparkles: :smile:
+Prof.Peng is continuing to serve as the Paper Program Committee for [Computational Visual Media Conference (CVM) 2024](http://iccvm.org/2024/). Welcome to share your excellent work at this amazing event.

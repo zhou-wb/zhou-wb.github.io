@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2023-11-1
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+ Prof.Peng is continuing to serve as the Technical Committee for [SID Display Week](https://www.displayweek.org/) 2024 Display Systems. Welcome to share your excellent work at this amazing event.

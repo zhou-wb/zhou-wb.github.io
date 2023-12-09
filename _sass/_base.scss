@@ -158,6 +158,91 @@ blockquote {
 .citation-number {
   color: var(--global-theme-color);
 }
+//about
+.join-us {
+  text-align: center; 
+  margin: 20px 0; 
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.join-us a {
+  font-weight: bold; 
+  color: #007bff; 
+  padding: 15px 20px; 
+  display: inline-block; 
+  font-size: 1.2em; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+}
+
+.public-account {
+  text-align: center; 
+  margin-top: 40px; 
+}
+
+.public-account h3 {
+  margin-bottom: 20px; 
+}
+
+.public-account-img {
+  max-width: 30%; 
+  height: auto; 
+}
+
+
+
+
+.table-responsive .table.table-sm.table-borderless {
+  border: none; 
+  border-collapse: collapse; 
+}
+
+.table-responsive .table.table-sm.table-borderless th,
+.table-responsive .table.table-sm.table-borderless td {
+  border: none; 
+}
+
+  
+.arrow-button {
+  background-color: #007bff; 
+  border: none;
+  color: white;
+  padding: 20px; 
+  margin: 5px; 
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px; 
+  position: relative; 
+}
+
+.arrow-button.left::before,
+.arrow-button.right::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #fff transparent transparent;
+}
+
+.arrow-button.right::before {
+  left: 40%;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.arrow-button.left::before {
+  right: 40%;
+  transform: translateY(-50%);
+}
+
+
+
+
 
 // Profile
 
@@ -210,7 +295,40 @@ blockquote {
   }
 }
 
+.profiles-grid {
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: space-around;
+  justify-content: left;
+}
 
+.profile-item {
+  flex-basis: calc(33.333% - 20px); /* 三列布局，考虑间距 */
+  margin: 5px; /* 间距 */
+  text-align: center; /* 文本居中 */
+}
+
+.profile-img {
+  max-width: 100%;
+  max-height: 200px; /* 控制图片大小 */
+  height: auto;
+  margin-bottom: 10px; /* 图片下的间距 */
+}
+
+.profile-info p {
+  margin: 0; /* 移除段落默认的外边距 */
+  font-size: 0.875rem; /* 文本大小 */
+}
+
+h2.pro_category {
+  color: var(--global-divider-color);
+  font-weight: bold;
+  // border-bottom: 1px solid var(--global-divider-color);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
 // Navbar customization
 
 .navbar {

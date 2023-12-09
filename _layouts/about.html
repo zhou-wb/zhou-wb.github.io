@@ -40,12 +40,21 @@ layout: default
           <div class="clearfix">
             {{ content }}
           </div>
-
+          
+          <!-- Join Us Link -->
+          {% if page.joinus %}
+            <div class="join-us">
+              <a href="{{ page.joinuslink }}" target="_blank">{{ page.joinus }}</a>
+            </div>
+          {% endif %}
+         
           <!-- News -->
           {% if page.news and site.announcements.enabled -%}
             <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">news</a></h2>
             {%- include news.html limit=true %}
           {%- endif %}
+          
+
 
           <!-- Latest posts -->
           {% if page.latest_posts -%}
@@ -58,7 +67,16 @@ layout: default
             <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>
             {%- include selected_papers.html %}
           {%- endif %}
-
+          
+          <!-- WeChat 公众号 -->
+          {% if page.wechat %}
+            <div class="public-account">
+              <h3>{{ page.wechat }}</h3>
+              {%- assign QR_path = page.wehchatQRcode | prepend: 'assets/img/' -%}
+              <img src="{{ QR_path}}" alt="{{ page.wechat }}" class="public-account-img">
+            </div>    
+          {% endif %}
+    
           <!-- Social -->
           {%- if page.social %}
             <div class="social">
@@ -72,6 +90,9 @@ layout: default
 
             </div>
           {%- endif %}
+
+
+
         </article>
 
 </div>

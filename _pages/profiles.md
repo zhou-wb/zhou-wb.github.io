@@ -8,7 +8,7 @@ nav_order: 6
 
 profiles:
 # PI
-- align: right
+  - align: right
     image: EvanPeng.jpg
     content: EvanPeng.md
     category: PI
@@ -114,7 +114,7 @@ profiles:
       u3605728@connect.hku.hk
 
 # Master
-- align: 
+  - align: 
     image: 
     content: 
     Details: false

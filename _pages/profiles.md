@@ -7,9 +7,8 @@ nav: true
 nav_order: 6
 
 profiles:
-  # if you want to include more than one profile, just replicate the following block
-  # and create one content file for each profile inside _pages/
-  - align: right
+# PI
+- align: right
     image: EvanPeng.jpg
     content: EvanPeng.md
     category: PI
@@ -21,6 +20,7 @@ profiles:
         <a href="https://scholar.google.com/citations?user=UMveGGwAAAAJ&hl=en&authuser=1" target="_blank">[Google Scholar]</a>
         <a href="https://www.linkedin.com/in/yifan-evan-peng/" target="_blank">[Linkedln]</a>
 
+# Visting Prof
   - align: right
     image: Wolfgang.jpg
     content: Wolfgang.md
@@ -32,6 +32,8 @@ profiles:
       <a href="https://vccimaging.org/People/heidriw/bio" target="_blank">[Bio]</a>
       <a href="https://scholar.google.com/citations?user=IQSbom0AAAAJ" target="_blank">[Google Scholar]</a>
       <a href="http://orcid.org/0000-0002-4227-8508" target="_blank">[ORCID: 0000-0002-4227-8508]</a>
+
+# Postdoc
   - align: 
     image: Liuxin.png
     content: 
@@ -39,10 +41,11 @@ profiles:
     Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://liux2018.github.io/" style="font-size: larger; font-weight: bold;">Liu Xin</a><br>
+      <a href="https://liux2018.github.io/" style="font-size: larger; font-weight: bold;">Xin Liu</a><br>
       Computational Optics<br>
       liuxin2018@zju.edu.cn
-  
+
+# Phd
   - align: 
     image: Haoyu.jpg
     content: 
@@ -50,10 +53,20 @@ profiles:
     Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://whywww.github.io/" style="font-size: larger; font-weight: bold;">Wei Haoyu</a><br>
+      <a href="https://whywww.github.io/" style="font-size: larger; font-weight: bold;">Haoyu Wei</a><br>
       Deep optics, Coded aperture, Meta Imaging<br>
       haoyuwei@connect.hku.hk
      
+  - align:
+    image: Xiangyu.png
+    content: 
+    Details: false
+    category: PhD
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">**Xiangyu Meng**</span><br>
+      Computational Holography, Wavefront Simulation, Computer Graphics<br>
+      mengxy22@connect.hku.hk
 
   - align:
     image: Zhenyang.jpg
@@ -62,21 +75,20 @@ profiles:
     category: PhD
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://lagrangeli.github.io/" style="font-size: larger; font-weight: bold;">Li Zhenyang</a><br>
+      <a href="https://lagrangeli.github.io/" style="font-size: larger; font-weight: bold;">Zhenyang Li</a><br>
       Computer Vision (3D), Computer Graphics (Rendering), VR/AR/MR, and Holographic Imaging/Display<br>
       zhenyang11766@163.com
 
-
-  - align:
-    image: Xiangyu.png
+  - align: 
+    image: Wenbin.jpg
     content: 
     Details: false
     category: PhD
     image_circular: false # crops the image to make it circular
     more_info: >
-      <span style="font-size: larger; font-weight: bold;">**Meng Xiangyu**</span><br>
-      Computational Holography, Wavefront Simulation, Computer Graphics<br>
-      mengxy22@connect.hku.hk
+      <a href="https://www.linkedin.com/in/wenbin-zhou-00a710105/" style="font-size: larger; font-weight: bold;">Wenbin Zhou</a><br>
+      computer-generated holography, deep learning, computational optics<br>
+      zhouwb@connect.hku.hk
 
   - align:
     image: Yuhui.jpg
@@ -85,21 +97,11 @@ profiles:
     category: PhD
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://www.linkedin.com/in/yuhui-lyu-lorena/" style="font-size: larger; font-weight: bold;">Liu Yuhui</a><br>
+      <a href="https://www.linkedin.com/in/yuhui-lyu-lorena/" style="font-size: larger; font-weight: bold;">Yuhui Liu</a><br>
       Computational optics, Stereo imaging, Multimodal fusion<br>
       liuyuhui@connect.hku.hk
-    
-  - align: 
-    image: Wenbin.jpg
-    content: 
-    Details: false
-    category: PhD
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <a href="https://www.linkedin.com/in/liangxun-ou-3a53582a4/" style="font-size: larger; font-weight: bold;">Zhou Wenbin</a><br>
-      computer-generated holography, deep learning, computational optics<br>
 
-
+# RA
   - align: 
     image: Liangxun.jpg
     content: 
@@ -107,9 +109,20 @@ profiles:
     category: RA
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://www.linkedin.com/in/OuLiangxun/" style="font-size: larger; font-weight: bold;">Ou Liangxun</a><br>
+      <a href="https://www.linkedin.com/in/OuLiangxun/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
       Computational optics, RGBD imaging, Computer Vision<br>
       u3605728@connect.hku.hk
+
+# Master
+- align: 
+    image: 
+    content: 
+    Details: false
+    category: Master
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">**Hanxun Zhang**</span><br>
+
   - align: 
     image: 
     content: 
@@ -117,14 +130,5 @@ profiles:
     category: Master
     image_circular: false # crops the image to make it circular
     more_info: >
-      <span style="font-size: larger; font-weight: bold;">**Zhang Hanxun**</span><br>
-  
-  - align: 
-    image: 
-    content: 
-    Details: false
-    category: Master
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <span style="font-size: larger; font-weight: bold;">**Sun Xintao**</span><br>
+      <span style="font-size: larger; font-weight: bold;">**Xintao Sun**</span><br>
 ---

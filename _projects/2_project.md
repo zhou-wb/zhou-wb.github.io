@@ -1,6 +1,6 @@
 ---
 layout: page
-title: VR
+title: Emerging Tech in VR/AR
 description: ELEC4547 
 img: assets/img/VR1.jpg 
 importance: 1

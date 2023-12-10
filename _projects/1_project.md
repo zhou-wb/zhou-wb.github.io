@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Artificial intelligence and deep learning
+title: Artificial Intelligence and Deep Learning
 description: ELEC4544
 img: assets/img/Artificial intelligence and deep learning.jpg
 importance: 1

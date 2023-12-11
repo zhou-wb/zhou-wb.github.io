@@ -87,7 +87,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/wenbin-zhou-00a710105/" style="font-size: larger; font-weight: bold;">Wenbin Zhou</a><br>
-      computer-generated holography, deep learning, computational optics<br>
+      Computer-generated Holography, Deep Learning, Computational Optics<br>
       zhouwb@connect.hku.hk
 
   - align:
@@ -98,7 +98,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/yuhui-lyu-lorena/" style="font-size: larger; font-weight: bold;">Yuhui Liu</a><br>
-      Computational optics, Stereo imaging, Multimodal fusion<br>
+      Computational Optics, Stereo Imaging, Multimodal Fusion<br>
       liuyuhui@connect.hku.hk
 
 # RA
@@ -110,7 +110,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/OuLiangxun/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
-      Computational optics, RGBD imaging, Computer Vision<br>
+      Computational Optics, RGBD Imaging, Computer Vision<br>
       u3605728@connect.hku.hk
 
 # Master

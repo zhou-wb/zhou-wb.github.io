@@ -1,5 +1,5 @@
 <span style="font-size: 1.7em; font-weight: bold;">**Yifan (Evan) Peng**</span><br>
-I am an Assistant Professor at HKU [Electrical & Electronic Engineering](https://www.eee.hku.hk/) and [Computer Science](https://cs.hku.hk/), leading the **Computational Imaging & Mixed Representation Labortary**, aka., **WeLight Lab @ HKU**.
+I am an Assistant Professor at HKU [EEE](https://www.eee.hku.hk/) and [CS](https://cs.hku.hk/), leading the **Computational Imaging & Mixed Representation Labortary**, aka., **WeLight Lab @ HKU**.
 
 I was a Postdoc at [Stanford University Computational Imaging Laboratory](http://computationalimaging.org/). I received my PhD in CS from the [Imager Lab, UBC](https://www.cs.ubc.ca/labs/imager/imager.php). During the PhD, I was a Visiting Student Researcher at [Visual Computing Center, KAUST](https://cemse.kaust.edu.sa/vcc/), and at Stanford. I received both my MS and BS in Optical Science and Engineering from the [State Key Lab of Modern Optical Instrumentation, Zhejiang University](http://www.moi-lab.zju.edu.cn/).
 

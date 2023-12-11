@@ -17,7 +17,7 @@ news: True  # includes a list of news items
 latest_posts: False  # includes a list of the newest posts
 selected_papers: False # includes a list of papers marked as "selected={true}"
 social: True  # includes social icons at the bottom of the page
-joinus: "JOIN US!"
+joinus: "JOIN US NOW!"
 joinuslink: https://www.eee.hku.hk/~evanpeng/images/Openings_Peng@HKU_2023.pdf
 wechat: Intelligent Optics Sharing (Tech. News/Reports/Comments)
 wehchatQRcode: wechatQR.jpg
@@ -25,7 +25,7 @@ wehchatQRcode: wechatQR.jpg
 ---
 
 
-Welcome to the WeLight Lab, aka., Computational Imaing & Mixed Representation Labortary, at the University of Hong Kong. Our lab is led by <a href="https://www.eee.hku.hk/~evanpeng/#wechatblog" target="_blank">Dr. Evan Y. Peng</a>, an HKU-100 Assistant Professor at EEE and CS departments.
+Welcome to the WeLight Lab, aka., Computational Imaing & Mixed Representation Labortary, at the University of Hong Kong. Our lab is led by <a href="https://www.eee.hku.hk/~evanpeng" target="_blank">Dr. Evan Y. Peng</a>, an HKU-100 Assistant Professor at EEE and CS departments.
 
 At WeLight Lab, we specialize in the interdisciplinary fields of Optics, Graphics, Vision, and Artificial Intelligence. Our focus areas include Computational Optics, Imager, Sensor, and Display; Holography & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; and Human-centered Visual & Sensory Systems.
 

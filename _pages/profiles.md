@@ -54,7 +54,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://whywww.github.io/" style="font-size: larger; font-weight: bold;">Haoyu Wei</a><br>
-      Deep optics, Coded aperture, Meta Imaging<br>
+      Deep Optics, Coded Aperture, Meta Imaging<br>
       haoyuwei@connect.hku.hk
      
   - align:

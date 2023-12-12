@@ -17,7 +17,7 @@ news: True  # includes a list of news items
 latest_posts: False  # includes a list of the newest posts
 selected_papers: False # includes a list of papers marked as "selected={true}"
 social: True  # includes social icons at the bottom of the page
-joinus: "JOIN US NOW!"
+joinus: "(see openings)"
 joinuslink: https://www.eee.hku.hk/~evanpeng/images/Openings_Peng@HKU_2023.pdf
 wechat: Intelligent Optics Sharing (Tech. News/Reports/Comments)
 wehchatQRcode: wechatQR.jpg

@@ -314,11 +314,14 @@ blockquote {
 //   margin-bottom: 10px; 
 // }
 .profile-img {
-  width: auto;       
-  height: 175px;     
-  object-fit: cover;  
-  margin-bottom: 10px; 
+  max-width: 90%;   
+  min-width: 100px;   
+  height: auto;         
+  min-height: 100px;   
+  object-fit: contain; 
 }
+
+
 
 .profile-info p {
   margin: 0; 

@@ -57,7 +57,7 @@ profiles:
       haoyuwei@connect.hku.hk
      
   - align:
-    image: Xiangyu.png
+    image: Xiangyu.jpg
     content: 
     Details: false
     category: PhD

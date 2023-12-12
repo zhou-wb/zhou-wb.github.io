@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
- Dr.Peng is thrilled to be presented the [IEEE VR Tech (Significant New Researcher) Award 2023](http://ieeevr.org/2023/awards/vgtc/). Thanks for everyone's wishes and continuing support.
+ Dr. Peng is thrilled to be presented the [IEEE VR Tech (Significant New Researcher) Award 2023](http://ieeevr.org/2023/awards/vgtc/). Thanks for everyone's wishes and continuing support.

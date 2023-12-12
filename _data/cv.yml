@@ -10,49 +10,39 @@
     - name: Website
       value: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">https://www.eee.hku.hk/~evanpeng/</a>
 
-- title: Experience
+- title: Experiences
   type: time_table
   contents:
     - title: Assistant Professor 
-      institution: The University of Hong Kong
+      institution: <a href="https://www.eee.hku.hk/" target="_blank">EEE</a> and <a href="https://www.cs.hku.hk/" target="_blank">CS</a>,  <a href="https://www.hku.hk/" target="_blank"> the University of Hong Kong</a>
       year: 
       description:
-        - <a href="https://www.eee.hku.hk/" target="_blank">Electrical and Electronic Engineering</a>
-        - <a href="https://www.cs.hku.hk/" target="_blank">Computer Science</a>
+
     - title: Postdoctoral Research Scholar
-      institution: Stanford University
+      institution: <a href="https://www.computationalimaging.org/" target="_blank">Computational Imaging Laboratory</a>, <a href="https://www.service2school.org/sign-up/?gad_source=1" target="_blank">Stanford University</a>
       year: 
       description:
-        - <a href="https://www.computationalimaging.org/" target="_blank">Computational Imaging Laboratory</a>
+
 
     - title: PhD
-      institution: the University of British Columbia
+      institution: <a href="https://www.cs.ubc.ca/labs/imager/imager.php" target="_blank">Imager Lab</a>, <a href="https://www.ubc.ca/" target="_blank"> the University of British Columbia</a>
       year: 
       description:
-        - <a href="https://www.cs.ubc.ca/labs/imager/imager.php" target="_blank">Imager Lab</a>
 
     - title:  Visiting Student Researcher
-      institution: <a href="https://cemse.kaust.edu.sa/vcc/" target="_blank">KAUST</a> 
-      year: 
-      description:
-        - <a href="https://cemse.kaust.edu.sa/vcc/" target="_blank"> Visual Computing Center</a> 
-    
-    - title: Visiting Student Researcher
-      institution: <a href="https://www.stanford.edu/" target="_blank">Stanford University</a> 
+      institution: <a href="https://cemse.kaust.edu.sa/vcc/" target="_blank"> Visual Computing Center</a>, <a href="https://cemse.kaust.edu.sa/vcc/" target="_blank">KAUST</a> and <a href="https://www.stanford.edu/" target="_blank">Stanford University</a> 
       year: 
       description:
 
     - title: MS
-      institution: <a href="http://www.zju.edu.cn/english/research/list.htm" target="_blank">Zhejiang University</a>
+      institution: <a href="http://www.moi-lab.zju.edu.cn/" target="_blank">State Key Lab of Modern Optical Instrumentation</a>, <a href="http://www.zju.edu.cn/english/research/list.htm" target="_blank">Zhejiang University</a>
       year: 
       description:
-        - <a href="http://www.moi-lab.zju.edu.cn/" target="_blank">State Key Lab of Modern Optical Instrumentation</a>
 
     - title: BS
-      institution: <a href="http://www.zju.edu.cn/english/research/list.htm" target="_blank">Zhejiang University</a>
+      institution:  <a href="http://opt.zju.edu.cn/opten/" target="_blank">Optical Science and Engineering</a>, <a href="http://www.zju.edu.cn/english/research/list.htm" target="_blank">Zhejiang University</a>
       year: 
       description:
-        - Optical Science and Engineering
 # - title: Education
 #   type: time_table
 #   contents:

@@ -27,7 +27,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://vccimaging.org/People/heidriw/" style="font-size: larger; font-weight: bold;">Wolfgang Heidrich</a><br>
-      Visiting Professor from [KAUST](https://cemse.kaust.edu.sa/) [(Visual Computing Center)](https://cemse.kaust.edu.sa/vcc/)<br>
+      Visiting Professor from [KAUST](https://cemse.kaust.edu.sa/) 
 
 
 # Postdoc
@@ -55,14 +55,14 @@ profiles:
       haoyuwei@connect.hku.hk
      
   - align:
-    image: Xiangyu.jpg
+    image: Xiangyu.png
     content: 
     Details: false
     category: PhD
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">**Xiangyu Meng**</span><br>
-      Computational Holography, Wavefront Simulation, Computer Graphics<br>
+      Computational Holography, Graphics<br>
       mengxy22@connect.hku.hk
 
   - align:
@@ -73,7 +73,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://lagrangeli.github.io/" style="font-size: larger; font-weight: bold;">Zhenyang Li</a><br>
-      Computer Vision (3D), Computer Graphics (Rendering), VR/AR/MR, and Holographic Imaging/Display<br>
+      Vision (3D) & Graphics (Rendering) & VRAR<br>
       zhenyang11766@163.com
 
   - align: 
@@ -84,7 +84,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/wenbin-zhou-00a710105/" style="font-size: larger; font-weight: bold;">Wenbin Zhou</a><br>
-      Computer-generated Holography, Deep Learning, Computational Optics<br>
+      Computational Holography, VR/AR, Graphics<br>
       zhouwb@connect.hku.hk
 
   - align:
@@ -95,7 +95,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/yuhui-lyu-lorena/" style="font-size: larger; font-weight: bold;">Yuhui Liu</a><br>
-      Computational optics & imaging, Multimodal fusion<br>
+      Computational optics, Multimodal fusion<br>
       liuyuhui@connect.hku.hk
 
 # RA

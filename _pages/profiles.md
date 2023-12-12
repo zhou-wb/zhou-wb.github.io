@@ -20,12 +20,12 @@ profiles:
         <a href="https://scholar.google.com/citations?user=UMveGGwAAAAJ&hl=en&authuser=1" target="_blank">[Google Scholar]</a>
         <a href="https://www.linkedin.com/in/yifan-evan-peng/" target="_blank">[Linkedln]</a>
 
-# Visting Prof
+# Visiting Prof
   - align: right
     image: Wolfgang.jpg
-    content: Wolfgang.md
-    category: Visting Professor
-    Details: True
+    content: 
+    category: Visiting Professor
+    Details: False
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://vccimaging.org/People/heidriw/" target="_blank">[Website]</a>

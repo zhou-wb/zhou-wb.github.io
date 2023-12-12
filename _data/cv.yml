@@ -1,14 +1,14 @@
 - title: General Information
   type: map
   contents:
-    - name: Professor
+    - name: Doctor
       value: PENG, Yifan (Evan Peng)
     - name: Email
       value: evanpeng@hku.hk / evan.y.peng@gmail.com
     - name: Office
       value: Chow Yei Ching Building, The University of Hong Kong, HONG KONG
     - name: Website
-      value: <a href="https://www.eee.hku.hk/~evanpeng/#wechatblog" target="_blank">https://www.eee.hku.hk/~evanpeng/#wechatblog</a>
+      value: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">https://www.eee.hku.hk/~evanpeng/</a>
 
 - title: Experience
   type: time_table

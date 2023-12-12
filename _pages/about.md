@@ -29,7 +29,7 @@ Welcome to the WeLight Lab, aka., Computational Imaing & Mixed Representation La
 
 At WeLight Lab, we specialize in the interdisciplinary fields of Optics, Graphics, Vision, and Artificial Intelligence. Our focus areas include Computational Optics, Imager, Sensor, and Display; Holography & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; and Human-centered Visual & Sensory Systems.
 
-Our goal is to advance the frontiers of these domains through innovative research and technological development. We encourage interdisciplinary collaboration and aim to make a significant impact in both the academic and industrial spheres. You're welcome to visit our laboratory to learn more about our research and achievements.
+Our goal is to advance the frontiers of these domains through innovative research and technological development. We encourage interdisciplinary collaboration and aim to make a significant impact in both the academic and industrial spheres. You're welcome to visit our laboratory to learn more about our research and achievements!
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 

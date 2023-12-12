@@ -2,7 +2,8 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: WeLight@HKU  # the website title (if blank, full name will be used instead)
+title: WeLight  # the website title (if blank, full name will be used instead)
+title1: '@ HKU'
 first_name: Evan
 middle_name: Y.
 last_name: Peng

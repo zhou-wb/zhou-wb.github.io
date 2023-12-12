@@ -6,7 +6,7 @@ layout: default
       <div class="post">
         <header class="post-header">
           <h1 class="post-title">
-            {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
+            {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}<span class="font-weight-bold">{{- site.title -}}</span>&nbsp;{{- site.title1 -}}{%- endif %}
           </h1>
           <p class="desc">{{ page.subtitle }}</p>
         </header>
@@ -44,7 +44,9 @@ layout: default
           <!-- Join Us Link -->
           {% if page.joinus %}
             <div class="join-us">
+              <strong>We are looking for new Research Assistants, PhD students and Postdocs</strong>
               <a href="{{ page.joinuslink }}" target="_blank">{{ page.joinus }}</a>
+              <strong>!</strong>
             </div>
           {% endif %}
          

@@ -303,21 +303,21 @@ blockquote {
 }
 
 .profile-item {
-  flex-basis: calc(33.333% - 20px); /* 三列布局，考虑间距 */
-  margin: 5px; /* 间距 */
-  text-align: center; /* 文本居中 */
+  flex-basis: calc(33.333% - 20px); 
+  text-align: center; 
 }
 
 .profile-img {
   max-width: 100%;
-  max-height: 200px; /* 控制图片大小 */
+  max-height: 200px; 
+  min-height: 200px;
   height: auto;
-  margin-bottom: 10px; /* 图片下的间距 */
+  margin-bottom: 10px; 
 }
 
 .profile-info p {
-  margin: 0; /* 移除段落默认的外边距 */
-  font-size: 0.875rem; /* 文本大小 */
+  margin: 0; 
+  font-size: 0.875rem; 
 }
 
 h2.pro_category {
@@ -782,7 +782,7 @@ footer.sticky-bottom {
       .preview {
         width: 100%;
         min-width: 80px;
-        max-width: 200px;
+        max-width: 250px;
       }
 
       .abbr {

@@ -303,26 +303,29 @@ blockquote {
 }
 
 .profile-item {
-  flex-basis: calc(33.333% - 20px); 
-  text-align: center; 
+  flex-basis: calc(33.333% - 20px);
+  text-align: center;
+  min-width: 175px; // Adjust the value as needed
+  margin-bottom: 10px;
 }
 
-// .profile-img {
-//   max-width: 100%;
-//   max-height: 200px; 
-//   height: auto;
-//   margin-bottom: 10px; 
-// }
 .profile-img {
-  width: auto;       
-  height: 175px;     
-  object-fit: cover;  
+  max-width: 90%;
+  max-height: 250px; 
+  height: auto;
   margin-bottom: 10px; 
 }
+// .profile-img {       
+//   max-width: 90%;
+//   min-width: 50%;
+//   height: auto;
+//   object-fit: cover;  
+//   margin-bottom: 10px; 
+// }
 
 .profile-info p {
   margin: 0; 
-  font-size: 0.875rem; 
+  font-size: 0.875rem;
 }
 
 h2.pro_category {

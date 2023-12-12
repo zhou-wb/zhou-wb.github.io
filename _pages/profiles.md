@@ -8,7 +8,7 @@ nav_order: 6
 
 profiles:
 # PI
-  - align: right
+  - align: 
     image: EvanPeng.jpg
     content: 
     category: Professor
@@ -16,14 +16,14 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
         <a href="https://www.eee.hku.hk/~evanpeng/" style="font-size: larger; font-weight: bold;">Yifan (Evan) Peng</a><br>
-        Assistant Professor \| Group Leader
+        Assistant Professor  Group Leader
 
 # Visiting Prof
-  - align: right
+  - align: 
     image: Wolfgang.jpg
     content: 
     category: Professor
-    Details: False
+    Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://vccimaging.org/People/heidriw/" style="font-size: larger; font-weight: bold;">Wolfgang Heidrich</a><br>
@@ -55,7 +55,7 @@ profiles:
       haoyuwei@connect.hku.hk
      
   - align:
-    image: Xiangyu.png
+    image: Xiangyu.jpg
     content: 
     Details: false
     category: PhD

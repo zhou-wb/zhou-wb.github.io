@@ -16,7 +16,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
         <a href="https://www.eee.hku.hk/~evanpeng/" style="font-size: larger; font-weight: bold;">Yifan (Evan) Peng</a><br>
-        Assistant Professor | Group Leader
+        Assistant Professor \| Group Leader
 
 # Visiting Prof
   - align: right

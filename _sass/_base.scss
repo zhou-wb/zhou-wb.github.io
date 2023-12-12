@@ -128,29 +128,29 @@ blockquote {
   text-align: center;
 }
 
-// Card
+  // Card
 
-.card {
-  background-color: var(--global-card-bg-color);
+  .card {
+    background-color: var(--global-card-bg-color);
 
-  img {
-    width: 100%;
-  }
+    img {
+      width: 100%;
+    }
 
-  .card-title {
-    color: var(--global-text-color);
-  }
+    .card-title {
+      color: var(--global-text-color);
+    }
 
-  .card-item {
-    width: auto;
-    margin-bottom: 10px;
+    .card-item {
+      width: auto;
+      margin-bottom: 10px;
 
-    .row {
-      display: flex;
-      align-items: center;
+      .row {
+        display: flex;
+        align-items: center;
+      }
     }
   }
-}
 
 // Citation
 

@@ -10,26 +10,24 @@ profiles:
 # PI
   - align: right
     image: EvanPeng.jpg
-    content: EvanPeng.md
-    category: PI
-    Details: True
+    content: 
+    category: Professor
+    Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
-        <a href="https://www.eee.hku.hk/~evanpeng/#publication" target="_blank">[Website]</a>
-        <a href="https://twitter.com/evanypeng" target="_blank">[Twitter]</a><br>
-        <a href="https://scholar.google.com/citations?user=UMveGGwAAAAJ&hl=en&authuser=1" target="_blank">[Google Scholar]</a>
-        <a href="https://www.linkedin.com/in/yifan-evan-peng/" target="_blank">[Linkedln]</a>
+        <a href="https://www.eee.hku.hk/~evanpeng/" style="font-size: larger; font-weight: bold;">Yifan (Evan) Peng</a><br>
+        Assistant Professor | Group Leader
 
 # Visiting Prof
   - align: right
     image: Wolfgang.jpg
     content: 
-    category: Visiting Professor
+    category: Professor
     Details: False
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://vccimaging.org/People/heidriw/" style="font-size: larger; font-weight: bold;">Wolfgang Heidrich</a><br>
-      Professor at [KAUST](https://cemse.kaust.edu.sa/) [(Visual Computing Center)](https://cemse.kaust.edu.sa/vcc/)<br>
+      Visiting Professor from [KAUST](https://cemse.kaust.edu.sa/) [(Visual Computing Center)](https://cemse.kaust.edu.sa/vcc/)<br>
 
 
 # Postdoc
@@ -97,7 +95,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/yuhui-lyu-lorena/" style="font-size: larger; font-weight: bold;">Yuhui Liu</a><br>
-      Computational Optics, Stereo Imaging, Multimodal Fusion<br>
+      Computational optics & imaging, Multimodal fusion<br>
       liuyuhui@connect.hku.hk
 
 # RA
@@ -109,7 +107,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/OuLiangxun/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
-      Computational Optics, RGBD Imaging, Computer Vision<br>
+      Deep Optics, RGBD Imaging, Computer Vision<br>
       u3605728@connect.hku.hk
 
 # Master

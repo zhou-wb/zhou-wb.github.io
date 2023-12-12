@@ -16,7 +16,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
         <a href="https://www.eee.hku.hk/~evanpeng/#publication" target="_blank">[Website]</a>
-        <a href="https://twitter.com/evanypeng" target="_blank">[Twitter]</a>
+        <a href="https://twitter.com/evanypeng" target="_blank">[Twitter]</a><br>
         <a href="https://scholar.google.com/citations?user=UMveGGwAAAAJ&hl=en&authuser=1" target="_blank">[Google Scholar]</a>
         <a href="https://www.linkedin.com/in/yifan-evan-peng/" target="_blank">[Linkedln]</a>
 
@@ -28,10 +28,9 @@ profiles:
     Details: False
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://vccimaging.org/People/heidriw/" target="_blank">[Website]</a>
-      <a href="https://vccimaging.org/People/heidriw/bio" target="_blank">[Bio]</a>
-      <a href="https://scholar.google.com/citations?user=IQSbom0AAAAJ" target="_blank">[Google Scholar]</a>
-      <a href="http://orcid.org/0000-0002-4227-8508" target="_blank">[ORCID: 0000-0002-4227-8508]</a>
+      <a href="https://vccimaging.org/People/heidriw/" style="font-size: larger; font-weight: bold;">Wolfgang Heidrich</a><br>
+      Professor in the [KAUST Visual Computing Center](https://cemse.kaust.edu.sa/vcc/)<br>
+
 
 # Postdoc
   - align: 

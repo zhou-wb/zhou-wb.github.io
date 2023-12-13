@@ -114,7 +114,7 @@ contact_note: >
 google_analytics: G-7Z332NNWRD # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
 cronitor_analytics:  # cronitor RUM analytics site ID (format: XXXXXXXXX)
 
-google_site_verification:  # your google-site-verification ID (Google Search Console)
+google_site_verification: crT26-QqFksmh-GiQYWgoAoNEhJdto58BzD3VJBNdWQ # your google-site-verification ID (Google Search Console)
 bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 
 # -----------------------------------------------------------------------------

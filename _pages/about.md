@@ -15,7 +15,7 @@ profile:
 
 news: True  # includes a list of news items
 latest_posts: False  # includes a list of the newest posts
-selected_papers: False # includes a list of papers marked as "selected={true}"
+selected_papers: True # includes a list of papers marked as "selected={true}"
 social: True  # includes social icons at the bottom of the page
 joinus: "(see openings)"
 joinuslink: https://www.eee.hku.hk/~evanpeng/images/Openings_Peng@HKU_2023.pdf

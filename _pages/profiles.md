@@ -7,7 +7,7 @@ nav: true
 nav_order: 6
 
 profiles:
-# PI
+# Prof
   - align: 
     image: EvanPeng.jpg
     content: 
@@ -18,7 +18,6 @@ profiles:
         <a href="https://www.eee.hku.hk/~evanpeng/" style="font-size: larger; font-weight: bold;">Yifan (Evan) Peng</a><br>
         Assistant Professor \| Group Leader
 
-# Visiting Prof
   - align: 
     image: Wolfgang.jpg
     content: 
@@ -34,7 +33,7 @@ profiles:
   - align: 
     image: Liuxin.png
     content: 
-    category: Postdoctor
+    category: Postdoc
     Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
@@ -74,7 +73,7 @@ profiles:
     more_info: >
       <a href="https://lagrangeli.github.io/" style="font-size: larger; font-weight: bold;">Zhenyang Li</a><br>
       Vision (3D) & Graphics (Rendering) & VRAR<br>
-      zhenyang11766@163.com
+      lizy23@connect.hku.hk
 
   - align: 
     image: Wenbin.jpg
@@ -128,4 +127,37 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">**Xintao Sun**</span><br>
+
+# Alumni
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">**Feifan Qu**</span><br>
+      Master
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Bozheng Li</span><br>
+      Summer Research Intern<br>
+      Now at Zhejiang University
+  
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Jonathan Song</span><br>
+      Summer Research Intern<br>
+      Now at MIT
 ---

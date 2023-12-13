@@ -190,6 +190,10 @@ blockquote {
   max-width: 30%; 
   height: auto; 
 }
+.public-account-img-fullsize {
+  max-width: 100%; 
+  height: auto; 
+}
 
 
 
@@ -286,7 +290,7 @@ blockquote {
   font-size: 0.875rem;
 
   a {
-    color: inherit;
+    color: #0076df;
 
     &:hover {
       color: var(--global-theme-color);

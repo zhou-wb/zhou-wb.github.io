@@ -21,7 +21,8 @@ joinus: "(see openings)"
 joinuslink: https://www.eee.hku.hk/~evanpeng/images/Openings_Peng@HKU_2023.pdf
 wechat: Intelligent Optics Sharing (Tech. News/Reports/Comments)
 wehchatQRcode: wechatQR.jpg
-
+ResearchInterests: True
+ResearchInterests_path: ResearchInterests.png
 ---
 
 

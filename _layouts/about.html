@@ -57,6 +57,13 @@ layout: default
           {%- endif %}
           
 
+          <!-- Research Interests -->
+          {% if page.ResearchInterests %}
+          <div class="public-account">
+            {%- assign ResearchInterests_path = page.ResearchInterests_path  | prepend: 'assets/img/' -%}
+            <img src="{{ ResearchInterests_path }}"  class="public-account-img-fullsize">
+          </div>    
+        {% endif %}
 
           <!-- Latest posts -->
           {% if page.latest_posts -%}

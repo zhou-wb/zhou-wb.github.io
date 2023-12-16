@@ -55,8 +55,6 @@ layout: default
             <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">News</a></h2>
             {%- include news.html limit=true %}
           {%- endif %}
-          
-
 
 
           <!-- Latest posts -->
@@ -65,13 +63,6 @@ layout: default
             {%- include latest_posts.html %}
           {%- endif %}
 
-          <!-- Selected papers -->
-          {% if page.selected_papers -%}
-            <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Selected publications</a></h2>
-            {%- include selected_papers.html %}
-          {%- endif %}
-          
-
           <!-- Research Interests -->
           {% if page.ResearchInterests %}
           <div class="public-account">
@@ -79,6 +70,12 @@ layout: default
             <img src="{{ ResearchInterests_path }}"  class="public-account-img-fullsize">
           </div>    
           {% endif %}
+
+          <!-- Selected papers -->
+          {% if page.selected_papers -%}
+            <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Selected publications</a></h2>
+            {%- include selected_papers.html %}
+          {%- endif %}
 
           <!-- WeChat 公众号 -->
           {% if page.wechat %}

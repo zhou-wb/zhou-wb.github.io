@@ -36,6 +36,12 @@
                 <td class="institution">{{content.institution}}</td>
               </tr>
               {% endif %}
+              {% if content.institution2 %}
+              <tr>
+                <td style="vertical-align: top; text-align: center;" class="institution"><i class="fas fa-university iconinstitution"></i></td>
+                <td class="institution">{{content.institution2}}</td>
+              </tr>
+              {% endif %}
               {% if content.department %}
               <tr>
                 <td style="vertical-align: top; text-align: center;" class="department"><i class="far fa-dot-circle icondepartment"></i></td>

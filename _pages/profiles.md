@@ -94,7 +94,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/yuhui-lyu-lorena/" style="font-size: larger; font-weight: bold;">Yuhui Liu</a><br>
-      Computational optics, Multimodal fusion<br>
+      Computational Optics, Multimodal Fusion<br>
       liuyuhui@connect.hku.hk
 
 # RA

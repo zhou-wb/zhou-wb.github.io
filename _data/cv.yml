@@ -23,14 +23,14 @@
       year: 
       description:
 
-
     - title: PhD
-      institution: <a href="https://www.cs.ubc.ca/labs/imager/imager.php" target="_blank">Imager Lab</a>, <a href="https://www.ubc.ca/" target="_blank"> the University of British Columbia</a>
+      institution: <a href="https://www.cs.ubc.ca/labs/imager/imager.php" target="_blank">Imager Lab</a>, <a href="https://www.cs.ubc.ca/">Computer Science</a>, <a href="https://www.ubc.ca/" target="_blank"> the University of British Columbia</a>
       year: 
       description:
 
     - title:  Visiting Student Researcher
-      institution: <a href="https://cemse.kaust.edu.sa/vcc/" target="_blank"> Visual Computing Center</a>, <a href="https://www.kaust.edu.sa/en/" target="_blank">KAUST</a> and <a href="https://www.stanford.edu/" target="_blank">Stanford University</a> 
+      institution: <a href="https://cemse.kaust.edu.sa/vcc/" target="_blank"> Visual Computing Center</a>, <a href="https://www.kaust.edu.sa/en/" target="_blank">KAUST</a> 
+      institution2: <a href="https://www.computationalimaging.org/" target="_blank">Computational Imaging Laboratory</a>, <a href="https://www.stanford.edu/" target="_blank">Stanford University</a> 
       year: 
       description:
 

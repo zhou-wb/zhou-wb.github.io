@@ -19,7 +19,8 @@ selected_papers: True # includes a list of papers marked as "selected={true}"
 social: True  # includes social icons at the bottom of the page
 joinus: "(see openings)"
 joinuslink: https://www.eee.hku.hk/~evanpeng/images/Openings_Peng@HKU_2023.pdf
-wechat: Intelligent Optics Sharing in WeChat Official Account (Chinese Tech. News/Reports/Comments)
+wechat: Intelligent Optics Sharing in WeChat Official Account
+wechat2: (Chinese Tech. News/Reports/Comments)
 wehchatQRcode: wechatQR.jpg
 ResearchInterests: True
 ResearchInterests_path: ResearchInterests.png

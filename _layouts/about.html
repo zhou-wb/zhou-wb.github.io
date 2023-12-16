@@ -81,6 +81,7 @@ layout: default
           {% if page.wechat %}
             <div class="public-account">
               <h3>{{ page.wechat }}</h3>
+              <h4>{{ page.wechat2 }}</h4>
               {%- assign QR_path = page.wehchatQRcode | prepend: 'assets/img/' -%}
               <img src="{{ QR_path}}" alt="{{ page.wechat }}" class="public-account-img">
             </div>    

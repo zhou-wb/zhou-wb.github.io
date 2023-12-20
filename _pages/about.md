@@ -11,7 +11,7 @@ profile:
   more_info: >
     <p>301 Haking Wong Building</p>
     <p>The University of Hong Kong</p>
-    <p>Pokfulam Road, Hong Kong</p>
+    <p>Pokfulam Road, Hong Kong SAR</p>
 
 news: True  # includes a list of news items
 latest_posts: False  # includes a list of the newest posts

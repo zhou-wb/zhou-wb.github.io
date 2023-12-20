@@ -4,14 +4,14 @@ permalink: /people/
 title: People
 description: 
 nav: true
-nav_order: 6
+nav_order: 4
 
 profiles:
 # Prof
   - align: 
     image: EvanPeng.jpg
     content: 
-    category: Professor
+    category: PI
     Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
@@ -21,7 +21,7 @@ profiles:
   - align: 
     image: Wolfgang.jpg
     content: 
-    category: Professor
+    category: Visitor
     Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
@@ -127,6 +127,24 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">**Xintao Sun**</span><br>
+  
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Master
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">**Zhiqi Yu**</span><br>
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Master
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">**Wenzhe Peng**</span><br>
 
 # Alumni
   - align: 

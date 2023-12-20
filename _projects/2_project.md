@@ -4,7 +4,7 @@ title: Emerging Tech in VR/AR
 description: ELEC4547 
 img: assets/img/VR1.jpg 
 importance: 1
-category: 2023
+category: "2023-2024"
 giscus_comments: false
 ---
 

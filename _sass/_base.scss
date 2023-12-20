@@ -58,6 +58,7 @@ table.table a {
 figure,
 img {
   max-width: 90vw;
+  text-align: center;
 }
 
 blockquote {
@@ -258,6 +259,7 @@ blockquote {
     margin-bottom: 5px;
     margin-top: 5px;
     font-family: monospace;
+    text-align: center;
 
     p {
       display: inline-block;

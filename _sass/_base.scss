@@ -163,7 +163,7 @@ blockquote {
 .join-us {
   text-align: center; 
   margin: 20px 0; 
-  background-color: #f8f9fa;
+  background-color: var(--global-divider-color);
   border-radius: 5px;
   // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
@@ -201,20 +201,21 @@ blockquote {
 
 
 .table-responsive .table.table-sm.table-borderless {
-  border: none; 
+  border: none !important; 
   border-collapse: collapse; 
+  background: var(--global-bg-color);
 }
 
 .table-responsive .table.table-sm.table-borderless th,
 .table-responsive .table.table-sm.table-borderless td {
-  border: none; 
+  border: none !important; 
 }
 
   
 .arrow-button {
-  background-color: #007bff; 
+  background-color: var(--global-bg-color); 
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 20px; 
   margin: 5px; 
   text-align: center;
@@ -232,8 +233,8 @@ blockquote {
   position: absolute;
   top: 50%;
   border-style: solid;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #fff transparent transparent;
+  border-width: 0.5rem 1rem 0.5rem 0;
+  border-color: transparent var(--global-text-color) transparent transparent;
 }
 
 .arrow-button.right::before {
@@ -814,7 +815,10 @@ footer.sticky-bottom {
         max-width: 90%;  
         //min-width:370px;
         height: auto;      
-        width: auto;       
+        width: auto; 
+         img{
+          background: var(--white);
+         }
       }
 
       .abbr {
@@ -948,7 +952,7 @@ footer.sticky-bottom {
   }
 }
 .row-hover-effect:hover {
-  background-color: #e9e8e8; 
+  background-color: var(--global-divider-color) ; 
   // transition: background-color 0.3s
 }
 

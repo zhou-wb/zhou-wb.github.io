@@ -165,6 +165,7 @@ blockquote {
   margin: 20px 0; 
   background-color: var(--global-divider-color);
   border-radius: 5px;
+  padding-top: 0.5rem;
   // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
@@ -257,7 +258,7 @@ blockquote {
   width: 100%;
 
   .more-info {
-    margin-bottom: 5px;
+    margin-bottom: 1.3rem;
     margin-top: 5px;
     font-family: monospace;
     text-align: center;
@@ -351,7 +352,7 @@ h2.pro_category {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
+  background-color: var(--global-nav-color) ;
   opacity: 0.95;
 }
 
@@ -765,6 +766,73 @@ footer.sticky-bottom {
 
 // Publications
 
+.toggle-button {
+    color: var(--global-text-color);
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-text-color);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin-left: 0;
+    display: none !important;
+
+    &:hover {
+      color: var(--global-theme-color);
+      border-color: var(--global-theme-color);
+    }
+.collapsible-content {
+      display: block!important;
+      transition: display 0.5s ease;
+    } 
+}
+@media (max-width: 576px) {
+  .collapsible-content {
+    display: none; /* 默认隐藏 */
+    transition: display 0.5s ease;
+  }
+
+  .toggle-button {
+    display: block !important;
+  }
+
+}
+
+
+.custom-col-sm-4, .custom-col-sm-7 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 576px) {
+  .custom-col-sm-4 {
+      flex: 0 0 33.333333%; 
+      max-width: 33.333333%; 
+  }
+  .custom-col-sm-7 {
+      flex: 0 0 58.333333%; 
+      max-width: 58.333333%; 
+  }
+
+}
+
+@media (max-width: 576px) {
+  .custom-col-sm-4 {
+      flex: 0 0 40%; 
+      max-width: 40%; 
+      padding-right: 0px;
+      padding-left: 15px;
+  }
+  .custom-col-sm-7 {
+      flex: 0 0 60%; 
+      max-width: 60%; 
+      padding-right: 5px;
+      padding-left: 0px;
+  }
+}
+
 .publications {
   margin-top: 2rem;
 
@@ -791,6 +859,18 @@ footer.sticky-bottom {
     margin-top: 2rem;
     margin-bottom: -2rem;
     text-align: right;
+  }
+  @media (max-width: 576px) {
+    h2.bibliography {
+      color: var(--global-divider-color);
+      border-bottom: 1px solid var(--global-divider-color);
+      border-top: none;
+      padding-top: 1rem;
+      margin-top: -1.1rem;
+      margin-bottom: 1rem;
+      text-align: right;
+      font-size: 1.7rem;
+    }
   }
 
   ol.bibliography {
@@ -892,7 +972,30 @@ footer.sticky-bottom {
             border-color: var(--global-theme-color);
           }
         }
+
       }
+
+      .links .special-btn {
+        color: var(--global-text-color);
+        border: 1px solid var(--global-text-color);
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        margin-left: 0;
+        background-color: var(--global-divider-color);
+      }
+      
+
+      @media (min-width: 576px) {
+      
+        .links .special-btn {
+          display: none !important;
+        }
+      
+      }
+      
+
 
       .badges {
         padding-bottom: 0.5rem;

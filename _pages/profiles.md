@@ -31,7 +31,7 @@ profiles:
 
 # Postdoc
   - align: 
-    image: Liuxin.png
+    image: Liuxin.jpg
     content: 
     category: Postdoc
     Details: false

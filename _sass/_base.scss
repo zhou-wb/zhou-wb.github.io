@@ -160,19 +160,32 @@ blockquote {
   color: var(--global-theme-color);
 }
 //about
+
+
 .join-us {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
   text-align: center; 
-  margin: 20px 0; 
+  margin: 20px 0;
   background-color: var(--global-divider-color);
   border-radius: 5px;
-  padding-top: 0.5rem;
-  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  padding: 0.5rem; 
+  // height: 100px; 
 }
+
+// .join-us {
+//   text-align: center; 
+//   margin: 20px 0; 
+//   background-color: var(--global-divider-color);
+//   border-radius: 5px;
+//   padding-top: 0.5rem;
+//   // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+// }
 
 .join-us a {
   font-weight: normal; 
   color: #007bff;//#158CBA; //  
-  padding: 10px 0; 
   display: inline-block; 
   font-size: 1em; 
   // text-transform: uppercase; 
@@ -320,7 +333,7 @@ blockquote {
 
 .profile-img {
   max-width: 90%;
-  max-height: 250px; 
+  // max-height: 250px; 
   height: auto;
   margin-bottom: 10px; 
 }

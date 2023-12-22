@@ -766,37 +766,17 @@ footer.sticky-bottom {
 
 // Publications
 
-.toggle-button {
-    color: var(--global-text-color);
-    background: var(--global-bg-color);
-    border: 1px solid var(--global-text-color);
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    margin-left: 0;
-    display: none !important;
-
-    &:hover {
-      color: var(--global-theme-color);
-      border-color: var(--global-theme-color);
-    }
 .collapsible-content {
-      display: block!important;
+      display: block ;
       transition: display 0.5s ease;
     } 
-}
-@media (max-width: 576px) {
-  .collapsible-content {
-    display: none; /* 默认隐藏 */
-    transition: display 0.5s ease;
-  }
 
-  .toggle-button {
-    display: block !important;
-  }
 
+
+.hidden {
+  display: none !important;
 }
+
 
 
 .custom-col-sm-4, .custom-col-sm-7 {
@@ -898,6 +878,7 @@ footer.sticky-bottom {
         width: auto; 
          img{
           background: var(--white);
+          min-width: 24vw;
          }
       }
 

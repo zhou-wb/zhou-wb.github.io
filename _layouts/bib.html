@@ -247,40 +247,52 @@
       </div>
 
 
-      <!-- <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          var toggleButton = document.querySelector('a.special-btn');
-          var collapsibleContent = document.querySelector('.collapsible-content');
-    
-  
-          if (collapsibleContent) {
+      <script>
 
-            toggleButton.addEventListener('click', function () {
-              var isShown = collapsibleContent.style.display === 'block';
-              collapsibleContent.style.display = isShown ? 'none' : 'block';
-              toggleButton.textContent = isShown ? 'Show More' : 'Show Less';
-            });
-          }
-        });
-      </script> -->
-
-<script>
 document.addEventListener('DOMContentLoaded', function () {
-  
   var toggleButtons = document.querySelectorAll('a.special-btn');
 
+  function adjustDisplayForSize(collapsibleContent, toggleButton) {
+    if (window.innerWidth >= 576) {
+      collapsibleContent.style.display = 'block';
+      toggleButton.textContent = 'Show Less';
+    } else {
+      collapsibleContent.style.display = 'none';
+      toggleButton.textContent = 'Show More';
+    }
+  }
 
   toggleButtons.forEach(function(toggleButton) {
-   
-    var collapsibleContent = toggleButton.closest('.row-hover-effect').querySelector('.collapsible-content');
-
-    if (collapsibleContent) {
-      toggleButton.addEventListener('click', function () {
-        var isShown = collapsibleContent.style.display === 'block';
-        collapsibleContent.style.display = isShown ? 'none' : 'block';
-        toggleButton.textContent = isShown ? 'Show More' : 'Show Less';
-      });
+    if (toggleButton.dataset.hasBoundClick) {
+      return; 
     }
+
+    var collapsibleContent = toggleButton.closest('.row-hover-effect').querySelector('.collapsible-content');
+    
+    adjustDisplayForSize(collapsibleContent, toggleButton);
+
+    toggleButton.addEventListener('click', function () {
+      if (collapsibleContent.style.display === 'none' || !collapsibleContent.style.display) {
+        collapsibleContent.style.display = 'block';
+        toggleButton.textContent = 'Show Less';
+      } else {
+        collapsibleContent.style.display = 'none';
+        toggleButton.textContent = 'Show More';
+      }
+    });
+
+    toggleButton.dataset.hasBoundClick = true;
+  });
+
+  window.addEventListener('resize', function() {
+    var collapsibleContents = document.querySelectorAll('.collapsible-content');
+    var buttons = document.querySelectorAll('a.special-btn');
+    collapsibleContents.forEach(function(content, index) {
+      adjustDisplayForSize(content, buttons[index]);
+    });
   });
 });
-</script>
+
+
+
+      </script>

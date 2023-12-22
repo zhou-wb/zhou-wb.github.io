@@ -57,7 +57,7 @@ table.table a {
 
 figure,
 img {
-  max-width: 90vw;
+  width: 100%;
   text-align: center;
 }
 
@@ -869,19 +869,25 @@ footer.sticky-bottom {
       .preview {
         display: flex;
         justify-content: center; 
-        align-items: center; 
+        align-items: flex-start; 
         max-height: 12rem; 
         //max-height: 100%; 
         max-width: 90%;  
         //min-width:370px;
         height: auto;      
         width: auto; 
-         img{
-          background: var(--white);
-          min-width: 14vw;
-         }
-      }
 
+      }
+      .preview img {
+        max-width: 90%;
+        object-fit: contain; 
+        object-position: center; 
+        width: auto; 
+        height: auto; 
+        margin-top: 0.3rem;
+        background: var(--white);
+        min-width: 90%;
+      }
       .abbr {
         height: 2rem;
         margin-bottom: 0.5rem;

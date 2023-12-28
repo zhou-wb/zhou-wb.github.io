@@ -45,7 +45,7 @@ profiles:
   - align: 
     image: Haoyu.jpg
     content: 
-    category: PhD
+    category: PhD students
     Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
@@ -57,7 +57,7 @@ profiles:
     image: Xiangyu.jpg
     content: 
     Details: false
-    category: PhD
+    category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">**Xiangyu Meng**</span><br>
@@ -68,7 +68,7 @@ profiles:
     image: Zhenyang.jpg
     content: 
     Details: false
-    category: PhD
+    category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://lagrangeli.github.io/" style="font-size: larger; font-weight: bold;">Zhenyang Li</a><br>
@@ -79,7 +79,7 @@ profiles:
     image: Wenbin.jpg
     content: 
     Details: false
-    category: PhD
+    category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/wenbin-zhou-00a710105/" style="font-size: larger; font-weight: bold;">Wenbin Zhou</a><br>
@@ -90,7 +90,7 @@ profiles:
     image: Yuhui.jpg
     content: 
     Details: false
-    category: PhD
+    category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/yuhui-lyu-lorena/" style="font-size: larger; font-weight: bold;">Yuhui Liu</a><br>
@@ -114,7 +114,7 @@ profiles:
     image: 
     content: 
     Details: false
-    category: Master
+    category: Master students
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">**Hanxun Zhang**</span><br>
@@ -123,7 +123,7 @@ profiles:
     image: 
     content: 
     Details: false
-    category: Master
+    category: Master students
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">**Xintao Sun**</span><br>
@@ -132,7 +132,7 @@ profiles:
     image: 
     content: 
     Details: false
-    category: Master
+    category: Master students
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">**Zhiqi Yu**</span><br>
@@ -141,7 +141,7 @@ profiles:
     image: 
     content: 
     Details: false
-    category: Master
+    category: Master students
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">**Wenzhe Peng**</span><br>

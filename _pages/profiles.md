@@ -60,7 +60,7 @@ profiles:
     category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
-      <span style="font-size: larger; font-weight: bold;">**Xiangyu Meng**</span><br>
+      <span style="font-size: larger; font-weight: bold;">Xiangyu Meng</span><br>
       Computational Holography, Graphics<br>
       mengxy22@connect.hku.hk
 
@@ -110,14 +110,6 @@ profiles:
       u3605728@connect.hku.hk
 
 # Master
-  - align: 
-    image: 
-    content: 
-    Details: false
-    category: Master students
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <span style="font-size: larger; font-weight: bold;">**Hanxun Zhang**</span><br>
 
   - align: 
     image: 
@@ -126,7 +118,7 @@ profiles:
     category: Master students
     image_circular: false # crops the image to make it circular
     more_info: >
-      <span style="font-size: larger; font-weight: bold;">**Xintao Sun**</span><br>
+      <span style="font-size: larger; font-weight: bold;">Xintao Sun</span><br>
   
   - align: 
     image: 
@@ -135,7 +127,7 @@ profiles:
     category: Master students
     image_circular: false # crops the image to make it circular
     more_info: >
-      <span style="font-size: larger; font-weight: bold;">**Zhiqi Yu**</span><br>
+      <span style="font-size: larger; font-weight: bold;">Zhiqi Yu</span><br>
 
   - align: 
     image: 
@@ -144,7 +136,7 @@ profiles:
     category: Master students
     image_circular: false # crops the image to make it circular
     more_info: >
-      <span style="font-size: larger; font-weight: bold;">**Wenzhe Peng**</span><br>
+      <span style="font-size: larger; font-weight: bold;">Wenzhe Peng</span><br>
 
 # Alumni
   - align: 
@@ -154,7 +146,7 @@ profiles:
     category: Alumni
     image_circular: false # crops the image to make it circular
     more_info: >
-      <span style="font-size: larger; font-weight: bold;">**Feifan Qu**</span><br>
+      <span style="font-size: larger; font-weight: bold;">Feifan Qu</span><br>
       Master
 
   - align: 

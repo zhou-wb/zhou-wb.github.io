@@ -837,7 +837,7 @@ footer.sticky-bottom {
 
 
 .hidden {
-  display: none !important;
+  display: block !important;
 }
 
 
@@ -1083,6 +1083,7 @@ footer.sticky-bottom {
           font-size: 1em;
           line-height: 1.4em;
           padding: 10px;
+          text-align: left;
         }
       }
 

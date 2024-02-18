@@ -26,15 +26,107 @@ layout: custom
     font-weight: 500 !important;
   }
 
+  .textarea {
+    color: #FFF !important;
+    font-weight: 600 !important;
+    font-size: larger !important;
+  }
+  .textareahead {
+      color: #FFF !important;
+      font-size: larger !important;
+      font-size: 30px!important;
+      font-weight: 700!important;
+    }
   .conference-background {
-    background-image: url('assets/img/conferencebg.jpg');
-    background-size: cover; 
+    background-image: url('/assets/img/conferencebg.jpg');
+    background-size: cover ; 
     background-position: center; 
     width: 100%; 
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
   }
   body {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Poppins', sans-serif !important;  
   }
+
+  .schedule {
+  width: 100%; 
+  margin: 0; 
+  background: rgba(0,123,255, 0.04);
+  border-radius: 0;
+  overflow: hidden;
+box-shadow: rgba(0,123,255, 0.4) 5px 5px, rgba(0,123,255, 0.3) 10px 10px, rgba(0,123,255, 0.2) 15px 15px, rgba(0,123,255, 0.1) 20px 20px, rgba(0,123,255, 0.05) 25px 25px;
+
+  margin-bottom: 2rem;
+}
+
+.session {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 0px solid #eee;
+}
+
+.time {
+  flex: 0 0 20%; 
+  font-weight: 600;
+  color: #007BFF;
+}
+
+.details {
+  flex: 1;
+}
+
+  .title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .speaker {
+    font-size: 16px;
+    color: #666;
+  }
+  .speaker-container {
+  display: flex;
+  flex-direction: column; 
+  }
+  .speaker-profile {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding-left: 1rem;
+  }
+  .speaker-photo {
+    flex: 0 0 150px;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+  }
+  .speaker-info {
+    padding: 20px;
+  }
+  .speaker-name {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .speaker-title {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+  }
+  .speaker-bio {
+    font-size: 14px;
+  }
+  .speaker-link a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+
 </style>
 </head>
 
@@ -45,10 +137,10 @@ layout: custom
   <p class="mb-10">WELIGHT conference presents a annual conference attended by tens of thousands of industry experts. Considered the world's largest, most influential conferences on computer graphics and interactive techniques, these conferences inspire progress through education and collaboration.</p>
   
   <div class="bg-gray-200 p-5 mb-5 conference-background">
-    <h3 class="text-3xl font-bold mb-2">WELIGHT 2024</h3>
-    <p class="mb-2">28 July – 1 August</p>
-    <p class="mb-2">The University of HongKong, HongKong</p>
-    <p class="mb-2">The Premier Conference & Exhibition on Computer Graphics & Interactive Techniques.</p>
+    <h3 class="text-3xl font-bold mb-2 textareahead">WELIGHT 2024</h3>
+    <p class="mb-2 textarea">28 July – 1 August</p>
+    <p class="mb-2 textarea">The University of HongKong, HongKong</p>
+    <p class="mb-2 textarea">The Premier Conference & Exhibition on Computer Graphics & Interactive Techniques.</p>
   </div>
 
   <h2 class="text-4xl font-bold mb-5">Conference Objectives</h2>
@@ -107,14 +199,65 @@ layout: custom
   </div>
 
  
-  <h2 class="text-4xl font-bold mb-5">Underrepresented Communities Travel Grant</h2>
-  <p class="mb-10">ACM SIGGRAPH offers support to new and existing members of the SIGGRAPH community whose potential career impact is recognized as extraordinary and who can demonstrate financial need to attend SIGGRAPH 2024.</p>
-  
+  <h2 class="text-4xl font-bold mb-5">Schedule</h2>
+  <div class="schedule">
+    <div class="session">
+      <div class="time">09:00 - 10:00</div>
+      <div class="details">
+        <div class="title">Opening Remarks</div>
+        <div class="speaker">Evan Peng</div>
+      </div>
+    </div>
+    <div class="session">
+      <div class="time">10:15 - 11:00</div>
+      <div class="details">
+        <div class="title">The Future</div>
+        <div class="speaker">Jane</div>
+      </div>
+    </div>
+    <div class="session">
+      <div class="time">11:15 - 12:00</div>
+      <div class="details">
+        <div class="title">Revolutionizing and Experience</div>
+        <div class="speaker">Emily</div>
+      </div>
+    </div>
+    <!-- Add more sessions as needed -->
+  </div>
+    
   <h2 class="text-4xl font-bold mb-5">Conference Materials</h2>
   <p class="mb-10">The ACM Digital Library houses all content presented at ACM-sponsored events or published by ACM. This content contains exclusive information on the latest developments in computer graphics and interactive techniques, including: conference proceedings, course notes, poster abstracts and more.</p>
 
-  <!-- <h2 class="text-4xl font-bold mb-5">SIGGRAPH Asia Conference Content</h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10"> -->
+  <h2 class="text-4xl font-bold mb-5">Spaekers</h2>
+  <div class="speaker-container">
+    <div class="speaker-profile">
+    <div class="speaker-photo" style="background-image: url('/assets/img/EvanPeng.jpg');"></div>
+    <div class="speaker-info">
+      <div class="speaker-name">Evan Peng</div>
+      <div class="speaker-title">Leader of WeLight</div>
+      <div class="speaker-bio">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
+
+        I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
+        
+        My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</div>
+      <div class="speaker-link"><a href="https://www.example.com">Personal Website</a></div>
+    </div>
+  </div>
+    <div class="speaker-profile">
+      <div class="speaker-photo" style="background-image: url('/assets/img/EvanPeng.jpg');"></div>
+      <div class="speaker-info">
+        <div class="speaker-name">Evan Peng</div>
+        <div class="speaker-title">Leader of WeLight</div>
+        <div class="speaker-bio">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
+    
+          I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
+          
+          My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</div>
+        <div class="speaker-link"><a href="https://www.example.com">Personal Website</a></div>
+      </div>
+  </div>
+</div>
+
 
 
 

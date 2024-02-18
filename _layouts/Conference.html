@@ -1,6 +1,6 @@
----
-layout: default
----
+<!-- ---
+layout: custom
+--- -->
 
 
 
@@ -11,23 +11,45 @@ layout: default
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conferences</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  .h1_1 {
+    font-size: 40px!important; 
+    font-weight: 900!important;
+  }
+
+  .h2_1 {
+    color: #007BFF !important;
+    font-size: 80px!important; 
+    font-weight: 500 !important;
+  }
+
+  .conference-background {
+    background-image: url('assets/img/conferencebg.jpg');
+    background-size: cover; 
+    background-position: center; 
+    width: 100%; 
+  }
+  body {
+    font-family: 'Poppins', sans-serif !important;
+  }
+</style>
 </head>
+
 <body class="bg-white text-gray-800">
 <div class="container mx-auto px-4">
-  <h1 class="text-6xl font-bold mt-10 mb-5">Conferences</h1>
-  <h2 class="text-5xl font-bold mb-5">SIGGRAPH conferences are defined by leading-edge content</h2>
-  <p class="mb-10">ACM SIGGRAPH presents two annual conferences attended by tens of thousands of industry experts. Considered the world's largest, most influential conferences on computer graphics and interactive techniques, these conferences inspire progress through education and collaboration.</p>
-  <p class="mb-10">The annual conferences are defined by their premier status and leading-edge content, offering unique opportunities for education and interaction with the best and brightest in the industry.</p>
+  <h1 class="h1_1 text-6xl font-bold mt-10 mb-5 ">Conference</h1>
+  <h2 class="h2_1 text-5xl font-bold mb-5">WELGIHT 2024</h2>
+  <p class="mb-10">WELIGHT conference presents a annual conference attended by tens of thousands of industry experts. Considered the world's largest, most influential conferences on computer graphics and interactive techniques, these conferences inspire progress through education and collaboration.</p>
   
-  <div class="bg-gray-200 p-5 mb-5">
-    <h3 class="text-3xl font-bold mb-2">SIGGRAPH 2024</h3>
+  <div class="bg-gray-200 p-5 mb-5 conference-background">
+    <h3 class="text-3xl font-bold mb-2">WELIGHT 2024</h3>
     <p class="mb-2">28 July – 1 August</p>
-    <p class="mb-2">Denver, USA</p>
+    <p class="mb-2">The University of HongKong, HongKong</p>
     <p class="mb-2">The Premier Conference & Exhibition on Computer Graphics & Interactive Techniques.</p>
   </div>
-
 
   <h2 class="text-4xl font-bold mb-5">Conference Objectives</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
@@ -87,14 +109,12 @@ layout: default
  
   <h2 class="text-4xl font-bold mb-5">Underrepresented Communities Travel Grant</h2>
   <p class="mb-10">ACM SIGGRAPH offers support to new and existing members of the SIGGRAPH community whose potential career impact is recognized as extraordinary and who can demonstrate financial need to attend SIGGRAPH 2024.</p>
-  <a href="#" class="text-blue-600 hover:underline">Learn More</a>
   
   <h2 class="text-4xl font-bold mb-5">Conference Materials</h2>
   <p class="mb-10">The ACM Digital Library houses all content presented at ACM-sponsored events or published by ACM. This content contains exclusive information on the latest developments in computer graphics and interactive techniques, including: conference proceedings, course notes, poster abstracts and more.</p>
-  <a href="#" class="text-blue-600 hover:underline">Access the ACM Digital Library</a>
 
-  <h2 class="text-4xl font-bold mb-5">SIGGRAPH Asia Conference Content</h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+  <!-- <h2 class="text-4xl font-bold mb-5">SIGGRAPH Asia Conference Content</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10"> -->
 
 
 

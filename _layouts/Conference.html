@@ -87,45 +87,55 @@ box-shadow: rgba(0,123,255, 0.4) 5px 5px, rgba(0,123,255, 0.3) 10px 10px, rgba(0
     color: #666;
   }
   .speaker-container {
-  display: flex;
-  flex-direction: column; 
-  }
-  .speaker-profile {
-    display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding-left: 1rem;
-  }
-  .speaker-photo {
-    flex: 0 0 150px;
-    width: 150px;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-  }
-  .speaker-info {
-    padding: 20px;
-  }
-  .speaker-name {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  .speaker-title {
-    font-size: 16px;
-    color: #666;
-    margin: 10px 0;
-  }
-  .speaker-bio {
-    font-size: 14px;
-  }
-  .speaker-link a {
+  margin: 20px auto;
+}
+
+.speaker-profile {
+  /* display: flex; */
+  align-items: flex-start;
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.speaker-photo {
+  max-width: 12rem;
+  min-height: 5rem;
+  object-fit: cover;
+  margin-right: 2rem;
+  margin-top: 7px;
+  margin-bottom: 1rem;
+  float: left;
+}
+
+.speaker-content {
+  flex: 1;
+}
+
+.speaker-name {
+  font-weight: bold;
+  font-size: larger;
+
+}
+
+.speaker-title {
+  /* font-weight: bold; */
+  font-size: 16px;
+  color: #666; 
+}
+.speaker-link a {
     color: #007BFF;
     text-decoration: none;
   }
+
+.speaker-abstract {
+  font-style: normal;
+}
+
+.speaker-bio {
+  font-weight: normal;
+}
+
 
 </style>
 </head>
@@ -229,9 +239,10 @@ box-shadow: rgba(0,123,255, 0.4) 5px 5px, rgba(0,123,255, 0.3) 10px 10px, rgba(0
   <p class="mb-10">The ACM Digital Library houses all content presented at ACM-sponsored events or published by ACM. This content contains exclusive information on the latest developments in computer graphics and interactive techniques, including: conference proceedings, course notes, poster abstracts and more.</p>
 
   <h2 class="text-4xl font-bold mb-5">Spaekers</h2>
-  <div class="speaker-container">
-    <div class="speaker-profile">
+
+    <!-- <div class="speaker-profile">
     <div class="speaker-photo" style="background-image: url('/assets/img/EvanPeng.jpg');"></div>
+    <img class="speaker-photo" src="/path/to/image.jpg" alt="Speaker Name">
     <div class="speaker-info">
       <div class="speaker-name">Evan Peng</div>
       <div class="speaker-title">Leader of WeLight</div>
@@ -242,8 +253,8 @@ box-shadow: rgba(0,123,255, 0.4) 5px 5px, rgba(0,123,255, 0.3) 10px 10px, rgba(0
         My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</div>
       <div class="speaker-link"><a href="https://www.example.com">Personal Website</a></div>
     </div>
-  </div>
-    <div class="speaker-profile">
+  </div> -->
+    <!-- <div class="speaker-profile">
       <div class="speaker-photo" style="background-image: url('/assets/img/EvanPeng.jpg');"></div>
       <div class="speaker-info">
         <div class="speaker-name">Evan Peng</div>
@@ -255,8 +266,43 @@ box-shadow: rgba(0,123,255, 0.4) 5px 5px, rgba(0,123,255, 0.3) 10px 10px, rgba(0
           My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</div>
         <div class="speaker-link"><a href="https://www.example.com">Personal Website</a></div>
       </div>
+    </div> -->
+    <div class="speaker-container">
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/EvanPeng.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Evan Peng</h2>
+          <h3 class="speaker-title">Leader of WeLight</h3>
+          <p class="speaker-link"><a href="https://www.example.com" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
+    
+            I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
+            
+            My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</p>
+          <p class="speaker-bio">Bio: Melissa Skala is an Investigator at the Morgridge Institute for Research and a Professor of Biomedical Engineering at the University of Wisconsin – Madison...</p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/EvanPeng.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Evan Peng</h2>
+          <h3 class="speaker-title">Leader of WeLight</h3>
+          <p class="speaker-link"><a href="https://www.example.com" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
+    
+            I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
+            
+            My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</p>
+          <p class="speaker-bio">Bio: Melissa Skala is an Investigator at the Morgridge Institute for Research and a Professor of Biomedical Engineering at the University of Wisconsin – Madison...</p>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-</div>
+
 
 
 

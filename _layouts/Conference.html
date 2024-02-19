@@ -99,9 +99,9 @@ layout: custom
 }
 
 .speaker-photo {
-  max-width: 12rem;
-  min-height: 5rem;
+  width: 12rem;
   object-fit: cover;
+  min-height: 10rem;
   margin-right: 2rem;
   margin-top: 7px;
   margin-bottom: 1rem;
@@ -136,6 +136,102 @@ layout: custom
   font-weight: normal;
 }
 
+.conference-materials {
+  margin: 2rem auto;
+}
+
+.material-detail {
+  background-color: rgba(0,123,255,0.04);
+  margin-bottom: 1rem;
+  /* border: 1px solid var(--global-distill-app-color); */
+  /* box-shadow: 0 2px 4px var(--global-divider-color); */
+  /* box-shadow: 0 2px 4px rgba(0,123,255,0.3); */
+  transition: all 0.3s ease-in-out;
+}
+
+.material-summary {
+  font-weight: 600;
+  color: #007BFF;
+  padding: 1rem;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.material-summary::after {
+  content: '▼';
+  position: absolute;
+  right: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.material-detail[open] .material-summary::after {
+  transform: rotate(180deg);
+}
+
+.material-content {
+  padding: 1rem;
+  line-height: 1.6;
+  max-height: 0;
+  overflow: overlay;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.material-content b {
+  font-weight: 600;
+}s
+
+.material-content ol {
+  padding-left: 10px; 
+  list-style-type: none; 
+  margin-top: 1rem;
+}
+.material-content a{
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.material-content ol li {
+  position: relative; 
+  padding-left: 20px; 
+  margin-bottom: 10px; 
+  margin-top: 1rem;
+}
+
+.material-content ol li::before {
+  content: "•"; 
+  color: #007BFF; 
+  font-weight: bold; 
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  font-size: 20px;
+}
+
+.material-content-name{
+  font-weight:600;
+  font-size:initial; 
+  margin-top:-1rem; 
+  margin-bottom:1rem;
+}
+.material-detail[open] .material-content {
+  max-height: 30rem; 
+}
+
+.material-summary:hover {
+  background-color: var(--global-hover-colorr);
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
 
 </style>
 </head>
@@ -148,8 +244,8 @@ layout: custom
   
   <div class="bg-gray-200 p-5 mb-5 conference-background">
     <h3 class="text-3xl font-bold mb-2 textareahead">WELIGHT 2024</h3>
-    <p class="mb-2 textarea">28 July – 1 August</p>
-    <p class="mb-2 textarea">The University of HongKong, HongKong</p>
+    <p class="mb-2 textarea">8 April – 9 April</p>
+    <p class="mb-2 textarea">The University of Hong Kong, HONG KONG SAR</p>
     <p class="mb-2 textarea">The Premier Conference & Exhibition on Computer Graphics & Interactive Techniques.</p>
   </div>
 
@@ -228,15 +324,58 @@ layout: custom
     <div class="session">
       <div class="time">11:15 - 12:00</div>
       <div class="details">
-        <div class="title">Revolutionizing and Experience</div>
-        <div class="speaker">Emily</div>
+        <div class="title">Simulation technologies for image systems</div>
+        <div class="speaker">Brian A. Wandell</div>
       </div>
     </div>
-    <!-- Add more sessions as needed -->
   </div>
     
-  <h2 class="text-4xl font-bold mb-5">Conference Materials</h2>
-  <p class="mb-10">The ACM Digital Library houses all content presented at ACM-sponsored events or published by ACM. This content contains exclusive information on the latest developments in computer graphics and interactive techniques, including: conference proceedings, course notes, poster abstracts and more.</p>
+  <!-- <h2 class="text-4xl font-bold mb-5">Conference Materials</h2> -->
+
+  <div class="conference-materials">
+    <h2 class="text-4xl font-bold mb-5">Conference Materials</h2>
+  
+    <details class="material-detail">
+      <summary class="material-summary">Conference Topic 1</summary>
+      <div class="material-content">
+        <p>
+          The ACM Digital Library houses all content presented at the ACM-sponsored event on Topic 1. This includes conference proceedings, course notes, poster abstracts, and more.
+
+        </p>
+      </div>
+    </details>
+  
+    <details class="material-detail">
+      <summary class="material-summary">Simulation technologies for image systems</summary>
+      <div class="material-content">
+       
+          <h2 class="material-content-name">Brian A. Wandell</h2>
+          <p>The number and type of imaging systems has grown enormously over the last several decades; these systems are an essential component in mobile communication, medicine, automotive and drone applications. 
+            Imaging systems are also increasingly used with deep learning systems that require large amounts of training data. For these reasons software prototyping has become an essential tool for the design, 
+            evaluation and training of modern image systems. I will describe three closely related open-source and freely available image systems toolboxes - ISETCam, ISETBio, and ISET3d - that support design and evaluation of whole image systems. 
+            The presentation will include examples of how we model the three-dimensional scene spectral radiance, retinal encoding (physiological optics and cone sampling), and image systems hardware (multi-element lenses, image sensors).  
+            I will also provide two examples of how we used end-to-end image system simulation to aid understanding and design.
+          </p>
+          <br>
+          <b>Related publications</b>
+          <br>
+          <ol>
+          <li> <a href="http://scarlet.stanford.edu/~brian/papers/ise/2021-IEEE-Access-Depth.pdf">ISETAuto: Detecting vehicles with depth and radiance information (2021)</a> . Zhenyi Liu, Joyece Farrell, Brian Wandell, IEEE Access <a href="http://scarlet.stanford.edu/~brian/papers/mri/2020-CurrentBiology-Masuda.pdf"> ACCESS.2021.3063692 </a></li>
+
+          <li> <a href="http://arxiv.org/abs/1902.04258">A system for generating complex physically accurate sensor images for automotive applications (2019)</a>. Zhenyi Liu, Minghao Shen, Jiaqi Zhang, Shuangting Liu, Henryk Blasinski, Trisha Lian, Brian Wandell. IS&T Electronic Imaging Conference, San Francisco.</li>
+
+          <li><a href="https://jov.arvojournals.org/article.aspx?articleid=2753752">Ray tracing 3D spectral scenes through human optics models (2019)</a>. Trish Lian, Kevin McKenzie, David Brainard, Nicolas Cottaris, Brian Wandell. Journal of Vision October 2019, Vol.19, 23. doi:<a href="https://doi.org/10.1167/19.12.23">https://doi.org/10.1167/19.12.23</a></li>
+
+          <li><a href="https://jov.arvojournals.org/article.aspx?articleid=2770341">A computational observer model of spatial contrast sensitivity: Effects of photocurrent encoding, fixational eye movements and inference engine (2020)</a>. Nicolas P. Cottaris,  Brian A. Wandell,  Fred Rieke, David H. Brainard Journal of Vision doi:<a href="https://doi.org/10.1167/jov.20.7.17">https://doi.org/10.1167/jov.20.7.17</a></li>
+          </ol>
+          <p>See the wiki pages of the repositories at: <a href="https://github.com/ISET">https://github.com/ISET</a></p>
+        
+      </div>
+    </details>
+  
+  </div>
+  
+  
 
   <h2 class="text-4xl font-bold mb-5">Spaekers</h2>
 
@@ -273,29 +412,29 @@ layout: custom
         <img class="speaker-photo" src="/assets/img/EvanPeng.jpg" alt="Speaker Name">
         <div class="speaker-content">
           <h2 class="speaker-name">Evan Peng</h2>
-          <h3 class="speaker-title">Leader of WeLight</h3>
-          <p class="speaker-link"><a href="https://www.example.com" target="_blank">Personal Website</a></p>
+          <h3 class="speaker-title">PI of WeLight Lab, The University of Hong Kong</h3>
+          <p class="speaker-link"><a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
     
             I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
             
             My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</p>
-          <p class="speaker-bio">Bio: Melissa Skala is an Investigator at the Morgridge Institute for Research and a Professor of Biomedical Engineering at the University of Wisconsin – Madison...</p>
         </div>
       </div>
 
       <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/EvanPeng.jpg" alt="Speaker Name">
+        <img class="speaker-photo" src="/assets/img/Brian A. Wandell.jpg" alt="Speaker Name">
         <div class="speaker-content">
-          <h2 class="speaker-name">Evan Peng</h2>
-          <h3 class="speaker-title">Leader of WeLight</h3>
-          <p class="speaker-link"><a href="https://www.example.com" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
-    
-            I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
-            
-            My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</p>
-          <p class="speaker-bio">Bio: Melissa Skala is an Investigator at the Morgridge Institute for Research and a Professor of Biomedical Engineering at the University of Wisconsin – Madison...</p>
+          <h2 class="speaker-name">Brian A. Wandell</h2>
+          <h3 class="speaker-title">Founding Director, Stanford’s Center for Neurobiological Imaging, Stanford University</h3>
+          <p class="speaker-link"><a href="https://wandell.vista.su.domains/blog/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">Brian A. Wandell, the Isaac and Madeline Stein Family Professor, joined the Stanford Psychology faculty in 1979. He is a member, 
+            by courtesy, of Electrical Engineering, Ophthalmology, and the Graduate School of Education. Wandell is the Founding Director of Stanford’s Center for Cognitive and Neurobiological Imaging, 
+            and he served as a Deputy Director of the Wu Tsai Neuroscience Institute  from 2013-2021.  
+            His research centers on vision science, spanning visual neuroscience to digital imaging systems (cameras, displays). 
+            He was elected to the American Academy of Arts and Sciences in 2011, received the highest honor of the Society for Imaging Science and Technology in 2014, was awarded the George A. 
+            Miller prize of the Cognitive Neuroscience Society in 2016, and  Proctor Medal  from the Association for Research in Vision and Ophthalmology in 2021. 
+            Wandell was elected to the US National Academy of Sciences in 2003.</p>
         </div>
       </div>
 

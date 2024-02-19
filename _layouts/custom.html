@@ -8,25 +8,16 @@
   {%- endif -%}
   {% include head.html %}
 
-  <style>
-
-  .content-container {
-  all: initial !important; 
-}
-
-  </style>
 
 </head>
-
+ 
 <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %}">
 
   <!-- Header -->
   {%- include header.html %}
 
   <!-- Content -->
-  <div class="content-container">
     {{ content }}
-  </div>
 
   <!-- JavaScripts -->
   {% include scripts/jquery.html %}

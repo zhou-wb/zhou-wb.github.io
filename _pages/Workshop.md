@@ -3,7 +3,7 @@ layout: Workshop
 permalink: /Workshop/
 title: Workshop
 description: 
-nav: true
-nav_order: 2
+nav: false
+# nav_order: 2
 
 ---

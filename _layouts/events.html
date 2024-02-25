@@ -22,7 +22,7 @@ layout: custom
 
   .h2_1 {
     color: #007BFF !important;
-    font-size: 80px!important; 
+    font-size: 51px!important; 
     font-weight: 500 !important;
     margin-top: -2.5rem !important;
     margin-bottom: 4rem !important
@@ -47,8 +47,8 @@ layout: custom
     padding-top: 5rem !important;
     padding-bottom: 5rem !important;
   } */
-  .conference-background {
-  background-image: url(/assets/img/conferencebg.jpg);
+  /* .conference-background {
+  background-image: url(/assets/img/bg_2.jpg);
     background-size: cover;
     background-position: center;
     margin-left: -15% !important;
@@ -56,7 +56,32 @@ layout: custom
     padding-top: 5rem!important;
     padding-bottom: 5rem!important;
     padding-left: 20% !important;
-  }
+  } */
+
+  .conference-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: start; 
+  background-image: url('/assets/img/bg_3.jpg');
+  background-size: cover;
+  /* background-position: center; */
+  /* margin-left: -15% !important; */
+  /* width: 130%; */
+  background-attachment: fixed !important; 
+  /* background-repeat: no-repeat; */
+  background-position: center center;      
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+  padding-left: 20% !important;
+  height: 23rem; 
+  width: 122%;
+  margin-left: -11%;
+  position: relative;
+  /* left: 50%;
+  transform: translateX(-50%); */
+}
+
 
   .header-container {
   display: flex;
@@ -69,6 +94,7 @@ layout: custom
   flex-direction: column;
   justify-content: center; 
   margin-bottom: -40px;
+  max-width: 917px !important;
 }
 .image-container {
   position: relative;
@@ -81,14 +107,14 @@ layout: custom
 }
 .conference-image {
   max-width: 100%;
-  max-height: 120px;
+  max-height: 100px;
   object-fit: cover;
 
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1535px) {
   .image-container {
-    margin-left: -17px;
+    margin-left: -5px;
     order: 1;
     margin-bottom: -2rem;
     margin-top: -2rem;
@@ -125,19 +151,26 @@ layout: custom
   overflow: hidden;
   box-shadow: rgba(0,123,255, 0.4) 5px 5px, rgba(0,123,255, 0.3) 10px 10px, rgba(0,123,255, 0.2) 15px 15px, rgba(0,123,255, 0.1) 20px 20px, rgba(0,123,255, 0.05) 25px 25px;
   margin-bottom: 4rem;
+  padding: 1rem;
 }
 
 .session {
   display: flex;
   align-items: center;
-  padding: 20px;
   border-bottom: 0px solid #eee;
+  padding-left: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .time {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
   flex: 0 0 20%; 
   font-weight: 600;
   color: #007BFF;
+  margin-right: 1rem;
 }
 
 .details {
@@ -299,6 +332,24 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
+.logos-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 20px; 
+  /* padding: 20px 0;  */
+}
+
+.logos-container img {
+  max-height: 5rem; 
+  width: auto; 
+  transition: transform 0.3s ease;
+}
+
+.logos-container img:hover {
+  transform: scale(1.1); 
+}
+
 
 </style>
 </head>
@@ -307,21 +358,21 @@ details > summary::-webkit-details-marker {
 <div class="container mx-auto px-4">
   <div class = "header-container">
     <div class="title-container">
-      <h1 class="h1_1 text-6xl font-bold mt-10 mb-5 ">Workshop</h1>
-      <h2 class="h2_1 text-5xl font-bold mb-5">WELIGHT 2024</h2>
+      <h1 class="h1_1 text-6xl font-bold mt-10 mb-5 "> Workshop on</h1>
+      <h2 class="h2_1 text-5xl font-bold mb-5">Frontiers of Image Science and Visual Computing 2024</h2>
     </div>
     <div class="image-container">
-    <img src="/assets/img/hku.png" alt="HKU" class="conference-image">
+    <img src="/assets/img/logos/HKU_Eng.png" alt="HKU" class="conference-image">
     </div>
   </div>
   <p class="mb-10">WELIGHT workshop presents a annual workshop attended by tens of thousands of industry experts. Considered the world's largest, most influential workshops on computer graphics and interactive techniques, these workshops inspire progress through education and collaboration.</p>
-  
+
   <div class="bg-gray-200 p-5 mb-5 conference-background">
-    <h3 class="text-3xl font-bold mb-2 textareahead">WELIGHT 2024</h3>
-    <p class="mb-2 textarea">8 April – 9 April</p>
-    <p class="mb-2 textarea">The University of Hong Kong, HONG KONG SAR</p>
-    <p class="mb-2 textarea">The Premier workshop & Exhibition on Computer Graphics & Interactive Techniques.</p>
+    <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
+    <p class="mb-2 textarea">8 April </p>
+    <p class="mb-2 textarea">G/F, Chow Yei Ching Building, The University of Hong Kong, HONG KONG SAR</p>
   </div>
+
 
   <h2 class="text-4xl font-bold mb-5">Workshop Objectives</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
@@ -382,119 +433,96 @@ details > summary::-webkit-details-marker {
   <h2 class="text-4xl font-bold mb-5">Schedule</h2>
   <div class="schedule">
     <div class="session">
-      <div class="time">09:00 - 10:00</div>
+      <div class="time">14:30 - 14:45</div>
+      <div class="details">
+        <div class="title">Check-in & Welcome Preview</div>
+        <!-- <div class="speaker">Evan Peng</div> -->
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">14:45 - 15:00</div>
       <div class="details">
         <div class="title">Opening Remarks</div>
-        <div class="speaker">Evan Peng</div>
+        <div class="speaker">David Srolovitz, Dean of Engineering</div>
       </div>
     </div>
+
     <div class="session">
-      <div class="time">10:15 - 11:00</div>
+      <div class="time">15:00 - 15:50</div>
       <div class="details">
-        <div class="title">The Future</div>
-        <div class="speaker">Jane</div>
+        <div class="title">William Wong Distinguished Lecture: Simulation Technologies for Image Systems</div>
+        <div class="speaker">Brian A. Wandell, Stanford University</div>
       </div>
     </div>
+
     <div class="session">
-      <div class="time">11:15 - 12:00</div>
+      <div class="time">15:50 - 15:55</div>
       <div class="details">
-        <div class="title">Simulation technologies for image systems</div>
-        <div class="speaker">Brian A. Wandell</div>
+        <div class="title">Break & Photo Time</div>
+        <!-- <div class="speaker">David Srolovitz, Dean of Engineering</div> -->
       </div>
     </div>
+
+    <div class="session">
+      <div class="time">15:55 - 16:00</div>
+      <div class="details">
+        <div class="title">Pitching for Stanford Center for Image Systems Engineering (SCIEN)</div>
+        <div class="speaker">Joyce Farrell, Executive Director of SCIE</div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">16:00 - 16:25</div>
+      <div class="details">
+        <div class="title">TBD</div>
+        <div class="speaker">Min Kim, KAIST</div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">16:25 - 16:50</div>
+      <div class="details">
+        <div class="title">TBD</div>
+        <div class="speaker">Kede Ma, CityU of Hong Kong</div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">16:50 - 17:15</div>
+      <div class="details">
+        <div class="title">TBD</div>
+        <div class="speaker">TBD, Chinese University of Hong Kong</div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">17:15 - 17:20</div>
+      <div class="details">
+        <div class="title">Closing Remarks</div>
+        <div class="speaker">Kenneth K.Y. Wong & Evan Y. Peng</div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">17:20 - 18:15</div>
+      <div class="details">
+        <div class="title">Reception & Social Networking</div>
+        <!-- <div class="speaker">TBD</div> -->
+      </div>
+    </div>
+
   </div>
     
   <!-- <h2 class="text-4xl font-bold mb-5">Conference Materials</h2> -->
 
-  <div class="conference-materials">
-    <h2 class="text-4xl font-bold mb-5">Workshop Materials</h2>
   
-    <details class="material-detail">
-      <summary class="material-summary">Workshop Topic 1</summary>
-      <div class="material-content">
-        <p>
-          The ACM Digital Library houses all content presented at the ACM-sponsored event on Topic 1. This includes conference proceedings, course notes, poster abstracts, and more.
-
-        </p>
-      </div>
-    </details>
-  
-    <details class="material-detail">
-      <summary class="material-summary">Simulation technologies for image systems</summary>
-      <div class="material-content">
-       
-          <h2 class="material-content-name">Brian A. Wandell</h2>
-          <p>The number and type of imaging systems has grown enormously over the last several decades; these systems are an essential component in mobile communication, medicine, automotive and drone applications. 
-            Imaging systems are also increasingly used with deep learning systems that require large amounts of training data. For these reasons software prototyping has become an essential tool for the design, 
-            evaluation and training of modern image systems. I will describe three closely related open-source and freely available image systems toolboxes - ISETCam, ISETBio, and ISET3d - that support design and evaluation of whole image systems. 
-            The presentation will include examples of how we model the three-dimensional scene spectral radiance, retinal encoding (physiological optics and cone sampling), and image systems hardware (multi-element lenses, image sensors).  
-            I will also provide two examples of how we used end-to-end image system simulation to aid understanding and design.
-          </p>
-          <br>
-          <b>Related publications</b>
-          <br>
-          <ol>
-          <li> <a href="http://scarlet.stanford.edu/~brian/papers/ise/2021-IEEE-Access-Depth.pdf">ISETAuto: Detecting vehicles with depth and radiance information (2021)</a> . Zhenyi Liu, Joyece Farrell, Brian Wandell, IEEE Access <a href="http://scarlet.stanford.edu/~brian/papers/mri/2020-CurrentBiology-Masuda.pdf"> ACCESS.2021.3063692 </a></li>
-
-          <li> <a href="http://arxiv.org/abs/1902.04258">A system for generating complex physically accurate sensor images for automotive applications (2019)</a>. Zhenyi Liu, Minghao Shen, Jiaqi Zhang, Shuangting Liu, Henryk Blasinski, Trisha Lian, Brian Wandell. IS&T Electronic Imaging Conference, San Francisco.</li>
-
-          <li><a href="https://jov.arvojournals.org/article.aspx?articleid=2753752">Ray tracing 3D spectral scenes through human optics models (2019)</a>. Trish Lian, Kevin McKenzie, David Brainard, Nicolas Cottaris, Brian Wandell. Journal of Vision October 2019, Vol.19, 23. doi:<a href="https://doi.org/10.1167/19.12.23">https://doi.org/10.1167/19.12.23</a></li>
-
-          <li><a href="https://jov.arvojournals.org/article.aspx?articleid=2770341">A computational observer model of spatial contrast sensitivity: Effects of photocurrent encoding, fixational eye movements and inference engine (2020)</a>. Nicolas P. Cottaris,  Brian A. Wandell,  Fred Rieke, David H. Brainard Journal of Vision doi:<a href="https://doi.org/10.1167/jov.20.7.17">https://doi.org/10.1167/jov.20.7.17</a></li>
-          </ol>
-          <p>See the wiki pages of the repositories at: <a href="https://github.com/ISET">https://github.com/ISET</a></p>
-        
-      </div>
-    </details>
-  
-  </div>
   
   
 
-  <h2 class="text-4xl font-bold mb-5">Spaekers</h2>
+  <h2 class="text-4xl font-bold mb-5">Speakers</h2>
 
-    <!-- <div class="speaker-profile">
-    <div class="speaker-photo" style="background-image: url('/assets/img/EvanPeng.jpg');"></div>
-    <img class="speaker-photo" src="/path/to/image.jpg" alt="Speaker Name">
-    <div class="speaker-info">
-      <div class="speaker-name">Evan Peng</div>
-      <div class="speaker-title">Leader of WeLight</div>
-      <div class="speaker-bio">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
-
-        I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
-        
-        My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</div>
-      <div class="speaker-link"><a href="https://www.example.com">Personal Website</a></div>
-    </div>
-  </div> -->
-    <!-- <div class="speaker-profile">
-      <div class="speaker-photo" style="background-image: url('/assets/img/EvanPeng.jpg');"></div>
-      <div class="speaker-info">
-        <div class="speaker-name">Evan Peng</div>
-        <div class="speaker-title">Leader of WeLight</div>
-        <div class="speaker-bio">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
-    
-          I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
-          
-          My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</div>
-        <div class="speaker-link"><a href="https://www.example.com">Personal Website</a></div>
-      </div>
-    </div> -->
     <div class="speaker-container">
-
-      <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/EvanPeng.jpg" alt="Speaker Name">
-        <div class="speaker-content">
-          <h2 class="speaker-name">Evan Peng</h2>
-          <h3 class="speaker-title">PI of WeLight Lab, The University of Hong Kong</h3>
-          <p class="speaker-link"><a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
-    
-            I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
-            
-            My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</p>
-        </div>
-      </div>
 
       <div class="speaker-profile">
         <img class="speaker-photo" src="/assets/img/Brian A. Wandell.jpg" alt="Speaker Name">
@@ -512,7 +540,86 @@ details > summary::-webkit-details-marker {
         </div>
       </div>
 
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/EvanPeng.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Evan Y. Peng</h2>
+          <h3 class="speaker-title">PI of WeLight Lab, The University of Hong Kong</h3>
+          <p class="speaker-link"><a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">I am an Assistant Professor at HKU EEE and CS, leading the Computational Imaging & Mixed Representation Labortary, aka., WeLight Lab @ HKU.
+    
+            I was a Postdoc at Stanford University Computational Imaging Laboratory. I received my PhD in CS from the Imager Lab, UBC. During the PhD, I was a Visiting Student Researcher at Visual Computing Center, KAUST, and at Stanford. I received both my MS and BS in Optical Science and Engineering from the State Key Lab of Modern Optical Instrumentation, Zhejiang University.
+            
+            My research interest lies in the interdisciplinary field of Optics, Graphics, Vision, and Artificial Intelligence, particularly with the focus of: Computational Optics, Imager, Sensor, and Display; Holographiy & VR/AR/MR; Coded Microscope Imaging; Low-level Computer Vision; Inverse Rendering; Human-centered Visual & Sensory Systems.</p>
+        </div>
+      </div>
+
     </div>
+
+    <div class="conference-materials">
+      <h2 class="text-4xl font-bold mb-5">Workshop Materials</h2>
+    
+    
+      <details class="material-detail">
+        <summary class="material-summary">William Wong Distinguished Lecture: Simulation Technologies for Image Systems</summary>
+        <div class="material-content">
+         
+            <h2 class="material-content-name">Brian A. Wandell</h2>
+            <p>The number and type of imaging systems has grown enormously over the last several decades; these systems are an essential component in mobile communication, medicine, automotive and drone applications. 
+              Imaging systems are also increasingly used with deep learning systems that require large amounts of training data. For these reasons software prototyping has become an essential tool for the design, 
+              evaluation and training of modern image systems. I will describe three closely related open-source and freely available image systems toolboxes - ISETCam, ISETBio, and ISET3d - that support design and evaluation of whole image systems. 
+              The presentation will include examples of how we model the three-dimensional scene spectral radiance, retinal encoding (physiological optics and cone sampling), and image systems hardware (multi-element lenses, image sensors).  
+              I will also provide two examples of how we used end-to-end image system simulation to aid understanding and design.
+            </p>
+            <br>
+            <b>Related publications</b>
+            <br>
+            <ol>
+            <li> <a href="http://scarlet.stanford.edu/~brian/papers/ise/2021-IEEE-Access-Depth.pdf">ISETAuto: Detecting vehicles with depth and radiance information (2021)</a> . Zhenyi Liu, Joyece Farrell, Brian Wandell, IEEE Access <a href="http://scarlet.stanford.edu/~brian/papers/mri/2020-CurrentBiology-Masuda.pdf"> ACCESS.2021.3063692 </a></li>
+  
+            <li> <a href="http://arxiv.org/abs/1902.04258">A system for generating complex physically accurate sensor images for automotive applications (2019)</a>. Zhenyi Liu, Minghao Shen, Jiaqi Zhang, Shuangting Liu, Henryk Blasinski, Trisha Lian, Brian Wandell. IS&T Electronic Imaging Conference, San Francisco.</li>
+  
+            <li><a href="https://jov.arvojournals.org/article.aspx?articleid=2753752">Ray tracing 3D spectral scenes through human optics models (2019)</a>. Trish Lian, Kevin McKenzie, David Brainard, Nicolas Cottaris, Brian Wandell. Journal of Vision October 2019, Vol.19, 23. doi:<a href="https://doi.org/10.1167/19.12.23">https://doi.org/10.1167/19.12.23</a></li>
+  
+            <li><a href="https://jov.arvojournals.org/article.aspx?articleid=2770341">A computational observer model of spatial contrast sensitivity: Effects of photocurrent encoding, fixational eye movements and inference engine (2020)</a>. Nicolas P. Cottaris,  Brian A. Wandell,  Fred Rieke, David H. Brainard Journal of Vision doi:<a href="https://doi.org/10.1167/jov.20.7.17">https://doi.org/10.1167/jov.20.7.17</a></li>
+            </ol>
+            <p>See the wiki pages of the repositories at: <a href="https://github.com/ISET">https://github.com/ISET</a></p>
+          
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">Pitching for Stanford Center for Image Systems Engineering (SCIEN)</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">Joyce Farrell</h2>
+          <p>
+            Pitching for Stanford Center for Image Systems Engineering (SCIEN)<
+  
+          </p>
+        </div>
+      </details>
+    
+    </div>
+
+    <!-- <h2 class="text-4xl font-bold mb-5">Sponsors</h2> -->
+    <div class="logos-container">
+      <a href="https://www.hku.hk" target="_blank">
+        <img src="/assets/img/logos/HKU.png" alt="Organization 1 Logo">
+      </a>
+      <a href="https://www.stanford.edu/" target="_blank">
+        <img src="/assets/img/logos/standford.png" alt="Organization 2 Logo">
+      </a>
+      <a href="https://www.kaist.ac.kr/en/" target="_blank">
+        <img src="/assets/img/logos/KAIST.png" alt="Organization 3 Logo">
+      </a>
+      <a href="https://www.cuhk.edu.hk/" target="_blank">
+        <img src="/assets/img/logos/CUHK.png" alt="Organization 4 Logo">
+      </a>
+      <a href="https://www.cityu.edu.hk/" target="_blank">
+        <img src="/assets/img/logos/CityU.png" alt="Organization 5 Logo">
+      </a>
+    </div>
+    
 
   </div>
 

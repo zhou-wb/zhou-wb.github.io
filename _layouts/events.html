@@ -73,16 +73,24 @@ layout: custom
   background-position: center center;      
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
-  padding-left: 20% !important;
+  /* padding-left: 20% !important; */
   height: 23rem; 
-  width: 122%;
-  margin-left: -11%;
+  /* width: 122%;
+  margin-left: -11%; */
   position: relative;
   /* left: 50%;
   transform: translateX(-50%); */
+
+  width: 100vw; margin-left: -50vw; left: 50%;
 }
 
-
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - min(40%,39rem));
+  transform: translateY(-50%);
+  width: auto;
+}
   .header-container {
   display: flex;
   align-items: stretch; 
@@ -368,9 +376,11 @@ details > summary::-webkit-details-marker {
   <p class="mb-10">WELIGHT workshop presents a annual workshop attended by tens of thousands of industry experts. Considered the world's largest, most influential workshops on computer graphics and interactive techniques, these workshops inspire progress through education and collaboration.</p>
 
   <div class="bg-gray-200 p-5 mb-5 conference-background">
-    <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
-    <p class="mb-2 textarea">8 April </p>
-    <p class="mb-2 textarea">G/F, Chow Yei Ching Building, The University of Hong Kong, HONG KONG SAR</p>
+    <div class="text-container">
+      <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
+      <p class="mb-2 textarea">8 April </p>
+      <p class="mb-2 textarea">G/F, Chow Yei Ching Building, The University of Hong Kong, HONG KONG SAR</p>
+    </div>
   </div>
 
 

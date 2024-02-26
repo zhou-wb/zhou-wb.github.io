@@ -353,10 +353,11 @@ details > summary::-webkit-details-marker {
   gap: 20px; 
   /* padding: 20px 0;  */
   margin-top: 1rem;
+  flex-wrap:wrap
 }
 
 .logos-container img {
-  max-height: 5rem; 
+  max-height: min(5rem,14vw);
   width: auto; 
   transition: transform 0.3s ease;
 }
@@ -417,7 +418,7 @@ details > summary::-webkit-details-marker {
           <i class="fas fa-circle"></i>
         </div>
         <div>
-          <h4 class="font-bold" >Encourage Volunteer Spirit</h4>
+          <h4 class="font-bold" >Encourage Innovate Spirit</h4>
           <!-- <p>SIGGRAPH workshops must recognize, encourage and support the effective participation of their constituents.</p> -->
         </div>
       </div>
@@ -470,7 +471,7 @@ details > summary::-webkit-details-marker {
   <h2 class="text-4xl font-bold mb-5" style = "margin-top: -2rem !important">Schedule</h2>
   <div class="schedule">
     <div class="session">
-      <div class="time">14:30 - 14:45</div>
+      <div class="time">14:15 - 14:30</div>
       <div class="details">
         <div class="title">Check-in & Welcome Preview</div>
         <!-- <div class="speaker">Evan Peng</div> -->
@@ -478,15 +479,15 @@ details > summary::-webkit-details-marker {
     </div>
 
     <div class="session">
-      <div class="time">14:45 - 15:00</div>
+      <div class="time">14:30 - 14:45</div>
       <div class="details">
         <div class="title">Opening Remarks</div>
-        <div class="speaker">David Srolovitz, Dean of Engineering</div>
+        <div class="speaker">David Srolovitz, Dean of Engineering, HKU</div>
       </div>
     </div>
 
     <div class="session">
-      <div class="time">15:00 - 15:50</div>
+      <div class="time">14:45 - 15:35</div>
       <div class="details">
         <div class="title">William Mong Distinguished Lecture: Simulation Technologies for Image Systems</div>
         <div class="speaker">Brian A. Wandell, Stanford University</div>
@@ -494,7 +495,7 @@ details > summary::-webkit-details-marker {
     </div>
 
     <div class="session">
-      <div class="time">15:50 - 15:55</div>
+      <div class="time">15:35 - 15:40</div>
       <div class="details">
         <div class="title">Break & Photo Time</div>
         <!-- <div class="speaker">David Srolovitz, Dean of Engineering</div> -->
@@ -502,7 +503,7 @@ details > summary::-webkit-details-marker {
     </div>
 
     <div class="session">
-      <div class="time">15:55 - 16:00</div>
+      <div class="time">15:40 - 15:45</div>
       <div class="details">
         <div class="title">Pitching for Stanford Center for Image Systems Engineering (SCIEN)</div>
         <div class="speaker">Joyce Farrell, Executive Director of SCIE</div>
@@ -510,7 +511,7 @@ details > summary::-webkit-details-marker {
     </div>
 
     <div class="session">
-      <div class="time">16:00 - 16:25</div>
+      <div class="time">15:45 - 16:10</div>
       <div class="details">
         <div class="title">TBD</div>
         <div class="speaker">Min Kim, KAIST</div>
@@ -518,7 +519,15 @@ details > summary::-webkit-details-marker {
     </div>
 
     <div class="session">
-      <div class="time">16:25 - 16:50</div>
+      <div class="time">16:10 - 16:35</div>
+      <div class="details">
+        <div class="title">TBD</div>
+        <div class="speaker">TBD, PKU</div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="time">16:35 - 16:55</div>
       <div class="details">
         <div class="title">TBD</div>
         <div class="speaker">Kede Ma, CityU of Hong Kong</div>
@@ -526,7 +535,7 @@ details > summary::-webkit-details-marker {
     </div>
 
     <div class="session">
-      <div class="time">16:50 - 17:15</div>
+      <div class="time">16:55 - 17:15</div>
       <div class="details">
         <div class="title">TBD</div>
         <div class="speaker">TBD, Chinese University of Hong Kong</div>
@@ -537,7 +546,7 @@ details > summary::-webkit-details-marker {
       <div class="time">17:15 - 17:20</div>
       <div class="details">
         <div class="title">Closing Remarks</div>
-        <div class="speaker">Kenneth K.Y. Wong & Evan Y. Peng</div>
+        <div class="speaker">Kenneth K.Y. Wong, Head of Department, HKU & Evan Y. Peng</div>
       </div>
     </div>
 
@@ -630,11 +639,27 @@ details > summary::-webkit-details-marker {
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </p>
         </div>
       </div>
 
       <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/TBD.png" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">TBD</h2>
+          <h3 class="speaker-title">Peking University</h3>
+          <p class="speaker-link"><a href="https://kedema.org/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">TBD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+        </div>
+      </div>
+
+      <!-- <div class="speaker-profile">
         <img class="speaker-photo" src="/assets/img/EvanPeng.jpg" alt="Speaker Name">
         <div class="speaker-content">
           <h2 class="speaker-name">Evan Y. Peng</h2>
@@ -649,7 +674,7 @@ details > summary::-webkit-details-marker {
             Dr. Peng is serving several professional roles, for instance, technical committee, reviewer, and session chair, in several academic venues. 
             Dr. Peng is also the co-founder of the emerging Wechat Public Account (Tech Blog) "IntelligentOptics".</p>
         </div>
-      </div>
+      </div> -->
 
     </div>
 
@@ -658,7 +683,7 @@ details > summary::-webkit-details-marker {
     
     
       <details class="material-detail">
-        <summary class="material-summary">William Wong Distinguished Lecture: Simulation Technologies for Image Systems</summary>
+        <summary class="material-summary">William Mong Distinguished Lecture: Simulation Technologies for Image Systems</summary>
         <div class="material-content">
          
             <h2 class="material-content-name">Brian A. Wandell</h2>
@@ -710,6 +735,16 @@ details > summary::-webkit-details-marker {
       <details class="material-detail">
         <summary class="material-summary">TBD</summary>
         <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">TBD</summary>
+        <div class="material-content">
           <h2 class="material-content-name">Kede Ma</h2>
           <p>
             TBD
@@ -744,14 +779,17 @@ details > summary::-webkit-details-marker {
       <a href="https://www.stanford.edu/" target="_blank">
         <img src="/assets/img/logos/standford.png" alt="Organization 2 Logo">
       </a>
-      <a href="https://www.kaist.ac.kr/en/" target="_blank">
+      <a href="https://www.kaist.ac.kr/" target="_blank">
         <img src="/assets/img/logos/KAIST.png" alt="Organization 3 Logo">
       </a>
+      <a href="https://www.pku.edu.cn/" target="_blank">
+        <img src="/assets/img/logos/PKU.png" alt="Organization 4 Logo">
+      </a>
       <a href="https://www.cuhk.edu.hk/" target="_blank">
-        <img src="/assets/img/logos/CUHK.png" alt="Organization 4 Logo">
+        <img src="/assets/img/logos/CUHK.png" alt="Organization 5 Logo">
       </a>
       <a href="https://www.cityu.edu.hk/" target="_blank">
-        <img src="/assets/img/logos/CityU.png" alt="Organization 5 Logo">
+        <img src="/assets/img/logos/CityU.png" alt="Organization 6 Logo">
       </a>
     </div>
   </footer>

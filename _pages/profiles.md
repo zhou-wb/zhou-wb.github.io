@@ -36,8 +36,8 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://tongxinoptica.github.io/XinTong.github.io/" style="font-size: larger; font-weight: bold;">Xin Tong</a><br>
-      Visiting Phd from [ZJU](https://www.zju.edu.cn/) <br>
-      Holographic imaging; Light Field modulation; Partial coherence theory; Deep learning<br>
+      Visiting PhD from [ZJU](https://www.zju.edu.cn/) <br>
+      Holographic Imaging, Light Field Modulation<br>
       tongxin661@gmail.com
 
 
@@ -84,7 +84,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://lagrangeli.github.io/" style="font-size: larger; font-weight: bold;">Zhenyang Li</a><br>
-      Vision (3D) & Graphics (Rendering) & VRAR<br>
+      Vision (3D) & Graphics (Rendering) & sVRAR<br>
       lizy23@connect.hku.hk
 
   - align: 

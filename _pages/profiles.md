@@ -17,7 +17,7 @@ profiles:
     more_info: >
         <a href="https://www.eee.hku.hk/~evanpeng/" style="font-size: larger; font-weight: bold;">Yifan (Evan) Peng</a><br>
         Assistant Professor \| Group Leader
-
+# Visitor
   - align: 
     image: Wolfgang.jpg
     content: 
@@ -27,6 +27,18 @@ profiles:
     more_info: >
       <a href="https://vccimaging.org/People/heidriw/" style="font-size: larger; font-weight: bold;">Wolfgang Heidrich</a><br>
       Visiting Professor from [KAUST](https://cemse.kaust.edu.sa/) 
+
+  - align: 
+    image: Tongxin.jpg
+    content: 
+    category: Visitor
+    Details: false
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://tongxinoptica.github.io/XinTong.github.io/" style="font-size: larger; font-weight: bold;">Xin Tong</a><br>
+      Visiting Phd from [ZJU](https://www.zju.edu.cn/) <br>
+      Holographic imaging; Light Field modulation; Partial coherence theory; Deep learning<br>
+      tongxin661@gmail.com
 
 
 # Postdoc
@@ -109,6 +121,17 @@ profiles:
       Deep Optics, RGBD Imaging, Computer Vision<br>
       u3605728@connect.hku.hk
 
+  - align: 
+    image: Feifan.jpg
+    content: 
+    Details: false
+    category: RA
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://www.linkedin.com/in/QuFeifan/" style="font-size: larger; font-weight: bold;">Feifan Qu</a><br>
+      Computational Holography, VR/AR <br>
+      u3603195@connect.hku.hk
+
 # Master
 
   - align: 
@@ -139,15 +162,15 @@ profiles:
       <span style="font-size: larger; font-weight: bold;">Wenzhe Peng</span><br>
 
 # Alumni
-  - align: 
-    image: 
-    content: 
-    Details: false
-    category: Alumni
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <span style="font-size: larger; font-weight: bold;">Feifan Qu</span><br>
-      Master
+  # - align: 
+  #   image: 
+  #   content: 
+  #   Details: false
+  #   category: Alumni
+  #   image_circular: false # crops the image to make it circular
+  #   more_info: >
+  #     <span style="font-size: larger; font-weight: bold;">Feifan Qu</span><br>
+  #     Master
 
   - align: 
     image: 

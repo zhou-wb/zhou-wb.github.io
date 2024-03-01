@@ -384,7 +384,50 @@ details > summary::-webkit-details-marker {
   font-weight: 700;
   }
   
+  .register-button {
+    display: inline-block;
+    /* background-color: rgba(0, 123, 255, 0.7);  */
+    color: white !important; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none !important; 
+    font-size: 21px; 
+    /* border-radius: 0;  */
+    transition: all 0.3s ease; 
+    position: relative; 
+    overflow: hidden; 
+    margin-bottom: 1rem;
 
+    border-radius: 5px;
+    background: rgba(0, 123, 255, 0.6);
+    /* box-shadow:  5px 5px 10px #bebebe,
+                -5px -5px 10px #ffffff; */
+}
+
+.register-button::after {
+    content: '→';
+    position: absolute;
+    right: -20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    transition: right 0.3s ease; 
+}
+
+.register-button:hover::after {
+    right: 10px; 
+}
+
+
+.register-button:hover {
+  padding-right: 40px;
+    box-shadow: 
+        rgba(0,123,255, 0.4) 5px 5px, 
+        rgba(0,123,255, 0.3) 10px 10px, 
+        rgba(0,123,255, 0.2) 15px 15px, 
+        rgba(0,123,255, 0.1) 20px 20px, 
+        rgba(0,123,255, 0.05) 25px 25px; 
+
+  }
 
 </style>
 </head>
@@ -463,6 +506,10 @@ details > summary::-webkit-details-marker {
 
  
   <h2 class="text-4xl font-bold mb-5" style = "margin-top: -2rem !important">Schedule</h2>
+  <a href="https://forms.gle/D2KyTzHCzfQAgFy5A" target="_blank" class="register-button">Register Now (Free)</a>
+
+  <!-- <span class="foot-link" ><a href="https://www.eee.hku.hk/">Register Now (Free)</a></span> -->
+
   <div class="schedule">
     <div class="session">
       <div class="time">14:15 - 14:30</div>
@@ -516,7 +563,7 @@ details > summary::-webkit-details-marker {
       <div class="time">16:10 - 16:35</div>
       <div class="details">
         <div class="title">TBD</div>
-        <div class="speaker">TBD, PKU</div>
+        <div class="speaker">SHI Boxin, PKU</div>
       </div>
     </div>
 
@@ -613,16 +660,19 @@ details > summary::-webkit-details-marker {
 
 
       <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/workshop/TBD.png" alt="Speaker Name">
+        <img class="speaker-photo" src="/assets/img/workshop/SHIBoxin.jpg" alt="Speaker Name">
         <div class="speaker-content">
-          <h2 class="speaker-name">TBD</h2>
+          <h2 class="speaker-name">SHI Boxin</h2>
           <h3 class="speaker-title">Peking University</h3>
-          <p class="speaker-link"><a href="https://kedema.org/" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">TBD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <p class="speaker-link"><a href="https://idm.pku.edu.cn/en/info/1009/1013.htm" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">Boxin Shi received the BE degree from the Beijing University of Posts and Telecommunications, the ME degree from Peking University, 
+            and the PhD degree from the University of Tokyo, in 2007, 2010, and 2013. 
+            He is currently a Boya Young Fellow Assistant Professor and Research Professor at Peking University, 
+            where he leads the Camera Intelligence Group. Before joining PKU, he did postdoctoral research with MIT Media Lab, 
+            Singapore University of Technology and Design, Nanyang Technological University from 2013 to 2016, 
+            and worked as a researcher in the National Institute of Advanced Industrial Science and Technology from 2016 to 2017. 
+            He won the Best Paper Runner-up award at International Conference on Computational Photography 2015. 
+            He has served as an editorial board member of IJCV and an area chair of CVPR.
           </p>
         </div>
       </div>
@@ -731,7 +781,7 @@ details > summary::-webkit-details-marker {
       <details class="material-detail">
         <summary class="material-summary">TBD</summary>
         <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
+          <h2 class="material-content-name">SHI Boxin</h2>
           <p>
             TBD
           </p>

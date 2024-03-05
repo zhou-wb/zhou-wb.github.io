@@ -40,6 +40,18 @@ profiles:
       Holographic Imaging, Light Field Modulation<br>
       tongxin661@gmail.com
 
+  - align: 
+    image: Fang.jpg
+    content: 
+    category: Visitor
+    Details: false
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://xzfang.top/" style="font-size: larger; font-weight: bold;">Xianzhong Fang</a><br>
+      Visiting Lecturer/Research Associate from [NBU](https://www.nbu.edu.cn/) <br>
+      Computer Graphics, 3D Modelling<br>
+      fangxianzhong@nbu.edu.cn
+
 
 # Postdoc
   - align: 

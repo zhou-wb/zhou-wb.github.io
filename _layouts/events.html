@@ -556,8 +556,8 @@ details > summary::-webkit-details-marker {
     <div class="session">
       <div class="time">16:10 - 16:35</div>
       <div class="details">
-        <div class="title">TBD</div>
-        <div class="speaker">Min Kim, KAIST</div>
+        <div class="title">Self-Calibrating, Fully Differentiable NLOS Inverse Rendering</div>
+        <div class="speaker">Min H. Kim, KAIST</div>
       </div>
     </div>
 
@@ -642,14 +642,14 @@ details > summary::-webkit-details-marker {
           <h2 class="speaker-name">Min H. Kim</h2>
           <h3 class="speaker-title">Chair Professor, KAIST</h3>
           <p class="speaker-link"><a href="https://vclab.kaist.ac.kr/minhkim/" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">Min H. Kim (김민혁) is the KAIST ICT-Endowed Chair Professor of Computer Science at the KAIST School of Computing, 
-            where he directs the Visual Computing Lab (VCLAB). Prior to joining KAIST, 
-            he was a postdoctoral researcher at Yale University. He holds a Ph.D. in Computer Science from University College London (UCL). 
-            He has received numerous awards, including the SIGGRAPH Technical Paper Award Honorable Mention. His main research areas are computational imaging, 
+          <p class="speaker-abstract">Min H. Kim is a Professor of Computer Science at the KAIST School of Computing, 
+            where he directs the Visual Computing Lab (VCLAB). Prior to joining KAIST, he was a postdoctoral researcher at Yale University. 
+            He holds a Ph.D. in Computer Science from University College London (UCL). 
+            He has received numerous awards, including the SIGGRAPH Technical Paper Award Honorable Mention in 2022. His main research areas are computational imaging, 
             computational photography, 3D imaging, BRDF acquisition, and 3D reconstruction. He has served as Technical Paper Chair for Eurographics 2022, 
             Course Chair for SIGGRAPH Asia 2022, and on many computer graphics and computer vision program committees, including SIGGRAPH, CVPR, ICCV, 
             and Eurographics. He has served as an Associate Editor for top CS journals, including ACM Transactions on Graphics (TOG) and IEEE Transactions on 
-            Visualization and Computer Graphics (TVCG). </p>
+            Visualization and Computer Graphics (TVCG).  </p>
         </div>
       </div>
 
@@ -763,12 +763,20 @@ details > summary::-webkit-details-marker {
       </details>
 
       <details class="material-detail">
-        <summary class="material-summary">TBD</summary>
+        <summary class="material-summary">Self-Calibrating, Fully Differentiable NLOS Inverse Rendering</summary>
         <div class="material-content">
-          <h2 class="material-content-name">Min Kim</h2>
+          <h2 class="material-content-name">Min H. Kim</h2>
           <p>
-            TBD
-  
+            Existing time-resolved non-line-of-sight (NLOS) imaging methods reconstruct hidden scenes by inverting the optical paths of indirect illumination 
+            measured at visible relay surfaces. These methods are prone to reconstruction artifacts due to inversion ambiguities and capture noise, which are 
+            typically mitigated through the manual selection of filtering functions and parameters. This talk introduces a fully-differentiable end-to-end NLOS 
+            inverse rendering pipeline that self-calibrates the imaging parameters during the reconstruction of hidden scenes, using as input only the measured 
+            illumination while working both in the time and frequency domains. The proposed pipeline extracts a geometric representation of the hidden scene 
+            from NLOS volumetric intensities and estimates the time-resolved illumination at the relay wall produced by such geometric information using differentiable 
+            transient rendering. It then uses gradient descent to optimize imaging parameters by minimizing the error between our simulated time-resolved illumination 
+            and the measured illumination. This end-to-end differentiable pipeline couples diffraction-based volumetric NLOS reconstruction with path-space light 
+            transport and a simple ray marching technique to extract detailed, dense sets of surface points and normals of hidden scenes. This talk demonstrates the 
+            robustness of the proposed method to consistently reconstruct geometry and albedo, even under significant noise levels.  
           </p>
         </div>
       </details>

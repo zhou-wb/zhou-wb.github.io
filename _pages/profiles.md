@@ -96,7 +96,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://lagrangeli.github.io/" style="font-size: larger; font-weight: bold;">Zhenyang Li</a><br>
-      Vision (3D) & Graphics (Rendering) & sVRAR<br>
+      Vision (3D) & Graphics (Rendering) & VRAR<br>
       lizy23@connect.hku.hk
 
   - align: 

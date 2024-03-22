@@ -13,7 +13,7 @@ layout: default
   background-position: center bottom;      
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
-  height: 13rem; 
+  height: 14rem; 
   position: relative;
   margin-top: -2.9rem;
   width: 100vw; 
@@ -37,8 +37,8 @@ layout: default
   }
 .textareahead {
       color: #FFF !important;
-      font-size: larger !important;
-      font-size:  min(50px, 12vw)!important;
+      /* font-size: larger !important; */
+      font-size:  min(50px, 10vw)!important;
       font-weight: 700!important;
     }
 </style>
@@ -46,7 +46,7 @@ layout: default
 <!-- about.html -->
       <div class="bg-gray-200 p-5 mb-5 conference-background">
         <div class="text-container">
-          <h3 class="text-3xl font-bold mb-2 textareahead">WeLight @ HKU</h3>
+          <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light<br>We shape light for better life</h3>
           <!-- <p class="mb-2 textarea">8 April, 2024 PM</p>
           <p class="mb-2 textarea">Rayson Huang Lecture Theatre, The University of Hong Kong, HONG KONG SAR</p> -->
         </div>
@@ -55,12 +55,12 @@ layout: default
 
 
       <div class="post">
-        <!-- <header class="post-header">
+        <header class="post-header">
           <h1 class="post-title">
             {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}<span class="font-weight-bold">{{- site.title -}}</span>&nbsp;{{- site.title1 -}}{%- endif %}
           </h1>
           <p class="desc">{{ page.subtitle }}</p>
-        </header> -->
+        </header>
 
         <article>
           {% if page.profile -%}

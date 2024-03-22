@@ -1,9 +1,9 @@
 ---
 layout: events
 permalink: /events/
-title: events
+title: Events
 description: 
-nav: false
-# nav_order: 2
+nav: True
+nav_order: 2
 
 ---

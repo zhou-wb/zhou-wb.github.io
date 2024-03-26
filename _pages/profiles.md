@@ -106,7 +106,7 @@ profiles:
     category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://www.linkedin.com/in/wenbin-zhou-00a710105/" style="font-size: larger; font-weight: bold;">Wenbin Zhou</a><br>
+      <a href="https://hku.welight.fun/wenbin" style="font-size: larger; font-weight: bold;">Wenbin Zhou</a><br>
       Computational Holography, VR/AR, Graphics<br>
       zhouwb@connect.hku.hk
 

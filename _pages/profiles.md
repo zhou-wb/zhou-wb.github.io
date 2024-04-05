@@ -63,7 +63,7 @@ profiles:
     more_info: >
       <a href="https://liux2018.github.io/" style="font-size: larger; font-weight: bold;">Xin Liu</a><br>
       Computational Optics<br>
-      liuxin2018@zju.edu.cn
+      liuxin24@hku.hk
 
 # Phd
   - align: 

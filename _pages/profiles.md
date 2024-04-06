@@ -84,7 +84,7 @@ profiles:
     category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
-      <span style="font-size: larger; font-weight: bold;">Xiangyu Meng</span><br>
+      <a href="https://www.linkedin.com/in/xiangyu-meng-907836302/" style="font-size: larger; font-weight: bold;">Xiangyu Meng</a><br>
       Computational Holography, Graphics<br>
       mengxy22@connect.hku.hk
 
@@ -131,7 +131,7 @@ profiles:
     more_info: >
       <a href="https://www.linkedin.com/in/OuLiangxun/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
       Deep Optics, RGBD Imaging, Computer Vision<br>
-      u3605728@connect.hku.hk
+      oulx@hku.hk
 
   - align: 
     image: Feifan.jpg
@@ -142,7 +142,7 @@ profiles:
     more_info: >
       <a href="https://www.linkedin.com/in/QuFeifan/" style="font-size: larger; font-weight: bold;">Feifan Qu</a><br>
       Computational Holography, VR/AR <br>
-      u3603195@connect.hku.hk
+      feifan@hku.hk
 
 # Master
 

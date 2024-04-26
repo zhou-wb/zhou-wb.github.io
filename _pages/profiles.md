@@ -140,7 +140,7 @@ profiles:
     category: RA
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://www.linkedin.com/in/QuFeifan/" style="font-size: larger; font-weight: bold;">Feifan Qu</a><br>
+      <a href="https://qufeifan.github.io/" style="font-size: larger; font-weight: bold;">Feifan Qu</a><br>
       Computational Holography, VR/AR <br>
       feifan@hku.hk
 

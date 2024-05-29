@@ -26,7 +26,8 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://vccimaging.org/People/heidriw/" style="font-size: larger; font-weight: bold;">Wolfgang Heidrich</a><br>
-      Visiting Professor from [KAUST](https://cemse.kaust.edu.sa/) 
+      Visiting Professor from [KAUST](https://cemse.kaust.edu.sa/) <br>
+      (2023 Fall, 2022 Fall)
 
   - align: 
     image: Tongxin.jpg

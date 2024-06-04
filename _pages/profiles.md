@@ -146,7 +146,7 @@ profiles:
       oulx@hku.hk
 
   - align: 
-    image: Feifan.jpg
+    image: Feifan.png
     content: 
     Details: false
     category: RA

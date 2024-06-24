@@ -66,6 +66,7 @@ profiles:
       Computational Optics<br>
       liuxin24@hku.hk
 
+
   - align: 
     image: Xiaoyang.jpg
     content: 
@@ -73,7 +74,7 @@ profiles:
     Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a style="font-size: larger; font-weight: bold;">Xiaoyang Bai</a><br>
+      <a href="https://andrewbxy.github.io/" style="font-size: larger; font-weight: bold;">Xiaoyang Bai</a><br>
       Computer Vision, Event Camera, Computational Optics<br>
       xybai@hku.hk
 

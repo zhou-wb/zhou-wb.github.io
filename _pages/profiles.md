@@ -157,6 +157,17 @@ profiles:
       Computational Optics<br>
       huangdlan@connect.hku.hk
 
+  - align:
+    image: Liaoli.jpg
+    content: 
+    Details: false
+    category: PhD students
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://www.linkedin.com/in/li-liao-851ab0326" style="font-size: larger; font-weight: bold;">Li Liao</a><br>
+      Computational Optics<br>
+      liliao24@connect.hku.hk
+
 # RA
   - align: 
     image: Liangxun.jpg

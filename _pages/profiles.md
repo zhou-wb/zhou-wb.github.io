@@ -146,6 +146,17 @@ profiles:
       Computational Holography, Graphics, Video Compression<br>
       hmban@connect.hku.hk
 
+  - align:
+    image: Duolan.jpg
+    content: 
+    Details: false
+    category: PhD students
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://duolanhuang.github.io/" style="font-size: larger; font-weight: bold;">Duolan Huang</a><br>
+      Computational Optics<br>
+      huangdlan@connect.hku.hk
+
 # RA
   - align: 
     image: Liangxun.jpg
@@ -230,4 +241,15 @@ profiles:
       <span style="font-size: larger; font-weight: bold;">Jonathan Song</span><br>
       Summer Research Intern<br>
       Now at MIT
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Peixin Weng</span><br>
+      Summer Research Intern<br>
+      Now at Tsinghua University
 ---

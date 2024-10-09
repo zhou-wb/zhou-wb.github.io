@@ -17,41 +17,18 @@ profiles:
     more_info: >
         <a href="https://www.eee.hku.hk/~evanpeng/" style="font-size: larger; font-weight: bold;">Yifan (Evan) Peng</a><br>
         Assistant Professor \| Group Leader
-# Visitor
+  
   - align: 
     image: Wolfgang.jpg
     content: 
-    category: Visitor
+    category: PI
     Details: false
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://vccimaging.org/People/heidriw/" style="font-size: larger; font-weight: bold;">Wolfgang Heidrich</a><br>
-      Visiting Professor from [KAUST](https://cemse.kaust.edu.sa/) <br>
-      (2023 Fall, 2022 Fall)
+      STEM Professor <br>
+# Visitor
 
-  - align: 
-    image: Tongxin.jpg
-    content: 
-    category: Visitor
-    Details: false
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <a href="https://tongxinoptica.github.io/XinTong.github.io/" style="font-size: larger; font-weight: bold;">Xin Tong</a><br>
-      Visiting PhD from [ZJU](https://www.zju.edu.cn/) <br>
-      Holographic Imaging, Light Field Modulation<br>
-      tongxin661@gmail.com
-
-  - align: 
-    image: Fang.jpg
-    content: 
-    category: Visitor
-    Details: false
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <a href="https://xzfang.top/" style="font-size: larger; font-weight: bold;">Xianzhong Fang</a><br>
-      Visiting Lecturer/Research Associate from [NBU](https://www.nbu.edu.cn/) <br>
-      Computer Graphics, 3D Modelling<br>
-      fangxianzhong@nbu.edu.cn
 
 
 # Postdoc
@@ -230,6 +207,30 @@ profiles:
   #   more_info: >
   #     <span style="font-size: larger; font-weight: bold;">Feifan Qu</span><br>
   #     Master
+
+  - align: 
+    image: #Tongxin.jpg
+    content: 
+    category: Alumni
+    Details: false
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://tongxinoptica.github.io/XinTong.github.io/" style="font-size: larger; font-weight: bold;">Xin Tong</a><br>
+      Visiting PhD from [ZJU](https://www.zju.edu.cn/) <br>
+      Holographic Imaging, Light Field Modulation<br>
+      tongxin661@gmail.com
+
+  - align: 
+    image: #Fang.jpg
+    content: 
+    category: Alumni
+    Details: false
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://xzfang.top/" style="font-size: larger; font-weight: bold;">Xianzhong Fang</a><br>
+      Visiting Lecturer/Research Associate from [NBU](https://www.nbu.edu.cn/) <br>
+      Computer Graphics, 3D Modelling<br>
+      fangxianzhong@nbu.edu.cn
 
   - align: 
     image: 

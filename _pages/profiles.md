@@ -26,7 +26,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://vccimaging.org/People/heidriw/" style="font-size: larger; font-weight: bold;">Wolfgang Heidrich</a><br>
-      STEM Visiting Professor <br>
+      HK STEM Visiting Professor <br>
 # Visitor
 
 

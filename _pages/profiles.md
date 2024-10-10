@@ -275,3 +275,5 @@ profiles:
       <span style="font-size: larger; font-weight: bold;">Jonathan Song</span><br>
       Summer Research Intern<br>
       Now at MIT
+
+---

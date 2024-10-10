@@ -275,15 +275,3 @@ profiles:
       <span style="font-size: larger; font-weight: bold;">Jonathan Song</span><br>
       Summer Research Intern<br>
       Now at MIT
-
-  - align: 
-    image: 
-    content: 
-    Details: false
-    category: Alumni
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <span style="font-size: larger; font-weight: bold;">Peixin Weng</span><br>
-      Summer Research Intern<br>
-      Now at Tsinghua University
----

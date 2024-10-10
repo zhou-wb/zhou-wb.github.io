@@ -207,6 +207,28 @@ profiles:
   #   more_info: >
   #     <span style="font-size: larger; font-weight: bold;">Feifan Qu</span><br>
   #     Master
+  - align: 
+    image:
+    content: 
+    category: Alumni
+    Details: false
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Enoch Chan</span><br>
+      Summer Research Intern<br>
+      Now at Cambrdige University
+
+
+  - align: 
+    image:
+    content: 
+    category: Alumni
+    Details: false
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Peixin Weng</span><br>
+      Summer Research Intern<br>
+      Now at Tsinghua University
 
   - align: 
     image: #Tongxin.jpg
@@ -216,9 +238,9 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://tongxinoptica.github.io/XinTong.github.io/" style="font-size: larger; font-weight: bold;">Xin Tong</a><br>
-      Visiting PhD from [ZJU](https://www.zju.edu.cn/) <br>
+      Visiting PhD <br>
       Holographic Imaging, Light Field Modulation<br>
-      tongxin661@gmail.com
+      Now at Zhejiang University
 
   - align: 
     image: #Fang.jpg
@@ -228,9 +250,9 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://xzfang.top/" style="font-size: larger; font-weight: bold;">Xianzhong Fang</a><br>
-      Visiting Lecturer/Research Associate from [NBU](https://www.nbu.edu.cn/) <br>
+      Visiting Lecturer/Research Associate<br>
       Computer Graphics, 3D Modelling<br>
-      fangxianzhong@nbu.edu.cn
+      Now at Ningbo University
 
   - align: 
     image: 

@@ -145,6 +145,18 @@ profiles:
       Computational Optics<br>
       liliao24@connect.hku.hk
 
+  - align:
+    image: Pengfei.png
+    content: 
+    Details: false
+    category: PhD students
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://jerry-shen0527.github.io/" style="font-size: larger; font-weight: bold;">Pengfei Shen</a><br>
+      Computer Graphics, Computational Imaging<br>
+      pengfei.shen@connect.hku.hk
+
+
 # RA
   - align: 
     image: Liangxun.jpg
@@ -154,7 +166,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/OuLiangxun/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
-      Deep Optics, RGBD Imaging, Computer Vision<br>
+      Computational Imaging, Computer Vision<br>
       oulx@hku.hk
 
   - align: 

@@ -39,6 +39,12 @@ layout: custom
       font-size: 30px!important;
       font-weight: 700!important;
     }
+
+    .textarea {
+    color: #FFF !important;
+    font-weight: 600 !important;
+    font-size: larger !important;
+  }
   /* .conference-background {
     background-image: url('/assets/img/conferencebg.jpg');
     background-size: cover ; 
@@ -438,6 +444,70 @@ details > summary::-webkit-details-marker {
 
   }
 
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    height: 70%; 
+    max-height: 90%;
+    overflow: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.nav-link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff; 
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.3); 
+    padding: 8px 12px;
+    border-radius: 5px;
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: #ffffff; 
+}
+
+
 </style>
 </head>
 
@@ -452,15 +522,32 @@ details > summary::-webkit-details-marker {
     <img src="/assets/img/logos/Eng_.jpg" alt="HKU" class="conference-image">
     </div>
   </div>
-  <!-- <p class="mb-10">WELIGHT workshop presents a annual workshop attended by tens of thousands of industry experts. Considered the world's largest, most influential workshops on computer graphics and interactive techniques, these workshops inspire progress through education and collaboration.</p> -->
 
-  <div class="bg-gray-200 p-5 mb-5 conference-background">
+  <!-- <div class="bg-gray-200 p-5 mb-5 conference-background">
     <div class="text-container">
       <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
       <p class="mb-2 textarea">13 November, 2024 PM</p>
-      <p class="mb-2 textarea">Location TBD</p>
+      <p class="mb-2 textarea">Tam Wing Fan Innovation Wing Two, The University of Hong Kong, HONG KONG SAR</p>
+      <a href="https://innowings.engg.hku.hk/innowing2/visitors/" target="_blank" class="mb-2 textarea">Navigate Here</a>
     </div>
+  </div> -->
+
+  <div class="bg-gray-200 p-5 mb-5 conference-background">
+    <div class="text-container">
+        <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
+        <p class="mb-2 textarea">13 November, 2024 PM</p>
+        <p class="mb-2 textarea">Tam Wing Fan Innovation Wing Two, The University of Hong Kong, HONG KONG SAR</p>
+        <a href="#" class="mb-2 nav-link" onclick="openModal()">Navigate Here</a>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe src="https://innowings.engg.hku.hk/innowing2/visitors/" width="100%" height="100%"></iframe>
   </div>
+</div>
 
 
   <h2 class="text-4xl font-bold mb-5">Workshop Objectives</h2>
@@ -529,12 +616,12 @@ details > summary::-webkit-details-marker {
       { title: 'TBD', duration: 20, speaker: 'Junjie Chen, HKU', showTime: true },
       { title: 'TBD', duration: 20, speaker: 'Ruizhen Hu, Shenzhen University (SZU)', showTime: true },
       { title: 'TBD', duration: 20, speaker: 'Taku Komura, HKU', showTime: true },
-      { title: 'TBD', duration: 20, speaker: 'Weiwei Xu, ZJU', showTime: true },
+      { title: 'TBD', duration: 10, speaker: 'Weiwei Xu, ZJU', showTime: true },
       { title: 'Closing Remarks & Tea Reception', duration: 10, speaker: 'Evan Y. Peng, HKU & Wolfgang Heidrich, HKU', showTime: true },      
     ];
 
     let currentTime = new Date();
-    currentTime.setHours(13, 20); 
+    currentTime.setHours(13, 40); 
 
     const scheduleContainer = document.getElementById('schedule');
 
@@ -567,6 +654,24 @@ details > summary::-webkit-details-marker {
     } else {
       console.error("Schedule container not found");
     }
+
+
+    function openModal() {
+        document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("modal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+
   </script>
   
   
@@ -584,7 +689,7 @@ details > summary::-webkit-details-marker {
           <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
             Ligang Liu is a professor at University of Science and Technology of China, recipient of the “Distinguished Young Scholars” award from the National Natural Science Foundation of China. He currently serves as the Head of the Department of Computational and Applied Mathematics at the School of Mathematical Sciences and the Director of the Anhui Key Laboratory for Graphics Computation and Perceptual Interaction. His research focuses on computer graphics, with over 50 papers published in leading journals such as ACM Transactions on Graphics. His accolades include the inaugural ACM SIGGRAPH Asia Test-of-Time Award (2023), the second prize of the National Natural Science Award (ranked third) (2013), and the first prize of the Lu Zengyong CAD&CG High-Tech Award (2010). 
-            He is the Chair of the Geometric Design and Computing Professional Committee of the China Society for Industrial and Applied Mathematics (CSIAM GDC), an executive council member of the China Graphics Society, an executive member of the Technical Committee on Computer-Aided Design and Graphics of the China Computer Federation, a member of the Steering Committee of the International Association for Geometry Modeling and Processing (GMP), and the Secretary-General of the Asiagraphics Association. 
+            <!-- He is the Chair of the Geometric Design and Computing Professional Committee of the China Society for Industrial and Applied Mathematics (CSIAM GDC), an executive council member of the China Graphics Society, an executive member of the Technical Committee on Computer-Aided Design and Graphics of the China Computer Federation, a member of the Steering Committee of the International Association for Geometry Modeling and Processing (GMP), and the Secretary-General of the Asiagraphics Association.  -->
           </p>
         </div>
       </div>
@@ -611,7 +716,7 @@ details > summary::-webkit-details-marker {
           <p class="speaker-link"><a href="https://hongbofu.people.ust.hk/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
         
-            Hongbo Fu is a Professor at the Division of Emerging Interdisciplinary Areas, Hong Kong University of Science Technology. Before joining HKUST, he worked at the School of Creative Media, City University of Hong Kong, for over 15 years. He had postdoctoral research training at the Imager Lab, University of British Columbia, Canada, and the Department of Computer Graphics, Max-Planck-Institut Informatik, Germany. He received a Ph.D. degree in computer science from the Hong Kong University of Science and Technology in 2007 and a BS degree in information sciences from Peking University, China, in 2002. His primary research interests fall in computer graphics, human-computer interaction, and computer vision. His research has led to over 100 scientific publications, including 70+ papers in the best graphics/vision journals (ACM TOG, IEEE TVCG, IEEE PAMI) and 30+ papers in the best vision/HCI conferences (CVPR, ICCV, ECCV, CHI, UIST). His recent works have received a Silver Medal from Special Edition 2022 Inventions Geneva Evaluation Days (IGED), the Best Demo awards at the Emerging Technologies program, ACM SIGGRAPH Asia in 2013 and 2014, and the Best Paper awards from CAD/Graphics 2015 and UIST 2019.
+            Hongbo Fu is a Professor at the Division of Emerging Interdisciplinary Areas, HKUST. Before that, he worked at the School of Creative Media, City University of Hong Kong, for over 15 years. He had postdoctoral research training at the Imager Lab, University of British Columbia, Canada, and the Department of Computer Graphics, Max-Planck-Institut Informatik, Germany. He received a Ph.D. degree in computer science from HKUST in 2007 and a BS degree in information sciences from Peking University, China, in 2002. His primary research interests fall in computer graphics, human-computer interaction, and computer vision. His research has led to over 100 scientific publications, including 70+ papers in the best graphics/vision journals and 30+ papers in the best vision/HCI conferences. His recent works have received a Silver Medal from Special Edition 2022 Inventions Geneva Evaluation Days, the Best Demo awards at the Emerging Technologies program, ACM SIGGRAPH Asia in 2013 and 2014, and the Best Paper awards from CAD/Graphics 2015 and UIST 2019.
           
           </p>
         </div>
@@ -626,7 +731,7 @@ details > summary::-webkit-details-marker {
           <h3 class="speaker-title">Research Assistant Professor, HKU</h3>
           <p class="speaker-link"><a href="https://www.j-chen.me/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
-            Dr. Junjie Chen is a research assistant professor in the Department of Real Estate and Construction at HKU. Before his current position, he has been a postdoctoral fellow from 2020 to 2022 at HKU. He obtained his PhD in hydraulic engineering from Tianjin University in 2020, and was a visiting researcher at the University of Tennessee, Knoxville from 2018 to 2019. His research work on “smart inspection using robotic, AI, and BIM” was awarded a nationwide excellent doctoral dissertation in 2022, and selected as an invited talk at the “AI and BIM” session of Eastman Symposium in 2021. Dr. Chen has published more than 30 papers on international journals and conferences, including on top journals such as Computer-Aided Civil and Infrastructure Engineering, Resources, Conservation and Recycling, Automation in Construction, Building and Environment. He has co-authored a book (second in order), and obtained five patents. He is a member of the American Society of Civil Engineers (ASCE), Institute of Electrical and Electronics Engineers (IEEE), and the Chinese Hydraulic Engineering society (CHES).</p>
+            Junjie Chen is a Research Assistant Professor in the Department of Real Estate and Construction at HKU. Before that, he has been a postdoctoral fellow from 2020 to 2022 at HKU. He obtained his PhD in hydraulic engineering from Tianjin University in 2020, and was a visiting researcher at the University of Tennessee, Knoxville from 2018 to 2019. His research work on “smart inspection using robotic, AI, and BIM” was awarded a nationwide excellent doctoral dissertation in 2022, and selected as an invited talk at the “AI and BIM” session of Eastman Symposium in 2021. Dr. Chen has published more than 30 papers on international journals and conferences, including on top journals such as Computer-Aided Civil and Infrastructure Engineering, Resources, Conservation and Recycling, Automation in Construction, Building and Environment. He has co-authored a book (second in order), and obtained five patents. He is a member of the American Society of Civil Engineers (ASCE), Institute of Electrical and Electronics Engineers (IEEE), and the Chinese Hydraulic Engineering society (CHES).</p>
         </div>
       </div>
 
@@ -637,7 +742,7 @@ details > summary::-webkit-details-marker {
           <h3 class="speaker-title">Distinguished Professor, SZU; Chair, Graphics And Mixed Environment Symposium (GAMES)</h3>
           <p class="speaker-link"><a href="https://csse.szu.edu.cn/staff/ruizhenhu/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
-            Ruizhen Hu is currently a Distinguished Professor of College of Computer Science & Software Engineering at Shenzhen University and Deputy Director of the Visual Computing Research Center (VCC). Before coming to Shenzhen University, she was an Assistant Researcher at Shenzhen Institutes of Advanced Technology (SIAT). She obtained her Ph.D. degree in Applied Math under the supervision of Prof. Ligang Liu in 2015 from the Department of Mathematics at Zhejiang University, China. From Oct. 2012 to Oct. 2014, she spent two years visiting the GrUVi Lab in the School of Computing Science at Simon Fraser University, Canada, under the supervision of Prof. Hao (Richard) Zhang. The visit was supported by China Scholarship Council (CSC). Her research interests are in computer graphics, with a recent focus on applying machine learning to advance the understanding and generative modeling of visual data including 3D shapes and indoor scenes.  
+            Ruizhen Hu is currently a Distinguished Professor of College of Computer Science & Software Engineering at Shenzhen University and Deputy Director of the Visual Computing Research Center (VCC). Before coming to Shenzhen University, she was an Assistant Researcher at Shenzhen Institutes of Advanced Technology (SIAT). She obtained her Ph.D. degree in Applied Math under the supervision of Prof. Ligang Liu in 2015 from the Department of Mathematics at Zhejiang University, China. From Oct. 2012 to Oct. 2014, she spent two years visiting the GrUVi Lab in the School of Computing Science at Simon Fraser University, Canada, under the supervision of Prof. Hao (Richard) Zhang. The visit was supported by China Scholarship Council (CSC). Her research interests encompass computer graphics and embodied AI, with a focus on pioneering novel techniques to accurately model the 3D world and bolster the capabilities of embodied agents to interact with the 3D world.
           </p>
         </div>
       </div>

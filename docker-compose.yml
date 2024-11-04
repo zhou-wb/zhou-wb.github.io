@@ -8,5 +8,6 @@ services:
       - 8080:8080
     volumes:
       - .:/srv/jekyll
-    command: jekyll serve --host 0.0.0.0 --port 8080 --watch --force_polling
+      # - ./assets/img:/srv/jekyll/assets
+    command: jekyll serve --host 0.0.0.0 --port 8080 --watch 
 

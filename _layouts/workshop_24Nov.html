@@ -476,6 +476,7 @@ details > summary::-webkit-details-marker {
           <!-- <p>SIGGRAPH workshops must recognize, encourage and support the effective participation of their constituents.</p> -->
         </div>
       </div>
+      asdasd
 
       <div class="flex items-start mb-2" style = "margin-bottom: 2rem !important">
         <div class="text-red-500 mr-2">
@@ -523,20 +524,20 @@ details > summary::-webkit-details-marker {
   <script>
     const sessions = [
       { title: '<a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">MC: Evan Y. Peng, The University of Hong Kong (HKU)</a>', duration: 0, showTime: false },
-      { title: 'Check-in & Welcome Preview', duration: 15, showTime: true },
+      { title: 'Check-in & Welcome Preview', duration: 10, showTime: true },
       { title: 'Opening Remarks', duration: 10, speaker: 'TBD', showTime: true },
-      { title: 'TBD', duration: 30, speaker: 'Ligang Liu, The University of Science and Technology of China', showTime: true },
-      { title: 'TBD', duration: 25, speaker: 'Hongbo Fu, Hong Kong University of Science Technology (HKUST)', showTime: true },
-      { title: 'Tea Reception', duration: 30, showTime: true },
-      { title: 'TBD', duration: 25, speaker: 'Ruizhen Hu, Shenzhen University', showTime: true },
-      { title: 'TBD', duration: 25, speaker: 'Junjie Chen, HKU', showTime: true },
-      { title: 'TBD', duration: 25, speaker: 'Taku Komura, HKU', showTime: true },
-      { title: 'TBD', duration: 25, speaker: 'Weiwei XU, Zhejiang university', showTime: true },
-      { title: 'Closing Remarks', duration: 5, speaker: 'TBD', showTime: true }
+      { title: 'TBD', duration: 25, speaker: 'Ligang Liu, The University of Science and Technology of China', showTime: true },
+      { title: 'TBD', duration: 20, speaker: 'Hongbo Fu, Hong Kong University of Science Technology (HKUST)', showTime: true },
+      { title: 'Intermission', duration: 5, showTime: true },
+      { title: 'TBD', duration: 20, speaker: 'Ruizhen Hu, Shenzhen University', showTime: true },
+      { title: 'TBD', duration: 20, speaker: 'Junjie Chen, HKU', showTime: true },
+      { title: 'TBD', duration: 20, speaker: 'Taku Komura, HKU', showTime: true },
+      { title: 'TBD', duration: 20, speaker: 'Weiwei XU, Zhejiang University', showTime: true },
+      { title: 'Closing Remarks & Tea Reception', duration: 10, speaker: 'TBD', showTime: true },      
     ];
 
     let currentTime = new Date();
-    currentTime.setHours(14, 15); 
+    currentTime.setHours(13, 50); 
 
     const scheduleContainer = document.getElementById('schedule');
 
@@ -592,10 +593,24 @@ details > summary::-webkit-details-marker {
       </div>
 
       <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Wolfgang Heidrich.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Wolfgang Heidrich</h2>
+          <h3 class="speaker-title">Professor and Head, Department of Computational and Applied Mathematics, The University of Science and Technology of China</h3>
+          <p class="speaker-link"><a href="https://vccimaging.org/People/heidriw/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            Wolfgang Heidrich is a Professor of Computer Science and Electrical and Computer Engineering at King Abdullah University of Science and Technology (KAUST), where he also served as director from 2014 to 2021. He is currently also a STEM Visiting Professor at the University of Hong Kong (HKU). He joined KAUST in 2014 after 13 years as a faculty member in the computer science department at the University of British Columbia (UBC). Prof. Heidrich has been recognized as an AAIA Fellow, IEEE Fellow, and Eurographics Fellow, and has received the ACM SIGGRAPH Achievement Award and the Test-of-Time Award. He is best known for his pioneering work in developing high dynamic range (HDR) imaging and displays, which led to the creation of the technology behind Brightside Technologies. This technology was acquired by Dolby and subsequently evolved into a core component of Dolby Vision, a leading technical solution for commercial displays.
+          </p>
+        </div>
+      </div>
+
+
+
+      <div class="speaker-profile">
         <img class="speaker-photo" src="/assets/img/workshop/Hongbo Fu.jpg" alt="Speaker Name">
         <div class="speaker-content">
           <h2 class="speaker-name">Hongbo Fu</h2>
-          <h3 class="speaker-title">Professor, Hong Kong University of Science Technology</h3>
+          <h3 class="speaker-title">Professor, Hong Kong University of Science Technology; Paper Chair, Siggraph Asian 2016</h3>
           <p class="speaker-link"><a href="https://hongbofu.people.ust.hk/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
         
@@ -605,26 +620,28 @@ details > summary::-webkit-details-marker {
         </div>
       </div>
 
-      <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/workshop/Ruizhen Hu.jpeg" alt="Speaker Name">
-        <div class="speaker-content">
-          <h2 class="speaker-name"> Ruizhen Hu</h2>
-          <h3 class="speaker-title">Distinguished Professor, Shenzhen University</h3>
-          <p class="speaker-link"><a href="https://csse.szu.edu.cn/staff/ruizhenhu/" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">
-            Ruizhen Hu is currently a Distinguished Professor of College of Computer Science & Software Engineering at Shenzhen University and Deputy Director of the Visual Computing Research Center (VCC). Before coming to Shenzhen University, she was an Assistant Researcher at Shenzhen Institutes of Advanced Technology (SIAT). She obtained her Ph.D. degree in Applied Math under the supervision of Prof. Ligang Liu in 2015 from the Department of Mathematics at Zhejiang University, China. From Oct. 2012 to Oct. 2014, she spent two years visiting the GrUVi Lab in the School of Computing Science at Simon Fraser University, Canada, under the supervision of Prof. Hao (Richard) Zhang. The visit was supported by China Scholarship Council (CSC). Her research interests are in computer graphics, with a recent focus on applying machine learning to advance the understanding and generative modeling of visual data including 3D shapes and indoor scenes.  
-          </p>
-        </div>
-      </div>
+
 
       <div class="speaker-profile">
         <img class="speaker-photo" src="/assets/img/workshop/Junjie Chen.jpg" alt="Speaker Name">
         <div class="speaker-content">
           <h2 class="speaker-name">Junjie Chen</h2>
-          <h3 class="speaker-title">Research Assistant Professor, the University of Hong Kong</h3>
+          <h3 class="speaker-title">Research Assistant Professor, The University of Hong Kong; </h3>
           <p class="speaker-link"><a href="https://www.j-chen.me/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
             Dr. Junjie Chen is a research assistant professor in the Department of Real Estate and Construction at HKU. Before his current position, he has been a postdoctoral fellow from 2020 to 2022 at HKU. He obtained his PhD in hydraulic engineering from Tianjin University in 2020, and was a visiting researcher at the University of Tennessee, Knoxville from 2018 to 2019. His research work on “smart inspection using robotic, AI, and BIM” was awarded a nationwide excellent doctoral dissertation in 2022, and selected as an invited talk at the “AI and BIM” session of Eastman Symposium in 2021. Dr. Chen has published more than 30 papers on international journals and conferences, including on top journals such as Computer-Aided Civil and Infrastructure Engineering, Resources, Conservation and Recycling, Automation in Construction, Building and Environment. He has co-authored a book (second in order), and obtained five patents. He is a member of the American Society of Civil Engineers (ASCE), Institute of Electrical and Electronics Engineers (IEEE), and the Chinese Hydraulic Engineering society (CHES).</p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Ruizhen Hu.jpeg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name"> Ruizhen Hu</h2>
+          <h3 class="speaker-title">Distinguished Professor, Shenzhen University; Chair, Graphics And Mixed Environment Symposium (GAMES)</h3>
+          <p class="speaker-link"><a href="https://csse.szu.edu.cn/staff/ruizhenhu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            Ruizhen Hu is currently a Distinguished Professor of College of Computer Science & Software Engineering at Shenzhen University and Deputy Director of the Visual Computing Research Center (VCC). Before coming to Shenzhen University, she was an Assistant Researcher at Shenzhen Institutes of Advanced Technology (SIAT). She obtained her Ph.D. degree in Applied Math under the supervision of Prof. Ligang Liu in 2015 from the Department of Mathematics at Zhejiang University, China. From Oct. 2012 to Oct. 2014, she spent two years visiting the GrUVi Lab in the School of Computing Science at Simon Fraser University, Canada, under the supervision of Prof. Hao (Richard) Zhang. The visit was supported by China Scholarship Council (CSC). Her research interests are in computer graphics, with a recent focus on applying machine learning to advance the understanding and generative modeling of visual data including 3D shapes and indoor scenes.  
+          </p>
         </div>
       </div>
 
@@ -633,7 +650,7 @@ details > summary::-webkit-details-marker {
         <img class="speaker-photo" src="/assets/img/workshop/Taku Komura.jpg" alt="Speaker Name">
         <div class="speaker-content">
           <h2 class="speaker-name">Taku Komura</h2>
-          <h3 class="speaker-title">Professor, the University of Hong Kong</h3>
+          <h3 class="speaker-title">Professor, The University of Hong Kong; Chair, Siggraph Asian</h3>
           <p class="speaker-link"><a href="https://i.cs.hku.hk/~taku/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
             Taku Komura joined the University of Hong Kong in 2020. Before joining HKU, he worked at the University of Edinburgh (2006-2020), City University of Hong Kong (2002-2006) and RIKEN (2000-2002). He received his BSc, MSc and PhD in Information Science from University of Tokyo. His research has focused on data-driven character animation, physically-based character animation, crowd simulation, 3D modelling, cloth animation, anatomy-based modelling and robotics. Recently, his main research interests have been on physically-based animation and the application of machine learning techniques for animation synthesis. He received the Royal Society Industry Fellowship (2014) and the Google AR/VR Research Award (2017).
@@ -645,7 +662,7 @@ details > summary::-webkit-details-marker {
         <img class="speaker-photo" src="/assets/img/workshop/Weiwei XU.jpg" alt="Speaker Name">
         <div class="speaker-content">
           <h2 class="speaker-name">Weiwei XU</h2>
-          <h3 class="speaker-title">Professor, Zhejiang university</h3>
+          <h3 class="speaker-title">Professor, Zhejiang University; The Changjiang (Yangtze River) Scholar awarder; Progrom Chair, ChinaVR 2024</h3>
           <p class="speaker-link"><a href="http://www.cad.zju.edu.cn/home/weiweixu/weiweixu_en.htm" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
             Weiwei Xu is currently a Professor at state key lab of CAD&CG in Zhejiang university. He was a Qianjiang Professor at Hangzhou Normal University and a researcher in Internet Graphics Group at Microsoft Research Asia from 2005 to 2012,  and he was a post-doc researcher at Ritsmeikan university in Japan for more than one year. He received Ph.D. Degree in Computer Graphics from Zhejiang University, Hangzhou, and B.S. Degree and Master Degree in Computer Science from Hohai University in 1996 and 1999 respectively.
@@ -748,6 +765,9 @@ details > summary::-webkit-details-marker {
       </a>
       <a href="https://www.zju.edu.cn/" target="_blank">
         <img src="/assets/img/logos/ZJU.png" alt="Organization 5 Logo" >
+      </a>
+      <a href="https://www.kaust.edu.sa/en/" target="_blank">
+        <img src="/assets/img/logos/KAUST.png" alt="Organization 6 Logo" >
       </a>
 
     </div>

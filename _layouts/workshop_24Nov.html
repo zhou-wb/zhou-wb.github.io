@@ -541,11 +541,16 @@ details > summary::-webkit-details-marker {
     </div>
 </div>
 
-<!-- Modal Structure -->
-<div id="modal" class="modal">
+<!-- <div id="modal" class="modal">
   <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <iframe src="https://innowings.engg.hku.hk/innowing2/visitors/" width="100%" height="100%"></iframe>
+  </div>
+</div> -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe id="modal-iframe" src="https://innowings.engg.hku.hk/innowing2/visitors/" width="100%" height="100%"></iframe>
   </div>
 </div>
 
@@ -607,7 +612,7 @@ details > summary::-webkit-details-marker {
 
   <script>
     const sessions = [
-      { title: 'MC: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Evan Y. Peng, The University of Hong Kong (HKU)</a> & <a href="https://www.zju.edu.cn/" target="_blank">Weiwei Xu, Zhejiang University (ZJU)</a>', duration: 0, showTime: false },
+      { title: 'MC: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Evan Y. Peng, The University of Hong Kong (HKU)</a> & <a href="http://www.cad.zju.edu.cn/home/weiweixu/weiweixu_en.htm" target="_blank">Weiwei Xu, Zhejiang University (ZJU)</a>', duration: 0, showTime: false },
       { title: 'Check-in & Welcome Preview', duration: 10, showTime: true },
       { title: 'Opening Remarks', duration: 10, speaker: 'Wolfgang Heidrich, HKU & Weiwei Xu, ZJU', showTime: true },
       { title: 'TBD', duration: 25, speaker: 'Ligang Liu, University of Science and Technology of China (USTC)', showTime: true },
@@ -654,6 +659,7 @@ details > summary::-webkit-details-marker {
     } else {
       console.error("Schedule container not found");
     }
+
 
 
     function openModal() {

@@ -165,7 +165,7 @@ profiles:
     category: RA
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://www.linkedin.com/in/OuLiangxun/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
+      <a href="https://liangxunou.github.io/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
       Computational Imaging, Computer Vision<br>
       oulx@hku.hk
 

@@ -113,6 +113,18 @@ profiles:
       liuyuhui@connect.hku.hk
 
   - align:
+    image: Shijie.jpg
+    content: 
+    Details: false
+    category: PhD students
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://scholar.google.com/citations?user=sQINQ-YAAAAJ&hl=en" style="font-size: larger; font-weight: bold;">Shijie Lin</a> <br>
+      <small>(Co-supervised)</small> <br>
+      Event-based Vision, Robotics, Computational Imaging<br>
+      lsj2048@connect.hku.hk
+
+  - align:
     image: Hyunmin.jpg
     content: 
     Details: false
@@ -167,7 +179,7 @@ profiles:
     more_info: >
       <a href="https://liangxunou.github.io/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
       Computational Imaging, Computer Vision<br>
-      oulx@hku.hk
+      u3605728@connect.hku.hk
 
   - align: 
     image: Feifan.png
@@ -189,36 +201,76 @@ profiles:
     category: Master students
     image_circular: false # crops the image to make it circular
     more_info: >
+      <span style="font-size: larger; font-weight: bold;">Zhuoqi Li</span><br>
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Master students
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Kaifeng Lin</span><br>
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Master students
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Jingyi Guo</span><br>
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Master students
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Shuang Wei</span><br>
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Master students
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Yuyang Guo</span><br>
+
+
+# Alumni
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
       <span style="font-size: larger; font-weight: bold;">Xintao Sun</span><br>
+      Master's Graduate<br>
   
   - align: 
     image: 
     content: 
     Details: false
-    category: Master students
+    category: Alumni
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">Zhiqi Yu</span><br>
+      Master's Graduate<br>
 
   - align: 
     image: 
     content: 
     Details: false
-    category: Master students
+    category: Alumni
     image_circular: false # crops the image to make it circular
     more_info: >
       <span style="font-size: larger; font-weight: bold;">Wenzhe Peng</span><br>
+      Master's Graduate<br>
 
-# Alumni
-  # - align: 
-  #   image: 
-  #   content: 
-  #   Details: false
-  #   category: Alumni
-  #   image_circular: false # crops the image to make it circular
-  #   more_info: >
-  #     <span style="font-size: larger; font-weight: bold;">Feifan Qu</span><br>
-  #     Master
   - align: 
     image:
     content: 

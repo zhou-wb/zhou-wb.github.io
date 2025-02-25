@@ -192,6 +192,19 @@ profiles:
       Computational Holography, VR/AR <br>
       feifan@hku.hk
 
+# Visitor
+
+  - align: 
+    image: Jinfan.jpg
+    content: 
+    Details: false
+    category: Visitor
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://www.linkedin.com/in/%E5%8A%B2%E5%B8%86-%E9%B2%81-a72311353/" style="font-size: larger; font-weight: bold;">Jinfan Lu</a><br>
+      Rendering, Computer Graphics<br>
+      u3646555@connect.hku.hk
+
 # Master
 
   - align: 

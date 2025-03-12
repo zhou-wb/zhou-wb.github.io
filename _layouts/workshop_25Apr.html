@@ -1,0 +1,953 @@
+---
+layout: custom
+---
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>events</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  .h1_1 {
+    font-size: 40px!important; 
+    font-weight: 900!important;
+  }
+
+  .h2_1 {
+    color: #1f8f18 !important;
+    font-size: 51px!important; 
+    font-weight: 500 !important;
+    margin-top: -2.5rem !important;
+    margin-bottom: 4rem !important
+  }
+
+  .textarea {
+    color: #FFF !important;
+    font-weight: 600 !important;
+    font-size: larger !important;
+  }
+  .textareahead {
+      color: #FFF !important;
+      font-size: larger !important;
+      font-size: 30px!important;
+      font-weight: 700!important;
+    }
+
+    .textarea {
+    color: #FFF !important;
+    font-weight: 600 !important;
+    font-size: larger !important;
+  }
+  /* .conference-background {
+    background-image: url('/assets/img/conferencebg.jpg');
+    background-size: cover ; 
+    background-position: center; 
+    width: 100%; 
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  } */
+  /* .conference-background {
+  background-image: url(/assets/img/bg_2.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-left: -15% !important;
+    width: 130%;
+    padding-top: 5rem!important;
+    padding-bottom: 5rem!important;
+    padding-left: 20% !important;
+  } */
+
+  .conference-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: start; 
+  background-image: url('/assets/img/bg_19.jpg');
+  background-size: cover;
+  /* background-position: center; */
+  /* margin-left: -15% !important; */
+  /* width: 130%; */
+  background-attachment: fixed !important; 
+  /* background-repeat: no-repeat; */
+  background-position: center center;      
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+  /* padding-left: 20% !important; */
+  height: 17rem; 
+  /* width: 122%;
+  margin-left: -11%; */
+  position: relative;
+  margin-top: 1.5rem;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  width: 100vw; 
+  margin-left: -50vw; 
+  left: 50%;
+}
+
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - min(40%,39rem));
+  transform: translateY(-50%);
+  width: auto;
+}
+  .header-container {
+  display: flex;
+  align-items: stretch; 
+  flex-wrap: wrap;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  margin-bottom: -40px;
+  max-width: 917px !important;
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+  margin-left: auto;
+  order: 2;
+  align-items: center;
+  display: flex;
+  padding-top: 39px;
+}
+.conference-image {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: cover;
+  /* opacity: 0.2; */
+}
+
+@media (max-width: 1536px) {
+  .image-container {
+    margin-left: -5px;
+    order: 1;
+    margin-bottom: -2rem;
+    margin-top: -2rem;
+  }
+
+  .title-container {
+    order: 2; 
+    width: 100%; 
+  }
+  .conference-image {
+  max-width: 400px;
+  max-height: 120px;
+  object-fit: cover;
+}
+}
+/* .conference-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  height: auto;
+} */
+
+  body {
+    font-family: 'Poppins', sans-serif !important;  
+  }
+
+  .schedule {
+  width: 100%; 
+  margin: 0; 
+  background: rgba(49, 112, 45, 0.04);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: rgba(49, 112, 45, 0.4) 5px 5px, rgba(49, 112, 45, 0.3) 10px 10px, rgba(49, 112, 45, 0.2) 15px 15px, rgba(49, 112, 45, 0.1) 20px 20px, rgba(49, 112, 45, 0.05) 25px 25px;
+  margin-bottom: 4rem;
+  padding: 1rem;
+}
+
+
+.session {
+  display: flex;
+  align-items: center;
+  border-bottom: 0px solid #eee;
+  padding-left: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.time {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex: 0 0 20%; 
+  font-weight: 600;
+  color: #1f8f18;
+  margin-right: 1rem;
+}
+
+.details {
+  flex: 1;
+}
+
+  .title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .speaker {
+    font-size: 16px;
+    color: #666;
+  }
+  .speaker-container {
+  /* margin: 20px auto; */
+  display: flex;
+  flex-wrap: wrap; 
+  /* gap: 20px;  */
+}
+
+.speaker-profile {
+  /* display: flex; */
+  align-items: flex-start;
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.speaker-photo {
+  width: 12rem;
+  object-fit: cover;
+  min-height: 10rem;
+  max-height: 13rem;
+  margin-right: 2rem;
+  margin-top: 7px;
+  margin-bottom: 1rem;
+  float: left;
+}
+
+.speaker-content {
+  flex: 1;
+}
+
+.speaker-name {
+  font-weight: bold;
+  font-size: larger;
+
+}
+
+.speaker-title {
+  /* font-weight: bold; */
+  font-size: 16px;
+  color: #666; 
+}
+.speaker-link a {
+    color: #1f8f18;
+    text-decoration: none;
+  }
+
+.speaker-abstract {
+  font-style: normal;
+}
+
+.speaker-bio {
+  font-weight: normal;
+}
+
+.conference-materials {
+  margin: 2rem auto;
+}
+
+.material-detail {
+  background-color: rgba(49, 112, 45,0.04);
+  margin-bottom: 1rem;
+  /* border: 1px solid var(--global-distill-app-color); */
+  /* box-shadow: 0 2px 4px var(--global-divider-color); */
+  /* box-shadow: 0 2px 4px rgba(0,123,255,0.3); */
+  transition: all 0.3s ease-in-out;
+}
+
+.material-summary {
+  font-weight: 600;
+  color: #1f8f18;
+  padding: 1rem;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.material-summary::after {
+  content: '▼';
+  position: absolute;
+  right: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.material-detail[open] .material-summary::after {
+  transform: rotate(180deg);
+}
+
+.material-content {
+  padding: 1rem;
+  line-height: 1.6;
+  max-height: 0;
+  overflow: overlay;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.material-content b {
+  font-weight: 600;
+}s
+
+.material-content ol {
+  padding-left: 10px; 
+  list-style-type: none; 
+  margin-top: 1rem;
+}
+.material-content a{
+  color: #1f8f18;
+  text-decoration: none;
+}
+
+.material-content ol li {
+  position: relative; 
+  padding-left: 20px; 
+  margin-bottom: 10px; 
+  margin-top: 1rem;
+}
+
+.material-content ol li::before {
+  content: "•"; 
+  color: #1f8f18; 
+  font-weight: bold; 
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  font-size: 20px;
+}
+
+.material-content-name{
+  font-weight:600;
+  font-size:initial; 
+  margin-top:-1rem; 
+  margin-bottom:1rem;
+}
+.material-detail[open] .material-content {
+  max-height: 30rem; 
+}
+
+.material-summary:hover {
+  background-color: var(--global-hover-colorr);
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.logos-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 20px; 
+  /* padding: 20px 0;  */
+  margin-top: 1rem;
+  flex-wrap:wrap
+}
+
+.logos-container img {
+  max-height: min(7rem,18vw);
+  width: auto; 
+  transition: transform 0.3s ease;
+}
+
+.logos-container img:hover {
+  transform: scale(1.1); 
+}
+
+.special-logo-1 {
+  max-width: max(5rem, 7vw);
+}
+
+.special-logo-2 {
+  max-width: max(6rem, 8vw);
+}
+
+.foot-title {
+  /* font-weight: bold; */
+  font-size: 24px;
+  color: #666; 
+  font-weight: 700
+}
+.foot-link a {
+    color: #1f8f18;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 300
+  }
+
+.foot-title b {
+  font-size: 32px;
+  font-weight: 700;
+  }
+  
+  .register-button {
+    display: inline-block;
+    /* background-color: rgba(0, 123, 255, 0.7);  */
+    color: white !important; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none !important; 
+    font-size: 21px; 
+    /* border-radius: 0;  */
+    transition: all 0.3s ease; 
+    position: relative; 
+    overflow: hidden; 
+    margin-bottom: 1rem;
+
+    border-radius: 5px;
+    background: rgba(49, 112, 45, 0.6);
+    /* box-shadow:  5px 5px 10px #bebebe,
+                -5px -5px 10px #ffffff; */
+}
+
+.register-button::after {
+    content: '→';
+    position: absolute;
+    right: -20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    transition: right 0.3s ease; 
+}
+
+.register-button:hover::after {
+    right: 10px; 
+}
+
+
+.register-button:hover {
+  padding-right: 40px;
+    box-shadow: 
+        rgba(49, 112, 45, 0.4) 5px 5px, 
+        rgba(49, 112, 45, 0.3) 10px 10px, 
+        rgba(49, 112, 45, 0.2) 15px 15px, 
+        rgba(49, 112, 45, 0.1) 20px 20px, 
+        rgba(49, 112, 45, 0.05) 25px 25px; 
+
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 1200px;
+    height: 85%; 
+    /* max-height: 90%; */
+    overflow: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.nav-link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff; 
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.3); 
+    padding: 8px 12px;
+    border-radius: 5px;
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: #ffffff; 
+}
+
+
+</style>
+</head>
+
+<body class="bg-white text-gray-800">
+<div class="container mx-auto px-4">
+  <div class = "header-container">
+    <div class="title-container">
+      <h1 class="h1_1 text-6xl font-bold mt-10 mb-5 "> Workshop on</h1>
+      <h2 class="h2_1 text-5xl font-bold mb-5">Frontiers of Image Science and Visual Computing 2025</h2>
+    </div>
+    <div class="image-container">
+    <img src="/assets/img/logos/University_of_Hong_Kong_Logo.png" alt="HKU" class="conference-image">
+    </div>
+  </div>
+
+  <!-- <div class="bg-gray-200 p-5 mb-5 conference-background">
+    <div class="text-container">
+      <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
+      <p class="mb-2 textarea">13 November, 2024 PM</p>
+      <p class="mb-2 textarea">Tam Wing Fan Innovation Wing Two, The University of Hong Kong, HONG KONG SAR</p>
+      <a href="https://innowings.engg.hku.hk/innowing2/visitors/" target="_blank" class="mb-2 textarea">Navigate Here</a>
+    </div>
+  </div> -->
+
+  <div class="bg-gray-200 p-5 mb-5 conference-background">
+    <div class="text-container">
+        <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
+        <p class="mb-2 textarea">15 April, 2025</p>
+        <p class="mb-2 textarea">TBD, The University of Hong Kong, HONG KONG SAR</p>
+        <a href="#" class="mb-2 nav-link" onclick="openModal()">Navigate Here</a>
+    </div>
+</div>
+
+<!-- <div id="modal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe src="https://innowings.engg.hku.hk/innowing2/visitors/" width="100%" height="100%"></iframe>
+  </div>
+</div> -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe id="modal-iframe" src="https://innowings.engg.hku.hk/innowing2/visitors/" width="100%" height="100%"></iframe>
+  </div>
+</div>
+
+
+  <h2 class="text-4xl font-bold mb-5">Workshop Objectives</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2  mb-10">
+    <!-- Column 1 -->
+    <div>
+      <div class="flex items-start mb-2" style = "margin-bottom: 2rem !important">
+        <div class="text-red-500 mr-2">  
+          <i class="fas fa-circle"></i>
+        </div>
+        <div>
+          <h4 class="font-bold" >Encourage Innovative Spirit</h4>
+        </div>
+      </div>
+      
+
+      <div class="flex items-start mb-2" style = "margin-bottom: 2rem !important">
+        <div class="text-red-500 mr-2">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div>
+          <h4 class="font-bold " >Promote Excellence and Sustain Quality</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div>
+      <div class="flex items-start mb-2" style = "margin-bottom: 2rem !important">
+        <div class="text-red-500 mr-2">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div>
+          <h4 class="font-bold " >Strive for Improvement</h4>
+        </div>
+      </div>
+
+      <div class="flex items-start" style = "margin-bottom: 2rem !important" >
+        <div class="text-red-500 mr-2">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div>
+          <h4 class="font-bold " >Connect Communities</h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+ 
+  <h2 class="text-4xl font-bold mb-5" style = "margin-top: -2rem !important">Schedule</h2>
+  <!-- <a href="https://example.com" target="_blank" class="register-button">Register Now (Free)</a> -->
+
+
+  <div class="schedule" id="schedule"></div>
+
+
+  <script>
+    const sessions = [
+      { title: 'MC: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Evan Y. Peng, The University of Hong Kong (HKU)</a></a>', duration: 0, showTime: false },
+      { title: 'Check-in & Welcome Preview', duration: 15, showTime: true },
+      { title: 'Opening Remarks', duration: 10, speaker: 'TBD', showTime: true },
+      { title: 'Keynote1', duration: 50, speaker: 'TBD', showTime: true },
+      { title: 'Talk1', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Talk2', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Intermission & Group Photo', duration: 10, showTime: true },
+      { title: 'Lunch & Break', duration: 90, showTime: true },
+      { title: 'Keynote2', duration: 40, speaker: 'TBD', showTime: true },
+      { title: 'Talk3', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Talk4', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Tea Reception', duration: 20, showTime: true },
+      { title: 'Talk5', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Talk6', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Talk7', duration: 20, speaker: 'TBD', showTime: true },
+      { title: 'Talk8', duration: 20, speaker: 'TBD', showTime: true },
+      { title: 'Closing Remarks', duration: 10, speaker: 'TBD', showTime: true },      
+    ];
+
+    let currentTime = new Date();
+    currentTime.setHours(10, 15); 
+
+    const scheduleContainer = document.getElementById('schedule');
+
+    if (scheduleContainer) {
+      sessions.forEach(session => {
+        const sessionElement = document.createElement('div');
+        sessionElement.className = 'session';
+
+        if (session.showTime) {
+          const endTime = new Date(currentTime.getTime() + session.duration * 60000);
+          sessionElement.innerHTML = `
+            <div class="time">${currentTime.toTimeString().substring(0, 5)} - ${endTime.toTimeString().substring(0, 5)}</div>
+            <div class="details">
+              <div class="title">${session.title}</div>
+              ${session.speaker ? `<div class="speaker">${session.speaker}</div>` : ''}
+            </div>
+          `;
+          currentTime = endTime; 
+        } else {
+          sessionElement.innerHTML = `
+            <div class="time"></div>
+            <div class="details">
+              <div class="title" style="color: #1f8f18 !important">${session.title}</div>
+            </div>
+          `;
+        }
+
+        scheduleContainer.appendChild(sessionElement);
+      });
+    } else {
+      console.error("Schedule container not found");
+    }
+
+
+
+    function openModal() {
+        document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("modal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+
+  </script>
+  
+  
+  
+
+  <h2 class="text-4xl font-bold mb-5">Speakers/Guests</h2>
+
+    <div class="speaker-container">
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/David Forsyth.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">David Forsyth</h2>
+          <h3 class="speaker-title"> UIUC</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Seung-Hwan Baek.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Seung-Hwan Baek </h2>
+          <h3 class="speaker-title"> POSTECH</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+      
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Yinqiang Zheng.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Yinqiang Zheng</h2>
+          <h3 class="speaker-title"> Univerity of Tokyo</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/He Sun.png" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">He Sun</h2>
+          <h3 class="speaker-title">Peking Univerity</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Yuanmu Yang.png" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Yuanmu Yang</h2>
+          <h3 class="speaker-title">Tsinghua Univerity</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Hongzhi Wu.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Hongzhi Wu</h2>
+          <h3 class="speaker-title">Tsinghua Univerity</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+      
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Tianfan Xue.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Tianfan Xue</h2>
+          <h3 class="speaker-title">CUHK</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Ping Tan.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Ping Tan</h2>
+          <h3 class="speaker-title">HKUST</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Xiaojuan Qi.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Xiaojuan Qi</h2>
+          <h3 class="speaker-title">HKU</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/TBD.png" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">TBD</h2>
+          <h3 class="speaker-title">HKU</h3>
+          <p class="speaker-link"><a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            TBD
+          </p>
+        </div>
+      </div>
+
+
+
+    </div>
+ 
+
+    <div class="conference-materials">
+      <h2 class="text-4xl font-bold mb-5">Workshop Materials</h2>
+
+      <details class="material-detail">
+        <summary class="material-summary">Keynote1</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">Talk1</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">Talk2</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">Keynote2</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">Talk3</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">Talk4</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">Talk5</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">Talk6</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+
+      <details class="material-detail">
+        <summary class="material-summary">Talk7</summary>
+        <div class="material-content">
+          <h2 class="material-content-name">TBD</h2>
+          <p>
+            TBD
+          </p>
+        </div>
+      </details>
+    
+    </div>
+
+    <footer style="text-align:center; padding:20px;">
+      <p class="foot-title">Organizer: <span class="foot-link" ><a href="https://hku.welight.fun/">Computational Imaging & Mixed Representation Laboratory</a></span></p>
+      <!-- <p class="foot-title"> <span class="foot-link" ><a href="https://www.eee.hku.hk/">Department of Electrical & Electronic Engineering</a></span></p> -->
+      <p class="foot-title">Coordinator: <span class="foot-link" ><a href="https://www.eee.hku.hk/~evanpeng/">Evan Y. Peng, HKU EEE x CS</a></span></p>
+      <br>
+      <p class="foot-title "><b>Acknowledgement: </b></p>
+
+    <div class="logos-container">
+      <a href="https://www.hku.hk" target="_blank">
+        <img src="/assets/img/logos/HKU.png" alt="Organization 1 Logo">
+      </a>
+      <a href="https://en.ustc.edu.cn/" target="_blank">
+        <img src="/assets/img/logos/USTC.png" alt="Organization 2 Logo">
+      </a>
+      <a href="https://hkust.edu.hk/" target="_blank">
+        <img src="/assets/img/logos/HKUST.png" alt="Organization 3 Logo">
+      </a>
+      <a href="https://www.szu.edu.cn/" target="_blank">
+        <img src="/assets/img/logos/SZU.png" alt="Organization 4 Logo">
+      </a>
+      <a href="https://www.zju.edu.cn/" target="_blank">
+        <img src="/assets/img/logos/ZJU.png" alt="Organization 5 Logo" >
+      </a>
+      <a href="https://www.kaust.edu.sa/en/" target="_blank">
+        <img src="/assets/img/logos/KAUST.png" alt="Organization 6 Logo" >
+      </a>
+
+    </div>
+  </footer>
+
+  </div>
+
+
+
+

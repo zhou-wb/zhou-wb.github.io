@@ -108,7 +108,7 @@ profiles:
     category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://lorenalyu.github.io/" style="font-size: larger; font-weight: bold;">Yuhui Liu</a><br>
+      <a href="https://lorenaliu.notion.site/" style="font-size: larger; font-weight: bold;">Yuhui Liu</a><br>
       Computational Optics, Multimodal Fusion<br>
       liuyuhui@connect.hku.hk
 

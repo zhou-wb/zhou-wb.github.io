@@ -535,7 +535,7 @@ details > summary::-webkit-details-marker {
   <div class="bg-gray-200 p-5 mb-5 conference-background">
     <div class="text-container">
         <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
-        <p class="mb-2 textarea">15 April, 2025</p>
+        <p class="mb-2 textarea">15-16 April, 2025</p>
         <p class="mb-2 textarea">TBD, The University of Hong Kong, HONG KONG SAR</p>
         <a href="#" class="mb-2 nav-link" onclick="openModal()">Navigate Here</a>
     </div>
@@ -609,7 +609,7 @@ details > summary::-webkit-details-marker {
 
   <div class="schedule" id="schedule"></div>
 
-
+<!-- 
   <script>
     const sessions = [
       { title: 'MC: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Evan Y. Peng, The University of Hong Kong (HKU)</a></a>', duration: 0, showTime: false },
@@ -684,8 +684,89 @@ details > summary::-webkit-details-marker {
     }
 
 
-  </script>
+  </script> -->
   
+  <script>
+    const sessions = [
+      { title: 'Tuesday 15 April', speaker: 'MC: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Evan Y. Peng, The University of Hong Kong (HKU)</a>', showTime: false  },
+      { title: 'Check-in & Welcome Preview', duration: 15, showTime: true },
+      { title: 'Opening Remarks', duration: 10, speaker: 'TBD', showTime: true },
+      { title: 'Keynote1', duration: 50, speaker: 'David Forsyth', showTime: true },
+      { title: 'Talk1', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Talk2', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Intermission & Group Photo', duration: 10, showTime: true },
+      { title: 'Lunch & Break', duration: 90, showTime: true },
+      { title: 'Keynote2', duration: 40, speaker: 'TBD', showTime: true },
+      { title: 'Talk3', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Talk4', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Tea Reception', duration: 20, showTime: true },
+      { title: 'Talk5', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Talk6', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Talk7', duration: 20, speaker: 'TBD', showTime: true },
+      { title: 'Talk8', duration: 20, speaker: 'TBD', showTime: true },
+      { title: 'Closing Remarks', duration: 10, speaker: 'TBD', showTime: true },   
+
+      { title: 'Wednesday 16 April',  showTime: false },
+      { title: 'Fireside Chat (Research) and Lab Tour', Time: '10:00', duration: 90, speaker: 'invitation only', showTime: true },
+      { title: 'Lunch-on Discussion and Sharing', duration: 60, speaker: 'invitation only', showTime: true },
+    ];
+  
+    let currentTime = new Date();
+    currentTime.setHours(10, 15);
+  
+    const scheduleContainer = document.getElementById('schedule');
+  
+    if (scheduleContainer) {
+      sessions.forEach(session => {
+        const sessionElement = document.createElement('div');
+        sessionElement.className = 'session';
+  
+        let timeContent = ''; 
+        if (session.hasOwnProperty('Data')) {
+          timeContent = session.Data;
+        }
+        else if (session.hasOwnProperty('Time') && session.hasOwnProperty('duration')) {
+          const [hours, minutes] = session.Time.split(':').map(Number);
+          currentTime.setHours(hours, minutes);
+          const endTime = new Date(currentTime.getTime() + session.duration * 60000);
+          timeContent = `${currentTime.toTimeString().substring(0,5)} - ${endTime.toTimeString().substring(0,5)}`;
+          currentTime = endTime;
+        }
+        else if (session.hasOwnProperty('duration')) {
+          const endTime = new Date(currentTime.getTime() + session.duration * 60000);
+          timeContent = `${currentTime.toTimeString().substring(0,5)} - ${endTime.toTimeString().substring(0,5)}`;
+          currentTime = endTime;
+        }
+  
+        sessionElement.innerHTML = `
+          <div class="time">${session.showTime ? timeContent : ''}</div>
+          <div class="details">
+            <div class="title" ${!session.showTime ? 'style="color: #1f8f18 !important"' : ''}>${session.title}</div>
+            ${session.speaker ? `<div class="speaker">${session.speaker}</div>` : ''}
+          </div>
+        `;
+  
+        scheduleContainer.appendChild(sessionElement);
+      });
+    } else {
+      console.error("Schedule container not found");
+    }
+  
+    function openModal() {
+        document.getElementById("modal").style.display = "flex";
+    }
+  
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+  
+    window.onclick = function(event) {
+        const modal = document.getElementById("modal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+  </script>
   
   
 

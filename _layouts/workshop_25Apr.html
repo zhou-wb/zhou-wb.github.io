@@ -688,25 +688,24 @@ details > summary::-webkit-details-marker {
   
   <script>
     const sessions = [
-      { title: 'Tuesday, 15 April', speaker: 'MC: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Evan Y. Peng, The University of Hong Kong (HKU)</a>', showTime: false  },
-      { title: 'Check-in & Welcome Preview', duration: 15, showTime: true },
+      { title: 'Tuesday, 15 April', speaker: 'MC: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Evan Y. Peng, HKU</a>', showTime: false  },
+      { title: 'Registration', duration: 30, showTime: true },
       { title: 'Opening Remarks', duration: 10, speaker: 'TBD', showTime: true },
-      { title: 'Keynote1', duration: 50, speaker: 'David Forsyth', showTime: true },
-      { title: 'Talk1', duration: 25, speaker: 'TBD', showTime: true },
-      { title: 'Talk2', duration: 25, speaker: 'TBD', showTime: true },
-      { title: 'ACM SIGGRAPH Asia 2025 Pitching', duration: 5, speaker: 'Taku Komura', showTime: true },
-      { title: 'Intermission & Group Photo', duration: 5, showTime: true },
-      { title: 'Lunch & Break', duration: 90, showTime: true },
+      { title: 'Keynote1', duration: 50, speaker: 'David Forsyth, UIUC', showTime: true },
+      { title: 'Diffusion Posterior Sampling for Computational Imaging with Inaccurate Priors or Physics', duration: 25, speaker: 'He Sun, PKU', showTime: true },
+      { title: 'Learning 3D Representations from Videos', duration: 25, speaker: 'Xiaojuan Qi, HKU', showTime: true },
+      { title: 'ACM SIGGRAPH Asia 2025 Pitching', duration: 5, speaker: 'Taku Komura, HKU', showTime: true },
+      { title: 'Group Photo', duration: 5, showTime: true },
+      { title: 'Lunch', duration: 90, showTime: true },
 
-      { title: 'Keynote2', duration: 30, speaker: 'TBD', showTime: true },
-      { title: 'Talk3', duration: 25, speaker: 'TBD', showTime: true },
-      { title: 'Talk4', duration: 25, speaker: 'TBD', showTime: true },
+      { title: 'Security Concerns on Visual AI beyond RGB Domain', duration: 30, speaker: 'Yinqiang Zheng, UTokyo', showTime: true },
+      { title: 'Differentiable Acquisition of Appearance and Geometry', duration: 25, speaker: 'Hongzhi Wu, ZJU', showTime: true },
+      { title: 'Talk4', duration: 25, speaker: 'Tianfan Xue, CUHK', showTime: true },
       { title: 'Tea Reception', duration: 20, showTime: true },
-      { title: 'Talk5', duration: 25, speaker: 'TBD', showTime: true },
-      { title: 'Talk6', duration: 25, speaker: 'TBD', showTime: true },
-      { title: 'Talk7', duration: 20, speaker: 'TBD', showTime: true },
-      { title: 'Talk8', duration: 20, speaker: 'TBD', showTime: true },
-      { title: 'Closing Remarks & Networking Reception', duration: 20, speaker: 'TBD', showTime: true },   
+      { title: 'Flat-Optics for Imaging with Extended Information', duration: 25, speaker: 'Yuanmu Yang, THU', showTime: true },
+      { title: 'Talk6', duration: 25, speaker: 'Ping Tan, HKUST', showTime: true },
+      { title: 'Computational Imaging for Graphics, Vision, Robotics, and Science', duration: 20, speaker: 'Seung-Hwan Baek, POSTECH', showTime: true },
+      { title: 'Closing Remarks & Networking', duration: 35, speaker: 'TBD', showTime: true },   
       { title: 'Dinner Banquet and HK-Night Tour', Time: '18:30',duration: 150, speaker: 'invitation only', showTime: true },
 
       { title: 'Wednesday, 16 April',  showTime: false },
@@ -715,7 +714,7 @@ details > summary::-webkit-details-marker {
     ];
   
     let currentTime = new Date();
-    currentTime.setHours(10, 15);
+    currentTime.setHours(10, 00);
   
     const scheduleContainer = document.getElementById('schedule');
   
@@ -791,31 +790,6 @@ details > summary::-webkit-details-marker {
 
 
       <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/workshop/Seung-Hwan Baek.jpg" alt="Speaker Name">
-        <div class="speaker-content">
-          <h2 class="speaker-name">Seung-Hwan Baek </h2>
-          <h3 class="speaker-title"> Pohang University of Science and Technology (POSTECH)</h3>
-          <p class="speaker-link"><a href="https://www.shbaek.com/home" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">
-            Seung-Hwan Baek is an Assistant Professor of Computer Science and Engineering at POSTECH, also affiliated with the Graduate School of AI, POSTECH. He leads POSTECH Computational Imaging Group and serves as a faculty co-director of POSTECH Computer Graphics Lab. Prof. Baek worked as a postdoctoral researcher at Princeton University, and obtained his Ph.D. in Computer Science from KAIST. Prof. Baek's research, situated at the intersection of computer graphics, vision, AI, and optics, focuses on capturing, modeling, and analyzing high-dimensional visual data originating from complex interplays between light, material appearance, and geometry. Prof. Baek has received awards, including Frontiers of Science Award from the International Congress of Basic Science, Outstanding Ph.D. Thesis Award in IT from the Korean Academy of Science and Technology, SIGGRAPH Asia Doctoral Consortium, Microsoft Research Asia Ph.D. Fellowship, and both ACCV Best Application Paper Award and Best Demo Award.
-          </p>
-        </div>
-      </div>
-
-      
-      <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/workshop/Yinqiang Zheng.jpg" alt="Speaker Name">
-        <div class="speaker-content">
-          <h2 class="speaker-name">Yinqiang Zheng</h2>
-          <h3 class="speaker-title">The University of Tokyo (UTokyo)</h3>
-          <p class="speaker-link"><a href="https://researchmap.jp/yinqiangzheng?lang=en" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">
-            Dr. Yinqiang Zheng received his Doctoral degree of engineering from the Department of Mechanical and Control Engineering, Tokyo Institute of Technology, Tokyo, Japan, in 2013. He is currently a Full Professor in the Next Generation Artificial Intelligence Research Center, The University of Tokyo, Japan, leading the Optical Sensing and Camera System Laboratory (OSCARS Lab.). He has published a serial of research papers that bridge AI and optical imaging, surrounding the novel paradigms of ‘Optics for Better AI’ and ‘AI for Best Optics’. He has served as area chair for CVPR, ICCV, ICML, ICLR, NeurIPS, MM, 3DV, ACCV, ISAIR, DICTA and MVA. He is a foreign fellow of the Engineering Academy of Japan, and the recipient of the Konica Minolta Image Science Award and Funai Academic Award.
-          </p>
-        </div>
-      </div>
-
-      <div class="speaker-profile">
         <img class="speaker-photo" src="/assets/img/workshop/He Sun.png" alt="Speaker Name">
         <div class="speaker-content">
           <h2 class="speaker-name">He Sun</h2>
@@ -823,55 +797,6 @@ details > summary::-webkit-details-marker {
           <p class="speaker-link"><a href="https://ai4scientificimaging.org/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
             Dr. He Sun is an Assistant Professor in the National Biomedical Imaging Center, Peking University, China. Prior to starting at Peking University, he was a postdoctoral researcher in the Department of Computing and Mathematical Sciences at California Institute of Technology. He received his Ph.D. in Mechanical and Aerospace Engineering from Princeton University in 2019 and his bachelor's degree in Engineering Mechanics and Economics from Peking University in 2014. His research primarily focuses on computational imaging, which tightly integrates optics, control, signal processing and machine learning to push the boundary of scientific imaging. His past work has contributed to multiple real science missions, including the Event Horizon Telescope for black hole interferometric imaging.
-          </p>
-        </div>
-      </div>
-
-      <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/workshop/Yuanmu Yang.png" alt="Speaker Name">
-        <div class="speaker-content">
-          <h2 class="speaker-name">Yuanmu Yang</h2>
-          <h3 class="speaker-title">Tsinghua University (THU)</h3>
-          <p class="speaker-link"><a href="https://ymyanggroup.com/people/" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">
-            Yuanmu Yang is an Associate Professor in the Department of Precision Instrument at Tsinghua University. He earned his B.Eng. in Optoelectronics from Tianjin University and Nankai University in 2011 and his Ph.D. in Interdisciplinary Materials Science from Vanderbilt University in 2015. He was a postdoctoral researcher at Sandia National Laboratories, USA from 2015 to 2017. He then worked at Intellectual Ventures, a Seattle-based startup incubator, from 2017 to 2018, and was a founding team member of metasurface-based solid-state lidar startup Lumotive. His research focuses on the area of meta-optics. He has published more than 50 journal articles, including 2 in Nature Photonics and 1 in Nature Physics, received over 6000 citations according to Google Scholar, and was selected as a “Highly-cited Researcher in China” by Elsevier in 2023. He has been granted over 10 China and US patents. His recognitions include the Jin-Guofan Young Scientist Award given by the China Instrument and Control Society as well as the Forbes China “30 under 30” in 2018.
-          </p>
-        </div>
-      </div>
-
-      <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/workshop/Hongzhi Wu.jpg" alt="Speaker Name">
-        <div class="speaker-content">
-          <h2 class="speaker-name">Hongzhi Wu</h2>
-          <h3 class="speaker-title">Zhejiang University (ZJU)</h3>
-          <p class="speaker-link"><a href="https://svbrdf.github.io/" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">
-            Hongzhi Wu is a Full Professor in the State Key Lab of CAD&CG, Zhejiang University, China. He obtained his Ph.D. from Yale University, under the supervision of Julie Dorsey and Holly Rushmeier, and was awarded Excellent Young Scholar by NSF China. His research focuses on the acquisition and reconstruction of physical information, including complex high-dimensional appearance, 3D surfaces and volumes. Hongzhi's research leads to publications in top venues including SIGGRAPH/SIGGRAPH Asia, CVPR and ICCV, two published books, as well as a number of state-of-the-art high-performance illumination multiplexing devices. He was the recipient of Luzengyong CAD&CG High Tech Award (1st prize). Hongzhi is on the editorial board of IEEE TVCG, JCAD & VCIBA, and has served on the program committees of various international conferences, including SIGGRAPH, SIGGRAPH Asia, VR, EG, PG, EGSR, I3D and HPG. More details can be found from his homepage https://svbrdf.github.io/.
-          </p>
-        </div>
-      </div>
-
-      
-      <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/workshop/Tianfan Xue.jpg" alt="Speaker Name">
-        <div class="speaker-content">
-          <h2 class="speaker-name">Tianfan Xue</h2>
-          <h3 class="speaker-title">The Chinese University of Hong Kong (CUHK)</h3>
-          <p class="speaker-link"><a href="https://tianfan.info/" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">
-            Tianfan Xue is a Vice Chancellor Assistant Professor at the Department of Information Engineering, the Chinese University of Hong Kong (CUHK). Before joining CUHK, he worked in Google Research from 2017 to 2022. Prof. Xue received his Ph.D. from Massachusetts Institute of Technology (MIT) in 2017, his M.Phil. from CUHK in 2011, and his B.E. from Tsinghua University (THU) in 2009. Prof. Xue has published over 40 papers on top-tier journals and conferences, and he has served as an area chair for CVPR and WACV. His research interests include computational photography, computer vision, computer graphics, and machine learning.
-          </p>
-        </div>
-      </div>
-
-      <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/workshop/Ping Tan.jpg" alt="Speaker Name">
-        <div class="speaker-content">
-          <h2 class="speaker-name">Ping Tan</h2>
-          <h3 class="speaker-title">Hong Kong University of Science and Technology (HKUST)</h3>
-          <p class="speaker-link"><a href="https://pingtan.people.ust.hk/index.html" target="_blank">Personal Website</a></p>
-          <p class="speaker-abstract">
-            Dr. Tan is a Professor in the Department of Electronic and Computer Engineering at the Hong Kong University of Science and Technology (HKUST). Before joining HKUST, he served as the director of the XR Lab at Alibaba DAMO Academy from 2019 to 2022, an Associate Professor at Simon Fraser University (SFU) in Canada from 2014 to 2019, and an assistant and Associate Professor at the National University of Singapore (NUS) from 2007 to 2014. Dr. Tan received his PhD from HKUST in 2007 and his Master's and Bachelor's degrees from Shanghai Jiao Tong University (SJTU) in 2003 and 2000, respectively. He specializes in computer vision, computer graphics, and robotics, with a research focus on 3D vision.
           </p>
         </div>
       </div>
@@ -889,18 +814,76 @@ details > summary::-webkit-details-marker {
       </div>
 
       <div class="speaker-profile">
-        <img class="speaker-photo" src="/assets/img/workshop/TBD.png" alt="Speaker Name">
+        <img class="speaker-photo" src="/assets/img/workshop/Yinqiang Zheng.jpg" alt="Speaker Name">
         <div class="speaker-content">
-          <h2 class="speaker-name">TBD</h2>
-          <h3 class="speaker-title">HKU</h3>
-          <p class="speaker-link"><a href="www.example.com" target="_blank">Personal Website</a></p>
+          <h2 class="speaker-name">Yinqiang Zheng</h2>
+          <h3 class="speaker-title">The University of Tokyo (UTokyo)</h3>
+          <p class="speaker-link"><a href="https://researchmap.jp/yinqiangzheng?lang=en" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
-            TBD
+            Dr. Yinqiang Zheng received his Doctoral degree of engineering from the Department of Mechanical and Control Engineering, Tokyo Institute of Technology, Tokyo, Japan, in 2013. He is currently a Full Professor in the Next Generation Artificial Intelligence Research Center, The University of Tokyo, Japan, leading the Optical Sensing and Camera System Laboratory (OSCARS Lab.). He has published a serial of research papers that bridge AI and optical imaging, surrounding the novel paradigms of ‘Optics for Better AI’ and ‘AI for Best Optics’. He has served as area chair for CVPR, ICCV, ICML, ICLR, NeurIPS, MM, 3DV, ACCV, ISAIR, DICTA and MVA. He is a foreign fellow of the Engineering Academy of Japan, and the recipient of the Konica Minolta Image Science Award and Funai Academic Award.
           </p>
         </div>
       </div>
 
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Hongzhi Wu.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Hongzhi Wu</h2>
+          <h3 class="speaker-title">Zhejiang University (ZJU)</h3>
+          <p class="speaker-link"><a href="https://svbrdf.github.io/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            Hongzhi Wu is a Full Professor in the State Key Lab of CAD&CG, Zhejiang University, China. He obtained his Ph.D. from Yale University, under the supervision of Julie Dorsey and Holly Rushmeier, and was awarded Excellent Young Scholar by NSF China. His research focuses on the acquisition and reconstruction of physical information, including complex high-dimensional appearance, 3D surfaces and volumes. Hongzhi's research leads to publications in top venues including SIGGRAPH/SIGGRAPH Asia, CVPR and ICCV, two published books, as well as a number of state-of-the-art high-performance illumination multiplexing devices. He was the recipient of Luzengyong CAD&CG High Tech Award (1st prize). Hongzhi is on the editorial board of IEEE TVCG, JCAD & VCIBA, and has served on the program committees of various international conferences, including SIGGRAPH, SIGGRAPH Asia, VR, EG, PG, EGSR, I3D and HPG. More details can be found from his homepage https://svbrdf.github.io/.
+          </p>
+        </div>
+      </div>
 
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Tianfan Xue.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Tianfan Xue</h2>
+          <h3 class="speaker-title">The Chinese University of Hong Kong (CUHK)</h3>
+          <p class="speaker-link"><a href="https://tianfan.info/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            Tianfan Xue is a Vice Chancellor Assistant Professor at the Department of Information Engineering, the Chinese University of Hong Kong (CUHK). Before joining CUHK, he worked in Google Research from 2017 to 2022. Prof. Xue received his Ph.D. from Massachusetts Institute of Technology (MIT) in 2017, his M.Phil. from CUHK in 2011, and his B.E. from Tsinghua University (THU) in 2009. Prof. Xue has published over 40 papers on top-tier journals and conferences, and he has served as an area chair for CVPR and WACV. His research interests include computational photography, computer vision, computer graphics, and machine learning.
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Yuanmu Yang.png" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Yuanmu Yang</h2>
+          <h3 class="speaker-title">Tsinghua University (THU)</h3>
+          <p class="speaker-link"><a href="https://ymyanggroup.com/people/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            Yuanmu Yang is an Associate Professor in the Department of Precision Instrument at Tsinghua University. He earned his B.Eng. in Optoelectronics from Tianjin University and Nankai University in 2011 and his Ph.D. in Interdisciplinary Materials Science from Vanderbilt University in 2015. He was a postdoctoral researcher at Sandia National Laboratories, USA from 2015 to 2017. He then worked at Intellectual Ventures, a Seattle-based startup incubator, from 2017 to 2018, and was a founding team member of metasurface-based solid-state lidar startup Lumotive. His research focuses on the area of meta-optics. He has published more than 50 journal articles, including 2 in Nature Photonics and 1 in Nature Physics, received over 6000 citations according to Google Scholar, and was selected as a “Highly-cited Researcher in China” by Elsevier in 2023. He has been granted over 10 China and US patents. His recognitions include the Jin-Guofan Young Scientist Award given by the China Instrument and Control Society as well as the Forbes China “30 under 30” in 2018.
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Ping Tan.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Ping Tan</h2>
+          <h3 class="speaker-title">Hong Kong University of Science and Technology (HKUST)</h3>
+          <p class="speaker-link"><a href="https://pingtan.people.ust.hk/index.html" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            Dr. Tan is a Professor in the Department of Electronic and Computer Engineering at the Hong Kong University of Science and Technology (HKUST). Before joining HKUST, he served as the director of the XR Lab at Alibaba DAMO Academy from 2019 to 2022, an Associate Professor at Simon Fraser University (SFU) in Canada from 2014 to 2019, and an assistant and Associate Professor at the National University of Singapore (NUS) from 2007 to 2014. Dr. Tan received his PhD from HKUST in 2007 and his Master's and Bachelor's degrees from Shanghai Jiao Tong University (SJTU) in 2003 and 2000, respectively. He specializes in computer vision, computer graphics, and robotics, with a research focus on 3D vision.
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/Seung-Hwan Baek.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Seung-Hwan Baek </h2>
+          <h3 class="speaker-title"> Pohang University of Science and Technology (POSTECH)</h3>
+          <p class="speaker-link"><a href="https://www.shbaek.com/home" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+            Seung-Hwan Baek is an Assistant Professor of Computer Science and Engineering at POSTECH, also affiliated with the Graduate School of AI, POSTECH. He leads POSTECH Computational Imaging Group and serves as a faculty co-director of POSTECH Computer Graphics Lab. Prof. Baek worked as a postdoctoral researcher at Princeton University, and obtained his Ph.D. in Computer Science from KAIST. Prof. Baek's research, situated at the intersection of computer graphics, vision, AI, and optics, focuses on capturing, modeling, and analyzing high-dimensional visual data originating from complex interplays between light, material appearance, and geometry. Prof. Baek has received awards, including Frontiers of Science Award from the International Congress of Basic Science, Outstanding Ph.D. Thesis Award in IT from the Korean Academy of Science and Technology, SIGGRAPH Asia Doctoral Consortium, Microsoft Research Asia Ph.D. Fellowship, and both ACCV Best Application Paper Award and Best Demo Award.
+          </p>
+        </div>
+      </div>
 
     </div>
  
@@ -919,41 +902,41 @@ details > summary::-webkit-details-marker {
       </details>
 
       <details class="material-detail">
-        <summary class="material-summary">Talk1</summary>
+        <summary class="material-summary">Diffusion Posterior Sampling for Computational Imaging with Inaccurate Priors or Physics</summary>
         <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
+          <h2 class="material-content-name">He Sun</h2>
           <p>
-            TBD
+            Diffusion models excel in solving imaging inverse problems due to their exceptional ability to model complex image priors. When integrated with image formation models, they enable a physics-guided diffusion process—termed diffusion posterior sampling (DPS)—that effectively retrieves high-dimensional posterior distributions of images from corrupted observations. However, DPS’s dependence on clean diffusion priors and accurate imaging physics limits its practical utility, especially when clean data is scarce for pre-training diffusion models or when the underlying physical models are inaccurate for inference. However, DPS requires clean diffusion priors and accurate imaging physics for inference, limiting its practical use when clean data is scarce for pre-training diffusion models or when the underlying physical models are inaccurate or unknown. In this talk, Prof. Sun will introduce an expectation-maximization (EM) framework that adapts DPS for scenarios with inaccurate priors or physics. This method alternates between an E-step, in which clean images are reconstructed from corrupted data assuming known diffusion prior and physical model, and an M-step, where these reconstructions are employed to refine and recalibrate the prior or physical model. This iterative process progressively aligns the learned image prior with the true clean distribution and adapts the physical model for enhanced accuracy. They validate their approach through extensive experiments across diverse computational imaging tasks—including inpainting, deblurring, denoising, and realistic microscopic imaging—demonstrating new state-of-the-art performance.
           </p>
         </div>
       </details>
 
       <details class="material-detail">
-        <summary class="material-summary">Talk2</summary>
+        <summary class="material-summary">Learning 3D Representations from Videos</summary>
         <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
+          <h2 class="material-content-name">Xiaojuan Qi</h2>
           <p>
-            TBD
+            Humans navigate a rich 3D world, continuously acquiring diverse skills and engaging in various activities through perception, understanding, and interaction. The long-term research goal of Prof. Qi's group is to simulate the dynamic 3D world and equip AI systems with 3D spatial understanding. A fundamental challenge in achieving this lies in how to effectively represent 3D structures. In this talk, Prof. Qi will present a series of research efforts from her group focused on learning 3D representations from videos for surface reconstruction, novel view synthesis, and 4D modeling of dynamic scenes, with applications in video processing. She will also discuss future directions toward generating editable 4D worlds from casually captured videos.
           </p>
         </div>
       </details>
 
       <details class="material-detail">
-        <summary class="material-summary">Keynote2</summary>
+        <summary class="material-summary">Security Concerns on Visual AI beyond RGB Domain</summary>
         <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
+          <h2 class="material-content-name">Yinqiang Zheng</h2>
           <p>
-            TBD
+            AI algorithms for computer-based visual understanding have advanced significantly, due to the prevalence of deep learning and large-scale visual datasets in the RGB domain, which have also been proven vulnerable to digital and physical adversarial attacks. To deal with complex scenarios, many other imaging modalities beyond the visibility scope of human eyes, such as near infrared (NIR), short wavelength infrared (SWIR), thermal infrared (TIR), polarization, neuromorphic pulse, have been introduced, yet the vulnerabilities of visual AI based on these non-RGB modalities have not received due attention. In this talk, Prof. Zheng will show that typical AI algorithms, like object detection and segmentation, can be more fragile than in the RGB domain, and the properly crafted attackers can hardly be noticed by naked human eyes. They showcase a serial of physics-based attackers in the NIR, SWIR, and TIR domain, a printable attacker for event-based human detection, and a projection-based attacker on polarization-based reconstruction and segmentation.
           </p>
         </div>
       </details>
 
       <details class="material-detail">
-        <summary class="material-summary">Talk3</summary>
+        <summary class="material-summary">Differentiable Acquisition of Appearance and Geometry</summary>
         <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
+          <h2 class="material-content-name">Hongzhi Wu</h2>
           <p>
-            TBD
+            High-quality, efficient acquisition of complex appearance and geometry is a classic problem in computer graphics and vision. Differentiable acquisition maps both physical acquisition and computational reconstruction to a differentiable pipeline, enabling a fully automatic, joint optimization of hardware and software. This significantly improves modeling efficiency and quality over existing work. In this talk, Prof. Wu will briefly introduce his recent research on differential acquisition, including OpenSVBRDF, the first large-scale measured SVBRDF database (SIGAsia 2023a), the first dynamic visible-light tomography system (SIGAsia 2023b), as well as a system for real-time acquisition and reconstruction of dynamic 3D volumes (CVPR 2024). He will also describe on-going research on building a dedicated high-performance device for acquiring the appearance of cultural relics in the National Museum of China.
           </p>
         </div>
       </details>
@@ -961,7 +944,7 @@ details > summary::-webkit-details-marker {
       <details class="material-detail">
         <summary class="material-summary">Talk4</summary>
         <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
+          <h2 class="material-content-name">Tianfan Xue</h2>
           <p>
             TBD
           </p>
@@ -969,11 +952,11 @@ details > summary::-webkit-details-marker {
       </details>
 
       <details class="material-detail">
-        <summary class="material-summary">Talk5</summary>
+        <summary class="material-summary">Flat-Optics for Imaging with Extended Information</summary>
         <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
+          <h2 class="material-content-name">Yuanmu Yang</h2>
           <p>
-            TBD
+            Conventional cameras can only acquire light intensity in two dimensions. In order to further obtain the depth, polarization, and spectral information of the target object or to achieve imaging resolution beyond the diffraction limit, it is often required to use bulky and expensive instruments. Here, Prof. Yang will present his group’s recent effort to replace conventional camera lenses with flat diffractive optical elements or metasurfaces. By leveraging the unique capability of metasurface to tailor the vectorial field of light, in combination with an advanced image retrieval algorithm, they aim to build compact camera systems that can capture multi-dimensional light field information of a target scene in a single shot under ambient illumination conditions. Specifically, he will show how they use flat-optics to build a monocular camera that can capture a 4D image, including 2D all-in-focus intensity, depth, and polarization of a target scene in a single shot over extended scenes. He would also like to present their effort to construct flat-optics-based monocular 3D camera modules for real-world applications.
           </p>
         </div>
       </details>
@@ -981,7 +964,7 @@ details > summary::-webkit-details-marker {
       <details class="material-detail">
         <summary class="material-summary">Talk6</summary>
         <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
+          <h2 class="material-content-name">Ping Tan</h2>
           <p>
             TBD
           </p>
@@ -989,31 +972,21 @@ details > summary::-webkit-details-marker {
       </details>
 
       <details class="material-detail">
-        <summary class="material-summary">Talk7</summary>
+        <summary class="material-summary">Computational Imaging for Graphics, Vision, Robotics, and Science</summary>
         <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
+          <h2 class="material-content-name">Seung-Hwan Baek</h2>
           <p>
-            TBD
+            In this talk, Prof. Baek will discuss his recent work on designing, controlling, and utilizing computational imaging systems for inverse rendering, robotic vision in extreme conditions, transparent and metameric material analysis, and advanced VR/AR systems. The core idea is to take a holistic approach—considering rendering, the transformation of multi-dimensional light properties as they travel from the source through a scene, their interaction with imaging systems, and the computational processes for reconstruction and restoration.
           </p>
         </div>
       </details>
 
-      <details class="material-detail">
-        <summary class="material-summary">Talk8</summary>
-        <div class="material-content">
-          <h2 class="material-content-name">TBD</h2>
-          <p>
-            TBD
-          </p>
-        </div>
-      </details>
-    
     </div>
 
     <footer style="text-align:center; padding:20px;">
       <p class="foot-title">Organizer: <span class="foot-link" ><a href="https://hku.welight.fun/">Computational Imaging & Mixed Representation Laboratory</a></span></p>
       <p class="foot-title">Local Coordinating Team: <span class="foot-link" ><a href="https://andrewbxy.github.io/">Xiaoyang Bai, </a><a href="https://liux2018.github.io/">Xin Liu, </a><a href="https://qufeifan.github.io/">Feifan Qu, </a><a href="https://liangxunou.github.io/">Liangxun Ou</a></span></p>
-      <p class="foot-title">Advisory Committee: <span class="foot-link" ><a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich, HKU/KAUST</a> & <a href="https://www.eee.hku.hk/~huangkb/">Kaibin Huang, HKU</a></span></p>
+      <p class="foot-title">Advisory Committee: <span class="foot-link" ><a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich, HKU/KAUST & </a><a href="https://www.eee.hku.hk/~huangkb/">Kaibin Huang, HKU</a></span></p>
       <p class="foot-title">Chair: <span class="foot-link" ><a href="https://www.eee.hku.hk/~evanpeng/">Evan Y. Peng, HKU EEE x CS</a></span></p>
       
       <br>

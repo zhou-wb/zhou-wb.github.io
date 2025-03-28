@@ -691,7 +691,7 @@ details > summary::-webkit-details-marker {
       { title: 'Tuesday, 15 April', speaker: 'MC: <a href="https://www.eee.hku.hk/~evanpeng/" target="_blank">Evan Y. Peng, HKU</a>', showTime: false  },
       { title: 'Registration', duration: 30, showTime: true },
       { title: 'Opening Remarks', duration: 10, speaker: 'TBD', showTime: true },
-      { title: 'Keynote1', duration: 50, speaker: 'David Forsyth, UIUC', showTime: true },
+      { title: 'The Joy of Latents: What Image Generators "Know" and Don\'t "Know", and Why It Matters', duration: 50, speaker: 'David Forsyth, UIUC', showTime: true },
       { title: 'Diffusion Posterior Sampling for Computational Imaging with Inaccurate Priors or Physics', duration: 25, speaker: 'He Sun, PKU', showTime: true },
       { title: 'Learning 3D Representations from Videos', duration: 25, speaker: 'Xiaojuan Qi, HKU', showTime: true },
       { title: 'ACM SIGGRAPH Asia 2025 Pitching', duration: 5, speaker: 'Taku Komura, HKU', showTime: true },
@@ -907,11 +907,18 @@ details > summary::-webkit-details-marker {
       <h2 class="text-4xl font-bold mb-5">Workshop Materials</h2>
 
       <details class="material-detail">
-        <summary class="material-summary">Keynote1 <span style="color:black;"> - David Forsyth</span></summary>
+        <summary class="material-summary">The Joy of Latents: What Image Generators "Know" and Don't "Know", and Why It Matters <span style="color:black;"> - David Forsyth</span></summary>
         <div class="material-content">
           <!-- <h2 class="material-content-name">David Forsyth</h2> -->
           <p>
-            TBD
+            I will discuss three mysteries at the heart of the current vision agenda: What do image generators "know" and not "know"?   What should be represented explicitly? How can we tell how well an image generator works?
+            <br><br>
+            I will show strong evidence that depth, normal and albedo can be extracted from two kinds of image generator, with minimal inconvenience or training data. This suggests that image generators might "know" more about scene appearance than we realize.  I will show that there are important scene properties that image generators very reliably get wrong.  These include shadow geometry and perspective geometry.  Similarly, video generators get object constancy and properties like momentum conservation wrong.
+            <br><br>
+            If generators know intrinsics, why extract them from images?  Perhaps because some other downstream process -- rendering, movement, whatever -- will use them. But rendering seems to work much better if you use latents, and numerous systems move using entirely latent representations. The only good argument in favor of an exposed image representation is that it might be easy to interact or compute with.  This suggests paying more attention to representations that suppress detail in favor of capturing major effects in a compact form.  I will show a method capable of computing such representations very efficiently for vast numbers of images.
+            <br><br>
+            Fixing image generators requires an evaluation procedure that will tell you if the generator got better. Image generators are evaluated using entirely irrational procedures (doesn't this look good; FID; and so on). But, looked at closely, most image generators and conditional image generators don't work very well. Part of the problem is we simply don't know how to do evaluate them in a sensible way.  I will discuss some progress in this respect.
+
           </p>
         </div>
       </details>

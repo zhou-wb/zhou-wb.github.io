@@ -398,51 +398,46 @@ details > summary::-webkit-details-marker {
   font-size: 32px;
   font-weight: 700;
   }
-  
+
   .register-button {
     display: inline-block;
-    /* background-color: rgba(0, 123, 255, 0.7);  */
-    color: white !important; 
-    padding: 10px 20px; 
-    text-align: center; 
-    text-decoration: none !important; 
-    font-size: 21px; 
-    /* border-radius: 0;  */
-    transition: all 0.3s ease; 
-    position: relative; 
-    overflow: hidden; 
+    padding: 10px 20px;
+    text-align: center;
+    color: white;
+    text-decoration: none !important;
+    font-size: 21px;
+    position: relative;
+    overflow: hidden;
     margin-bottom: 1rem;
-
+    font-weight:600;
     border-radius: 5px;
-    background: rgba(49, 112, 45, 0.6);
-    /* box-shadow:  5px 5px 10px #bebebe,
-                -5px -5px 10px #ffffff; */
+    background: #557750;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, padding-right 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.20);
 }
 
 .register-button::after {
     content: '→';
     position: absolute;
-    right: -20px; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    transition: right 0.3s ease; 
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: right 0.3s ease;
 }
-
-.register-button:hover::after {
-    right: 10px; 
-}
-
 
 .register-button:hover {
-  padding-right: 40px;
-    box-shadow: 
-        rgba(49, 112, 45, 0.4) 5px 5px, 
-        rgba(49, 112, 45, 0.3) 10px 10px, 
-        rgba(49, 112, 45, 0.2) 15px 15px, 
-        rgba(49, 112, 45, 0.1) 20px 20px, 
-        rgba(49, 112, 45, 0.05) 25px 25px; 
+    padding-right: 40px;
+    background-color: #557750;
+    color: white! important; 
+    text-decoration: none;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.20);
+    transform: translateY(-3px);
+}
 
-  }
+
+.register-button:hover::after {
+    right: 10px;
+}
 
   .modal {
     display: none;
@@ -550,7 +545,7 @@ details > summary::-webkit-details-marker {
 <div id="modal" class="modal">
   <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <iframe id="modal-iframe" src="http://www.maps.hku.hk/?type=Locations&id=25&lang=en&name=Library%20Building%20(New%20Wing)" width="100%" height="100%"></iframe>
+      <iframe id="modal-iframe" src="/assets/pdf/Navigation.pdf" width="100%" height="100%"></iframe>
   </div>
 </div>
 
@@ -604,7 +599,7 @@ details > summary::-webkit-details-marker {
 
  
   <h2 class="text-4xl font-bold mb-5" style = "margin-top: -2rem !important">Schedule</h2>
-  <!-- <a href="https://example.com" target="_blank" class="register-button">Register Now (Free)</a> -->
+  <a href="https://example.com" target="_blank" class="register-button">Register Now (Free)</a>
 
 
   <div class="schedule" id="schedule"></div>
@@ -861,6 +856,7 @@ details > summary::-webkit-details-marker {
         </div>
       </div>
 
+
       <div class="speaker-profile">
         <img class="speaker-photo" src="/assets/img/workshop/Ping Tan.jpg" alt="Speaker Name">
         <div class="speaker-content">
@@ -869,6 +865,19 @@ details > summary::-webkit-details-marker {
           <p class="speaker-link"><a href="https://pingtan.people.ust.hk/index.html" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
             Dr. Tan is a Professor in the Department of Electronic and Computer Engineering at the Hong Kong University of Science and Technology (HKUST). Before joining HKUST, he served as the director of the XR Lab at Alibaba DAMO Academy from 2019 to 2022, an Associate Professor at Simon Fraser University (SFU) in Canada from 2014 to 2019, and an assistant and Associate Professor at the National University of Singapore (NUS) from 2007 to 2014. Dr. Tan received his PhD from HKUST in 2007 and his Master's and Bachelor's degrees from Shanghai Jiao Tong University (SJTU) in 2003 and 2000, respectively. He specializes in computer vision, computer graphics, and robotics, with a research focus on 3D vision.
+          </p>
+        </div>
+      </div>
+
+      <div class="speaker-profile">
+        <img class="speaker-photo" src="/assets/img/workshop/hongbo_2019.jpg" alt="Speaker Name">
+        <div class="speaker-content">
+          <h2 class="speaker-name">Hong Kong University of Science and Technology (HKUST)</h2>
+          <h3 class="speaker-title">HKUST</h3>
+          <p class="speaker-link"><a href="https://hongbofu.people.ust.hk/" target="_blank">Personal Website</a></p>
+          <p class="speaker-abstract">
+        
+            Hongbo Fu is a Professor at the Division of Emerging Interdisciplinary Areas, HKUST. Before that, he worked at the School of Creative Media, City University of Hong Kong, for over 15 years. He had postdoctoral research training at the Imager Lab, University of British Columbia, Canada, and the Department of Computer Graphics, Max-Planck-Institut Informatik, Germany. He received a Ph.D. degree in computer science from HKUST in 2007 and a BS degree in information sciences from Peking University, China, in 2002. His primary research interests fall in computer graphics, human-computer interaction, and computer vision. His research has led to over 100 scientific publications, including 70+ papers in the best graphics/vision journals and 30+ papers in the best vision/HCI conferences. His recent works have received a Silver Medal from Special Edition 2022 Inventions Geneva Evaluation Days, the Best Demo awards at the Emerging Technologies program, ACM SIGGRAPH Asia in 2013 and 2014, and the Best Paper awards from CAD/Graphics 2015 and UIST 2019.
           </p>
         </div>
       </div>

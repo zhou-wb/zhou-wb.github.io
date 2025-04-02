@@ -110,7 +110,9 @@ layout: custom
   flex-direction: column;
   justify-content: center; 
   margin-bottom: -40px;
-  max-width: 917px !important;
+  width: 59%;
+  /* max-width: 917px !important; */
+  min-width: 2rem;
 }
 .image-container {
   position: relative;
@@ -122,13 +124,17 @@ layout: custom
   padding-top: 39px;
 }
 .conference-image {
-  max-width: 100%;
-  max-height: 100px;
+  /* max-width: 100%;
+  max-height: 100px; */
   object-fit: cover;
   /* opacity: 0.2; */
+  width:auto;
+  height: auto;
+  max-width: 400px;
+
 }
 
-@media (max-width: 1536px) {
+@media (max-width: 1282px) {
   .image-container {
     margin-left: -5px;
     order: 1;
@@ -227,6 +233,17 @@ layout: custom
   margin-top: 7px;
   margin-bottom: 1.5rem;
   float: left;
+}
+
+@media screen and (min-width: 1271px) and (max-width: 1533px) {
+
+  .speaker-profile {
+  margin-bottom: 1rem;
+}
+
+.speaker-photo {
+    margin-bottom: 2.8rem !important;
+  }
 }
 
 .speaker-content {
@@ -502,6 +519,75 @@ details > summary::-webkit-details-marker {
     color: #ffffff; 
 }
 
+/* #navbar {
+  display: flex;                   
+  justify-content: space-around;     
+  align-items: center;             
+  width: 100%;                      
+  padding: 0.5rem 1rem;              
+  box-sizing: border-box;           
+}
+
+
+#navbar a {
+  text-decoration: none;             
+  color: #333;                      
+  padding: 0.5rem 1rem;             
+  flex-shrink: 0;                   
+}
+
+@media (max-width: 600px) {
+  #navbar {
+    flex-wrap: wrap;              
+  }
+  #navbar a {
+    padding: 0.5rem;               
+    font-size: 0.9rem;             
+  }
+} */
+
+#navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;   /* 默认不换行 */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  flex-shrink: 0;
+}
+#navbar a:last-child {
+  margin-right: 20px;
+}
+.navbar-toggler {
+  display: none !important;
+}
+.navbar-nav.ml-auto.flex-nowrap {
+    display: none;
+  }
+@media (max-width: 680px) {
+  #navbar {
+    flex-wrap: wrap;  
+  }
+  #navbar a {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  #navbar a:last-child {
+    margin-right: 0px;
+  }
+  .navbar-brand.title.font-weight-lighter {
+  display: none !important;
+}
+
+}
+
 
 </style>
 </head>
@@ -597,14 +683,14 @@ details > summary::-webkit-details-marker {
     </div>
   </div>
 
- 
+  <section id="Schedule">
   <h2 class="text-4xl font-bold mb-5" style = "margin-top: -2rem !important">Schedule</h2>
   <a href="https://hkuems1.hku.hk/hkuems/ec_hdetail.aspx?guest=Y&ueid=99703" target="_blank" class="register-button">Register Now (Free)</a>
 
 
   <div class="schedule" id="schedule"></div>
 
-
+  </section> 
   
   <script>
     const sessions = [
@@ -613,20 +699,22 @@ details > summary::-webkit-details-marker {
       { title: 'Opening Remarks', duration: 10,  showTime: true },
       { title: 'The Joy of Latents: What Image Generators "Know" and Don\'t "Know", and Why It Matters', duration: 50, speaker: 'David Forsyth, UIUC', showTime: true },
       { title: 'Diffusion Posterior Sampling for Computational Imaging with Inaccurate Priors or Physics', duration: 25, speaker: 'He Sun, PKU', showTime: true },
-      { title: 'Learning 3D Representations from Videos', duration: 25, speaker: 'Xiaojuan Qi, HKU', showTime: true },
+      { title: 'Learning 3D Representations from Videos', duration: 20, speaker: 'Xiaojuan Qi, HKU', showTime: true },
       { title: 'Group Photo', duration: 10, showTime: true },
       { title: 'Lunch', duration: 70, showTime: true },
 
       { title: 'Security Concerns on Visual AI beyond RGB Domain', duration: 30, speaker: 'Yinqiang Zheng, UTokyo', showTime: true },
       { title: 'Differentiable Acquisition of Appearance and Geometry', duration: 25, speaker: 'Hongzhi Wu, ZJU', showTime: true },
-      { title: 'Computational Photography in the Age of Foundation and Generative Models', duration: 25, speaker: 'Tianfan Xue, CUHK', showTime: true },
-      { title: 'ACM SIGGRAPH Asia 2025 Pitching', duration: 5, speaker: 'Taku Komura, HKU', showTime: true },
+      { title: 'Computational Photography in the Age of Foundation and Generative Models', duration: 20, speaker: 'Tianfan Xue, CUHK', showTime: true },
+      { title: 'ACM SIGGRAPH Asia 2025 Pitching', duration: 5, speaker: 'Taku Komura, HKU & Hongbo Fu, HKUST', showTime: true },
       { title: 'Coffee & Tea Break', duration: 15, showTime: true },
       { title: 'Flat-Optics for Imaging with Extended Information', duration: 25, speaker: 'Yuanmu Yang, THU', showTime: true },
-      { title: 'Open-World Rain Simulator', duration: 25, speaker: 'Wenzheng Chen, PKU', showTime: true },
-      { title: 'In Quest of Better Gaussian Splatting', duration: 25, speaker: 'Ping Tan, HKUST', showTime: true },
+      { title: 'Open-World Rain Simulator', duration: 20, speaker: 'Wenzheng Chen, PKU', showTime: true },
+      { title: 'In Quest of Better Gaussian Splatting', duration: 20, speaker: 'Ping Tan, HKUST', showTime: true },
       { title: 'Computational Imaging for Graphics, Vision, Robotics, and Science', duration: 25, speaker: 'Seung-Hwan Baek, POSTECH', showTime: true },
-      { title: 'Closing Remarks & Networking', duration: 30,  showTime: true },   
+      { title: 'Closing Remarks', speaker: 'Kaibin Huang, Head of Department of Electrical and Electronic Engineering, HKU', duration: 20,  showTime: true },   
+      { title: 'Networking & Reception', speaker: 'Refreshments/Appetizer and non-alcohol drinks provided', duration: 30,  showTime: true },   
+
       { title: 'Dinner Banquet and HK-Night Tour', Time: '18:30',duration: 150, speaker: 'invitation only', showTime: true },
 
       { title: 'Wednesday, 16 April',  showTime: false },
@@ -689,10 +777,35 @@ details > summary::-webkit-details-marker {
             closeModal();
         }
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var navbar = document.getElementById('navbar');
+      if (navbar) {
+        var sectionIds = ['Schedule', 'Speakers/Guests', 'Workshop Materials']; 
+        
+        sectionIds.forEach(function(id) {
+          var newLink = document.createElement('a');
+          newLink.href = '#' + id;         
+          newLink.textContent = id;         
+          
+          newLink.addEventListener('click', function(event) {
+            event.preventDefault();        
+            var targetSection = document.getElementById(id);
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          
+          navbar.appendChild(newLink);
+          navbar.appendChild(document.createTextNode(' '));
+        });
+      }
+    });
+
   </script>
   
   
-
+  <section id="Speakers/Guests">
   <h2 class="text-4xl font-bold mb-5">Speakers/Guests</h2>
 
     <div class="speaker-container">
@@ -851,18 +964,16 @@ details > summary::-webkit-details-marker {
           <h3 class="speaker-title">Technical Papers Assistant Chair of ACM SIGGRAPH Asia 2025, HKUST</h3>
           <p class="speaker-link"><a href="https://hongbofu.people.ust.hk/" target="_blank">Personal Website</a></p>
           <p class="speaker-abstract">
-            Hongbo Fu is a Professor at the Division of Arts and Machine Creativity, HKUST. He also serve as the Technical Papers Assistant Chair for SIGGRAPH Asia 2025. Prior to his current appointment, he worked at the School of Creative Media, City University of Hong Kong, for over 15 years. He had postdoctoral research training at the Imager Lab, University of British Columbia, Canada, and the Department of Computer Graphics, Max-Planck-Institut Informatik, Germany. He received a Ph.D. degree in computer science from HKUST in 2007 and a BS degree in information sciences from Peking University, China, in 2002. His primary research interests fall in computer graphics, human-computer interaction, and computer vision. His research has led to over 100 scientific publications, including 70+ papers in the best graphics/vision journals and 30+ papers in the best vision/HCI conferences. His recent works have received a Silver Medal from Special Edition 2022 Inventions Geneva Evaluation Days, the Best Demo awards at the Emerging Technologies program, ACM SIGGRAPH Asia in 2013 and 2014, and the Best Paper awards from CAD/Graphics 2015 and UIST 2019. 
+            <!-- Hongbo Fu is a Professor at the Division of Arts and Machine Creativity, HKUST. He also serve as the Technical Papers Assistant Chair for SIGGRAPH Asia 2025. Prior to his current appointment, he worked at the School of Creative Media, City University of Hong Kong, for over 15 years. He had postdoctoral research training at the Imager Lab, University of British Columbia, Canada, and the Department of Computer Graphics, Max-Planck-Institut Informatik, Germany. He received a Ph.D. degree in computer science from HKUST in 2007 and a BS degree in information sciences from Peking University, China, in 2002. His primary research interests fall in computer graphics, human-computer interaction, and computer vision. His research has led to over 100 scientific publications, including 70+ papers in the best graphics/vision journals and 30+ papers in the best vision/HCI conferences. His recent works have received a Silver Medal from Special Edition 2022 Inventions Geneva Evaluation Days, the Best Demo awards at the Emerging Technologies program, ACM SIGGRAPH Asia in 2013 and 2014, and the Best Paper awards from CAD/Graphics 2015 and UIST 2019.  -->
+            Hongbo Fu is a Professor in the Division of Arts and Machine Creativity at HKUST, serving as Technical Papers Assistant Chair for SIGGRAPH Asia 2025. Prior to this, he worked at the School of Creative Media, City University of Hong Kong, for over 15 years. He conducted postdoctoral research at the Imager Lab, University of British Columbia, Canada, and the Department of Computer Graphics, Max-Planck-Institut Informatik, Germany. He received his Ph.D. in Computer Science from HKUST in 2007 and BS in Information Sciences from Peking University, China, in 2002. His primary research interests include computer graphics, human-computer interaction, and computer vision. His work has resulted in over 100 scientific publications, including 70+ papers in top graphics/vision journals and 30+ in leading vision/HCI conferences. His recent research received a Silver Medal at Special Edition 2022 Inventions Geneva Evaluation Days, Best Demo awards from the Emerging Technologies program at ACM SIGGRAPH Asia 2013 and 2014, and Best Paper awards at CAD/Graphics 2015 and UIST 2019.
           </p>
         </div>
       </div>
-
-
-
-
-
     </div>
- 
+  </Section>
 
+ 
+  <Section id = "Workshop Materials">
     <div class="conference-materials">
       <h2 class="text-4xl font-bold mb-5">Workshop Materials</h2>
 
@@ -970,12 +1081,13 @@ details > summary::-webkit-details-marker {
       </details>
 
     </div>
+  </Section>
 
     <footer style="text-align:center; padding:20px;">
       <p class="foot-title">Organizer: <span class="foot-link" ><a href="https://hku.welight.fun/">Computational Imaging & Mixed Representation Laboratory</a></span></p>
-      <p class="foot-title">Local Coordinating Team: <span class="foot-link" ><a href="https://andrewbxy.github.io/">Xiaoyang Bai, </a><a href="https://liux2018.github.io/">Xin Liu, </a><a href="https://qufeifan.github.io/">Feifan Qu, </a><a href="https://liangxunou.github.io/">Liangxun Ou</a></span></p>
       <p class="foot-title">Advisory Committee: <span class="foot-link" ><a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich, HKU/KAUST & </a><a href="https://www.eee.hku.hk/~huangkb/">Kaibin Huang, HKU</a></span></p>
       <p class="foot-title">Chair: <span class="foot-link" ><a href="https://www.eee.hku.hk/~evanpeng/">Evan Y. Peng, HKU EEE x CS</a></span></p>
+      <p class="foot-title">Local Coordinating Team: <span class="foot-link" ><a href="https://andrewbxy.github.io/">Xiaoyang Bai, </a><a href="https://liux2018.github.io/">Xin Liu, </a><a href="https://qufeifan.github.io/">Feifan Qu, </a><a href="https://liangxunou.github.io/">Liangxun Ou</a></span></p>
       
       <br>
       <p class="foot-title "><b>Acknowledgement: </b></p>

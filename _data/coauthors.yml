@@ -9,6 +9,9 @@
 "Liu":
   - firstname: ["Xin"]
     url: https://liux2018.github.io/
+  
+  - firstname: ["Yuhui"]
+    url: https://lorenalyu.github.io/
 
 "Bai":
   - firstname: ["Xiaoyang"]
@@ -42,10 +45,6 @@
   - firstname: ["Shijie"]
     url: https://scholar.google.com/citations?user=sQINQ-YAAAAJ&hl=en
 
-
-"Liu":
-  - firstname: ["Yuhui"]
-    url: https://lorenalyu.github.io/
 
 "Lu":
   - firstname: ["Jinfan"]

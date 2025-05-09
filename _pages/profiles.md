@@ -168,6 +168,17 @@ profiles:
       Computer Graphics, Computational Imaging<br>
       pengfei.shen@connect.hku.hk
 
+  - align:
+    image: Caowen.jpg
+    content: 
+    Details: false
+    category: PhD students
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://wencao2025.github.io/" style="font-size: larger; font-weight: bold;">Wen Cao</a><br>
+      Computational Optics<br>
+      wencao2ty@connect.hku.hk
+
 
 # RA
   - align: 

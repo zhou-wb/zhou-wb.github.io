@@ -351,7 +351,7 @@ profiles:
     more_info: >
       <span style="font-size: larger; font-weight: bold;">Bozheng Li</span><br>
       Summer Research Intern<br>
-      Now at Zhejiang University
+      Now at Brown University
   
   - align: 
     image: 

@@ -374,9 +374,9 @@ blockquote {
 }
 
 .profile-item {
-  flex-basis: calc(33.333% - 20px);
+  flex-basis: calc(25% - 20px);
   text-align: center;
-  min-width: 175px; // Adjust the value as needed
+  min-width: 200px; // Adjust the value as needed
   margin-bottom: 10px;
 }
 
@@ -412,11 +412,19 @@ h2.pro_category {
 }
 // Navbar customization
 
+// .navbar {
+//   box-shadow: none;
+//   border-bottom: 1px solid var(--global-divider-color);
+//   background-color: var(--global-nav-color) ;
+//   opacity: 0.95;
+// }
+
 .navbar {
+  background-color: rgba(150, 150, 150, 0.25); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
   box-shadow: none;
-  border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-nav-color) ;
-  opacity: 0.95;
+  border-bottom: 0px solid var(--global-divider-color);
 }
 
 .navbar .dropdown-menu {
@@ -876,6 +884,11 @@ footer.sticky-bottom {
   }
 }
 
+
+
+
+
+
 .publications {
   margin-top: 2rem;
 
@@ -1110,6 +1123,44 @@ footer.sticky-bottom {
   background-color: var(--global-divider-color) ; 
   // transition: background-color 0.3s
 }
+
+
+@media (min-width: 576px) {
+  .row-hover-effect {
+    display: flex;
+    align-items: flex-start;
+  }
+
+ .row-hover-effect .custom-col-sm-4 {
+    overflow: hidden;
+  }
+
+  /* 预览容器隐藏溢出，锁定高度 */
+  .row-hover-effect .preview {
+    overflow: hidden;
+  }
+
+  /* 图片：高度填满容器，宽度自适应，准备做水平放大 */
+  .row-hover-effect .preview img {
+    height: 100%;
+    width: auto;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+  }
+
+  /* Hover 时等比放大，因宽度自适应，放大效果只在水平方向可见 */
+  .row-hover-effect:hover .preview img {
+    transform: scale(1.1);
+  }
+}
+
+
+
+
+
+
+
+
 
 // Rouge Color Customization
 figure.highlight {

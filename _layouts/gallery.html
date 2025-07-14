@@ -1,0 +1,251 @@
+---
+layout: default
+title: Gallery
+description: A glimpse of our lab moments
+---
+
+<!-- <div class="gallery-container">
+  {% assign gallery_images = site.static_files | where_exp: "file", "file.path contains 'assets/img/gallery'" %}
+  {% for file in gallery_images %}
+    {% if file.extname == ".jpg" or file.extname == ".png" or file.extname == ".jpeg" %}
+      <div class="gallery-item">
+        <img
+          src="{{ file.path }}"
+          alt="Lab photo"
+          data-index="{{ forloop.index0 }}"
+          onclick="openLightbox(this)"
+        />
+      </div>
+    {% endif %}
+  {% endfor %}
+</div> -->
+
+
+<div class="gallery-container">
+  {% assign gallery_images = site.static_files
+    | where_exp: "file", "file.path contains 'assets/img/gallery'"
+    | sort: "name"
+    | reverse %}
+  {% for file in gallery_images %}
+    {% if file.extname == ".jpg" or file.extname == ".png" or file.extname == ".jpeg" %}
+      <div class="gallery-item">
+        <img
+          src="{{ file.path }}"
+          alt="Lab photo"
+          data-index="{{ forloop.index0 }}"
+        />
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<div id="overlay" class="overlay" onclick="closeLightbox()"></div>
+
+<div id="lightbox" class="lightbox">
+  <div id="prev-btn" class="nav-btn prev" onclick="prevImage(event)">&#10094;</div>
+  <img id="lightbox-img" class="lightbox-content" />
+  <div id="next-btn" class="nav-btn next" onclick="nextImage(event)">&#10095;</div>
+</div>
+
+<style>
+.gallery-container {
+  column-count: 3;
+  column-gap: 20px;
+  padding: 20px;
+}
+@media (max-width: 1000px) { .gallery-container { column-count: 2; } }
+@media (max-width: 600px)  {
+  .gallery-container { column-count: 1; }
+  .gallery-item img {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+.gallery-item {
+  display: inline-block;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.gallery-item img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform .2s;
+}
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+  z-index: 9998;
+}
+
+.lightbox {
+  position: absolute;
+  z-index: 9999;
+  overflow: hidden;
+  display: none;
+  transition:
+    top .3s ease,
+    left .3s ease,
+    width .3s ease,
+    height .3s ease;
+}
+
+.lightbox-content {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+}
+.nav-btn:hover {
+  background: rgba(255,255,255,0.9);
+}
+.nav-btn.prev { left: 10px; }
+.nav-btn.next { right: 10px; }
+</style>
+
+<script>
+  const images = Array.from(document.querySelectorAll('.gallery-item img'))
+                      .map(img => img.src);
+
+  let currentIndex, thumbRect, finalPos;
+
+  function openLightbox(imgElem) {
+    if (window.innerWidth <= 600) return;
+
+    currentIndex = parseInt(imgElem.dataset.index, 10);
+    updateThumbRect();
+
+    const lb    = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const overlay = document.getElementById('overlay');
+
+    lbImg.src = images[currentIndex];
+    computeFinalPos(imgElem);
+
+    Object.assign(lb.style, {
+      display: 'block',
+      top:    thumbRect.top    + 'px',
+      left:   thumbRect.left   + 'px',
+      width:  thumbRect.width  + 'px',
+      height: thumbRect.height + 'px'
+    });
+
+    overlay.style.pointerEvents = 'auto';
+    overlay.style.opacity = '1';
+
+    lb.getBoundingClientRect();
+    requestAnimationFrame(() => {
+      Object.assign(lb.style, {
+        top:    finalPos.top    + 'px',
+        left:   finalPos.left   + 'px',
+        width:  finalPos.width  + 'px',
+        height: finalPos.height + 'px'
+      });
+    });
+  }
+
+  function closeLightbox() {
+    const overlay = document.getElementById('overlay');
+    const lb      = document.getElementById('lightbox');
+
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+
+    requestAnimationFrame(() => {
+      Object.assign(lb.style, {
+        top:    thumbRect.top    + 'px',
+        left:   thumbRect.left   + 'px',
+        width:  thumbRect.width  + 'px',
+        height: thumbRect.height + 'px'
+      });
+    });
+
+    lb.addEventListener('transitionend', function handler(e) {
+      if (['top','left','width','height'].includes(e.propertyName)) {
+        lb.style.display = 'none';
+        lb.removeEventListener('transitionend', handler);
+      }
+    });
+  }
+
+  function showImage(idx) {
+    if (idx < 0) idx = images.length - 1;
+    if (idx >= images.length) idx = 0;
+    currentIndex = idx;
+    updateThumbRect();
+
+    const temp = new Image();
+    temp.onload = () => {
+      computeFinalPos(temp);
+      const lbImg = document.getElementById('lightbox-img');
+      const lb    = document.getElementById('lightbox');
+      lbImg.src = images[currentIndex];
+      Object.assign(lb.style, {
+        top:    finalPos.top    + 'px',
+        left:   finalPos.left   + 'px',
+        width:  finalPos.width  + 'px',
+        height: finalPos.height + 'px'
+      });
+    };
+    temp.src = images[currentIndex];
+  }
+
+  function prevImage(e) {
+    e.stopPropagation();
+    showImage(currentIndex - 1);
+  }
+  function nextImage(e) {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
+  }
+
+  function updateThumbRect() {
+    const thumb = document.querySelector(`.gallery-item img[data-index="${currentIndex}"]`);
+    const r = thumb.getBoundingClientRect();
+    thumbRect = {
+      top:    r.top + window.scrollY,
+      left:   r.left + window.scrollX,
+      width:  r.width,
+      height: r.height
+    };
+  }
+
+  function computeFinalPos(targetElem) {
+    const sw = window.innerWidth, sh = window.innerHeight;
+    const maxW = sw * 0.7, maxH = sh * 0.7;
+    const natW = targetElem.naturalWidth, natH = targetElem.naturalHeight;
+    const ratio = natW / natH;
+    let w = Math.min(natW, maxW), h = w / ratio;
+    if (h > maxH) { h = maxH; w = h * ratio; }
+    finalPos = {
+      top:   window.scrollY + (sh - h) / 2,
+      left:  window.scrollX + (sw - w) / 2,
+      width: w,
+      height:h
+    };
+  }
+</script>

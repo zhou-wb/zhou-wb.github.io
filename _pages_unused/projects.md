@@ -5,7 +5,7 @@ permalink: /projects/
 description: 
 nav: true
 nav_order: 2
-display_categories: ["2023-2024", "2022-2023"]
+display_categories: ["Since 2022, Winter-Spring", "Since 2023, Fall-Winter"]
 horizontal: false
 ---
 

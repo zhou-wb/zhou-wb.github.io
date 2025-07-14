@@ -16,7 +16,7 @@ layout: default
     <div class="link-list">
 
       
-      <div class="link-item">
+      <!-- <div class="link-item">
         <h2 class="e">2025 April</h2>
         <a href="/events/workshop_25Apr/" class="matrix-link">
           <div class="matrix-content">
@@ -26,9 +26,52 @@ layout: default
             </div>
           </div>
         </a>
-      </div>
+      </div> -->
 
-      <div class="link-item">
+      <a href="/events/workshop_25Apr/" class="matrix-link">
+        <div class="matrix-content">
+          <div class="matrix-image">
+            <img src="/assets/img/events/3.jpeg" alt="Workshop Thumbnail">
+          </div>
+          <div class="text-block">
+            <div class="title-container">
+              <h1 class="h1_1 text-6xl font-bold mt-10 mb-5">Workshop on</h1>
+              <h2 class="h2_2 text-5xl font-bold">Frontiers of Image Science and Visual Computing 2025</h2>
+            </div>
+          </div>
+        </div>
+      </a>
+
+
+      <a href="/events/workshop_24Nov/" class="matrix-link">
+        <div class="matrix-content">
+          <div class="matrix-image">
+            <img src="/assets/img/events/2.jpeg" alt="Workshop Thumbnail">
+          </div>
+          <div class="text-block">
+            <div class="title-container">
+              <h1 class="h1_1 text-6xl font-bold mt-10 mb-5">Mini-Workshop on</h1>
+              <h2 class="h2_1 text-5xl font-bold">Frontiers of Geometry Computing & Visual Media 2024</h2>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="/events/workshop_24Apr/" class="matrix-link">
+        <div class="matrix-content">
+          <div class="matrix-image">
+            <img src="/assets/img/events/1.jpeg" alt="Workshop Thumbnail">
+          </div>
+          <div class="text-block">
+            <div class="title-container">
+              <h1 class="h1_1 text-6xl font-bold mt-10 mb-5">Workshop on</h1>
+              <h2 class="h2_1 text-5xl font-bold">Frontiers of Image Science and Visual Computing 2024</h2>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- <div class="link-item">
         <h2 class="e">2024 November</h2>
         <a href="/events/workshop_24Nov/" class="matrix-link">
           <div class="matrix-content">
@@ -50,7 +93,7 @@ layout: default
             </div>
           </div>
         </a>
-      </div>
+      </div> -->
 
       
       
@@ -70,13 +113,26 @@ layout: default
     font-weight: 500 !important;
     margin-top: -2.5rem !important;
   }
-  
+  @media (max-width: 768px) {
+  .h2_1 {
+    font-size: 26px !important;
+  }
+  .h1_1 {
+    font-size: 24px!important; 
+  }
+}
+
   .h2_2 {
     color: #1f8f18 !important;
     font-size: 41px!important; 
     font-weight: 500 !important;
     margin-top: -2.5rem !important;
   }
+  @media (max-width: 768px) {
+  .h2_2 {
+    font-size: 26px !important;
+  }
+}
 
 
 
@@ -109,7 +165,7 @@ layout: default
   transform: translateY(-5px); 
 }
 
-.matrix-content {
+/* .matrix-content {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -119,6 +175,7 @@ layout: default
   align-items: flex-start;
   height: 100%; 
 }
+ */
 
 
 .title-container {
@@ -135,6 +192,39 @@ h2.e {
     margin-bottom: 1rem; */
     text-align: right;
   }
+
+.matrix-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;      
+  gap: 20px;               
+}
+
+.matrix-image {
+  flex: 0 0 30%;
+}
+.matrix-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;      
+}
+
+.text-block {
+  flex: 1;                
+}
+
+@media (max-width: 768px) {
+  .matrix-content {
+    flex-direction: column;
+  }
+  .matrix-image,
+  .text-block {
+    flex: none;
+    width: 100%;
+  }
+}
+  
 
   
 </style>

@@ -13,7 +13,7 @@ layout: default
   background-position: center bottom;      
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
-  height: 18rem; 
+  height: 30rem; 
   position: relative;
   margin-top: -6.9rem;
   width: 100vw; 
@@ -25,8 +25,8 @@ layout: default
 
 .text-container {
   position: absolute;
-  top: 57%;
-  left: calc(44.5% - min(41%, 31rem));
+  top: 50%;
+  left: calc(50% - min(48%, 31rem));
   transform: translateY(-50%);
   width: auto;
 }
@@ -36,57 +36,152 @@ layout: default
     font-size: larger !important;
   }
 .textareahead {
-      color: #FFF !important;
+      color: #d0f7d0ad !important;
       /* font-size: larger !important; */
-      font-size:  min(50px, 9vw)!important;
-      font-weight: 700!important;
+      font-size:  min(40px, 10vw)!important;
+      font-weight: 600!important;
+      letter-spacing: -1px;
     }
+
+
+.lab-title {
+  font-family: 'Poppins', sans-serif;
+  color: #e5fff0bf;
+  font-size: min(67px, 9vw);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: -3px;
+}
+
+
+.lab-title .at {
+  font-family: 'Poppins', sans-serif;
+  color: #e5fff0bf;
+  font-weight: 300;
+}
+   
+
+/* 并排容器，只影响 avatar +正文这一块 */
+.post-intro {
+  display: flex;
+  flex-wrap: wrap;          /* 窄屏时自动换行 */
+  align-items: flex-start;  /* 顶端对齐 */
+  gap: 1rem;                /* 列间距 */
+  margin-bottom: 2rem;      /* 和后面区块留空 */
+}
+
+/* 右侧头像，定宽度 */
+.post-intro .profile {
+  flex: 0 0 40% !important       /* 固定占 30% 宽度 */
+}
+
+.post-intro .profile img {
+    width: 100%;
+}
+
+/* 左侧正文，撑满剩余 */
+.post-intro .post-text {
+  flex: 1;                  /* 占满剩下的空间 */
+  min-width: 200px !important;         /* 防止在中等窗口下过窄 */
+}
+
+/* 手机 / 小屏幕：上下堆叠 */
+@media (max-width: 576px) {
+  .post-intro {
+    display: block;
+  }
+  .post-intro .profile,
+  .post-intro .post-text {
+    width: 100%;
+    margin-bottom: 1rem;    /* 各自底部留空 */
+  }
+}
+
+.news-fullwidth {
+  position: relative;
+  width: 100vw;           /* 撑满视口宽度 */
+  left: 50%;              /* 水平居中 */
+  margin-left: -50vw;     /* 抵消默认的 container 限制 */
+  background-color: #000; /* 黑底 */
+  color: #fff important;;            /* 白字 */
+  padding: 2rem 0;        /* 上下 2rem 内边距 */
+}
+
+.news-fullwidth * {
+  color: #fff !important;
+}
+
+/* 保证链接仍然继承白色 */
+.news-fullwidth a {
+  color: inherit;
+}
+
+    
 </style>
 
 <!-- about.html -->
-      <div class="bg-gray-200 p-5 mb-5 conference-background">
+      <!-- <div class="bg-gray-200 p-5 mb-5 conference-background">
         <div class="text-container">
           <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light<br>We shape light for better life</h3>
-          <!-- <p class="mb-2 textarea">8 April, 2024 PM</p>
-          <p class="mb-2 textarea">Rayson Huang Lecture Theatre, The University of Hong Kong, HONG KONG SAR</p> -->
         </div>
-      </div>
+      </div> -->
 
+    <div class="bg-gray-200 p-5 mb-5 conference-background">
+      <div class="text-container">
+        <h2 class="lab-title">WeLight <span class="at">@ HKU </h2>
+        <h3 class="textareahead">
+          Let there be light<br>
+          We shape light for better life
+        </h3>
+      </div>
+    </div>
 
 
       <div class="post">
-        <header class="post-header">
-          <h1 class="post-title">
+        <!-- <header class="post-header"> -->
+          <!-- <h1 class="post-title">
             {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}<span class="font-weight-bold">{{- site.title -}}</span>&nbsp;{{- site.title1 -}}{%- endif %}
-          </h1>
-          <p class="desc">{{ page.subtitle }}</p>
-        </header>
+          </h1> -->
+          <!-- <p class="desc">{{ page.subtitle }}</p> -->
+        <!-- </header> -->
 
         <article>
-          {% if page.profile -%}
-          <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
-            {%- if page.profile.image %}
-              {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
+          <div class="post-intro">
+            {% if page.profile -%}
+            <!-- <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}"> -->
 
-              {% if page.profile.image_circular %}
-                {%- assign profile_image_class = "img-fluid z-depth-1 rounded-circle" -%}
-              {% else %}
-                {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
-              {% endif %}
+            <!-- <div class="clearfix"> -->
+            <div class="post-text">
+              {{ content }}
+            </div>
 
-              {% include figure.html
-              path=profile_image_path
-              class=profile_image_class
-              alt=page.profile.image
-              cache_bust=true -%}
-            {% endif -%}
+            <div class="profile">
+
+              {%- if page.profile.image %}
+                {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
+
+                {% if page.profile.image_circular %}
+                  {%- assign profile_image_class = "img-fluid z-depth-1 rounded-circle" -%}
+                {% else %}
+                  {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
+                {% endif %}
+
+                {% include figure.html
+                path=profile_image_path
+                class=profile_image_class
+                alt=page.profile.image
+                cache_bust=true -%}
+              {% endif -%}
+              {%- if page.profile.more_info %}
+              <!-- <div class="more-info">
+                {{ page.profile.more_info }}
+              </div> -->
+              {%- endif %}
+            </div>
+            {%- endif %}
+
+
           </div>
-          {%- endif %}
-
-          <div class="clearfix">
-            {{ content }}
-          </div>
-          
 
           <!-- Join Us Link -->
           {% if page.joinus %}
@@ -100,7 +195,7 @@ layout: default
           <!-- News -->
           {% if page.news and site.announcements.enabled -%}
             <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">News</a></h2>
-            {%- include news.html limit=true %}
+            {%- include news.html limit=true %} 
           {%- endif %}
 
 
@@ -124,6 +219,7 @@ layout: default
             {%- include selected_papers.html %}
           {%- endif %}
 
+          <!-- <div class="news-fullwidth"> -->
           <!-- WeChat 公众号 -->
           {% if page.wechat %}
             <div class="public-account">
@@ -171,6 +267,8 @@ layout: default
         </div>
           </div>   
 
+
+        <!-- </div> -->
 
 
         </article>

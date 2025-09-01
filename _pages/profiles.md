@@ -185,7 +185,7 @@ profiles:
     image: Liangxun.jpg
     content: 
     Details: false
-    category: RA
+    category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://liangxunou.github.io/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
@@ -196,7 +196,7 @@ profiles:
     image: Feifan.png
     content: 
     Details: false
-    category: RA
+    category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://qufeifan.github.io/" style="font-size: larger; font-weight: bold;">Feifan Qu</a><br>

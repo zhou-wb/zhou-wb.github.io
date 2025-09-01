@@ -190,7 +190,7 @@ profiles:
     more_info: >
       <a href="https://liangxunou.github.io/" style="font-size: larger; font-weight: bold;">Liangxun Ou</a><br>
       Computational Imaging, Computer Vision<br>
-      u3605728@connect.hku.hk
+      liangxun.ou@connect.hku.hk
 
   - align: 
     image: Feifan.png

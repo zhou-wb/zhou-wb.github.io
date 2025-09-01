@@ -201,7 +201,7 @@ profiles:
     more_info: >
       <a href="https://qufeifan.github.io/" style="font-size: larger; font-weight: bold;">Feifan Qu</a><br>
       Computational Holography, VR/AR <br>
-      feifan@hku.hk
+      feifan_qu@connect.hku.hk
 
 # Visitor
 

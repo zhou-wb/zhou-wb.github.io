@@ -180,7 +180,6 @@ profiles:
       wencao2ty@connect.hku.hk
 
 
-# RA
   - align: 
     image: Liangxun.jpg
     content: 
@@ -202,69 +201,82 @@ profiles:
       <a href="https://qufeifan.github.io/" style="font-size: larger; font-weight: bold;">Feifan Qu</a><br>
       Computational Holography, VR/AR <br>
       feifan_qu@connect.hku.hk
+# RA
+
 
 # Visitor
 
-  - align: 
-    image: Jinfan.jpg
-    content: 
-    Details: false
-    category: Visitor
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <a href="https://www.linkedin.com/in/%E5%8A%B2%E5%B8%86-%E9%B2%81-a72311353/" style="font-size: larger; font-weight: bold;">Jinfan Lu</a><br>
-      Rendering, Computer Graphics<br>
-      u3646555@connect.hku.hk
+
 
 # Master
 
-  - align: 
-    image: 
-    content: 
-    Details: false
-    category: Master students
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <span style="font-size: larger; font-weight: bold;">Zhuoqi Li</span><br>
 
-  - align: 
-    image: 
-    content: 
-    Details: false
-    category: Master students
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <span style="font-size: larger; font-weight: bold;">Kaifeng Lin</span><br>
-
-  - align: 
-    image: 
-    content: 
-    Details: false
-    category: Master students
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <span style="font-size: larger; font-weight: bold;">Jingyi Guo</span><br>
-
-  - align: 
-    image: 
-    content: 
-    Details: false
-    category: Master students
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <span style="font-size: larger; font-weight: bold;">Shuang Wei</span><br>
-
-  - align: 
-    image: 
-    content: 
-    Details: false
-    category: Master students
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <span style="font-size: larger; font-weight: bold;">Yuyang Guo</span><br>
 
 
 # Alumni
+  - align: 
+    image:
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://www.linkedin.com/in/jinfan-lu-a72311353/" style="font-size: larger; font-weight: bold;">Jinfan Lu</a><br>
+      Visiting Undergraduate<br>
+      Rendering, Computer Graphics<br>
+      Now at Tsinghua University
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Zhuoqi Li</span><br>
+      Master's Graduate<br>
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Kaifeng Lin</span><br>
+      Master's Graduate<br>
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Jingyi Guo</span><br>
+      Master's Graduate<br>
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Shuang Wei</span><br>
+      Master's Graduate<br>
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <span style="font-size: larger; font-weight: bold;">Yuyang Guo</span><br>
+      Master's Graduate<br>
+
+
   - align: 
     image: 
     content: 

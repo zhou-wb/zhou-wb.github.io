@@ -200,13 +200,22 @@ profiles:
     more_info: >
       <a href="https://qufeifan.github.io/" style="font-size: larger; font-weight: bold;">Feifan Qu</a><br>
       Computational Holography, VR/AR <br>
-      feifan_qu@connect.hku.hk
+      feifan.qu@connect.hku.hk
 # RA
 
 
 # Visitor
-
-
+  - align: 
+    image: Jiale.jpg
+    content: 
+    Details: false
+    category: Visitor
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://kelvar00.github.io/about/about/" style="font-size: larger; font-weight: bold;">Jiale Wu</a><br>
+      Visiting Student<br>
+      Vision (3D/4D), 3D reconstruction<br>
+      jialewu2022@zju.edu.cn
 
 # Master
 
@@ -222,7 +231,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/jinfan-lu-a72311353/" style="font-size: larger; font-weight: bold;">Jinfan Lu</a><br>
-      Visiting Undergraduate<br>
+      Visiting Student<br>
       Rendering, Computer Graphics<br>
       Now at Tsinghua University
 

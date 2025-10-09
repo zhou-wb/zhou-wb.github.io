@@ -27,7 +27,6 @@ profiles:
     more_info: >
       <a href="https://vccimaging.org/People/heidriw/" style="font-size: larger; font-weight: bold;">Wolfgang Heidrich</a><br>
       HK STEM Visiting Professor <br>
-# Visitor
 
 
 
@@ -217,6 +216,17 @@ profiles:
       Vision (3D/4D), 3D reconstruction<br>
       jialewu2022@zju.edu.cn
 
+  - align: 
+    image: Zongqi.png
+    content: 
+    Details: false
+    category: Visitor
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://wuyou012.github.io/" style="font-size: larger; font-weight: bold;">Zongqi He</a><br>
+      RA / Visiting Student<br>
+      Computer Vision (3D/4D) & 3D Reconstruction<br>
+      tangdi0110@gmail.com
 # Master
 
 

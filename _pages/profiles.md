@@ -213,7 +213,7 @@ profiles:
     more_info: >
       <a href="https://kelvar00.github.io/about/about/" style="font-size: larger; font-weight: bold;">Jiale Wu</a><br>
       Visiting Student<br>
-      Vision (3D/4D), 3D reconstruction<br>
+      Vision (3D/4D), 3D Reconstruction<br>
       jialewu2022@zju.edu.cn
 
   - align: 
@@ -225,7 +225,7 @@ profiles:
     more_info: >
       <a href="https://wuyou012.github.io/" style="font-size: larger; font-weight: bold;">Zongqi He</a><br>
       RA / Visiting Student<br>
-      Computer Vision (3D/4D) & 3D Reconstruction<br>
+      Vision (3D/4D), 3D Reconstruction<br>
       tangdi0110@gmail.com
 # Master
 

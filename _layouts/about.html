@@ -9,8 +9,8 @@ layout: default
   align-items: start; 
   background-image: url('/assets/img/bg_3.jpg');
   background-size: cover;
-  background-attachment: fixed !important; 
-  background-position: center bottom;      
+  background-position: center bottom;
+  background-attachment: fixed;
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
   height: 18rem; 
@@ -20,6 +20,12 @@ layout: default
   margin-left: -50vw; 
   left: 50%;
   margin-bottom: 1.5rem !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .conference-background {
+    background-attachment: scroll;
+  }
 }
 
 

@@ -1,0 +1,1105 @@
+---
+layout: custom
+---
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>events</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  .h1_1 {
+    font-size: 40px!important; 
+    font-weight: 900!important;
+  }
+
+  .h2_1 {
+    color: #1f8f18 !important;
+    font-size: 51px!important; 
+    font-weight: 500 !important;
+    margin-top: -2.5rem !important;
+    margin-bottom: 4rem !important
+  }
+
+  .textarea {
+    color: #FFF !important;
+    font-weight: 600 !important;
+    font-size: larger !important;
+  }
+  .textareahead {
+      color: #FFF !important;
+      font-size: larger !important;
+      font-size: 30px!important;
+      font-weight: 700!important;
+    }
+
+    .textarea {
+    color: #FFF !important;
+    font-weight: 600 !important;
+    font-size: larger !important;
+  }
+  /* .conference-background {
+    background-image: url('/assets/img/conferencebg.jpg');
+    background-size: cover ; 
+    background-position: center; 
+    width: 100%; 
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  } */
+  /* .conference-background {
+  background-image: url(/assets/img/bg_2.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-left: -15% !important;
+    width: 130%;
+    padding-top: 5rem!important;
+    padding-bottom: 5rem!important;
+    padding-left: 20% !important;
+  } */
+
+  .conference-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: start; 
+  background-image: url('/assets/img/bg_19.jpg');
+  background-size: cover;
+  /* background-position: center; */
+  /* margin-left: -15% !important; */
+  /* width: 130%; */
+  background-attachment: fixed !important; 
+  /* background-repeat: no-repeat; */
+  background-position: center center;      
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+  /* padding-left: 20% !important; */
+  height: 17rem; 
+  /* width: 122%;
+  margin-left: -11%; */
+  position: relative;
+  margin-top: 1.5rem;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  width: 100vw; 
+  margin-left: -50vw; 
+  left: 50%;
+}
+
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - min(40%,39rem));
+  transform: translateY(-50%);
+  width: auto;
+}
+  .header-container {
+  display: flex;
+  align-items: stretch; 
+  flex-wrap: wrap;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  margin-bottom: -40px;
+  width: 63%;
+  /* max-width: 917px !important; */
+  min-width: 2rem;
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+  margin-left: auto;
+  order: 2;
+  align-items: center;
+  display: flex;
+  padding-top: 39px;
+}
+.conference-image {
+  /* max-width: 100%;
+  max-height: 100px; */
+  object-fit: cover;
+  /* opacity: 0.2; */
+  width:auto;
+  height: auto;
+  max-width: 400px;
+
+}
+
+@media (max-width: 1282px) {
+  .image-container {
+    margin-left: -5px;
+    order: 1;
+    margin-bottom: -2rem;
+    margin-top: -2rem;
+  }
+
+  .title-container {
+    order: 2; 
+    width: 100%; 
+  }
+  .conference-image {
+  max-width: 400px;
+  max-height: 120px;
+  object-fit: cover;
+}
+}
+/* .conference-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  height: auto;
+} */
+
+  body {
+    font-family: 'Poppins', sans-serif !important;  
+  }
+
+  .schedule {
+  width: 100%; 
+  margin: 0; 
+  background: rgba(49, 112, 45, 0.04);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: rgba(49, 112, 45, 0.4) 5px 5px, rgba(49, 112, 45, 0.3) 10px 10px, rgba(49, 112, 45, 0.2) 15px 15px, rgba(49, 112, 45, 0.1) 20px 20px, rgba(49, 112, 45, 0.05) 25px 25px;
+  margin-bottom: 4rem;
+  padding: 1rem;
+}
+
+
+.session {
+  display: flex;
+  align-items: center;
+  border-bottom: 0px solid #eee;
+  padding-left: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.time {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex: 0 0 20%; 
+  font-weight: 600;
+  color: #1f8f18;
+  margin-right: 1rem;
+}
+
+.details {
+  flex: 1;
+}
+
+  .title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .speaker {
+    font-size: 16px;
+    color: #666;
+  }
+  .speaker-container {
+  /* margin: 20px auto; */
+  display: flex;
+  flex-wrap: wrap; 
+  /* gap: 20px;  */
+}
+
+.speaker-profile {
+  /* display: flex; */
+  align-items: flex-start;
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.speaker-photo {
+  width: 12rem;
+  object-fit: cover;
+  min-height: 10rem;
+  max-height: 13rem;
+  margin-right: 2rem;
+  margin-top: 7px;
+  margin-bottom: 1.5rem;
+  float: left;
+}
+
+@media screen and (min-width: 1271px) and (max-width: 1533px) {
+
+  .speaker-profile {
+  margin-bottom: 1rem;
+}
+
+.speaker-photo {
+    margin-bottom: 2.8rem !important;
+  }
+}
+
+.speaker-content {
+  flex: 1;
+}
+
+.speaker-name {
+  font-weight: bold;
+  font-size: larger;
+
+}
+
+.speaker-title {
+  /* font-weight: bold; */
+  font-size: 16px;
+  color: #666; 
+}
+.speaker-link a {
+    color: #1f8f18;
+    text-decoration: none;
+  }
+
+.speaker-abstract {
+  font-style: normal;
+}
+
+.speaker-bio {
+  font-weight: normal;
+}
+
+.conference-materials {
+  margin: 2rem auto;
+}
+
+.material-detail {
+  background-color: rgba(49, 112, 45,0.04);
+  margin-bottom: 1rem;
+  /* border: 1px solid var(--global-distill-app-color); */
+  /* box-shadow: 0 2px 4px var(--global-divider-color); */
+  /* box-shadow: 0 2px 4px rgba(0,123,255,0.3); */
+  transition: all 0.3s ease-in-out;
+}
+
+.material-summary {
+  font-weight: 600;
+  color: #1f8f18;
+  padding: 1rem;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.material-summary::after {
+  content: '▼';
+  position: absolute;
+  right: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.material-detail[open] .material-summary::after {
+  transform: rotate(180deg);
+}
+
+.material-content {
+  padding: 1rem;
+  line-height: 1.6;
+  max-height: 0;
+  overflow: overlay;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.material-content b {
+  font-weight: 600;
+}s
+
+.material-content ol {
+  padding-left: 10px; 
+  list-style-type: none; 
+  margin-top: 1rem;
+}
+.material-content a{
+  color: #1f8f18;
+  text-decoration: none;
+}
+
+.material-content ol li {
+  position: relative; 
+  padding-left: 20px; 
+  margin-bottom: 10px; 
+  margin-top: 1rem;
+}
+
+.material-content ol li::before {
+  content: "•"; 
+  color: #1f8f18; 
+  font-weight: bold; 
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  font-size: 20px;
+}
+
+.material-content-name{
+  font-weight:600;
+  font-size:initial; 
+  margin-top:-1rem; 
+  margin-bottom:1rem;
+}
+.material-detail[open] .material-content {
+  max-height: 30rem; 
+}
+
+.material-summary:hover {
+  background-color: var(--global-hover-colorr);
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.logos-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 20px; 
+  /* padding: 20px 0;  */
+  margin-top: 1rem;
+  flex-wrap:wrap
+}
+
+.logos-container img {
+  max-height: min(7rem,18vw);
+  width: auto; 
+  transition: transform 0.3s ease;
+}
+
+.logos-container img:hover {
+  transform: scale(1.1); 
+}
+
+.special-logo-1 {
+  max-width: max(5rem, 7vw);
+}
+
+.special-logo-2 {
+  max-width: max(6rem, 8vw);
+}
+
+.foot-title {
+  /* font-weight: bold; */
+  font-size: 24px;
+  color: #666; 
+  font-weight: 700
+}
+.foot-link a {
+    color: #1f8f18;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 300
+  }
+
+.foot-title b {
+  font-size: 32px;
+  font-weight: 700;
+  }
+
+  .register-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    color: white;
+    text-decoration: none !important;
+    font-size: 21px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    font-weight:600;
+    border-radius: 5px;
+    background: #557750;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, padding-right 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.20);
+}
+
+.register-button::after {
+    content: '→';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: right 0.3s ease;
+}
+
+.register-button:hover {
+    padding-right: 40px;
+    background-color: #557750;
+    color: white! important; 
+    text-decoration: none;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.20);
+    transform: translateY(-3px);
+}
+
+
+.register-button:hover::after {
+    right: 10px;
+}
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 1200px;
+    height: 85%; 
+    /* max-height: 90%; */
+    overflow: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.nav-link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff; 
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.3); 
+    padding: 8px 12px;
+    border-radius: 5px;
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: #ffffff; 
+}
+
+/* #navbar {
+  display: flex;                   
+  justify-content: space-around;     
+  align-items: center;             
+  width: 100%;                      
+  padding: 0.5rem 1rem;              
+  box-sizing: border-box;           
+}
+
+
+#navbar a {
+  text-decoration: none;             
+  color: #333;                      
+  padding: 0.5rem 1rem;             
+  flex-shrink: 0;                   
+}
+
+@media (max-width: 600px) {
+  #navbar {
+    flex-wrap: wrap;              
+  }
+  #navbar a {
+    padding: 0.5rem;               
+    font-size: 0.9rem;             
+  }
+} */
+
+#navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;   /* 默认不换行 */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  flex-shrink: 0;
+}
+#navbar a:last-child {
+  margin-right: 20px;
+}
+.navbar-toggler {
+  display: none !important;
+}
+.navbar-nav.ml-auto.flex-nowrap {
+    display: none;
+  }
+@media (max-width: 680px) {
+  #navbar {
+    flex-wrap: wrap;  
+  }
+  #navbar a {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  #navbar a:last-child {
+    margin-right: 0px;
+  }
+  .navbar-brand.title.font-weight-lighter {
+  display: none !important;
+}
+
+}
+
+
+</style>
+</head>
+
+<body class="bg-white text-gray-800">
+<div class="container mx-auto px-4">
+  <div class = "header-container">
+    <div class="title-container">
+      <h1 class="h1_1 text-6xl font-bold mt-10 mb-5 ">HKU-KAUST Joint Postgraduate Workshop on</h1>
+      <h2 class="h2_1 text-5xl font-bold mb-5">Computational Imaging 2025</h2>
+    </div>
+    <div class="image-container">
+    <img src="/assets/img/logos/University_of_Hong_Kong_Logo.png" alt="HKU" class="conference-image">
+    </div>
+  </div>
+
+  <!-- <div class="bg-gray-200 p-5 mb-5 conference-background">
+    <div class="text-container">
+      <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
+      <p class="mb-2 textarea">13 November, 2024 PM</p>
+      <p class="mb-2 textarea">Tam Wing Fan Innovation Wing Two, The University of Hong Kong, HONG KONG SAR</p>
+      <a href="https://innowings.engg.hku.hk/innowing2/visitors/" target="_blank" class="mb-2 textarea">Navigate Here</a>
+    </div>
+  </div> -->
+
+  <div class="bg-gray-200 p-5 mb-5 conference-background">
+    <div class="text-container">
+        <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
+        <p class="mb-2 textarea">13 December, 2025</p>
+        <p class="mb-2 textarea">Room 602, MSc Student Commons 6/F, Pacific Plaza (Off-campus), Hong Kong SAR</p>
+        <a href="https://maps.app.goo.gl/A9Urpc4uCaEfKqPj8" class="mb-2 nav-link" target="_blank">Navigate Here</a>
+    </div>
+</div>
+
+<!-- <div id="modal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe src="https://innowings.engg.hku.hk/innowing2/visitors/" width="100%" height="100%"></iframe>
+  </div>
+</div> -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe id="modal-iframe" src="https://maps.app.goo.gl/A9Urpc4uCaEfKqPj8" width="100%" height="100%"></iframe>
+  </div>
+</div>
+
+
+  <h2 class="text-4xl font-bold mb-5">Workshop Objectives</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2  mb-10">
+    <!-- Column 1 -->
+    <div>
+      <div class="flex items-start mb-2" style = "margin-bottom: 2rem !important">
+        <div class="text-red-500 mr-2">  
+          <i class="fas fa-circle"></i>
+        </div>
+        <div>
+          <h4 class="font-bold" >Encourage Innovative Spirit</h4>
+        </div>
+      </div>
+      
+
+      <div class="flex items-start mb-2" style = "margin-bottom: 2rem !important">
+        <div class="text-red-500 mr-2">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div>
+          <h4 class="font-bold " >Promote Excellence and Sustain Quality</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div>
+      <div class="flex items-start mb-2" style = "margin-bottom: 2rem !important">
+        <div class="text-red-500 mr-2">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div>
+          <h4 class="font-bold " >Strive for Improvement</h4>
+        </div>
+      </div>
+
+      <div class="flex items-start" style = "margin-bottom: 2rem !important" >
+        <div class="text-red-500 mr-2">
+          <i class="fas fa-circle"></i>
+        </div>
+        <div>
+          <h4 class="font-bold " >Connect Communities</h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section id="Schedule">
+  <h2 class="text-4xl font-bold mb-5" style = "margin-top: -2rem !important">Schedule</h2>
+  <!-- <a href="https://hku.welight.fun/events/workshop_XXX" target="_blank" class="register-button">Register Now (Free)</a> -->
+
+
+  <div class="schedule" id="schedule"></div>
+
+  </section> 
+  
+  <script>
+    const sessions = [
+      { title: 'Saturday, 13 December', speaker: 'MC: Prof. Evan Yifan PENG, HKU EEE & CS', showTime: false  },
+      { title: 'Opening Remarks', speaker: 'Wolfgang HEIDRICH, KAUST & HKU' , duration: 5,  showTime: true },
+      { title: 'Learned Optics for RGB-D Imaging: Expanding Information Bandwidth and Modulation Freedom', duration: 15, speaker: 'Yuhui LIU, HKU', showTime: true },
+      { title: 'Quantitative Photoacoustic Imaging of Intrahepatic Lipids: From Acquisition to Analysis', duration: 15, speaker: 'Najia SHARMIN, HKU', showTime: true },
+      { title: 'Limitations of Data-Driven Spectral Reconstruction: An Optics-Aware Analysis', duration: 15, speaker: 'Qiang FU, KAUST', showTime: true },
+      { title: 'Holographic Acoustic Metalenses via Micro-/Nano- Soft Elastomers', duration: 15, speaker: 'Erqian DONG, HKU', showTime: true },
+      { title: 'Computational Neuromorphic Imaging for Ultrafast Industrial Inspection and Large-gradient Wavefront Sensing', duration: 15, speaker: 'Chutian WANG, HKU', showTime: true },
+      { title: 'Path Geometry Derivatives based Differentiable Rendering', duration: 15, speaker: 'Jiankai XING, THU', showTime: true },
+      { title: 'Coffee & Tea Break', duration: 15, showTime: true },
+      { title: 'Large-Area Fabrication-Aware Computational Diffractive Optics', duration: 15, speaker: 'Kaixuan WEI, KAUST', showTime: true },
+      { title: 'Empowering Scene Modeling and Reconstruction with Physics Cues', duration: 15, speaker: 'Zhenyang LI, HKU', showTime: true },
+      { title: 'Fovea Stacking: Imaging with Dynamic Localized Aberration Correction', duration: 15, speaker: 'Shi MAO, KAUST', showTime: true },
+      { title: 'Physical Prior-informed Deep Generative Model for Spectroscopy Transfer and Material Characterization', duration: 15, speaker: 'Yanmin ZHU, HKU', showTime: true },
+      { title: 'Exploring System-Aware Hologram Generation and Compression', duration: 15, speaker: 'Wenbin ZHOU, HKU', showTime: true },
+      { title: 'Closing Remarks', speaker: 'Evan Y. PENG, HKU', duration: 5,  showTime: true },   
+    ];
+  
+    let currentTime = new Date();
+    currentTime.setHours(14, 30);
+  
+    const scheduleContainer = document.getElementById('schedule');
+  
+    if (scheduleContainer) {
+      sessions.forEach(session => {
+        const sessionElement = document.createElement('div');
+        sessionElement.className = 'session';
+  
+        let timeContent = ''; 
+        if (session.hasOwnProperty('Data')) {
+          timeContent = session.Data;
+        }
+        else if (session.hasOwnProperty('Time') && session.hasOwnProperty('duration')) {
+          const [hours, minutes] = session.Time.split(':').map(Number);
+          currentTime.setHours(hours, minutes);
+          const endTime = new Date(currentTime.getTime() + session.duration * 60000);
+          timeContent = `${currentTime.toTimeString().substring(0,5)} - ${endTime.toTimeString().substring(0,5)}`;
+          currentTime = endTime;
+        }
+        else if (session.hasOwnProperty('duration')) {
+          const endTime = new Date(currentTime.getTime() + session.duration * 60000);
+          timeContent = `${currentTime.toTimeString().substring(0,5)} - ${endTime.toTimeString().substring(0,5)}`;
+          currentTime = endTime;
+        }
+  
+        sessionElement.innerHTML = `
+          <div class="time">${session.showTime ? timeContent : ''}</div>
+          <div class="details">
+            <div class="title" ${!session.showTime ? 'style="color: #1f8f18 !important"' : ''}>${session.title}</div>
+            ${session.speaker ? `<div class="speaker">${session.speaker}</div>` : ''}
+          </div>
+        `;
+  
+        scheduleContainer.appendChild(sessionElement);
+      });
+    } else {
+      console.error("Schedule container not found");
+    }
+  
+    function openModal() {
+        document.getElementById("modal").style.display = "flex";
+    }
+  
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+  
+    window.onclick = function(event) {
+        const modal = document.getElementById("modal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var navbar = document.getElementById('navbar');
+      if (navbar) {
+        var sectionIds = ['Schedule', 'Speakers/Guests', 'Workshop Materials']; 
+        
+        sectionIds.forEach(function(id) {
+          var newLink = document.createElement('a');
+          newLink.href = '#' + id;         
+          newLink.textContent = id;         
+          
+          newLink.addEventListener('click', function(event) {
+            event.preventDefault();        
+            var targetSection = document.getElementById(id);
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          
+          navbar.appendChild(newLink);
+          navbar.appendChild(document.createTextNode(' '));
+        });
+      }
+    });
+
+  </script>
+  
+
+
+ <section id="Speakers/Guests">
+  <h2 class="text-4xl font-bold mb-5">Speakers/Guests</h2>
+
+  <div class="speaker-container">
+
+
+    <!-- Yuhui Liu -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Yuhui Liu.jpg" alt="Yuhui Liu">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Yuhui Liu</h2>
+        <h3 class="speaker-title">The University of Hong Kong (HKU)</h3>
+        <!-- <p class="speaker-link"><a href="..." target="_blank">Personal Website</a></p> -->
+        <p class="speaker-abstract">
+          Yuhui Liu is a PhD researcher in the Department of Electrical and Electronic Engineering (EEE) at The University of Hong Kong (HKU). She received her bachelor's degree in Optics from Nankai University and master's degree in EEE from HKU. Her research focuses on learned optics, computational imaging, and camera system design through hardware-software joint optimization.
+        </p>
+      </div>
+    </div>
+
+    <!-- Najia Sharmin -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Najia Sharmin.jpg" alt="Najia Sharmin">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Najia Sharmin</h2>
+        <h3 class="speaker-title">The University of Hong Kong (HKU)</h3>
+        <p class="speaker-abstract">
+          Ms. Najia Sharmin is a PhD candidate in the Photonic Systems Research Lab at The University of Hong Kong, and a recipient of the Hong Kong PhD Fellowship and the HKU Presidential PhD Scholarship. Her research focuses on advancing photoacoustic microscopy for biomedical applications, combining laser system design, optical modeling, and image processing to improve diagnostic and translational capabilities, with a particular focus on non-invasive, label-free detection of lipid distributions in human liver tissues within the 1.7-µm optical window.
+        </p>
+      </div>
+    </div>
+
+    <!-- Qiang Fu -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Qiang Fu.webp" alt="Qiang Fu">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Qiang Fu</h2>
+        <h3 class="speaker-title">King Abdullah University of Science and Technology (KAUST)</h3>
+        <p class="speaker-abstract">
+          Dr. Qiang Fu is a Research Scientist in the Computational Imaging Group at KAUST. He received his Ph.D. in Optical Engineering at University of Chinese Academy of Sciences in 2012 and bachelor's degree in Mechanical Engineering at University of Science and Technology of China in 2007. Before joining KAUST in 2017, he was a Research Associate Professor at ShanghaiTech University, a Postdoc at KAUST, and an Assistant Research Fellow at the Academy of Opto-Electronics. His research interests include computational imaging, optical design, diffractive optics, nanofabrication, wavefront sensing, and hyperspectral imaging.
+        </p>
+      </div>
+    </div>
+
+    <!-- Erqian Dong -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Erqian Dong.jpg" alt="Erqian Dong">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Erqian Dong</h2>
+        <h3 class="speaker-title">The University of Hong Kong (HKU)</h3>
+        <p class="speaker-abstract">
+          Dr. Erqian Dong is a Postdoctoral Fellow in Mechanical Engineering at The University of Hong Kong, specializing in ultrasound imaging, underwater acoustic metamaterials, and soft-material metalens technologies. He holds a PhD in Oceanography from Xiamen University and has led multiple Hong Kong-based research projects, including RGC Healthy Longevity Catalyst Award and NSFC/RGC JRS projects as Co-Is. Dr. Dong has published extensively in top journals such as Nature Communications, Science Advances, and National Science Review, and has received numerous awards, including Outstanding Young Scholar (2025) at the National Metamaterials Conference and multiple national scholarships.
+        </p>
+      </div>
+    </div>
+
+    <!-- Chutian Wang -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Chutian Wang.jpg" alt="Chutian Wang">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Chutian Wang</h2>
+        <h3 class="speaker-title">The University of Hong Kong (HKU)</h3>
+        <p class="speaker-abstract">
+          Chutian Wang received the B.S. degree from the University of Science & Technology Beijing in 2020, and the M.S. degree with distinction at Imperial College London in 2021. He is currently working towards his Ph.D. degree with the Department of Electrical and Electronic Engineering, the University of Hong Kong. His research interests include computational neuromorphic imaging, wavefront sensing and digital holography.
+        </p>
+      </div>
+    </div>
+
+    <!-- Jiankai Xing -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Jiankai Xing.jpeg" alt="Jiankai Xing">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Jiankai Xing</h2>
+        <h3 class="speaker-title">Tsinghua University (THU)</h3>
+        <p class="speaker-abstract">
+          Jiankai Xing is a 5th-year PhD student in the Department of Computer Science and Technology, Tsinghua University, supervised by Professor Xu Kun. He previously obtained his bachelor's degree from the same department. His current research focuses on differentiable rendering and inverse rendering.
+        </p>
+      </div>
+    </div>
+
+    <!-- Kaixuan Wei -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Kaixuan Wei.jpg" alt="Kaixuan Wei">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Kaixuan Wei</h2>
+        <h3 class="speaker-title">King Abdullah University of Science and Technology (KAUST)</h3>
+        <p class="speaker-abstract">
+          Kaixuan Wei is a Ph.D. student at KAUST, supervised by Prof. Wolfgang Heidrich. His research bridges machine learning, optimization, and statistical modeling with applications in computational photography, optics, and computer vision. He received his Bachelor and Master degrees from Beijing Institute of Technology in 2018 and 2021, respectively. Mr. Wei is a recipient of several awards, including the Best Paper Award at ICML 2020 and recognition among the Global Top 100 Chinese Rising Stars in AI. His work has been published in top-tier venues across computer vision, machine learning, and graphics, such as Science Advances, TOG, IEEE TPAMI, ICML, and CVPR.
+        </p>
+      </div>
+    </div>
+
+    <!-- Zhenyang Li -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Zhenyang Li.jpg" alt="Zhenyang Li">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Zhenyang Li</h2>
+        <h3 class="speaker-title">The University of Hong Kong (HKU)</h3>
+        <p class="speaker-abstract">
+          Zhenyang Li is a Ph.D. student in Electrical and Electronic Engineering at The University of Hong Kong (HKU). His research spans computer vision, computer graphics, VR/AR/MR, and holographic imaging. He focuses on 3D/4D scene and object reconstruction and generation, developing physics-informed rendering and dynamic scene modeling methods for high-fidelity reconstruction and simulation, and exploring bridges between RGB/video data and event-based or physics-aware modalities for realistic scene understanding.
+        </p>
+      </div>
+    </div>
+
+    <!-- Shi Mao -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Shi Mao.jpg" alt="Shi Mao">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Shi Mao</h2>
+        <h3 class="speaker-title">King Abdullah University of Science and Technology (KAUST)</h3>
+        <p class="speaker-abstract">
+          Shi Mao is a Ph.D. student in the Computational Imaging Group at KAUST, advised by Prof. Wolfgang Heidrich. His research interests span computational imaging and 3D vision. Before joining KAUST, Shi served as a Research Consultant at Baidu Research. He received his M.S. from Tsinghua University (TBSI) and his B.E. from South China University of Technology, and was also a visiting student at UC Berkeley during his undergraduate studies.
+        </p>
+      </div>
+    </div>
+
+    <!-- Yanmin Zhu -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Yanmin Zhu.jpg" alt="Yanmin Zhu">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Yanmin Zhu</h2>
+        <h3 class="speaker-title">The University of Hong Kong (HKU)</h3>
+        <p class="speaker-abstract">
+          Dr. Yanmin Zhu is a Research Assistant Professor in the EEE Department at HKU. She obtained her BSc at KU Leuven (Belgium), MSc at Imperial College London, PhD at The University of Hong Kong, and conducted postdoctoral research at MIT. Her research expertise spans intelligent optical metrology, optical diagnosis and material characterization, and wearable and portable devices.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wenbin Zhou -->
+    <div class="speaker-profile">
+      <img class="speaker-photo" src="/assets/img/workshop/Wenbin Zhou.jpg" alt="Wenbin Zhou">
+      <div class="speaker-content">
+        <h2 class="speaker-name">Wenbin Zhou</h2>
+        <h3 class="speaker-title">The University of Hong Kong (HKU)</h3>
+        <p class="speaker-abstract">
+          Wenbin Zhou is currently a third-year Ph.D. student at HKU WeLight Lab led by Dr. Yifan (Evan) Peng. He completed his bachelor's degree in Physics, under the guidance of Prof. Ligang Liu, at the University of Science and Technology of China. He has served as a Research Assistant in Prof. Bedrich Benes's group at Purdue University and in Prof. Brian A. Barsky's group at UC Berkeley, contributing to research at the intersection of displays and visual computing. His current academic interests revolve around computational holographic displays, computer graphics, and virtual/augmented reality.
+        </p>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+
+<Section id="Workshop Materials">
+  <div class="conference-materials">
+    <h2 class="text-4xl font-bold mb-5">Workshop Materials</h2>
+
+
+
+    <!-- Yuhui Liu -->
+    <details class="material-detail">
+      <summary class="material-summary">Learned Optics for RGB-D Imaging: Expanding Information Bandwidth and Modulation Freedom <span style="color:black;"> - Yuhui Liu</span></summary>
+      <div class="material-content">
+        
+        <p>
+          This report presents recent advances in learned optics for RGB-D imaging, focusing on expanding information bandwidth and enhancing optical modulation through hardware–software co-design. By jointly optimizing optical elements and neural reconstruction networks, the proposed systems break the conventional separation between lens design and computational processing. Two main directions are explored: learned stereo imaging and learned wide field-of-view (FoV) imaging. For stereo RGB-D, a rank-2 coded diffractive optical element (DOE) is introduced to encode complementary stereo and focus cues, enabling high-fidelity depth estimation and RGB reconstruction with improved robustness and flexibility. For wide-FoV imaging, off-aperture optical encoding provides additional degrees of freedom and localized wavefront control, overcoming angular trade-offs while maintaining compact system structures. These approaches are validated through differentiable image formation modeling and real-world camera prototypes, demonstrating superior performance in depth accuracy, image quality, and system efficiency. The work highlights the potential of intelligent optical systems for next-generation imaging in applications such as robotics, augmented reality, and computational photography, paving the way toward fully end-to-end learned camera systems.
+        </p>
+      </div>
+    </details>
+
+    <!-- Najia Sharmin -->
+    <details class="material-detail">
+      <summary class="material-summary">Quantitative Photoacoustic Imaging of Intrahepatic Lipids: From Acquisition to Analysis <span style="color:black;"> - Najia Sharmin</span></summary>
+      <div class="material-content">
+        
+        <p>
+          Lipids are among the most ubiquitous components in living organisms, and changes in lipid levels can indicate a wide range of physiological and pathological conditions, including non-alcoholic fatty liver disease (NAFLD), atherosclerosis, and neurodegenerative disorders. Photoacoustic imaging (PAI) in the 1.7-μm absorption window offers strong lipid contrast, but its quantitative performance has been limited by the capabilities of existing laser sources. We introduce a 1725-nm hybrid optical parametric oscillator emitter (HOPE) tailored for lipid-based PAI, which outperforms existing sources in this wavelength band for photoacoustic applications by virtue of a narrow emission bandwidth, high optical signal-to-noise ratio, and enhanced spectral energy density parameters. By substantially increasing the efficiency of photoacoustic signal generation, the HOPE enables high-contrast lipid imaging that requires no pre-processing before segmentation. This allows us to implement a streamlined, custom segmentation pipeline for quantifying lipid infiltration in human liver tissues imaged with the 1725-nm PAM platform. The resulting steatosis measurements show strong agreement with clinical assessments, underscoring the potential of this approach to complement existing diagnostic procedures through accurate, label-free lipid evaluation. In addition, we also investigate a physics-informed deconvolution framework to mitigate depth-dependent resolution loss caused by optical scattering. This approach can potentially enable significant resolution recovery in the diffuse optical regime and extend the effective imaging depth of our 1725-nm lipid-specific PAM platform, supporting high-fidelity visualisation of lipid-rich tissues across greater depths.
+        </p>
+      </div>
+    </details>
+
+    <!-- Qiang Fu -->
+    <details class="material-detail">
+      <summary class="material-summary">Limitations of Data-Driven Spectral Reconstruction: An Optics-Aware Analysis <span style="color:black;"> - Qiang Fu</span></summary>
+      <div class="material-content">
+        
+        <p>
+          Recent efforts in data-driven spectral reconstruction aim at extracting spectral information from RGB images. Published work reports exceedingly high numerical scores for this reconstruction task, yet real-world performance lags substantially behind. In this paper, we systematically analyze the performance of such methods with three groups of dedicated experiments. First, we evaluate the practical overfitting limitations with respect to current datasets. Second, we reveal fundamental limitations in the ability of RGB to spectral methods to deal with metameric or near-metameric conditions, which have so far gone largely unnoticed due to the insufficiencies of existing datasets. Finally, we analyze the potential for modifying the problem setting to achieve better performance by exploiting optical encoding and metameric augmentation. Our experiments show that the overall performance of existing methods is primarily limited by the dataset issues. Future progress on snapshot spectral imaging will heavily depend on the generation of improved datasets for the design of effective optical encoding strategies.
+        </p>
+      </div>
+    </details>
+
+    <!-- Erqian Dong -->
+    <details class="material-detail">
+      <summary class="material-summary">Holographic Acoustic Metalenses via Micro-/Nano- Soft Elastomers <span style="color:black;"> - Erqian Dong</span></summary>
+      <div class="material-content">
+        
+        <p>
+          We present an inverse-designed acoustic metalens for holographic wavefront control, enabled by a holographic iterative angular spectrum algorithm that derives spatially en-coded phase profiles. By unifying the high-frequency eikonal equation with long-wavelength homogenization theory, we establish a frequency-independent, one-to-one correspondence between refractive index distributions and transmission phases—bridging microscale particle design and macroscale wave engineering. Experimentally, the fabricated metalens achieves diffraction-limited acoustic focusing, demonstrating broadband performance with minimal aberration.
+        </p>
+      </div>
+    </details>
+
+    <!-- Chutian Wang -->
+    <details class="material-detail">
+      <summary class="material-summary">Computational Neuromorphic Imaging for Ultrafast Industrial Inspection and Large-gradient Wavefront Sensing <span style="color:black;"> - Chutian Wang</span></summary>
+      <div class="material-content">
+        
+        <p>
+          High-throughput sensing in manufacturing and optical systems requires the ability to recover fine structural or wavefront details under rapid motion and challenging illumination, where conventional frame-based imaging and classical Shack–Hartmann wavefront sensing often fail due to motion blur, limited dynamic range, and restricted tolerance to large-gradient variations. This seminar introduces a unified approach based on Computational Neuromorphic Imaging (CNI), which leverages the asynchronous, high-dynamic-range nature of event-based sensors. For industrial inspection, CNI enables reliable detection of dynamic surface defects with strong robustness to vibration and rapidly changing conditions. For wavefront analysis, a neuromorphic wave-normal inference framework directly reconstructs high-dimensional wave normals and overcomes the spot-overlapping constraints faced by traditional angle-based sensors, pushing the wavefront sensor dynamic range to Type III. Together, these developments illustrate how CNI provides a coherent foundation for ultrafast optical field inspection beyond the limits of conventional imaging systems.
+        </p>
+      </div>
+    </details>
+
+    <!-- Jiankai Xing -->
+    <details class="material-detail">
+      <summary class="material-summary">Path Geometry Derivatives based Differentiable Rendering <span style="color:black;"> - Jiankai Xing</span></summary>
+      <div class="material-content">
+        
+        <p>
+          Differentiable rendering is a key technique for inverse rendering, but existing methods have some limitations: Conventional color derivatives fail to fully capture how scene parameters affect rendering results; traditional loss functions suffer from locality and gradient sparsity, which hinder optimization; and overall pipelines lack robustness in complex scenarios. To solve these problems, this presentation proposes novel path geometry derivatives. These derivatives establish a direct, constraint-driven relationship between scene parameters and light path geometry based on the implicit function theorem, moving beyond over-reliance on color derivatives. Starting with simple paths in rasterization, the method extends to complex paths in path tracing and uses tailored constraints to ensure smooth path contributions and valid derivative computation. It further applies this framework to differentiable photon mapping and combines it with a matching loss function based on optimal transport to achieve global, dense gradients. Experiments show the method outperforms other differentiable rendering method, providing smoother gradients and more robust optimization.
+        </p>
+      </div>
+    </details>
+
+
+    <!-- Kaixuan Wei -->
+    <details class="material-detail">
+      <summary class="material-summary">Large-Area Fabrication-Aware Computational Diffractive Optics <span style="color:black;"> - Kaixuan Wei</span></summary>
+      <div class="material-content">
+        
+        <p>
+          Differentiable optics enables innovative designs using diffractive optical elements, yet a critical gap between simulation and manufacturing limits their practical application. We propose a fabrication-aware design pipeline tailored for direct-write grayscale lithography and nano-imprinting to enable inexpensive, large-area mass production. We introduce a super-resolved neural lithography model that predicts fabricated 3D geometry, enabling fabrication-aware, end-to-end optimization. To address computational challenges, we implement a tensor-parallel framework distributing FFTs across multiple GPUs, facilitating designs up to 32.16×21.44 mm, simulated on grids of up to 128,640 by 85,760 feature points. Our fabricated prototypes demonstrate strong agreement with simulations in holography and PSF engineering. Additionally, we achieve high-quality imaging using a single DOE paired with Wiener filtering. These contributions effectively lower the technical barriers to the real-world deployment of computational diffractive optics.
+        </p>
+      </div>
+    </details>
+
+    <!-- Zhenyang Li -->
+    <details class="material-detail">
+      <summary class="material-summary">Empowering Scene Modeling and Reconstruction with Physics Cues <span style="color:black;"> - Zhenyang Li</span></summary>
+      <div class="material-content">
+        
+        <p>
+          The work Enhanced Velocity Field Modeling for Gaussian Video Reconstruction improves 3D Gaussian-splatting video reconstruction for dynamic scenes. The authors identify that deformation-field based approaches often overfit in cases of complex motion or scale variation, producing irregular Gaussian trajectories and sub-optimal visual quality. They propose FlowGaussian-VR, which introduces a velocity-field rendering (VFR) pipeline to optimize per-Gaussian velocities under optical-flow supervision, and a flow-assisted adaptive densification (FAD) strategy to increase Gaussian density in dynamic regions. The result is significantly improved temporal coherence, reduced blur on challenging multi-view dynamic datasets, with physically plausible, trackable Gaussian motions. Building on these high-fidelity dynamic reconstructions, EventTracer takes the reconstructed 3D scenes and renders high-temporal-resolution event streams. By combining low-sample-per-pixel path tracing with a lightweight spiking network using BiLIF units and trained via bidirectional EMD loss, EventTracer efficiently generates realistic event sequences that preserve fine spatiotemporal details, more closely matching real event-camera data than prior simulators, while running at roughly 4 minutes per second of 720p video. Together, these works present an end-to-end, physics-informed pipeline: first reconstructing dynamic 3D scenes with motion-aware Gaussian modeling, then producing realistic, high-frequency event data — which enhances dynamic scene modeling, rendering, and event-based vision for VR/AR, robotics, and beyond.
+        </p>
+      </div>
+    </details>
+
+    <!-- Shi Mao -->
+    <details class="material-detail">
+      <summary class="material-summary">Fovea Stacking: Imaging with Dynamic Localized Aberration Correction <span style="color:black;"> - Shi Mao</span></summary>
+      <div class="material-content">
+        
+        <p>
+          Traditional cameras require complex, heavy lens stacks to ensure corner-to-corner sharpness. Nature, however, found a more efficient solution: the Fovea. The human eye doesn't try to be sharp everywhere at once; it directs high-resolution focus exactly where it's needed. We have engineered a camera system that adopts this biological strategy. Using a Deformable Phase Plate (DPP), our system dynamically performs localized aberration correction. Just as your eye darts around a scene to build a picture, our system captures multiple "foveated" images—sharp at the fixation point, softer at the periphery. By stacking these dynamic glances, we achieve a composite image with full-field clarity, eliminating the need for bulky corrective optics. This offers a glimpse into a future of miniaturized, dynamic optics for VR and tracking applications. To efficiently cover the entire field of view, we propose joint optimization of DPP deformations under imaging budget constraints. Due to the DPP device's non-linear behavior, we introduce a neural network-based control model for improved alignment between simulation-hardware performance. Further applications on extended depth-of-field imaging and object tracking is discussed.
+        </p>
+      </div>
+    </details>
+
+    <!-- Yanmin Zhu -->
+    <details class="material-detail">
+      <summary class="material-summary">Physical Prior-informed Deep Generative Model for Spectroscopy Transfer and Material Characterization <span style="color:black;"> - Yanmin Zhu</span></summary>
+      <div class="material-content">
+        
+        <p>
+          Artificial intelligence-driven materials discovery offers rapid design of novel material compositions, yet synthesis and characterization lag behind. Characterization, in particular, remains bottlenecked by labor-intensive experiments using expert-operated instruments that typically rely on electromagnetic spectroscopy. We introduce SpectroGen, a generative AI model for transmodality spectral generation, designed to accelerate materials characterization. SpectroGen generates high-resolution, high-signal-to-noise ratio spectra with 99% correlation to ground truth and a root-mean-square error of 0.01 a.u. Its performance is driven by two key innovations: (1) a novel distribution-based physical prior and (2) a variational autoencoder (VAE) architecture. The prior simplifies complex structural inputs into interpretable Gaussian or Lorentzian distributions, while the VAE maps them into a physically grounded latent space for accurate spectral transformation. SpectroGen generalizes across spectral domains and promises rapid, accurate spectral predictions, potentially transforming high-throughput discovery in domains such as battery materials, catalysts, superconductors, and pharmaceuticals.
+        </p>
+      </div>
+    </details>
+
+    <!-- Wenbin Zhou -->
+    <details class="material-detail">
+      <summary class="material-summary">Exploring System-Aware Hologram Generation and Compression <span style="color:black;"> - Wenbin Zhou</span></summary>
+      <div class="material-content">
+        
+        <p>
+          Holographic techniques are increasingly recognized for their potential in the development of display systems for virtual reality (VR) and augmented reality (AR). The generation of realistic 3D visual representations is crucial for facilitating user immersion. However, current computer-generated holography (CGH) methods utilized in these applications are often constrained by limitations in computational efficiency, substantial data processing demands, and limitations in display form factor. This manuscript explores recent holographic display technologies employing system-aware CGH algorithms designed to mitigate these inherent challenges.
+        </p>
+      </div>
+    </details>
+
+
+
+  </div>
+</Section>
+
+
+
+    <footer style="text-align:center; padding:20px;">
+      <p class="foot-title">Organizer: <span class="foot-link" ><a href="https://hku.welight.fun/">Computational Imaging & Mixed Representation Laboratory</a></span></p>
+      <p class="foot-title">Coordinator: <span class="foot-link" ><a href="https://www.eee.hku.hk/~evanpeng/">Evan Y. Peng (HKU), </a><a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich (KAUST & HKU)</a></span></p>
+      
+      <br>
+      <p class="foot-title "><b>Acknowledgement: </b></p>
+
+    <div class="logos-container">
+      <a href="https://www.hku.hk" target="_blank">
+        <img src="/assets/img/logos/HKU.png" alt="Organization Logo">
+      </a>
+
+      <a href="https://www.kaust.edu.sa/en/" target="_blank">
+        <img src="/assets/img/logos/KAUST.png" alt="Organization 6 Logo" >
+      </a>
+
+      <!-- <p class="foot-title" style=" margin-top:4rem; font-size: medium; color: #aaa; font-weight:500">
+        Local Organization Team: Xiaoyang Bai, Xin Liu, Feifan Qu, Liangxun Ou -->
+      </p>
+
+    </div>
+  </footer>
+
+  </div>
+
+
+
+

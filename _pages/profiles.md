@@ -56,16 +56,7 @@ profiles:
 
 
 # Phd
-  - align: 
-    image: Haoyu.jpg
-    content: 
-    category: PhD students
-    Details: false
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <a href="https://whywww.github.io/" style="font-size: larger; font-weight: bold;">Haoyu Wei</a><br>
-      Deep Optics, Coded Aperture, Meta Imaging<br>
-      haoyuwei@connect.hku.hk
+
      
   - align:
     image: Xiangyu.jpg
@@ -200,39 +191,98 @@ profiles:
       <a href="https://qufeifan.github.io/" style="font-size: larger; font-weight: bold;">Feifan Qu</a><br>
       Computational Holography, VR/AR <br>
       feifan.qu@connect.hku.hk
-# RA
-
-
-# Visitor
-  - align: 
-    image: Jiale.jpg
-    content: 
-    Details: false
-    category: Visitor
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <a href="https://kelvar00.github.io/about/about/" style="font-size: larger; font-weight: bold;">Jiale Wu</a><br>
-      Visiting Student<br>
-      Vision (3D/4D), 3D Reconstruction<br>
-      jialewu2022@zju.edu.cn
 
   - align: 
     image: Zongqi.png
     content: 
     Details: false
-    category: Visitor
+    category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://wuyou012.github.io/" style="font-size: larger; font-weight: bold;">Zongqi He</a><br>
-      RA / Visiting Student<br>
       Vision (3D/4D), 3D Reconstruction<br>
       tangdi0110@gmail.com
+# RA
+
+
+# Visitor
+
+
+  - align: 
+    image: Yeming.jpg
+    content: 
+    Details: false
+    category: Visitor
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://www.linkedin.com/in/yeming-yao-119755353" style="font-size: larger; font-weight: bold;">Yeming Yao</a><br>
+      Visiting Student<br>
+      3D Reconstruction<br>
+      yaoym@connect.hku.hk
+
+
+  - align: 
+    image: Jiankai Xing.jpeg
+    content: 
+    Details: false
+    category: Visitor
+    image_circular: false # crops the image to make it circular
+    more_info: >
+    
+      <a href="https://jkxing.github.io/academic/" style="font-size: larger; font-weight: bold;">Jiankai Xing</a><br>
+      Visiting Research Scholar<br>
+      Rendering & Inverse Rendering<br>
+      xjk21@mails.tsinghua.edu.cn
+
 # Master
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Master
+    image_circular: false # crops the image to make it circular
+    more_info: >
+    
+      <a style="font-size: larger; font-weight: bold;">Ziteng Zhang</a><br>
 
 
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Master
+    image_circular: false # crops the image to make it circular
+    more_info: >
+    
+      <a style="font-size: larger; font-weight: bold;">jiaqi li</a><br>
 
 
 # Alumni
+  - align: 
+    image: 
+    content: 
+    category: Alumni
+    Details: false
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://whywww.github.io/" style="font-size: larger; font-weight: bold;">Haoyu Wei</a><br>
+      PhD Graduate<br>
+      Deep Optics, Coded Aperture, Meta Imaging<br>
+      Now at TCL Corporate Research (HK)
+
+
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://kelvar00.github.io/about/about/" style="font-size: larger; font-weight: bold;">Jiale Wu</a><br>
+      Visiting Student<br>
+      Vision (3D/4D), 3D Reconstruction<br>
+      Now at Zhejiang University
+
   - align: 
     image:
     content: 

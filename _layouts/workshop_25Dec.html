@@ -92,6 +92,12 @@ layout: custom
   left: 50%;
 }
 
+@supports (-webkit-touch-callout: none) {
+  .conference-background {
+    background-attachment: scroll !important;
+  }
+}
+
 .text-container {
   position: absolute;
   top: 50%;
@@ -617,7 +623,7 @@ details > summary::-webkit-details-marker {
     <div class="text-container">
         <h3 class="text-3xl font-bold mb-2 textareahead">Let there be light</h3>
         <p class="mb-2 textarea">13 December, 2025</p>
-        <p class="mb-2 textarea">Room 602, MSc Student Commons 6/F, Pacific Plaza (Off-campus), Hong Kong SAR</p>
+        <p class="mb-2 textarea">Room 602, Student Commons 6/F, Pacific Plaza (Off-campus), Hong Kong SAR</p>
         <a href="https://maps.app.goo.gl/A9Urpc4uCaEfKqPj8" class="mb-2 nav-link" target="_blank">Navigate Here</a>
     </div>
 </div>
@@ -708,11 +714,11 @@ details > summary::-webkit-details-marker {
       { title: 'Fovea Stacking: Imaging with Dynamic Localized Aberration Correction', duration: 15, speaker: 'Shi MAO, KAUST', showTime: true },
       { title: 'Physical Prior-informed Deep Generative Model for Spectroscopy Transfer and Material Characterization', duration: 15, speaker: 'Yanmin ZHU, HKU', showTime: true },
       { title: 'Exploring System-Aware Hologram Generation and Compression', duration: 15, speaker: 'Wenbin ZHOU, HKU', showTime: true },
-      { title: 'Closing Remarks', speaker: 'Evan Y. PENG, HKU', duration: 5,  showTime: true },   
+      { title: 'Closing Remarks', speaker: 'Evan Yifan PENG, HKU', duration: 5,  showTime: true },   
     ];
   
     let currentTime = new Date();
-    currentTime.setHours(14, 30);
+    currentTime.setHours(14, 00);
   
     const scheduleContainer = document.getElementById('schedule');
   
@@ -1077,7 +1083,7 @@ details > summary::-webkit-details-marker {
 
     <footer style="text-align:center; padding:20px;">
       <p class="foot-title">Organizer: <span class="foot-link" ><a href="https://hku.welight.fun/">Computational Imaging & Mixed Representation Laboratory</a></span></p>
-      <p class="foot-title">Coordinator: <span class="foot-link" ><a href="https://www.eee.hku.hk/~evanpeng/">Evan Y. Peng (HKU), </a><a href="https://vccimaging.org/People/heidriw/">Wolfgang Heidrich (KAUST & HKU)</a></span></p>
+      <p class="foot-title">Coordinator: <span class="foot-link" ><a href="https://liux2018.github.io/">Xin Liu (HKU), </a><a href="https://fuqiangx.github.io/">Qiang Fu (KAUST)</a></span></p>
       
       <br>
       <p class="foot-title "><b>Acknowledgement: </b></p>

@@ -92,6 +92,12 @@ layout: custom
   left: 50%;
 }
 
+@supports (-webkit-touch-callout: none) {
+  .conference-background {
+    background-attachment: scroll !important;
+  }
+}
+
 .text-container {
   position: absolute;
   top: 50%;
@@ -110,7 +116,9 @@ layout: custom
   flex-direction: column;
   justify-content: center; 
   margin-bottom: -40px;
-  max-width: 917px !important;
+  width: 59%;
+  /* max-width: 917px !important; */
+  min-width: 2rem;
 }
 .image-container {
   position: relative;
@@ -122,13 +130,17 @@ layout: custom
   padding-top: 39px;
 }
 .conference-image {
-  max-width: 100%;
-  max-height: 100px;
+  /* max-width: 100%;
+  max-height: 100px; */
   object-fit: cover;
   /* opacity: 0.2; */
+  width:auto;
+  height: auto;
+  max-width: 400px;
+
 }
 
-@media (max-width: 1536px) {
+@media (max-width: 1282px) {
   .image-container {
     margin-left: -5px;
     order: 1;

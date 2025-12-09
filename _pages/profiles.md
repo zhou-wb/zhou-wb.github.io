@@ -212,11 +212,11 @@ profiles:
     image: Yeming.jpg
     content: 
     Details: false
-    category: Visitor
+    category: Visitor/RA
     image_circular: false # crops the image to make it circular
     more_info: >
       <a href="https://www.linkedin.com/in/yeming-yao-119755353" style="font-size: larger; font-weight: bold;">Yeming Yao</a><br>
-      Visiting Student<br>
+      Research Intern<br>
       3D Reconstruction<br>
       yaoym@connect.hku.hk
 
@@ -225,12 +225,12 @@ profiles:
     image: Jiankai Xing.jpeg
     content: 
     Details: false
-    category: Visitor
+    category: Visitor/RA
     image_circular: false # crops the image to make it circular
     more_info: >
     
       <a href="https://jkxing.github.io/academic/" style="font-size: larger; font-weight: bold;">Jiankai Xing</a><br>
-      Visiting Research Scholar<br>
+      Visiting Research Student<br>
       Rendering & Inverse Rendering<br>
       xjk21@mails.tsinghua.edu.cn
 
@@ -254,7 +254,7 @@ profiles:
     image_circular: false # crops the image to make it circular
     more_info: >
     
-      <a style="font-size: larger; font-weight: bold;">jiaqi li</a><br>
+      <a style="font-size: larger; font-weight: bold;">Jiaqi li</a><br>
 
 
 # Alumni

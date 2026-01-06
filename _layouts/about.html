@@ -80,11 +80,19 @@ layout: default
                 {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
               {% endif %}
 
-              {% include figure.html
-              path=profile_image_path
-              class=profile_image_class
-              alt=page.profile.image
-              cache_bust=true -%}
+              {% capture extension %}{{ page.profile.image | split: '.' | last }}{% endcapture %}
+              {% if extension == 'mp4' %}
+                <video class="{{ profile_image_class }}" autoplay loop muted playsinline style="max-width: 100%; height: auto;">
+                   <source src="{{ profile_image_path | relative_url }}" type="video/mp4">
+                   Your browser does not support the video tag.
+                </video>
+              {% else %}
+                {% include figure.html
+                path=profile_image_path
+                class=profile_image_class
+                alt=page.profile.image
+                cache_bust=true -%}
+              {% endif %}
             {% endif -%}
           </div>
           {%- endif %}

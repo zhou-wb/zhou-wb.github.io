@@ -54,6 +54,17 @@ profiles:
       Computer Vision, Event Camera, Computational Optics<br>
       xybai@hku.hk
 
+  - align: 
+    image: Ruixu.jpg
+    content: 
+    category: Postdoc
+    Details: false
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://ruixv.github.io/" style="font-size: larger; font-weight: bold;">Ruixu Geng</a><br>
+      Computational Imaging<br>
+      raygeng@hku.hk
+
 
 # Phd
 

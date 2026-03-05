@@ -232,18 +232,7 @@ profiles:
       yaoym@connect.hku.hk
 
 
-  - align: 
-    image: Jiankai Xing.jpeg
-    content: 
-    Details: false
-    category: Visitor/RA
-    image_circular: false # crops the image to make it circular
-    more_info: >
-    
-      <a href="https://jkxing.github.io/academic/" style="font-size: larger; font-weight: bold;">Jiankai Xing</a><br>
-      Visiting Research Student<br>
-      Rendering & Inverse Rendering<br>
-      xjk21@mails.tsinghua.edu.cn
+
 
 # Master
   - align: 
@@ -269,6 +258,20 @@ profiles:
 
 
 # Alumni
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+    
+      <a href="https://jkxing.github.io/academic/" style="font-size: larger; font-weight: bold;">Jiankai Xing</a><br>
+      Visiting Research Student<br>
+      Rendering & Inverse Rendering<br>
+      xjk21@mails.tsinghua.edu.cn
+
+
   - align: 
     image: 
     content: 

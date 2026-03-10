@@ -120,7 +120,7 @@ profiles:
     category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://scholar.google.com/citations?user=sQINQ-YAAAAJ&hl=en" style="font-size: larger; font-weight: bold;">Shijie Lin</a> <br>
+      <a href="https://sj-lin.top/" style="font-size: larger; font-weight: bold;">Shijie Lin</a> <br>
       <small>(Co-supervised)</small> <br>
       Event-based Vision, Robotics, Computational Imaging<br>
       lsj2048@connect.hku.hk

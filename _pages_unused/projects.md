@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Teaching
-permalink: /projects/
+permalink: /teaching/
 description: 
 nav: true
-nav_order: 2
+nav_order: 4
 display_categories: ["Since 2022, Winter-Spring", "Since 2023, Fall-Winter"]
 horizontal: false
 ---

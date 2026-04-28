@@ -219,17 +219,17 @@ profiles:
 # Visitor
 
 
-  - align: 
-    image: Yeming.jpg
-    content: 
-    Details: false
-    category: Visitor/RA
-    image_circular: false # crops the image to make it circular
-    more_info: >
-      <a href="https://www.linkedin.com/in/yeming-yao-119755353" style="font-size: larger; font-weight: bold;">Yeming Yao</a><br>
-      Research Intern<br>
-      3D Reconstruction<br>
-      yaoym@connect.hku.hk
+  # - align: 
+  #   image: Yeming.jpg
+  #   content: 
+  #   Details: false
+  #   category: Visitor/RA
+  #   image_circular: false # crops the image to make it circular
+  #   more_info: >
+  #     <a href="https://www.linkedin.com/in/yeming-yao-119755353" style="font-size: larger; font-weight: bold;">Yeming Yao</a><br>
+  #     Research Intern<br>
+  #     3D Reconstruction<br>
+  #     yaoym@connect.hku.hk
 
 
 
@@ -258,6 +258,19 @@ profiles:
 
 
 # Alumni
+  - align: 
+    image: 
+    content: 
+    Details: false
+    category: Alumni
+    image_circular: false # crops the image to make it circular
+    more_info: >
+      <a href="https://www.linkedin.com/in/yeming-yao-119755353" style="font-size: larger; font-weight: bold;">Yeming Yao</a><br>
+      Research Intern<br>
+      3D Reconstruction<br>
+      yaoym@connect.hku.hk
+
+
   - align: 
     image: 
     content: 

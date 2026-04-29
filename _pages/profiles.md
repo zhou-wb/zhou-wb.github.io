@@ -132,7 +132,7 @@ profiles:
     category: PhD students
     image_circular: false # crops the image to make it circular
     more_info: >
-      <a href="https://www.linkedin.com/in/hyunmin-ban-934007220" style="font-size: larger; font-weight: bold;">Hyunmin Ban</a><br>
+      <a href="https://banhyunmin.github.io/" style="font-size: larger; font-weight: bold;">Hyunmin Ban</a><br>
       Computational Holography, Graphics, Video Compression<br>
       hmban@connect.hku.hk
 

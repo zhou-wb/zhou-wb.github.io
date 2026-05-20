@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Jekyll-based academic portfolio website using the **al-folio** theme, personalized for Wenbin Zhou. It is deployed to GitHub Pages at https://zhou-wb.github.io/wenbin.
+This is a Jekyll-based academic portfolio website using the **al-folio** theme, personalized for Wenbin Zhou. It is deployed to GitHub Pages at https://zhou-wb.github.io.
 
 ## Common Commands
 

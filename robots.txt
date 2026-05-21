@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://hku.welight.fun/sitemap.xml
+Sitemap: https://zhou-wb.github.io/sitemap.xml

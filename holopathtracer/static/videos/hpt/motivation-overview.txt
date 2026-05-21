@@ -1,0 +1,9 @@
+Motivation
+- Existing methods 00:04
+- separate rendering from wave propagation 00:20
+- limits essential 3D cues 00:35
+Method Overview
+- Rendering Eq. & RS-integral 00:54
+- 3D/Holo space transformation 01:20
+- Ray sampling and tracing 01:43
+- BSDF eval., hologram accumulation 

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="HoloPathTracer is a wave path tracing framework for fast and accurate computer-generated holography.">
+  <meta name="keywords" content="HoloPathTracer, holography, computer-generated holography, path tracing, wave optics">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HoloPathTracer: Fast and Accurate Wave Path Tracing for Holography</title>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero publication-header" id="top">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <p class="publication-venue">SIGGRAPH 2026 (Journal Track)</p>
+          <h1 class="title is-1 publication-title"><strong>HoloPathTracer</strong>: Fast and Accurate Wave Path Tracing for Holography</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://zhou-wb.github.io/">Wenbin Zhou</a><sup>1,*</sup></span>
+            <span class="author-block"><a href="https://www.linkedin.com/in/xiangyu-meng-907836302/">Xiangyu Meng</a><sup>1,*</sup></span>
+            <span class="author-block"><a href="https://jkxing.github.io/academic/">Jiankai Xing</a><sup>1,2</sup></span>
+            <span class="author-block"><a href="https://liux2018.github.io/">Xin Liu</a><sup>1</sup></span>
+            <span class="author-block"><a href="https://choisuyeon.github.io/">Suyeon Choi</a><sup>3,4</sup></span>
+            <span class="author-block"><a href="https://www.eee.hku.hk/~evanpeng/">Yifan Peng</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-6 publication-authors affiliation-block">
+            <span class="author-block"><sup>1</sup><img class="affiliation-logo hku-logo" src="./static/images/affiliations/hku.svg" alt="" aria-hidden="true">The University of Hong Kong</span>
+            <span class="author-block"><sup>2</sup><img class="affiliation-logo" src="./static/images/affiliations/tsinghua.svg" alt="" aria-hidden="true">Tsinghua University</span>
+            <span class="author-block"><sup>3</sup><img class="affiliation-logo" src="./static/images/affiliations/stanford.svg" alt="" aria-hidden="true">Stanford University</span>
+            <span class="author-block"><sup>4</sup><img class="affiliation-logo" src="./static/images/affiliations/snu.svg" alt="" aria-hidden="true">Seoul National University</span>
+          </div>
+          <p class="equal-note">* Equal contribution</p>
+
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="./static/pdfs/HoloPathTracer.pdf"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="./static/pdfs/HoloPathTracer_supplement.pdf"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-alt"></i></span>
+                <span>Supplement</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://dl.acm.org/doi/10.1145/3811351"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-link"></i></span>
+                <span>ACM</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/zhou-wb/HoloPathTracer"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </span>
+          </div>
+
+          <div class="dynamic-result-viewer" data-dynamic-result-viewer>
+            <div class="dynamic-result-grid">
+              <figure class="dynamic-result-panel">
+                <div class="dynamic-result-frame">
+                  <img data-dynamic-focus-image
+                       src="./static/images/reconstruction/full/staircase_lens/recon_amp_view_0_0_dist_0_tm_24.jpg"
+                       alt="HoloPathTracer-Full focal sweep reconstruction.">
+                </div>
+                <div class="dynamic-result-label-row">
+                  <figcaption class="dynamic-result-label">Natural Defocus</figcaption>
+                  <button class="dynamic-play-toggle is-active" data-dynamic-focus-play type="button" aria-label="Pause Natural Defocus" aria-pressed="true">
+                    <span class="dynamic-play-icon" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </figure>
+              <figure class="dynamic-result-panel">
+                <div class="dynamic-result-frame">
+                  <img data-dynamic-view-image
+                       src="./static/images/reconstruction/full/staircase_lens/recon_amp_view_1_1_dist_2_tm_24.jpg"
+                       alt="HoloPathTracer-Full clockwise view-dependent reconstruction.">
+                </div>
+                <div class="dynamic-result-label-row">
+                  <figcaption class="dynamic-result-label">View-dependent</figcaption>
+                  <div class="dynamic-focus-control">
+                    <span>Near</span>
+                    <input data-dynamic-view-focus type="range" min="0" max="4" step="1" value="2" aria-label="View-dependent focus">
+                    <span>Far</span>
+                  </div>
+                </div>
+              </figure>
+            </div>
+            <p class="dynamic-result-caption">
+              <em>HoloPathTracer</em> creates holograms from <em>path tracing scenes</em> with <strong>physically accurate visual cues</strong> encoded, including <strong>(curved-surfaces) reflection and refraction</strong>, <strong>glossy materials</strong>, <strong>global illumination</strong>, <strong>natural defocus</strong>, and <strong>continuous view-dependent effects</strong>.
+            </p>
+            <div class="dynamic-scene-selector" role="group" aria-label="Dynamic result scene selection">
+              <button class="dynamic-scene-option is-active" type="button" data-dynamic-scene-option="staircase_lens">Crystal Ball&amp;Archway</button>
+              <button class="dynamic-scene-option" type="button" data-dynamic-scene-option="lego_mirror">Lego&amp;Mirror</button>
+              <button class="dynamic-scene-option" type="button" data-dynamic-scene-option="classroom_1000_1200">Classroom</button>
+              <button class="dynamic-scene-option" type="button" data-dynamic-scene-option="coffee_tea">Glass Teapot</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Holography offers unique advantages for delivering perceptual realism while preserving compact form factors in VR/AR.
+            Its perceptual quality, however, hinges on encoding rich wavefronts of photorealistic scenes into interference patterns
+            and then incoherently multiplexing the resulting wave fields for perception.
+          </p>
+          <p>
+            We present a physically accurate yet computationally efficient wave optics rendering framework leveraging path tracing
+            to encode full 3D visual cues into phase holograms. Our Monte Carlo method solves the rendering equation and the
+            Rayleigh-Sommerfeld integral simultaneously, generates multiple time-multiplexed random holograms with minimal
+            additional cost through path reuse, and accelerates convergence with an ambient radiance cache.
+          </p>
+          <p>
+            Extensive simulations and experimental validations on a spatial light modulator-based display prototype demonstrate
+            faithful holographic reconstructions of natural 3D cues and complex materials, including realistic defocus blur,
+            view-dependent effects, highlights, and reflections.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="motivation-overview">
+          <h2 class="title is-3">Motivation &amp; Overview</h2>
+          <div class="overview-video" data-overview-video data-split-time="35">
+            <div class="overview-timeline" data-overview-timeline aria-label="Motivation and method overview progress">
+              <div class="overview-progress-rail">
+                <span class="overview-progress-fill" data-overview-progress-fill></span>
+                <button class="overview-progress-marker"
+                        type="button"
+                        data-overview-marker
+                        data-overview-jump="0"
+                        data-overview-phase="motivation"
+                        aria-label="Jump to Existing methods"></button>
+                <button class="overview-progress-marker"
+                        type="button"
+                        data-overview-marker
+                        data-overview-jump="4"
+                        data-overview-phase="motivation"
+                        aria-label="Jump to Separate rendering from wave propagation"></button>
+                <button class="overview-progress-marker"
+                        type="button"
+                        data-overview-marker
+                        data-overview-jump="20"
+                        data-overview-phase="motivation"
+                        aria-label="Jump to Limits essential 3D cues"></button>
+                <button class="overview-progress-marker"
+                        type="button"
+                        data-overview-marker
+                        data-overview-jump="35"
+                        data-overview-phase="method"
+                        aria-label="Jump to Rendering Eq. and RS-integral"></button>
+                <button class="overview-progress-marker"
+                        type="button"
+                        data-overview-marker
+                        data-overview-jump="54"
+                        data-overview-phase="method"
+                        aria-label="Jump to 3D/Holo space transformation"></button>
+                <button class="overview-progress-marker"
+                        type="button"
+                        data-overview-marker
+                        data-overview-jump="80"
+                        data-overview-phase="method"
+                        aria-label="Jump to Ray sampling and tracing"></button>
+                <button class="overview-progress-marker"
+                        type="button"
+                        data-overview-marker
+                        data-overview-jump="103"
+                        data-overview-phase="method"
+                        aria-label="Jump to BSDF evaluation and hologram accumulation"></button>
+              </div>
+              <div class="overview-timeline-content">
+                <div class="overview-timeline-section" data-overview-section="motivation">
+                  <h3 class="overview-timeline-heading">Motivation</h3>
+                  <div class="overview-chapter-list">
+                    <button class="overview-chapter is-active"
+                            type="button"
+                            data-overview-chapter-button
+                            data-overview-jump="0"
+                            data-overview-phase="motivation"
+                            aria-current="true">
+                      <span class="overview-chapter-dot" aria-hidden="true"></span>
+                      <span class="overview-chapter-title">Existing methods</span>
+                    </button>
+                    <button class="overview-chapter"
+                            type="button"
+                            data-overview-chapter-button
+                            data-overview-jump="4"
+                            data-overview-phase="motivation"
+                            aria-current="false">
+                      <span class="overview-chapter-dot" aria-hidden="true"></span>
+                      <span class="overview-chapter-title">Separate rendering from wave propagation</span>
+                    </button>
+                    <button class="overview-chapter"
+                            type="button"
+                            data-overview-chapter-button
+                            data-overview-jump="20"
+                            data-overview-phase="motivation"
+                            aria-current="false">
+                      <span class="overview-chapter-dot" aria-hidden="true"></span>
+                      <span class="overview-chapter-title">Limits essential 3D cues</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="overview-timeline-section is-method" data-overview-section="method">
+                  <h3 class="overview-timeline-heading" data-overview-split-anchor>Method Overview</h3>
+                  <div class="overview-chapter-list">
+                    <button class="overview-chapter"
+                            type="button"
+                            data-overview-chapter-button
+                            data-overview-jump="35"
+                            data-overview-phase="method"
+                            aria-current="false">
+                      <span class="overview-chapter-dot" aria-hidden="true"></span>
+                      <span class="overview-chapter-title">Rendering Eq. &amp; RS-integral</span>
+                    </button>
+                    <button class="overview-chapter"
+                            type="button"
+                            data-overview-chapter-button
+                            data-overview-jump="54"
+                            data-overview-phase="method"
+                            aria-current="false">
+                      <span class="overview-chapter-dot" aria-hidden="true"></span>
+                      <span class="overview-chapter-title">3D/Holo space transformation</span>
+                    </button>
+                    <button class="overview-chapter"
+                            type="button"
+                            data-overview-chapter-button
+                            data-overview-jump="80"
+                            data-overview-phase="method"
+                            aria-current="false">
+                      <span class="overview-chapter-dot" aria-hidden="true"></span>
+                      <span class="overview-chapter-title">Ray sampling and tracing</span>
+                    </button>
+                    <button class="overview-chapter"
+                            type="button"
+                            data-overview-chapter-button
+                            data-overview-jump="103"
+                            data-overview-phase="method"
+                            aria-current="false">
+                      <span class="overview-chapter-dot" aria-hidden="true"></span>
+                      <span class="overview-chapter-title">BSDF eval., hologram accumulation</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="overview-media">
+              <video class="overview-video-player"
+                     data-overview-video-player
+                     src="./static/videos/hpt/motivation-overview.mp4"
+                     preload="metadata"
+                     controls
+                     playsinline></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light" id="pipeline">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Wave Path Tracing Pipeline</h2>
+        <div class="content has-text-justified">
+          <p>
+            The method traces coherent plane-wave bundles through a physically based scene, evaluates BSDF events, samples
+            random phases in hologram space, and accumulates complex amplitudes on a recording plane. Coherent interactions
+            preserve optical path length for correct depth and view consistency, while diffuse and glossy components are
+            handled through randomized wave facets for efficient time-multiplexed holography.
+          </p>
+        </div>
+        <figure class="result-figure">
+          <img src="./static/images/hpt/pipeline.jpg"
+               alt="Nine-stage HoloPathTracer processing pipeline.">
+          <figcaption>
+            HoloPathTracer decomposes light transport into coherent and incoherent components, sharing traced geometry,
+            amplitudes, and optical path lengths across multiple hologram frames.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="columns is-centered method-grid">
+      <div class="column">
+        <h3 class="title is-4">Wave Facets</h3>
+        <p>
+          Angular-amplitude distributions are formed by combining path-traced amplitudes with phase information, supporting
+          material-dependent scattering and variable-frame multiplexing.
+        </p>
+        <img src="./static/images/hpt/angular.jpg"
+             alt="Angular amplitude on wave facets.">
+      </div>
+      <div class="column">
+        <h3 class="title is-4">Random Phase Sampling</h3>
+        <p>
+          Gaussian random fields are sampled in hologram space to keep effective phase bandwidth tied to the SLM recording plane.
+        </p>
+        <img src="./static/images/hpt/sampling.jpg"
+             alt="Gaussian random field sampling in UV and hologram spaces.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Captured Display Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            A phase-only SLM prototype reconstructs focal stacks from optimized holograms. Captured results show sharper in-focus
+            details and more natural defocus than a representative focal stack baseline.
+          </p>
+        </div>
+        <figure class="result-figure">
+          <img src="./static/images/hpt/captured.jpg"
+               alt="Acquired display results comparing HoloPathTracer with focal stack.">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light" id="efficiency">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Efficiency</h2>
+        <div class="efficiency-grid">
+          <figure class="efficiency-item">
+            <h3 class="title is-4">Runtime</h3>
+            <img class="inline-result"
+                 src="./static/images/hpt/runtime.jpg"
+                 alt="Runtime ablation on CGH frameworks.">
+            <figcaption>
+              Runtime ablation across representative CGH frameworks under 1, 3, 8, and 24 time-multiplexed frames. Since only the random phase term changes across frames, traced geometry, amplitudes, and optical path lengths are shared, allowing HoloPathTracer to generate multiple frames with only marginal overhead.
+            </figcaption>
+          </figure>
+          <figure class="efficiency-item">
+            <h3 class="title is-4">Convergence</h3>
+            <img class="inline-result"
+                 src="./static/images/hpt/convergence.jpg"
+                 alt="Convergence behavior of wave field rendering schemes.">
+            <figcaption>
+              Convergence comparison between direct hologram-plane rendering, the proposed two-stage wave-recording-plane to SLM propagation, and the texture-baked fast variant. Rendering first to a nearby wave recording plane substantially reduces sampling demand, with dashed lines marking 80% of the PSNR reached at 10<sup>7</sup> spp.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="interactive-results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3 interactive-section-title">Interactive Results</h2>
+        <div class="reconstruction-viewer" data-reconstruction-viewer>
+          <div class="method-selector" role="group" aria-label="Reconstruction method selection">
+            <button class="method-option is-active" type="button" data-method-option="full">HoloPathTracer-Full (Ours)</button>
+            <button class="method-option" type="button" data-method-option="fast">HoloPathTracer-Fast (Ours)</button>
+            <button class="method-option" type="button" data-method-option="focalstack">Image-based (Focalstack)</button>
+            <button class="method-option" type="button" data-method-option="mitsuba">GT (Mitsuba renderer)</button>
+          </div>
+          <div class="scene-selector" role="group" aria-label="Reconstruction scene selection">
+            <button class="scene-option is-active" type="button" data-scene-option="lego_mirror">Lego&amp;Mirror</button>
+            <button class="scene-option" type="button" data-scene-option="coffee_tea">Glass Teapot</button>
+            <button class="scene-option" type="button" data-scene-option="bathroom_1000_1200_f27">Bathroom</button>
+            <button class="scene-option" type="button" data-scene-option="staircase_lens">Crystal Ball&amp;Archway</button>
+            <button class="scene-option" type="button" data-scene-option="classroom_1000_1200">Classroom</button>
+          </div>
+          <div class="reconstruction-preview">
+            <img id="reconstruction-image"
+                 src="./static/images/reconstruction/full/lego_mirror/recon_amp_view_4_4_dist_2_tm_24.jpg"
+                 alt="Interactive holographic reconstruction.">
+          </div>
+          <div class="reconstruction-controls" aria-label="Reconstruction viewpoint controls">
+            <p class="control-hint">
+              <span>Drag the eye to change the view.</span>
+              <span>Drag focus point or scroll grid to focus.</span>
+            </p>
+            <div class="playback-controls" aria-label="Autoplay controls">
+              <span class="playback-title">Auto Play</span>
+              <div class="auto-mode-selector" data-mode="default" role="tablist" aria-label="Auto Play mode">
+                <span class="auto-mode-thumb" aria-hidden="true"></span>
+                <button class="auto-mode-option is-active" data-auto-mode="default" type="button" role="tab" aria-selected="true">Default</button>
+                <button class="auto-mode-option" data-auto-mode="view" type="button" role="tab" aria-selected="false">Views</button>
+                <button class="auto-mode-option" data-auto-mode="focus" type="button" role="tab" aria-selected="false">Focus</button>
+              </div>
+              <button class="auto-toggle is-active" data-auto-play type="button" aria-pressed="true" aria-label="Pause Auto Play">
+                <span class="switch-indicator" aria-hidden="true">
+                  <span class="switch-thumb"></span>
+                </span>
+              </button>
+            </div>
+            <div class="view-pad" data-view-pad aria-label="Viewpoint XY control">
+              <div class="view-pad-grid" aria-hidden="true"></div>
+              <button class="view-eye" data-view-eye type="button" aria-label="Current viewpoint">
+                <svg class="focus-eye-icon" viewBox="0 0 112 56" aria-hidden="true">
+                  <path class="focus-eye-lens" data-focus-lens d="M56 7C108.8 13 108.8 43 56 49C3.2 43 3.2 13 56 7Z"></path>
+                  <circle class="focus-eye-pupil" cx="56" cy="28" r="12.6"></circle>
+                </svg>
+              </button>
+              <div class="axis-label axis-label-left">+0.5&deg;</div>
+              <div class="axis-label axis-label-right">-0.5&deg;</div>
+              <div class="axis-label axis-label-top">+0.5&deg;</div>
+              <div class="axis-label axis-label-bottom">-0.5&deg;</div>
+            </div>
+            <div class="viewer-control-row view-status" aria-live="polite">
+              <span class="control-label">Eye Position</span>
+              <span class="view-values">
+                <span>X <strong data-view-x>0.00&deg;</strong></span>
+                <span>Y <strong data-view-y>0.00&deg;</strong></span>
+              </span>
+            </div>
+            <div class="viewer-control-row depth-control">
+              <span class="control-label">Eye Focusing</span>
+              <div class="focus-diagram"
+                   aria-label="Eye focusing diagram">
+                <div class="focus-diagram-main">
+                  <svg class="focus-eye-static" viewBox="0 0 430 378.7717" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="focusLensFill" x1="294.5" y1="196.21193" x2="338.5" y2="196.21193" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#d8f3ff"></stop>
+                        <stop offset="0.52" stop-color="#f4fbff"></stop>
+                        <stop offset="1" stop-color="#cdebf6"></stop>
+                      </linearGradient>
+                    </defs>
+                    <g class="focus-eye-frame" transform="matrix(-1,0,0,1,1069.5,-410.78807)">
+                      <path d="m 746,490 c 48,-60 116,-85 180,-69 86,21 138,99 127,216 -2,24 -9,42 -19,56 -6,11 3,19 30,27"></path>
+                      <path d="m 1046,741 c -14,-10 -22,-17 -31,-17 -57,65 -181,97 -271,-8 -46,-12 -78,-53 -78,-108 0,-57 31,-97 80,-118"></path>
+                    </g>
+                    <path class="focus-eye-ray" data-eye-ray-left-top d="M71.5 196.21193L294.5 147.21193"></path>
+                    <path class="focus-eye-ray" data-eye-ray-left-bottom d="M71.5 196.21193L294.5 246.21193"></path>
+                    <ellipse class="focus-diagram-lens"
+                             data-diagram-lens
+                             cx="316.5"
+                             cy="196.21193"
+                             rx="22"
+                             ry="92"
+                             fill="url(#focusLensFill)"></ellipse>
+                    <circle class="focus-retina-point" cx="71.5" cy="196.21193" r="14"></circle>
+                  </svg>
+                  <div class="focus-line-control"
+                       data-depth-control
+                       role="slider"
+                       tabindex="0"
+                       aria-label="Eye focusing"
+                       aria-valuemin="-2"
+                       aria-valuemax="2"
+                       aria-valuenow="0"
+                       aria-valuetext="Middle focus">
+                    <span class="focus-track" aria-hidden="true"></span>
+                    <span class="focus-diagram-point" data-focus-point aria-hidden="true"></span>
+                  </div>
+                  <svg class="focus-assist-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <path data-focus-assist-top d="M34 38L72 50"></path>
+                    <path data-focus-assist-bottom d="M34 62L72 50"></path>
+                  </svg>
+                </div>
+                <div class="focus-diagram-labels" aria-hidden="true">
+                  <span>Near</span>
+                  <span>Far</span>
+                </div>
+                <input class="focus-depth-input" data-view-z-slider type="range" min="-2" max="2" step="1" value="0" tabindex="-1" aria-hidden="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhou2026holopathtracer,
+  author  = {Zhou, Wenbin and Meng, Xiangyu and Xing, Jiankai and Liu, Xin and Choi, Suyeon and Peng, Yifan},
+  title   = {HoloPathTracer: Fast and Accurate Wave Path Tracing for Holography},
+  journal = {ACM Transactions on Graphics},
+  volume  = {45},
+  number  = {4},
+  article = {39},
+  year    = {2026},
+  doi     = {10.1145/3811351}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./static/pdfs/HoloPathTracer.pdf" aria-label="Paper PDF">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/zhou-wb/HoloPathTracer" aria-label="Code repository">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            Website adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

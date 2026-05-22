@@ -12,6 +12,10 @@ function initComparisonViewer() {
     left: root.querySelector("[data-comparison-image='left']"),
     right: root.querySelector("[data-comparison-image='right']")
   };
+  var frames = {
+    left: images.left ? images.left.closest(".comparison-frame") : null,
+    right: images.right ? images.right.closest(".comparison-frame") : null
+  };
   var labels = {
     left: root.querySelector("[data-comparison-label='left']"),
     right: root.querySelector("[data-comparison-label='right']")
@@ -240,12 +244,82 @@ function initComparisonViewer() {
     setState({ x: state.x, y: state.y, z: zFromFocusPointer(event) });
   }
 
-  function preloadPath(path) {
-    if (cache[path]) {
+  function cacheEntry(path) {
+    if (!cache[path]) {
+      cache[path] = {
+        image: null,
+        loaded: false,
+        failed: false
+      };
+    }
+    return cache[path];
+  }
+
+  function markPathComplete(path, failed) {
+    var entry = cacheEntry(path);
+    entry.loaded = !failed;
+    entry.failed = failed;
+  }
+
+  function isPathComplete(path) {
+    var entry = cache[path];
+    return !!(entry && (entry.loaded || entry.failed));
+  }
+
+  function setFrameLoading(frame, isLoading) {
+    if (!frame) {
       return;
     }
-    cache[path] = new Image();
-    cache[path].src = path;
+    frame.classList.toggle("is-loading", isLoading);
+    frame.setAttribute("aria-busy", isLoading ? "true" : "false");
+  }
+
+  function bindImageLoading(side) {
+    images[side].addEventListener("load", function () {
+      var targetPath = images[side].getAttribute("data-loading-src");
+      if (targetPath) {
+        markPathComplete(targetPath, false);
+      }
+      setFrameLoading(frames[side], false);
+    });
+    images[side].addEventListener("error", function () {
+      var targetPath = images[side].getAttribute("data-loading-src");
+      if (targetPath) {
+        markPathComplete(targetPath, true);
+      }
+      setFrameLoading(frames[side], false);
+    });
+  }
+
+  function setImageSource(side, path) {
+    images[side].setAttribute("data-loading-src", path);
+    if (images[side].getAttribute("src") !== path) {
+      if (!isPathComplete(path)) {
+        setFrameLoading(frames[side], true);
+      }
+      images[side].src = path;
+    }
+    if (isPathComplete(path) || (images[side].complete && images[side].naturalWidth > 0)) {
+      markPathComplete(path, false);
+      setFrameLoading(frames[side], false);
+    } else {
+      setFrameLoading(frames[side], true);
+    }
+  }
+
+  function preloadPath(path) {
+    var entry = cacheEntry(path);
+    if (entry.image || entry.loaded || entry.failed) {
+      return;
+    }
+    entry.image = new Image();
+    entry.image.addEventListener("load", function () {
+      entry.loaded = true;
+    });
+    entry.image.addEventListener("error", function () {
+      entry.failed = true;
+    });
+    entry.image.src = path;
   }
 
   function preload(method, x, y, z) {
@@ -320,7 +394,7 @@ function initComparisonViewer() {
     var nextImagePath = imagePath(method, state.scene, state.x, state.y, state.z);
 
     if (currentImagePaths[side] !== nextImagePath) {
-      images[side].src = nextImagePath;
+      setImageSource(side, nextImagePath);
       currentImagePaths[side] = nextImagePath;
     }
 
@@ -821,6 +895,7 @@ function initComparisonViewer() {
   });
 
   Object.keys(images).forEach(function (side) {
+    bindImageLoading(side);
     images[side].addEventListener("dragstart", function (event) {
       event.preventDefault();
     });

@@ -303,6 +303,8 @@ function initDynamicResultViewer() {
 
   var focusImage = root.querySelector("[data-dynamic-focus-image]");
   var viewImage = root.querySelector("[data-dynamic-view-image]");
+  var focusFrame = focusImage ? focusImage.closest(".dynamic-result-frame") : null;
+  var viewFrame = viewImage ? viewImage.closest(".dynamic-result-frame") : null;
   var viewFocusInput = root.querySelector("[data-dynamic-view-focus]");
   var focusPlayButton = root.querySelector("[data-dynamic-focus-play]");
   var sceneButtons = Array.prototype.slice.call(root.querySelectorAll("[data-dynamic-scene-option]"));
@@ -351,12 +353,82 @@ function initDynamicResultViewer() {
       viewX + "_" + viewY + "_dist_" + dist + "_tm_24.jpg";
   }
 
-  function preloadPath(path) {
-    if (cache[path]) {
+  function cacheEntry(path) {
+    if (!cache[path]) {
+      cache[path] = {
+        image: null,
+        loaded: false,
+        failed: false
+      };
+    }
+    return cache[path];
+  }
+
+  function markPathComplete(path, failed) {
+    var entry = cacheEntry(path);
+    entry.loaded = !failed;
+    entry.failed = failed;
+  }
+
+  function isPathComplete(path) {
+    var entry = cache[path];
+    return !!(entry && (entry.loaded || entry.failed));
+  }
+
+  function setFrameLoading(frame, isLoading) {
+    if (!frame) {
       return;
     }
-    cache[path] = new Image();
-    cache[path].src = path;
+    frame.classList.toggle("is-loading", isLoading);
+    frame.setAttribute("aria-busy", isLoading ? "true" : "false");
+  }
+
+  function bindImageLoading(image, frame) {
+    image.addEventListener("load", function () {
+      var targetPath = image.getAttribute("data-loading-src");
+      if (targetPath) {
+        markPathComplete(targetPath, false);
+      }
+      setFrameLoading(frame, false);
+    });
+    image.addEventListener("error", function () {
+      var targetPath = image.getAttribute("data-loading-src");
+      if (targetPath) {
+        markPathComplete(targetPath, true);
+      }
+      setFrameLoading(frame, false);
+    });
+  }
+
+  function setImageSource(image, frame, path) {
+    image.setAttribute("data-loading-src", path);
+    if (!isPathComplete(path)) {
+      setFrameLoading(frame, true);
+    }
+    if (image.getAttribute("src") !== path) {
+      image.src = path;
+    }
+    if (isPathComplete(path) || (image.complete && image.naturalWidth > 0)) {
+      markPathComplete(path, false);
+      setFrameLoading(frame, false);
+    } else {
+      setFrameLoading(frame, true);
+    }
+  }
+
+  function preloadPath(path) {
+    var entry = cacheEntry(path);
+    if (entry.image || entry.loaded || entry.failed) {
+      return;
+    }
+    entry.image = new Image();
+    entry.image.addEventListener("load", function () {
+      entry.loaded = true;
+    });
+    entry.image.addEventListener("error", function () {
+      entry.failed = true;
+    });
+    entry.image.src = path;
   }
 
   function preloadScene(scene) {
@@ -375,13 +447,13 @@ function initDynamicResultViewer() {
     var nextViewPath = imagePath(state.scene, view[0], view[1], state.viewDist);
 
     if (currentFocusPath !== nextFocusPath) {
-      focusImage.src = nextFocusPath;
+      setImageSource(focusImage, focusFrame, nextFocusPath);
       currentFocusPath = nextFocusPath;
     }
     focusImage.alt = "HoloPathTracer-Full focal sweep reconstruction of the " +
       sceneLabel + " scene at focus distance " + state.focusDist + ".";
     if (currentViewPath !== nextViewPath) {
-      viewImage.src = nextViewPath;
+      setImageSource(viewImage, viewFrame, nextViewPath);
       currentViewPath = nextViewPath;
     }
     viewImage.alt = "HoloPathTracer-Full clockwise view-dependent reconstruction of the " +
@@ -469,6 +541,9 @@ function initDynamicResultViewer() {
     stopFocusTimer();
     stopViewTimer();
   }
+
+  bindImageLoading(focusImage, focusFrame);
+  bindImageLoading(viewImage, viewFrame);
 
   sceneButtons.forEach(function (button) {
     button.addEventListener("click", function () {

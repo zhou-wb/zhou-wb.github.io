@@ -24,13 +24,50 @@
   background: #0f172a;
   border-radius: 6px;
   overflow: hidden;
+  position: relative;
 }
 
 [data-comparison-viewer] .comparison-frame img {
   display: block;
   height: 100%;
   object-fit: cover;
+  transition: opacity 160ms ease;
   width: 100%;
+}
+
+[data-comparison-viewer] .comparison-frame::before,
+[data-comparison-viewer] .comparison-frame::after {
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 160ms ease;
+  z-index: 2;
+}
+
+[data-comparison-viewer] .comparison-frame::before {
+  background: rgba(15, 23, 42, 0.48);
+  inset: 0;
+}
+
+[data-comparison-viewer] .comparison-frame::after {
+  animation: scene-loading-spin 700ms linear infinite;
+  border: 3px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  border-top-color: #ffffff;
+  height: 2.25rem;
+  left: calc(50% - 1.125rem);
+  top: calc(50% - 1.125rem);
+  width: 2.25rem;
+}
+
+[data-comparison-viewer] .comparison-frame.is-loading img {
+  opacity: 0.62;
+}
+
+[data-comparison-viewer] .comparison-frame.is-loading::before,
+[data-comparison-viewer] .comparison-frame.is-loading::after {
+  opacity: 1;
 }
 
 [data-comparison-viewer] .comparison-result-label {

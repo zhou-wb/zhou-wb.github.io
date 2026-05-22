@@ -19,6 +19,12 @@ body {
   margin: 1.55rem 0 0.8rem;
 }
 
+@keyframes scene-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .dynamic-result-viewer {
   margin: 1.55rem auto 0;
   max-width: none;
@@ -41,13 +47,50 @@ body {
   background: #0f172a;
   border-radius: 6px;
   overflow: hidden;
+  position: relative;
 }
 
 .dynamic-result-frame img {
   display: block;
   height: 100%;
   object-fit: cover;
+  transition: opacity 160ms ease;
   width: 100%;
+}
+
+.dynamic-result-frame::before,
+.dynamic-result-frame::after {
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 160ms ease;
+  z-index: 2;
+}
+
+.dynamic-result-frame::before {
+  background: rgba(15, 23, 42, 0.48);
+  inset: 0;
+}
+
+.dynamic-result-frame::after {
+  animation: scene-loading-spin 700ms linear infinite;
+  border: 3px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  border-top-color: #ffffff;
+  height: 2.25rem;
+  left: calc(50% - 1.125rem);
+  top: calc(50% - 1.125rem);
+  width: 2.25rem;
+}
+
+.dynamic-result-frame.is-loading img {
+  opacity: 0.62;
+}
+
+.dynamic-result-frame.is-loading::before,
+.dynamic-result-frame.is-loading::after {
+  opacity: 1;
 }
 
 .dynamic-result-label {

@@ -10,10 +10,12 @@
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/compare.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script defer src="./static/js/index.js"></script>
+  <script defer src="./static/js/compare.js"></script>
 </head>
 <body>
 
@@ -390,34 +392,54 @@
 </section>
 
 <section class="section" id="interactive-results">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h2 class="title is-3 interactive-section-title">Interactive Results</h2>
-        <div class="reconstruction-viewer" data-reconstruction-viewer>
-          <div class="method-selector" role="group" aria-label="Reconstruction method selection">
-            <button class="method-option is-active" type="button" data-method-option="full">HoloPathTracer-Full (Ours)</button>
-            <button class="method-option" type="button" data-method-option="fast">HoloPathTracer-Fast (Ours)</button>
-            <button class="method-option" type="button" data-method-option="focalstack">Image-based (Focalstack)</button>
-            <button class="method-option" type="button" data-method-option="mitsuba">GT (Mitsuba renderer)</button>
-          </div>
-          <div class="scene-selector" role="group" aria-label="Reconstruction scene selection">
-            <button class="scene-option is-active" type="button" data-scene-option="lego_mirror">Lego&amp;Mirror</button>
-            <button class="scene-option" type="button" data-scene-option="coffee_tea">Glass Teapot</button>
-            <button class="scene-option" type="button" data-scene-option="bathroom_1000_1200_f27">Bathroom</button>
-            <button class="scene-option" type="button" data-scene-option="staircase_lens">Crystal Ball&amp;Archway</button>
-            <button class="scene-option" type="button" data-scene-option="classroom_1000_1200">Classroom</button>
-          </div>
-          <div class="reconstruction-preview">
-            <img id="reconstruction-image"
-                 src="./static/images/reconstruction/full/lego_mirror/recon_amp_view_4_4_dist_2_tm_24.jpg"
-                 alt="Interactive holographic reconstruction.">
-          </div>
-          <div class="reconstruction-controls" aria-label="Reconstruction viewpoint controls">
-            <p class="control-hint">
-              <span>Drag the eye to change the view.</span>
-              <span>Drag focus point or scroll grid to focus.</span>
-            </p>
+        <div class="comparison-viewer" data-comparison-viewer>
+          <figure class="comparison-result comparison-result-left">
+            <div class="comparison-frame">
+              <img data-comparison-image="left"
+                   src="./static/images/reconstruction/full/lego_mirror/recon_amp_view_4_4_dist_2_tm_24.jpg"
+                   alt="Left interactive holographic reconstruction.">
+            </div>
+            <figcaption class="comparison-result-label" data-comparison-label="left">HoloPathTracer-Full (Ours)</figcaption>
+          </figure>
+
+          <div class="comparison-controls" aria-label="Shared reconstruction controls">
+            <div class="comparison-methods" aria-label="Comparison method selection">
+              <div class="comparison-select-field">
+                <span class="comparison-field-heading">
+                  <label for="comparison-method-select">Compare method</label>
+                  <button class="control-help" type="button" aria-label="Control instructions" aria-describedby="comparison-control-help">
+                    <span aria-hidden="true">?</span>
+                    <span class="control-help-tooltip" id="comparison-control-help" role="tooltip">
+                      <strong>Auto Play</strong>
+                      <span><b>Default:</b> change both.</span>
+                      <span><b>Views:</b> views only.</span>
+                      <span><b>Focus:</b> focus only.</span>
+                      <strong>Manual</strong>
+                      <span><b>Views:</b> drag the eyes in grid.</span>
+                      <span><b>Focus:</b> scroll on grid or drag the focus dot.</span>
+                    </span>
+                  </button>
+                </span>
+                <select id="comparison-method-select" data-method-select="left">
+                  <option value="full" selected>HoloPathTracer-Full (Ours)</option>
+                  <option value="fast">HoloPathTracer-Fast (Ours)</option>
+                  <option value="focalstack">Image-based (Focalstack)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="comparison-scene-selector" role="group" aria-label="Reconstruction scene selection">
+              <button class="comparison-chip is-active" type="button" data-scene-option="lego_mirror">Lego&amp;Mirror</button>
+              <button class="comparison-chip" type="button" data-scene-option="coffee_tea">Glass Teapot</button>
+              <button class="comparison-chip" type="button" data-scene-option="bathroom_1000_1200_f27">Bathroom</button>
+              <button class="comparison-chip" type="button" data-scene-option="staircase_lens">Crystal Ball&amp;Archway</button>
+              <button class="comparison-chip" type="button" data-scene-option="classroom_1000_1200">Classroom</button>
+            </div>
+
             <div class="playback-controls" aria-label="Autoplay controls">
               <span class="playback-title">Auto Play</span>
               <div class="auto-mode-selector" data-mode="default" role="tablist" aria-label="Auto Play mode">
@@ -432,6 +454,13 @@
                 </span>
               </button>
             </div>
+            <div class="viewer-control-row view-status" aria-live="polite">
+              <span class="control-label">Views</span>
+              <span class="view-values">
+                <span>X <strong data-view-x>0.00&deg;</strong></span>
+                <span>Y <strong data-view-y>0.00&deg;</strong></span>
+              </span>
+            </div>
             <div class="view-pad" data-view-pad aria-label="Viewpoint XY control">
               <div class="view-pad-grid" aria-hidden="true"></div>
               <button class="view-eye" data-view-eye type="button" aria-label="Current viewpoint">
@@ -445,21 +474,20 @@
               <div class="axis-label axis-label-top">+0.5&deg;</div>
               <div class="axis-label axis-label-bottom">-0.5&deg;</div>
             </div>
-            <div class="viewer-control-row view-status" aria-live="polite">
-              <span class="control-label">Eye Position</span>
-              <span class="view-values">
-                <span>X <strong data-view-x>0.00&deg;</strong></span>
-                <span>Y <strong data-view-y>0.00&deg;</strong></span>
-              </span>
-            </div>
             <div class="viewer-control-row depth-control">
-              <span class="control-label">Eye Focusing</span>
+              <div class="control-row-header">
+                <span class="control-label">Focus</span>
+                <span class="focus-diagram-labels" aria-hidden="true">
+                  <span>Near</span>
+                  <span>Far</span>
+                </span>
+              </div>
               <div class="focus-diagram"
                    aria-label="Eye focusing diagram">
                 <div class="focus-diagram-main">
                   <svg class="focus-eye-static" viewBox="0 0 430 378.7717" aria-hidden="true">
                     <defs>
-                      <linearGradient id="focusLensFill" x1="294.5" y1="196.21193" x2="338.5" y2="196.21193" gradientUnits="userSpaceOnUse">
+                      <linearGradient id="comparisonFocusLensFill" x1="294.5" y1="196.21193" x2="338.5" y2="196.21193" gradientUnits="userSpaceOnUse">
                         <stop offset="0" stop-color="#d8f3ff"></stop>
                         <stop offset="0.52" stop-color="#f4fbff"></stop>
                         <stop offset="1" stop-color="#cdebf6"></stop>
@@ -477,7 +505,7 @@
                              cy="196.21193"
                              rx="22"
                              ry="92"
-                             fill="url(#focusLensFill)"></ellipse>
+                             fill="url(#comparisonFocusLensFill)"></ellipse>
                     <circle class="focus-retina-point" cx="71.5" cy="196.21193" r="14"></circle>
                   </svg>
                   <div class="focus-line-control"
@@ -497,14 +525,19 @@
                     <path data-focus-assist-bottom d="M34 62L72 50"></path>
                   </svg>
                 </div>
-                <div class="focus-diagram-labels" aria-hidden="true">
-                  <span>Near</span>
-                  <span>Far</span>
-                </div>
                 <input class="focus-depth-input" data-view-z-slider type="range" min="-2" max="2" step="1" value="0" tabindex="-1" aria-hidden="true">
               </div>
             </div>
           </div>
+
+          <figure class="comparison-result comparison-result-right">
+            <div class="comparison-frame">
+              <img data-comparison-image="right"
+                   src="./static/images/reconstruction/mitsuba/lego_mirror/render_view_4_4_dist_2.jpg"
+                   alt="Right interactive holographic reconstruction.">
+            </div>
+            <figcaption class="comparison-result-label" data-comparison-label="right">Ground Truth (Mitsuba renderer)</figcaption>
+          </figure>
         </div>
       </div>
     </div>

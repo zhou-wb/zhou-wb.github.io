@@ -1,521 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var burger = document.querySelector(".navbar-burger");
-  var menu = document.querySelector(".navbar-menu");
-
-  if (burger && menu) {
-    burger.addEventListener("click", function () {
-      burger.classList.toggle("is-active");
-      menu.classList.toggle("is-active");
-      burger.setAttribute("aria-expanded", burger.classList.contains("is-active"));
-    });
-  }
-
-  document.querySelectorAll(".navbar-menu a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      if (burger && menu) {
-        burger.classList.remove("is-active");
-        menu.classList.remove("is-active");
-        burger.setAttribute("aria-expanded", "false");
-      }
-    });
-  });
-
-  initDynamicResultViewer();
-  initOverviewVideo();
-  initReconstructionViewer();
+  initComparisonViewer();
 });
 
-function initOverviewVideo() {
-  var root = document.querySelector("[data-overview-video]");
+function initComparisonViewer() {
+  var root = document.querySelector("[data-comparison-viewer]");
   if (!root) {
     return;
   }
 
-  var video = root.querySelector("[data-overview-video-player]");
-  var progressRail = root.querySelector(".overview-progress-rail");
-  var timelineFill = root.querySelector("[data-overview-progress-fill]");
-  var chapterButtons = Array.prototype.slice.call(root.querySelectorAll("[data-overview-chapter-button]"));
-  var progressMarkers = Array.prototype.slice.call(root.querySelectorAll("[data-overview-marker]"));
-  var timelineSections = Array.prototype.slice.call(root.querySelectorAll(".overview-timeline-section"));
-  var splitTime = Number(root.getAttribute("data-split-time")) || 35;
-  var expandedTimelineScale = null;
-  var lastMediaHeight = 0;
-
-  if (!video) {
-    return;
-  }
-
-  function clamp(value, min, max) {
-    return Math.min(max, Math.max(min, value));
-  }
-
-  function videoDuration() {
-    return Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 0;
-  }
-
-  function overviewSplit() {
-    var duration = videoDuration();
-    return duration > 0 ? clamp(splitTime, 0, duration) : splitTime;
-  }
-
-  function syncMediaHeight() {
-    var rect = video.getBoundingClientRect();
-    if (rect.height <= 0 || Math.abs(rect.height - lastMediaHeight) < 0.5) {
-      return;
-    }
-
-    lastMediaHeight = rect.height;
-    expandedTimelineScale = null;
-    root.style.setProperty("--overview-media-height", rect.height.toFixed(1) + "px");
-  }
-
-  function chapterStart(button) {
-    return Number(button.getAttribute("data-overview-jump")) || 0;
-  }
-
-  function positionInRail(element) {
-    if (!progressRail || !element) {
-      return 0;
-    }
-
-    var railRect = progressRail.getBoundingClientRect();
-    var elementRect = element.getBoundingClientRect();
-    var position = elementRect.top + elementRect.height / 2 - railRect.top;
-    return clamp(position, 0, railRect.height);
-  }
-
-  function chapterPosition(button) {
-    return positionInRail(button);
-  }
-
-  function railHeight() {
-    return progressRail ? progressRail.getBoundingClientRect().height : 0;
-  }
-
-  function canMeasureExpandedTimeline() {
-    return !!progressRail;
-  }
-
-  function fallbackTimelineScale(duration, safeSplit) {
-    var height = railHeight();
-    return {
-      height: height,
-      points: [
-        { time: 0, position: 0 },
-        { time: duration > 0 ? duration : Math.max(safeSplit, 0), position: height }
-      ],
-      splitPosition: duration > 0 ? clamp(safeSplit / duration, 0, 1) * height : 0
-    };
-  }
-
-  function buildExpandedTimelineScale(duration, safeSplit) {
-    if (!progressRail) {
-      return expandedTimelineScale || fallbackTimelineScale(duration, safeSplit);
-    }
-
-    var height = railHeight();
-    if (height <= 0) {
-      return expandedTimelineScale || fallbackTimelineScale(duration, safeSplit);
-    }
-
-    var points = [];
-
-    chapterButtons.forEach(function (button) {
-      var start = chapterStart(button);
-      points.push({
-        time: start,
-        position: chapterPosition(button)
-      });
-    });
-
-    var splitPosition = duration > 0 ? clamp(safeSplit / duration, 0, 1) * height : 0;
-    points.push({
-      time: duration > 0 ? duration : Math.max(safeSplit, 0),
-      position: height
-    });
-    points.sort(function (a, b) {
-      return a.time - b.time;
-    });
-
-    expandedTimelineScale = {
-      height: height,
-      points: points,
-      splitPosition: splitPosition
-    };
-    root.style.setProperty("--overview-expanded-rail-height", height.toFixed(1) + "px");
-
-    return expandedTimelineScale;
-  }
-
-  function timelineScale(duration, safeSplit) {
-    if (canMeasureExpandedTimeline()) {
-      return buildExpandedTimelineScale(duration, safeSplit);
-    }
-
-    return expandedTimelineScale || fallbackTimelineScale(duration, safeSplit);
-  }
-
-  function interpolateTimelinePosition(points, current, height) {
-    if (!points.length) {
-      return 0;
-    }
-
-    if (current <= points[0].time) {
-      return points[0].position;
-    }
-
-    for (var index = 0; index < points.length - 1; index += 1) {
-      var from = points[index];
-      var to = points[index + 1];
-      if (current <= to.time) {
-        var span = Math.max(0.01, to.time - from.time);
-        var ratio = clamp((current - from.time) / span, 0, 1);
-        return from.position + (to.position - from.position) * ratio;
-      }
-    }
-
-    return clamp(points[points.length - 1].position, 0, height);
-  }
-
-  function setFillPosition(position) {
-    if (!timelineFill) {
-      return;
-    }
-
-    var height = expandedTimelineScale ? expandedTimelineScale.height : railHeight();
-    timelineFill.style.height = clamp(position, 0, height).toFixed(1) + "px";
-  }
-
-  function timelinePositionForTime(current, duration, safeSplit) {
-    if (!progressRail) {
-      return 0;
-    }
-
-    var scale = timelineScale(duration, safeSplit);
-    return interpolateTimelinePosition(scale.points, current, scale.height);
-  }
-
-  function updateChapterProgress(current, duration) {
-    if (!chapterButtons.length) {
-      return;
-    }
-
-    var activeIndex = 0;
-
-    chapterButtons.forEach(function (button, index) {
-      if (current >= chapterStart(button)) {
-        activeIndex = index;
-      }
-    });
-
-    chapterButtons.forEach(function (button, index) {
-      var isActive = index === activeIndex;
-      var isComplete = index <= activeIndex;
-      button.classList.toggle("is-active", isActive);
-      button.classList.toggle("is-complete", isComplete);
-      button.setAttribute("aria-current", isActive ? "true" : "false");
-    });
-
-    progressMarkers.forEach(function (marker, index) {
-      var chapterButton = chapterButtons[index];
-      if (!chapterButton) {
-        return;
-      }
-
-      var markerStart = chapterStart(marker);
-      marker.style.top = chapterPosition(chapterButton).toFixed(1) + "px";
-      marker.classList.toggle("is-active", index === activeIndex);
-      marker.classList.toggle("is-complete", current >= markerStart);
-    });
-
-    var activePhase = chapterButtons[activeIndex].getAttribute("data-overview-phase");
-
-    timelineSections.forEach(function (section) {
-      section.classList.toggle("is-active-section", section.getAttribute("data-overview-section") === activePhase);
-    });
-
-    setFillPosition(timelinePositionForTime(current, duration, overviewSplit()));
-  }
-
-  function updateOverviewTimeline() {
-    syncMediaHeight();
-
-    var duration = videoDuration();
-    var current = duration > 0 ? clamp(video.currentTime, 0, duration) : 0;
-
-    updateChapterProgress(current, duration);
-  }
-
-  function seekTo(seconds) {
-    var duration = videoDuration();
-    var target = duration > 0 ? clamp(seconds, 0, duration) : Math.max(0, seconds);
-    video.currentTime = target;
-    updateOverviewTimeline();
-  }
-
-  function playVideo() {
-    var playPromise = video.play();
-    if (playPromise && typeof playPromise.catch === "function") {
-      playPromise.catch(function () {});
-    }
-  }
-
-  function seekAndPlay(seconds) {
-    seekTo(seconds);
-    playVideo();
-  }
-
-  chapterButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      seekAndPlay(Number(button.getAttribute("data-overview-jump")) || 0);
-    });
-  });
-
-  progressMarkers.forEach(function (marker) {
-    marker.addEventListener("click", function () {
-      seekAndPlay(Number(marker.getAttribute("data-overview-jump")) || 0);
-    });
-  });
-
-  video.addEventListener("loadedmetadata", updateOverviewTimeline);
-  video.addEventListener("durationchange", updateOverviewTimeline);
-  video.addEventListener("timeupdate", updateOverviewTimeline);
-  video.addEventListener("seeked", updateOverviewTimeline);
-  window.addEventListener("resize", function () {
-    expandedTimelineScale = null;
-    updateOverviewTimeline();
-  });
-  if (window.ResizeObserver) {
-    var overviewVideoResizeObserver = new ResizeObserver(function () {
-      expandedTimelineScale = null;
-      updateOverviewTimeline();
-    });
-    overviewVideoResizeObserver.observe(video);
-  }
-  updateOverviewTimeline();
-}
-
-function initDynamicResultViewer() {
-  var root = document.querySelector("[data-dynamic-result-viewer]");
-  if (!root) {
-    return;
-  }
-
-  var focusImage = root.querySelector("[data-dynamic-focus-image]");
-  var viewImage = root.querySelector("[data-dynamic-view-image]");
-  var viewFocusInput = root.querySelector("[data-dynamic-view-focus]");
-  var focusPlayButton = root.querySelector("[data-dynamic-focus-play]");
-  var sceneButtons = Array.prototype.slice.call(root.querySelectorAll("[data-dynamic-scene-option]"));
-  if (!focusImage || !viewImage) {
-    return;
-  }
-
-  var scenes = {
-    staircase_lens: "Crystal Ball&Archway",
-    lego_mirror: "Lego&Mirror",
-    classroom_1000_1200: "Classroom",
-    coffee_tea: "Glass Teapot"
+  var images = {
+    left: root.querySelector("[data-comparison-image='left']"),
+    right: root.querySelector("[data-comparison-image='right']")
   };
-  var viewPerimeter = [];
-  var cache = Object.create(null);
-  var state = {
-    scene: "staircase_lens",
-    focusDist: 0,
-    focusDirection: 1,
-    viewDist: 2,
-    viewIndex: 0
+  var labels = {
+    left: root.querySelector("[data-comparison-label='left']"),
+    right: root.querySelector("[data-comparison-label='right']")
   };
-  var focusTimer = null;
-  var viewTimer = null;
-  var focusPlaying = true;
-  var focusFrameInterval = (900 / 4) / 1.5;
-  var viewFrameInterval = (1000 / 13.6) / 1.3;
-  var currentFocusPath = "";
-  var currentViewPath = "";
-
-  for (var topX = 1; topX <= 7; topX += 1) {
-    viewPerimeter.push([topX, 1]);
-  }
-  for (var rightY = 2; rightY <= 7; rightY += 1) {
-    viewPerimeter.push([7, rightY]);
-  }
-  for (var bottomX = 6; bottomX >= 1; bottomX -= 1) {
-    viewPerimeter.push([bottomX, 7]);
-  }
-  for (var leftY = 6; leftY >= 2; leftY -= 1) {
-    viewPerimeter.push([1, leftY]);
-  }
-
-  function imagePath(scene, viewX, viewY, dist) {
-    return "./static/images/reconstruction/full/" + scene + "/recon_amp_view_" +
-      viewX + "_" + viewY + "_dist_" + dist + "_tm_24.jpg";
-  }
-
-  function preloadPath(path) {
-    if (cache[path]) {
-      return;
-    }
-    cache[path] = new Image();
-    cache[path].src = path;
-  }
-
-  function preloadScene(scene) {
-    for (var dist = 0; dist <= 4; dist += 1) {
-      preloadPath(imagePath(scene, 0, 0, dist));
-      viewPerimeter.forEach(function (view) {
-        preloadPath(imagePath(scene, view[0], view[1], dist));
-      });
-    }
-  }
-
-  function setImages() {
-    var view = viewPerimeter[state.viewIndex];
-    var sceneLabel = scenes[state.scene];
-    var nextFocusPath = imagePath(state.scene, 0, 0, state.focusDist);
-    var nextViewPath = imagePath(state.scene, view[0], view[1], state.viewDist);
-
-    if (currentFocusPath !== nextFocusPath) {
-      focusImage.src = nextFocusPath;
-      currentFocusPath = nextFocusPath;
-    }
-    focusImage.alt = "HoloPathTracer-Full focal sweep reconstruction of the " +
-      sceneLabel + " scene at focus distance " + state.focusDist + ".";
-    if (currentViewPath !== nextViewPath) {
-      viewImage.src = nextViewPath;
-      currentViewPath = nextViewPath;
-    }
-    viewImage.alt = "HoloPathTracer-Full clockwise view-dependent reconstruction of the " +
-      sceneLabel + " scene at view " + view[0] + ", " + view[1] +
-      " and focus distance " + state.viewDist + ".";
-  }
-
-  function advanceFocus() {
-    if (state.focusDist >= 4) {
-      state.focusDirection = -1;
-    } else if (state.focusDist <= 0) {
-      state.focusDirection = 1;
-    }
-
-    state.focusDist += state.focusDirection;
-    setImages();
-  }
-
-  function advanceView() {
-    state.viewIndex = (state.viewIndex + 1) % viewPerimeter.length;
-    setImages();
-  }
-
-  function setScene(scene) {
-    if (!scenes[scene]) {
-      return;
-    }
-
-    state.scene = scene;
-    state.focusDist = 0;
-    state.focusDirection = 1;
-    state.viewIndex = 0;
-    if (viewFocusInput) {
-      state.viewDist = Number(viewFocusInput.value);
-    }
-    sceneButtons.forEach(function (button) {
-      button.classList.toggle("is-active", button.getAttribute("data-dynamic-scene-option") === scene);
-    });
-    setImages();
-    preloadScene(scene);
-  }
-
-  function updateFocusPlayControl() {
-    if (!focusPlayButton) {
-      return;
-    }
-
-    focusPlayButton.classList.toggle("is-active", focusPlaying);
-    focusPlayButton.setAttribute("aria-pressed", focusPlaying ? "true" : "false");
-    focusPlayButton.setAttribute("aria-label", focusPlaying ? "Pause Natural Defocus" : "Play Natural Defocus");
-  }
-
-  function startFocusTimer() {
-    if (focusPlaying && !focusTimer) {
-      focusTimer = window.setInterval(advanceFocus, focusFrameInterval);
-    }
-  }
-
-  function stopFocusTimer() {
-    if (focusTimer) {
-      window.clearInterval(focusTimer);
-      focusTimer = null;
-    }
-  }
-
-  function startViewTimer() {
-    if (!viewTimer) {
-      viewTimer = window.setInterval(advanceView, viewFrameInterval);
-    }
-  }
-
-  function stopViewTimer() {
-    if (viewTimer) {
-      window.clearInterval(viewTimer);
-      viewTimer = null;
-    }
-  }
-
-  function startTimers() {
-    startFocusTimer();
-    startViewTimer();
-  }
-
-  function stopTimers() {
-    stopFocusTimer();
-    stopViewTimer();
-  }
-
-  sceneButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      setScene(button.getAttribute("data-dynamic-scene-option"));
-    });
-  });
-
-  if (viewFocusInput) {
-    viewFocusInput.addEventListener("input", function () {
-      state.viewDist = Number(viewFocusInput.value);
-      setImages();
-    });
-  }
-
-  if (focusPlayButton) {
-    focusPlayButton.addEventListener("click", function () {
-      focusPlaying = !focusPlaying;
-      if (focusPlaying) {
-        startFocusTimer();
-      } else {
-        stopFocusTimer();
-      }
-      updateFocusPlayControl();
-    });
-  }
-
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden) {
-      stopTimers();
-    } else {
-      startTimers();
-    }
-  });
-  window.addEventListener("pagehide", stopTimers);
-
-  updateFocusPlayControl();
-  setScene(state.scene);
-  startTimers();
-}
-
-function initReconstructionViewer() {
-  var root = document.querySelector("[data-reconstruction-viewer]");
-  if (!root) {
-    return;
-  }
-
-  var image = root.querySelector("#reconstruction-image");
+  var methodSelects = {
+    left: root.querySelector("[data-method-select='left']")
+  };
   var pad = root.querySelector("[data-view-pad]");
   var eye = root.querySelector("[data-view-eye]");
   var focusLens = root.querySelector("[data-focus-lens]");
@@ -532,10 +35,14 @@ function initReconstructionViewer() {
   var focusAssistBottom = root.querySelector("[data-focus-assist-bottom]");
   var eyeRayLeftTop = root.querySelector("[data-eye-ray-left-top]");
   var eyeRayLeftBottom = root.querySelector("[data-eye-ray-left-bottom]");
-  var methodButtons = Array.prototype.slice.call(root.querySelectorAll("[data-method-option]"));
   var sceneButtons = Array.prototype.slice.call(root.querySelectorAll("[data-scene-option]"));
   var xLabel = root.querySelector("[data-view-x]");
   var yLabel = root.querySelector("[data-view-y]");
+
+  if (!images.left || !images.right || !pad || !eye) {
+    return;
+  }
+
   var methods = {
     full: {
       label: "HoloPathTracer-Full (Ours)",
@@ -567,12 +74,19 @@ function initReconstructionViewer() {
   };
   var cache = Object.create(null);
   var preloadedScenes = Object.create(null);
-  var state = { method: "full", scene: "lego_mirror", x: 0, y: 0, z: 0 };
-  var currentImagePath = "";
+  var state = {
+    leftMethod: "full",
+    rightMethod: "mitsuba",
+    scene: "lego_mirror",
+    x: 0,
+    y: 0,
+    z: 0
+  };
+  var currentImagePaths = { left: "", right: "" };
   var dragging = false;
   var depthDragging = false;
   var wheelAccumulator = 0;
-  var focusNearX = 0;
+  var focusNearX = 6;
   var focusFarX = 100;
   var autoMode = "default";
   var autoPlaying = true;
@@ -613,6 +127,10 @@ function initReconstructionViewer() {
   }
 
   function updateEyeFocus(z) {
+    if (!focusLens) {
+      return;
+    }
+
     var nearRatio = 1 - ((z + 2) / 4);
     var controlWidth = 52.8;
     var cx = 56;
@@ -730,8 +248,8 @@ function initReconstructionViewer() {
     cache[path].src = path;
   }
 
-  function preload(x, y, z) {
-    preloadPath(imagePath(state.method, state.scene, x, y, z));
+  function preload(method, x, y, z) {
+    preloadPath(imagePath(method, state.scene, x, y, z));
   }
 
   function preloadScene(method, scene) {
@@ -787,7 +305,8 @@ function initReconstructionViewer() {
       var y = candidate[1];
       var z = candidate[2];
       if (x >= -3 && x <= 3 && y >= -3 && y <= 3 && z >= -2 && z <= 2) {
-        preload(x, y, z);
+        preload(state.leftMethod, x, y, z);
+        preload(state.rightMethod, x, y, z);
       }
     });
   }
@@ -796,18 +315,32 @@ function initReconstructionViewer() {
     return (((3 - value) + 0.5) / 7) * 100;
   }
 
+  function updateSide(side) {
+    var method = side === "left" ? state.leftMethod : state.rightMethod;
+    var nextImagePath = imagePath(method, state.scene, state.x, state.y, state.z);
+
+    if (currentImagePaths[side] !== nextImagePath) {
+      images[side].src = nextImagePath;
+      currentImagePaths[side] = nextImagePath;
+    }
+
+    images[side].alt = methods[method].label + " reconstruction of the " +
+      scenes[state.scene] + " scene.";
+    if (labels[side]) {
+      labels[side].textContent = methods[method].label;
+    }
+    if (methodSelects[side]) {
+      methodSelects[side].value = method;
+    }
+  }
+
   function setState(next) {
     state.x = clamp(next.x, -3, 3);
     state.y = clamp(next.y, -3, 3);
     state.z = clamp(next.z, -2, 2);
 
-    var nextImagePath = imagePath(state.method, state.scene, state.x, state.y, state.z);
-    if (currentImagePath !== nextImagePath) {
-      image.src = nextImagePath;
-      currentImagePath = nextImagePath;
-    }
-    image.alt = "Interactive holographic reconstruction of the " +
-      scenes[state.scene] + " scene using " + methods[state.method].label + ".";
+    updateSide("left");
+    updateSide("right");
     eye.style.left = gridCenterPercent(state.x) + "%";
     eye.style.top = gridCenterPercent(state.y) + "%";
     updateEyeFocus(state.z);
@@ -815,8 +348,12 @@ function initReconstructionViewer() {
     if (zSlider) {
       zSlider.value = state.z;
     }
-    xLabel.textContent = angleLabel(state.x);
-    yLabel.textContent = angleLabel(state.y);
+    if (xLabel) {
+      xLabel.textContent = angleLabel(state.x);
+    }
+    if (yLabel) {
+      yLabel.textContent = angleLabel(state.y);
+    }
     preloadNeighbors();
   }
 
@@ -1255,20 +792,17 @@ function initReconstructionViewer() {
     });
   }
 
-  methodButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      var method = button.getAttribute("data-method-option");
-      if (!methods[method] || method === state.method) {
+  if (methodSelects.left) {
+    methodSelects.left.addEventListener("change", function () {
+      var method = methodSelects.left.value;
+      if (!methods[method] || method === "mitsuba") {
         return;
       }
-      state.method = method;
-      methodButtons.forEach(function (option) {
-        option.classList.toggle("is-active", option === button);
-      });
+      state.leftMethod = method;
       setState(state);
       preloadScene(method, state.scene);
     });
-  });
+  }
 
   sceneButtons.forEach(function (button) {
     button.addEventListener("click", function () {
@@ -1281,12 +815,15 @@ function initReconstructionViewer() {
         option.classList.toggle("is-active", option === button);
       });
       setState(state);
-      preloadScene(state.method, scene);
+      preloadScene(state.leftMethod, scene);
+      preloadScene(state.rightMethod, scene);
     });
   });
 
-  image.addEventListener("dragstart", function (event) {
-    event.preventDefault();
+  Object.keys(images).forEach(function (side) {
+    images[side].addEventListener("dragstart", function (event) {
+      event.preventDefault();
+    });
   });
 
   window.addEventListener("resize", function () {
@@ -1301,6 +838,7 @@ function initReconstructionViewer() {
   setState(state);
   startAutoPlayback();
   window.setTimeout(function () {
-    preloadScene(state.method, state.scene);
+    preloadScene(state.leftMethod, state.scene);
+    preloadScene(state.rightMethod, state.scene);
   }, 250);
 }

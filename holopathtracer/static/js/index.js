@@ -22,8 +22,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initDynamicResultViewer();
   initOverviewVideo();
+  initWavePipelineSteps();
   initReconstructionViewer();
 });
+
+function initWavePipelineSteps() {
+  var root = document.querySelector("[data-wave-steps]");
+  if (!root) {
+    return;
+  }
+
+  var buttons = Array.prototype.slice.call(root.querySelectorAll("[data-wave-step-button]"));
+  var panels = Array.prototype.slice.call(root.querySelectorAll("[data-wave-step-panel]"));
+
+  if (!buttons.length || !panels.length) {
+    return;
+  }
+
+  function activateStep(step, shouldFocus) {
+    buttons.forEach(function (button) {
+      var isActive = button.getAttribute("data-wave-step") === step;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-selected", isActive ? "true" : "false");
+      button.setAttribute("tabindex", isActive ? "0" : "-1");
+      if (isActive && shouldFocus) {
+        button.focus();
+      }
+    });
+
+    panels.forEach(function (panel) {
+      var isActive = panel.getAttribute("data-wave-step-panel") === step;
+      panel.classList.toggle("is-active", isActive);
+      panel.hidden = !isActive;
+    });
+  }
+
+  buttons.forEach(function (button, index) {
+    button.addEventListener("click", function () {
+      activateStep(button.getAttribute("data-wave-step"), false);
+    });
+
+    button.addEventListener("keydown", function (event) {
+      var nextIndex = index;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        nextIndex = (index + 1) % buttons.length;
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        nextIndex = (index - 1 + buttons.length) % buttons.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = buttons.length - 1;
+      } else {
+        return;
+      }
+
+      activateStep(buttons[nextIndex].getAttribute("data-wave-step"), true);
+      event.preventDefault();
+    });
+  });
+
+  var activeButton = buttons.filter(function (button) {
+    return button.classList.contains("is-active");
+  })[0] || buttons[0];
+  activateStep(activeButton.getAttribute("data-wave-step"), false);
+}
 
 function initOverviewVideo() {
   var root = document.querySelector("[data-overview-video]");

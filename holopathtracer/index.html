@@ -150,7 +150,7 @@
   </div>
 </section>
 
-<section class="section" id="method">
+<section class="section is-light" id="method">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
@@ -295,27 +295,255 @@
   </div>
 </section>
 
-<section class="section is-light" id="pipeline">
+<section class="section" id="pipeline">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Wave Path Tracing Pipeline</h2>
-        <div class="content has-text-justified">
-          <p>
-            The method traces coherent plane-wave bundles through a physically based scene, evaluates BSDF events, samples
-            random phases in hologram space, and accumulates complex amplitudes on a recording plane. Coherent interactions
-            preserve optical path length for correct depth and view consistency, while diffuse and glossy components are
-            handled through randomized wave facets for efficient time-multiplexed holography.
-          </p>
+        <div class="wave-step-ui" data-wave-steps>
+          <div class="wave-step-track-wrap" aria-label="Wave path tracing step selector">
+            <div class="wave-step-track" role="tablist" aria-label="Wave path tracing steps">
+              <button class="wave-step-button is-active"
+                      id="wave-step-tab-1"
+                      type="button"
+                      role="tab"
+                      data-wave-step-button
+                      data-wave-step="1"
+                      aria-selected="true"
+                      aria-controls="wave-step-panel-1">
+                <span class="wave-step-index">Step 1</span>
+                <span class="wave-step-short">Ray Sampling</span>
+              </button>
+              <button class="wave-step-button"
+                      id="wave-step-tab-2"
+                      type="button"
+                      role="tab"
+                      data-wave-step-button
+                      data-wave-step="2"
+                      aria-selected="false"
+                      aria-controls="wave-step-panel-2">
+                <span class="wave-step-index">Step 2</span>
+                <span class="wave-step-short">Holo→World Transform</span>
+              </button>
+              <button class="wave-step-button"
+                      id="wave-step-tab-3"
+                      type="button"
+                      role="tab"
+                      data-wave-step-button
+                      data-wave-step="3"
+                      aria-selected="false"
+                      aria-controls="wave-step-panel-3">
+                <span class="wave-step-index">Step 3</span>
+                <span class="wave-step-short">Ray tracing</span>
+              </button>
+              <button class="wave-step-button"
+                      id="wave-step-tab-4"
+                      type="button"
+                      role="tab"
+                      data-wave-step-button
+                      data-wave-step="4"
+                      aria-selected="false"
+                      aria-controls="wave-step-panel-4">
+                <span class="wave-step-index">Step 4</span>
+                <span class="wave-step-short">Evaluate BSDF</span>
+              </button>
+              <button class="wave-step-button"
+                      id="wave-step-tab-5"
+                      type="button"
+                      role="tab"
+                      data-wave-step-button
+                      data-wave-step="5"
+                      aria-selected="false"
+                      aria-controls="wave-step-panel-5">
+                <span class="wave-step-index">Step 5</span>
+                <span class="wave-step-short">Wave/Ray Seperation</span>
+              </button>
+              <button class="wave-step-button"
+                      id="wave-step-tab-6"
+                      type="button"
+                      role="tab"
+                      data-wave-step-button
+                      data-wave-step="6"
+                      aria-selected="false"
+                      aria-controls="wave-step-panel-6">
+                <span class="wave-step-index">Step 6</span>
+                <span class="wave-step-short">World→Holo Transform</span>
+              </button>
+              <button class="wave-step-button"
+                      id="wave-step-tab-7"
+                      type="button"
+                      role="tab"
+                      data-wave-step-button
+                      data-wave-step="7"
+                      aria-selected="false"
+                      aria-controls="wave-step-panel-7">
+                <span class="wave-step-index">Step 7</span>
+                <span class="wave-step-short">Calculate OPL</span>
+              </button>
+              <button class="wave-step-button"
+                      id="wave-step-tab-8"
+                      type="button"
+                      role="tab"
+                      data-wave-step-button
+                      data-wave-step="8"
+                      aria-selected="false"
+                      aria-controls="wave-step-panel-8">
+                <span class="wave-step-index">Step 8</span>
+                <span class="wave-step-short">Rand. Phase Sampling</span>
+              </button>
+              <button class="wave-step-button"
+                      id="wave-step-tab-9"
+                      type="button"
+                      role="tab"
+                      data-wave-step-button
+                      data-wave-step="9"
+                      aria-selected="false"
+                      aria-controls="wave-step-panel-9">
+                <span class="wave-step-index">Step 9</span>
+                <span class="wave-step-short">Hologram Accum.</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="wave-step-detail">
+            <article class="wave-step-panel is-active"
+                     id="wave-step-panel-1"
+                     role="tabpanel"
+                     data-wave-step-panel="1"
+                     aria-labelledby="wave-step-tab-1">
+              <h3>Step 1 &middot; Ray Sampling</h3>
+              <p>
+                <span class="math-symbol">Ray<sub>holo</sub></span> are sampled from each pixel on the SLM (recording
+                plane) in hologram space with a <b>random initial direction</b>.
+              </p>
+            </article>
+            <article class="wave-step-panel"
+                     id="wave-step-panel-2"
+                     role="tabpanel"
+                     data-wave-step-panel="2"
+                     aria-labelledby="wave-step-tab-2"
+                     hidden>
+              <h3>Step 2 &middot; Hologram Space to World Space Transform</h3>
+              <p>
+                <span class="math-symbol">Ray<sub>holo</sub></span> is transformed into world space as
+                <span class="math-symbol">Ray<sub>world</sub></span>.
+              </p>
+            </article>
+            <article class="wave-step-panel"
+                     id="wave-step-panel-3"
+                     role="tabpanel"
+                     data-wave-step-panel="3"
+                     aria-labelledby="wave-step-tab-3"
+                     hidden>
+              <h3>Step 3 &middot; Ray tracing</h3>
+              <p>
+                <span class="math-symbol">Ray<sub>world</sub></span> is traced through the scene in world space to
+                <b>calculate correct light transport</b>.
+              </p>
+            </article>
+            <article class="wave-step-panel"
+                     id="wave-step-panel-4"
+                     role="tabpanel"
+                     data-wave-step-panel="4"
+                     aria-labelledby="wave-step-tab-4"
+                     hidden>
+              <h3>Step 4 &middot; Evaluate BSDF</h3>
+              <p>
+                Upon intersecting a facet, scattering is evaluated according to its BSDF, where different lobes are
+                sampled probabilistically.
+              </p>
+            </article>
+            <article class="wave-step-panel"
+                     id="wave-step-panel-5"
+                     role="tabpanel"
+                     data-wave-step-panel="5"
+                     aria-labelledby="wave-step-tab-5"
+                     hidden>
+              <h3>Step 5 &middot; Wave/Ray Seperation</h3>
+              <p>
+                The first non-delta BSDF sample is defined as the real image point <span class="math-symbol">P</span>
+                in world space. Before reaching <span class="math-symbol">P</span>, the coherent plane-wave bundle is
+                traced with <span class="math-symbol">OPL<sub>world</sub></span> accumulated. After
+                <span class="math-symbol">P</span>, several incoherent radiance rays are traced to estimate the amplitude
+                of the incident plane-wave bundle.
+              </p>
+            </article>
+            <article class="wave-step-panel"
+                     id="wave-step-panel-6"
+                     role="tabpanel"
+                     data-wave-step-panel="6"
+                     aria-labelledby="wave-step-tab-6"
+                     hidden>
+              <h3>Step 6 &middot; World Space to Hologram Space Transform</h3>
+              <p>
+                The virtual image point <span class="math-symbol">P'</span> is calculated and mapped back into hologram
+                space as <span class="math-symbol">Q</span> through a coordinate transformation.
+              </p>
+            </article>
+            <article class="wave-step-panel"
+                     id="wave-step-panel-7"
+                     role="tabpanel"
+                     data-wave-step-panel="7"
+                     aria-labelledby="wave-step-tab-7"
+                     hidden>
+              <h3>Step 7 &middot; Calculate OPL</h3>
+              <p>
+                Based on the position of <span class="math-symbol">Q</span>,
+                <span class="math-symbol">OPL<sub>holo</sub></span> is determined.
+              </p>
+            </article>
+            <article class="wave-step-panel"
+                     id="wave-step-panel-8"
+                     role="tabpanel"
+                     data-wave-step-panel="8"
+                     aria-labelledby="wave-step-tab-8"
+                     hidden>
+              <h3>Step 8 &middot; Random Phase Sampling</h3>
+              <p>
+                Several random phase samples are selected from the pre-computed Gaussian random fields to model the
+                incoherent scattering at <span class="math-symbol">P</span>.
+              </p>
+            </article>
+            <article class="wave-step-panel"
+                     id="wave-step-panel-9"
+                     role="tabpanel"
+                     data-wave-step-panel="9"
+                     aria-labelledby="wave-step-tab-9"
+                     hidden>
+              <h3>Step 9 &middot; Hologram Accumulation</h3>
+              <p>
+                The contribution of each plane-wave bundle is calculated by combining the amplitude from <b>Step 5</b> with the
+                phase from <b>Step 7</b> and <b>Step 8</b>, then coherently accumulated on the hologram recording plane.
+              </p>
+            </article>
+          </div>
         </div>
         <figure class="result-figure">
           <img src="./static/images/hpt/pipeline.jpg"
                alt="Nine-stage HoloPathTracer processing pipeline.">
-          <figcaption>
-            HoloPathTracer decomposes light transport into coherent and incoherent components, sharing traced geometry,
-            amplitudes, and optical path lengths across multiple hologram frames.
-          </figcaption>
         </figure>
+
+        <div class="content has-text-justified">
+          <h3 class="title is-4">Interactions with different materials</h3>
+          <p>
+            Unlike image-based CGH methods, HoloPathTracer traces complete light transport paths from the SLM back to the
+            light source, jointly accounting for the rendering equation and the Rayleigh&ndash;Sommerfeld integral. We decompose
+            wave propagation using the angular spectrum method into coherent plane-wave bundles traveling in different
+            directions. Since each bundle has a finite divergence angle, it can be propagated through ray tracing.
+          </p>
+          <p>
+            When a plane-wave bundle encounters a delta scattering event, we continue tracing it along the outgoing direction
+            while accumulating the optical path length. For non-delta scattering, however, microscopic surface variations
+            introduce random optical path fluctuations, so the subsequent phase no longer needs to be tracked
+            deterministically. We instead sample a random phase to approximate the resulting incoherent superposition, which
+            is statistically equivalent to intensity addition in expectation.
+          </p>
+          <p>
+            Intuitively, smooth surfaces preserve imaging capability and thus require accurate tracking of subsequent scene
+            geometry. Rough surfaces largely destroy such imaging capability, so only the received intensity matters, which
+            can be estimated by ordinary radiometric ray tracing.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -323,8 +551,8 @@
       <div class="column">
         <h3 class="title is-4">Wave Facets</h3>
         <p>
-          Angular-amplitude distributions are formed by combining path-traced amplitudes with phase information, supporting
-          material-dependent scattering and variable-frame multiplexing.
+          Wave facets encode view-dependent amplitudes from path tracing and phases from ray-traced OPL. 
+          With initial random phase sampling, variable-frame multiplexing progressively approximates the ground-truth angular amplitude determined by the material BSDF.
         </p>
         <img src="./static/images/hpt/angular.jpg"
              alt="Angular amplitude on wave facets.">
@@ -332,7 +560,9 @@
       <div class="column">
         <h3 class="title is-4">Random Phase Sampling</h3>
         <p>
-          Gaussian random fields are sampled in hologram space to keep effective phase bandwidth tied to the SLM recording plane.
+          Band-limited Gaussian random fields are precomputed on the hologram space.
+          This keeps sampling density and effective phase bandwidth tied to the SLM recording plane,
+          avoiding distortions caused by changes in facet normals or UV scaling.
         </p>
         <img src="./static/images/hpt/sampling.jpg"
              alt="Gaussian random field sampling in UV and hologram spaces.">
@@ -341,48 +571,39 @@
   </div>
 </section>
 
-<section class="section" id="results">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Captured Display Results</h2>
-        <div class="content has-text-justified">
-          <p>
-            A phase-only SLM prototype reconstructs focal stacks from optimized holograms. Captured results show sharper in-focus
-            details and more natural defocus than a representative focal stack baseline.
-          </p>
-        </div>
-        <figure class="result-figure">
-          <img src="./static/images/hpt/captured.jpg"
-               alt="Acquired display results comparing HoloPathTracer with focal stack.">
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section is-light" id="efficiency">
+<section class="section" id="efficiency">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Efficiency</h2>
+        <div class="content has-text-justified">
+          <p>
+            We also propose a faster variant that combines ambient-light caching with a two-stage wave-recording-plane
+            propagation scheme. Since only the random phase changes across time-multiplexed frames, HoloPathTracer can reuse
+            the same ray paths, geometry, amplitudes, and OPL terms, making it well suited to emerging high-refresh-rate SLMs
+            for efficient time multiplexing and more natural defocus.
+          </p>
+        </div>
         <div class="efficiency-grid">
           <figure class="efficiency-item">
-            <h3 class="title is-4">Runtime</h3>
+            <h3 class="title is-4">Runtime Comparison</h3>
             <img class="inline-result"
                  src="./static/images/hpt/runtime.jpg"
                  alt="Runtime ablation on CGH frameworks.">
             <figcaption>
-              Runtime ablation across representative CGH frameworks under 1, 3, 8, and 24 time-multiplexed frames. Since only the random phase term changes across frames, traced geometry, amplitudes, and optical path lengths are shared, allowing HoloPathTracer to generate multiple frames with only marginal overhead.
+              <strong>Runtime ablation on representative CGH frameworks.</strong> Colors indicate varying-frame-multiplexing: 1, 3, 8, 24 frames. 
+              The proposed methods generate multiple frames with only marginal computational overhead.
             </figcaption>
           </figure>
           <figure class="efficiency-item">
-            <h3 class="title is-4">Convergence</h3>
+            <h3 class="title is-4">Convergence Speed</h3>
             <img class="inline-result"
                  src="./static/images/hpt/convergence.jpg"
                  alt="Convergence behavior of wave field rendering schemes.">
             <figcaption>
-              Convergence comparison between direct hologram-plane rendering, the proposed two-stage wave-recording-plane to SLM propagation, and the texture-baked fast variant. Rendering first to a nearby wave recording plane substantially reduces sampling demand, with dashed lines marking 80% of the PSNR reached at 10<sup>7</sup> spp.
+              <strong>Convergence behavior of wave field rendering schemes.</strong> Convergence comparison between direct hologram-plane rendering (right), 
+              the proposed two-stage wave-recording-plane to SLM propagation (middle), and the texture-baked fast variant (left).
+              x-axis: samples per pixel (SPP); y-axis: number of time-multiplexed frames. Convergence rate is measured by the ratio of reconstruction PSNR against that of 10<sup>7</sup> spp. Note, white dashed lines indicate the 80% convergence.
             </figcaption>
           </figure>
         </div>
@@ -391,12 +612,49 @@
   </div>
 </section>
 
-<section class="section" id="interactive-results">
-  <div class="container is-max-widescreen">
+<section class="section is-light" id="interactive-results">
+  <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h2 class="title is-3 interactive-section-title">Interactive Results</h2>
+        <h2 class="title is-3 interactive-section-title">Interactive Comparisons</h2>
         <div class="comparison-viewer" data-comparison-viewer>
+          <div class="comparison-top-controls" aria-label="Comparison setup controls">
+            <div class="comparison-methods" aria-label="Comparison method selection">
+              <div class="comparison-select-field">
+                <label for="comparison-method-select">CGH method</label>
+                <select id="comparison-method-select" data-method-select="left">
+                  <option value="full" selected>HoloPathTracer-Full (Ours)</option>
+                  <option value="fast">HoloPathTracer-Fast (Ours)</option>
+                  <option value="focalstack">Image-based (Focalstack)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="comparison-scene-field">
+              <span class="comparison-field-label">Scene</span>
+              <div class="comparison-scene-selector" role="group" aria-label="Reconstruction scene selection">
+                <button class="comparison-chip is-active" type="button" data-scene-option="lego_mirror">Lego&amp;Mirror</button>
+                <button class="comparison-chip" type="button" data-scene-option="coffee_tea">Glass Teapot</button>
+                <button class="comparison-chip" type="button" data-scene-option="bathroom_1000_1200_f27">Bathroom</button>
+                <button class="comparison-chip" type="button" data-scene-option="staircase_lens">Crystal Ball&amp;Archway</button>
+                <button class="comparison-chip" type="button" data-scene-option="classroom_1000_1200">Classroom</button>
+              </div>
+            </div>
+
+            <button class="control-help" type="button" aria-label="Control instructions" aria-describedby="comparison-control-help">
+              <span>Instructions</span>
+              <span class="control-help-tooltip" id="comparison-control-help" role="tooltip">
+                <strong>Auto Play</strong>
+                <span><b>Default:</b> Change view and focus by default animation.</span>
+                <span><b>Views:</b> Change views only.</span>
+                <span><b>Focus:</b> Change focus only.</span>
+                <strong>Manual Control</strong>
+                <span><b>Views Control:</b> Drag the eyes in grid.</span>
+                <span><b>Focus Control:</b> Scroll on grid or Drag the focus dot.</span>
+              </span>
+            </button>
+          </div>
+
           <figure class="comparison-result comparison-result-left">
             <div class="comparison-frame">
               <img data-comparison-image="left"
@@ -407,39 +665,6 @@
           </figure>
 
           <div class="comparison-controls" aria-label="Shared reconstruction controls">
-            <div class="comparison-methods" aria-label="Comparison method selection">
-              <div class="comparison-select-field">
-                <span class="comparison-field-heading">
-                  <label for="comparison-method-select">Compare method</label>
-                  <button class="control-help" type="button" aria-label="Control instructions" aria-describedby="comparison-control-help">
-                    <span aria-hidden="true">?</span>
-                    <span class="control-help-tooltip" id="comparison-control-help" role="tooltip">
-                      <strong>Auto Play</strong>
-                      <span><b>Default:</b> change both.</span>
-                      <span><b>Views:</b> views only.</span>
-                      <span><b>Focus:</b> focus only.</span>
-                      <strong>Manual</strong>
-                      <span><b>Views:</b> drag the eyes in grid.</span>
-                      <span><b>Focus:</b> scroll on grid or drag the focus dot.</span>
-                    </span>
-                  </button>
-                </span>
-                <select id="comparison-method-select" data-method-select="left">
-                  <option value="full" selected>HoloPathTracer-Full (Ours)</option>
-                  <option value="fast">HoloPathTracer-Fast (Ours)</option>
-                  <option value="focalstack">Image-based (Focalstack)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="comparison-scene-selector" role="group" aria-label="Reconstruction scene selection">
-              <button class="comparison-chip is-active" type="button" data-scene-option="lego_mirror">Lego&amp;Mirror</button>
-              <button class="comparison-chip" type="button" data-scene-option="coffee_tea">Glass Teapot</button>
-              <button class="comparison-chip" type="button" data-scene-option="bathroom_1000_1200_f27">Bathroom</button>
-              <button class="comparison-chip" type="button" data-scene-option="staircase_lens">Crystal Ball&amp;Archway</button>
-              <button class="comparison-chip" type="button" data-scene-option="classroom_1000_1200">Classroom</button>
-            </div>
-
             <div class="playback-controls" aria-label="Autoplay controls">
               <span class="playback-title">Auto Play</span>
               <div class="auto-mode-selector" data-mode="default" role="tablist" aria-label="Auto Play mode">
@@ -538,6 +763,23 @@
             </div>
             <figcaption class="comparison-result-label" data-comparison-label="right">Ground Truth (Mitsuba renderer)</figcaption>
           </figure>
+        </div>
+
+        <div class="content has-text-justified comparison-analysis">
+          <h3 class="title is-4">Simulation Result Analysis</h3>
+          <p>
+            The simulations compare HoloPathTracer with representative image-, layer-, and geometry-based CGH frameworks
+            under changes in focus, viewpoint, and pupil size. RGB-D reconstructions suffer from noisy defocus around depth
+            discontinuities, while focal stacks produce smoother defocus but tend to blur in-focus details. Light fields
+            improve angular supervision, yet artifacts remain when the reconstruction departs from the predefined views or
+            pupil conditions.
+          </p>
+          <p>
+            HoloPathTracer-Full most closely follows the Mitsuba reference across the tested scenes, preserving smooth
+            refocus transitions, view-dependent effects, and imagery formed by lenses and mirrors. The texture-baked fast
+            variant keeps the same depth and view cues with minor color or detail drift, trading a small visual loss for
+            substantially faster multi-frame hologram generation.
+          </p>
         </div>
       </div>
     </div>

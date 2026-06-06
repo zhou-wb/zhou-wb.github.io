@@ -199,6 +199,66 @@ body {
   width: 100%;
 }
 
+.dynamic-view-control {
+  --view-control-x: 20%;
+  --view-control-y: 20%;
+  flex: 0 0 auto;
+  height: 2.2rem;
+  margin: 0;
+  position: relative;
+  touch-action: none;
+  width: 2.2rem;
+}
+
+.dynamic-view-control:focus {
+  outline: none;
+}
+
+.dynamic-view-control:focus-visible .dynamic-view-track {
+  box-shadow: 0 0 0 3px rgba(40, 102, 110, 0.18);
+}
+
+.dynamic-view-track {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  inset: 0.18rem;
+  position: absolute;
+}
+
+.dynamic-view-track::before,
+.dynamic-view-track::after {
+  background: #e2e8f0;
+  content: "";
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dynamic-view-track::before {
+  height: 1px;
+  width: 100%;
+}
+
+.dynamic-view-track::after {
+  height: 100%;
+  width: 1px;
+}
+
+.dynamic-view-knob {
+  background: #28666e;
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.28);
+  height: 0.52rem;
+  left: var(--view-control-x);
+  position: absolute;
+  top: var(--view-control-y);
+  transform: translate(-50%, -50%);
+  width: 0.52rem;
+}
+
 .dynamic-result-caption {
   color: #5b6776;
   font-size: 1.15rem;

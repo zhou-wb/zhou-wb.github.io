@@ -358,32 +358,68 @@ function initOverviewVideo() {
 }
 
 function initDynamicResultViewer() {
-  var root = document.querySelector("[data-dynamic-result-viewer]");
-  if (!root) {
+  var roots = Array.prototype.slice.call(document.querySelectorAll("[data-dynamic-result-viewer]"));
+  if (!roots.length) {
     return;
   }
 
+  roots.forEach(initDynamicResultViewerInstance);
+}
+
+function initDynamicResultViewerInstance(root) {
   var focusImage = root.querySelector("[data-dynamic-focus-image]");
   var viewImage = root.querySelector("[data-dynamic-view-image]");
   var focusFrame = focusImage ? focusImage.closest(".dynamic-result-frame") : null;
   var viewFrame = viewImage ? viewImage.closest(".dynamic-result-frame") : null;
+  var focusDepthInput = root.querySelector("[data-dynamic-focus-depth]");
   var viewFocusInput = root.querySelector("[data-dynamic-view-focus]");
   var focusPlayButton = root.querySelector("[data-dynamic-focus-play]");
+  var viewPlayButton = root.querySelector("[data-dynamic-view-play]");
+  var viewOrbit = root.querySelector("[data-dynamic-view-orbit]");
+  var viewKnob = root.querySelector("[data-dynamic-view-knob]");
   var sceneButtons = Array.prototype.slice.call(root.querySelectorAll("[data-dynamic-scene-option]"));
   if (!focusImage || !viewImage) {
     return;
   }
 
-  var scenes = {
+  var source = root.getAttribute("data-dynamic-source") || "rendered";
+  var isCaptured = source === "captured";
+  var renderedScenes = {
     staircase_lens: "Crystal Ball&Archway",
     lego_mirror: "Lego&Mirror",
     classroom_1000_1200: "Classroom",
     coffee_tea: "Glass Teapot"
   };
+  var capturedScenes = {
+    lego_mirror: "Lego&Mirror",
+    staircase: "Crystal Ball&Archway",
+    classroom: "Classroom",
+    coffee_tea: "Glass Teapot"
+  };
+  var scenes = isCaptured ? capturedScenes : renderedScenes;
+  var defaultScene = root.getAttribute("data-dynamic-default-scene") || (isCaptured ? "lego_mirror" : "staircase_lens");
+  var capturedFocusDistances = ["80.0", "81.25", "82.5", "83.75", "85.0"];
+  var capturedViewOrder = ["A", "D", "G", "H", "I", "F", "C", "B"];
+  var capturedViewDirections = [
+    { label: "Upper-left view", x: 20, y: 20 },
+    { label: "Upper view", x: 50, y: 8 },
+    { label: "Upper-right view", x: 80, y: 20 },
+    { label: "Right view", x: 92, y: 50 },
+    { label: "Lower-right view", x: 80, y: 80 },
+    { label: "Lower view", x: 50, y: 92 },
+    { label: "Lower-left view", x: 20, y: 80 },
+    { label: "Left view", x: 8, y: 50 }
+  ];
+  var capturedViewDistances = {
+    lego_mirror: "80.0",
+    staircase: "80.0",
+    classroom: "85.0",
+    coffee_tea: "85.0"
+  };
   var viewPerimeter = [];
   var cache = Object.create(null);
   var state = {
-    scene: "staircase_lens",
+    scene: defaultScene,
     focusDist: 0,
     focusDirection: 1,
     viewDist: 2,
@@ -392,27 +428,47 @@ function initDynamicResultViewer() {
   var focusTimer = null;
   var viewTimer = null;
   var focusPlaying = true;
-  var focusFrameInterval = (900 / 4) / 1.5;
-  var viewFrameInterval = (1000 / 13.6) / 1.3;
+  var viewPlaying = true;
+  var viewDragging = false;
+  var focusFrameInterval = ((900 / 4) / 1.5) * (isCaptured ? 1.5 : 1);
+  var viewFrameInterval = ((1000 / 13.6) / 1.3) * (isCaptured ? 3 : 1);
   var currentFocusPath = "";
   var currentViewPath = "";
 
-  for (var topX = 1; topX <= 7; topX += 1) {
-    viewPerimeter.push([topX, 1]);
-  }
-  for (var rightY = 2; rightY <= 7; rightY += 1) {
-    viewPerimeter.push([7, rightY]);
-  }
-  for (var bottomX = 6; bottomX >= 1; bottomX -= 1) {
-    viewPerimeter.push([bottomX, 7]);
-  }
-  for (var leftY = 6; leftY >= 2; leftY -= 1) {
-    viewPerimeter.push([1, leftY]);
+  if (!isCaptured) {
+    for (var topX = 1; topX <= 7; topX += 1) {
+      viewPerimeter.push([topX, 1]);
+    }
+    for (var rightY = 2; rightY <= 7; rightY += 1) {
+      viewPerimeter.push([7, rightY]);
+    }
+    for (var bottomX = 6; bottomX >= 1; bottomX -= 1) {
+      viewPerimeter.push([bottomX, 7]);
+    }
+    for (var leftY = 6; leftY >= 2; leftY -= 1) {
+      viewPerimeter.push([1, leftY]);
+    }
   }
 
-  function imagePath(scene, viewX, viewY, dist) {
+  function renderedImagePath(scene, viewX, viewY, dist) {
     return "./static/images/reconstruction/full/" + scene + "/recon_amp_view_" +
       viewX + "_" + viewY + "_dist_" + dist + "_tm_24.jpg";
+  }
+
+  function capturedBasePath(scene) {
+    return "./static/images/captured/" + scene;
+  }
+
+  function capturedFocusPath(scene, focusIndex) {
+    return capturedBasePath(scene) + "/capture0605_processed/captured_avg_tm24_dist" +
+      capturedFocusDistances[focusIndex] + ".jpg";
+  }
+
+  function capturedViewPath(scene, viewIndex) {
+    var view = capturedViewOrder[viewIndex];
+    var dist = capturedViewDistances[scene] || capturedViewDistances.lego_mirror;
+    return capturedBasePath(scene) + "/capture0605_" + view +
+      "_processed/captured_avg_tm24_dist" + dist + ".jpg";
   }
 
   function cacheEntry(path) {
@@ -494,33 +550,76 @@ function initDynamicResultViewer() {
   }
 
   function preloadScene(scene) {
+    if (isCaptured) {
+      capturedFocusDistances.forEach(function (_dist, index) {
+        preloadPath(capturedFocusPath(scene, index));
+      });
+      capturedViewOrder.forEach(function (_view, index) {
+        preloadPath(capturedViewPath(scene, index));
+      });
+      return;
+    }
+
     for (var dist = 0; dist <= 4; dist += 1) {
-      preloadPath(imagePath(scene, 0, 0, dist));
+      preloadPath(renderedImagePath(scene, 0, 0, dist));
       viewPerimeter.forEach(function (view) {
-        preloadPath(imagePath(scene, view[0], view[1], dist));
+        preloadPath(renderedImagePath(scene, view[0], view[1], dist));
       });
     }
   }
 
   function setImages() {
-    var view = viewPerimeter[state.viewIndex];
     var sceneLabel = scenes[state.scene];
-    var nextFocusPath = imagePath(state.scene, 0, 0, state.focusDist);
-    var nextViewPath = imagePath(state.scene, view[0], view[1], state.viewDist);
+    var view = isCaptured ? capturedViewOrder[state.viewIndex] : viewPerimeter[state.viewIndex];
+    var nextFocusPath = isCaptured ?
+      capturedFocusPath(state.scene, state.focusDist) :
+      renderedImagePath(state.scene, 0, 0, state.focusDist);
+    var nextViewPath = isCaptured ?
+      capturedViewPath(state.scene, state.viewIndex) :
+      renderedImagePath(state.scene, view[0], view[1], state.viewDist);
 
     if (currentFocusPath !== nextFocusPath) {
       setImageSource(focusImage, focusFrame, nextFocusPath);
       currentFocusPath = nextFocusPath;
     }
-    focusImage.alt = "HoloPathTracer-Full focal sweep reconstruction of the " +
-      sceneLabel + " scene at focus distance " + state.focusDist + ".";
+    focusImage.alt = isCaptured ?
+      "Experimentally captured HoloPathTracer focal stack of the " + sceneLabel +
+        " scene at focus distance " + capturedFocusDistances[state.focusDist] + "." :
+      "HoloPathTracer-Full focal sweep reconstruction of the " +
+        sceneLabel + " scene at focus distance " + state.focusDist + ".";
     if (currentViewPath !== nextViewPath) {
       setImageSource(viewImage, viewFrame, nextViewPath);
       currentViewPath = nextViewPath;
     }
-    viewImage.alt = "HoloPathTracer-Full clockwise view-dependent reconstruction of the " +
-      sceneLabel + " scene at view " + view[0] + ", " + view[1] +
-      " and focus distance " + state.viewDist + ".";
+    viewImage.alt = isCaptured ?
+      "Experimentally captured HoloPathTracer view-dependent reconstruction of the " +
+        sceneLabel + " scene at view " + view + "." :
+      "HoloPathTracer-Full clockwise view-dependent reconstruction of the " +
+        sceneLabel + " scene at view " + view[0] + ", " + view[1] +
+        " and focus distance " + state.viewDist + ".";
+    updateFocusDepthControl();
+    updateViewControl();
+  }
+
+  function updateFocusDepthControl() {
+    if (!focusDepthInput) {
+      return;
+    }
+
+    focusDepthInput.value = String(4 - state.focusDist);
+    focusDepthInput.setAttribute("aria-valuenow", focusDepthInput.value);
+  }
+
+  function updateViewControl() {
+    if (!viewOrbit || !viewKnob || !isCaptured) {
+      return;
+    }
+
+    var direction = capturedViewDirections[state.viewIndex];
+    viewOrbit.style.setProperty("--view-control-x", direction.x + "%");
+    viewOrbit.style.setProperty("--view-control-y", direction.y + "%");
+    viewOrbit.setAttribute("aria-valuenow", String(state.viewIndex));
+    viewOrbit.setAttribute("aria-valuetext", direction.label);
   }
 
   function advanceFocus() {
@@ -535,7 +634,8 @@ function initDynamicResultViewer() {
   }
 
   function advanceView() {
-    state.viewIndex = (state.viewIndex + 1) % viewPerimeter.length;
+    var viewCount = isCaptured ? capturedViewOrder.length : viewPerimeter.length;
+    state.viewIndex = (state.viewIndex + 1) % viewCount;
     setImages();
   }
 
@@ -568,6 +668,50 @@ function initDynamicResultViewer() {
     focusPlayButton.setAttribute("aria-label", focusPlaying ? "Pause Natural Defocus" : "Play Natural Defocus");
   }
 
+  function updateViewPlayControl() {
+    if (!viewPlayButton) {
+      return;
+    }
+
+    viewPlayButton.classList.toggle("is-active", viewPlaying);
+    viewPlayButton.setAttribute("aria-pressed", viewPlaying ? "true" : "false");
+    viewPlayButton.setAttribute("aria-label", viewPlaying ? "Pause View-dependent" : "Play View-dependent");
+  }
+
+  function setViewIndex(index, shouldPause) {
+    if (!isCaptured) {
+      return;
+    }
+
+    state.viewIndex = Math.max(0, Math.min(capturedViewOrder.length - 1, index));
+    if (shouldPause) {
+      viewPlaying = false;
+      stopViewTimer();
+      updateViewPlayControl();
+    }
+    setImages();
+  }
+
+  function viewIndexFromPointer(event) {
+    var rect = viewOrbit.getBoundingClientRect();
+    var x = ((event.clientX - rect.left) / rect.width) * 100;
+    var y = ((event.clientY - rect.top) / rect.height) * 100;
+    var nearestIndex = 0;
+    var nearestDistance = Infinity;
+
+    capturedViewDirections.forEach(function (direction, index) {
+      var dx = direction.x - x;
+      var dy = direction.y - y;
+      var distance = (dx * dx) + (dy * dy);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestIndex = index;
+      }
+    });
+
+    return nearestIndex;
+  }
+
   function startFocusTimer() {
     if (focusPlaying && !focusTimer) {
       focusTimer = window.setInterval(advanceFocus, focusFrameInterval);
@@ -582,7 +726,7 @@ function initDynamicResultViewer() {
   }
 
   function startViewTimer() {
-    if (!viewTimer) {
+    if (viewPlaying && !viewTimer) {
       viewTimer = window.setInterval(advanceView, viewFrameInterval);
     }
   }
@@ -620,6 +764,69 @@ function initDynamicResultViewer() {
     });
   }
 
+  if (focusDepthInput) {
+    focusDepthInput.addEventListener("input", function () {
+      state.focusDist = 4 - Number(focusDepthInput.value);
+      if (state.focusDist >= 4) {
+        state.focusDirection = -1;
+      } else if (state.focusDist <= 0) {
+        state.focusDirection = 1;
+      }
+      focusPlaying = false;
+      stopFocusTimer();
+      updateFocusPlayControl();
+      setImages();
+    });
+  }
+
+  if (viewOrbit && isCaptured) {
+    viewOrbit.addEventListener("pointerdown", function (event) {
+      viewDragging = true;
+      if (viewOrbit.setPointerCapture) {
+        viewOrbit.setPointerCapture(event.pointerId);
+      }
+      setViewIndex(viewIndexFromPointer(event), true);
+      event.preventDefault();
+    });
+
+    viewOrbit.addEventListener("pointermove", function (event) {
+      if (!viewDragging) {
+        return;
+      }
+      setViewIndex(viewIndexFromPointer(event), true);
+      event.preventDefault();
+    });
+
+    viewOrbit.addEventListener("pointerup", function (event) {
+      viewDragging = false;
+      if (viewOrbit.releasePointerCapture) {
+        viewOrbit.releasePointerCapture(event.pointerId);
+      }
+    });
+
+    viewOrbit.addEventListener("pointercancel", function () {
+      viewDragging = false;
+    });
+
+    viewOrbit.addEventListener("keydown", function (event) {
+      var nextIndex = state.viewIndex;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        nextIndex = (state.viewIndex + 1) % capturedViewOrder.length;
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        nextIndex = (state.viewIndex - 1 + capturedViewOrder.length) % capturedViewOrder.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = capturedViewOrder.length - 1;
+      } else {
+        return;
+      }
+
+      setViewIndex(nextIndex, true);
+      event.preventDefault();
+    });
+  }
+
   if (focusPlayButton) {
     focusPlayButton.addEventListener("click", function () {
       focusPlaying = !focusPlaying;
@@ -629,6 +836,18 @@ function initDynamicResultViewer() {
         stopFocusTimer();
       }
       updateFocusPlayControl();
+    });
+  }
+
+  if (viewPlayButton) {
+    viewPlayButton.addEventListener("click", function () {
+      viewPlaying = !viewPlaying;
+      if (viewPlaying) {
+        startViewTimer();
+      } else {
+        stopViewTimer();
+      }
+      updateViewPlayControl();
     });
   }
 
@@ -642,6 +861,7 @@ function initDynamicResultViewer() {
   window.addEventListener("pagehide", stopTimers);
 
   updateFocusPlayControl();
+  updateViewPlayControl();
   setScene(state.scene);
   startTimers();
 }

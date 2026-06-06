@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="stylesheet" href="./static/css/compare.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="icon" href="./static/images/favicon.jpg">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script defer src="./static/js/index.js"></script>
@@ -75,7 +75,7 @@
             </span>
           </div>
 
-          <div class="dynamic-result-viewer" data-dynamic-result-viewer>
+          <div class="dynamic-result-viewer" data-dynamic-result-viewer data-dynamic-source="rendered" data-dynamic-default-scene="staircase_lens">
             <div class="dynamic-result-grid">
               <figure class="dynamic-result-panel">
                 <div class="dynamic-result-frame">
@@ -766,20 +766,78 @@
         </div>
 
         <div class="content has-text-justified comparison-analysis">
-          <h3 class="title is-4">Simulation Result Analysis</h3>
-          <p>
-            The simulations compare HoloPathTracer with representative image-, layer-, and geometry-based CGH frameworks
-            under changes in focus, viewpoint, and pupil size. RGB-D reconstructions suffer from noisy defocus around depth
-            discontinuities, while focal stacks produce smoother defocus but tend to blur in-focus details. Light fields
-            improve angular supervision, yet artifacts remain when the reconstruction departs from the predefined views or
-            pupil conditions.
-          </p>
+          <h3 class="title is-4">Simulation Results</h3>
           <p>
             HoloPathTracer-Full most closely follows the Mitsuba reference across the tested scenes, preserving smooth
             refocus transitions, view-dependent effects, and imagery formed by lenses and mirrors. The texture-baked fast
             variant keeps the same depth and view cues with minor color or detail drift, trading a small visual loss for
-            substantially faster multi-frame hologram generation.
+            substantially faster multi-frame hologram generation. 
           </p>
+          <p>
+            Image-based methods (RGBD, Focalstack, Lightfield) overfit
+            the hologram to pre-defined depths/views/pupil sizes, resulting in significant downgrades in unsupervised conditions,
+            such as novel views, intermediate focal planes and different pupil sizes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light" id="captured-results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3 interactive-section-title">Experimentally Captured Focal Stacks and Multi Views</h2>
+        <div class="dynamic-result-viewer" data-dynamic-result-viewer data-dynamic-source="captured" data-dynamic-default-scene="lego_mirror">
+          <div class="dynamic-result-grid">
+            <figure class="dynamic-result-panel">
+              <div class="dynamic-result-frame">
+                <img data-dynamic-focus-image
+                     src="./static/images/captured/lego_mirror/capture0605_processed/captured_avg_tm24_dist80.0.jpg"
+                     alt="Experimentally captured HoloPathTracer focal stack of the Lego and Mirror scene.">
+              </div>
+              <div class="dynamic-result-label-row">
+                <figcaption class="dynamic-result-label">Natural Defocus</figcaption>
+                <div class="dynamic-focus-control">
+                  <span>Near</span>
+                  <input data-dynamic-focus-depth type="range" min="0" max="4" step="1" value="0" aria-label="Natural Defocus focus">
+                  <span>Far</span>
+                </div>
+                <button class="dynamic-play-toggle is-active" data-dynamic-focus-play type="button" aria-label="Pause Natural Defocus" aria-pressed="true">
+                  <span class="dynamic-play-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+            </figure>
+            <figure class="dynamic-result-panel">
+              <div class="dynamic-result-frame">
+                <img data-dynamic-view-image
+                     src="./static/images/captured/lego_mirror/capture0605_A_processed/captured_avg_tm24_dist80.0.jpg"
+                     alt="Experimentally captured HoloPathTracer view-dependent reconstruction of the Lego and Mirror scene.">
+              </div>
+              <div class="dynamic-result-label-row">
+                <figcaption class="dynamic-result-label">View-dependent</figcaption>
+                <div class="dynamic-view-control" data-dynamic-view-orbit role="slider" tabindex="0" aria-label="View-dependent direction" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-valuetext="Upper-left view">
+                  <span class="dynamic-view-track" aria-hidden="true"></span>
+                  <span class="dynamic-view-knob" data-dynamic-view-knob aria-hidden="true"></span>
+                </div>
+                <button class="dynamic-play-toggle is-active" data-dynamic-view-play type="button" aria-label="Pause View-dependent" aria-pressed="true">
+                  <span class="dynamic-play-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+            </figure>
+          </div>
+          <p class="dynamic-result-caption">
+            Experimentally captured focal stacks and multi views of holograms from HoloPathTracer, 
+            Natural Defocus are captured through refocusing the camera on different depths, 
+            while View-dependent results are captured by shifting a filter on fourier plane to simulate the pupil movement. 
+          </p>
+          <div class="dynamic-scene-selector" role="group" aria-label="Captured result scene selection">
+            <button class="dynamic-scene-option is-active" type="button" data-dynamic-scene-option="lego_mirror">Lego&amp;Mirror</button>
+            <button class="dynamic-scene-option" type="button" data-dynamic-scene-option="staircase">Crystal Ball&amp;Archway</button>
+            <button class="dynamic-scene-option" type="button" data-dynamic-scene-option="classroom">Classroom</button>
+            <button class="dynamic-scene-option" type="button" data-dynamic-scene-option="coffee_tea">Glass Teapot</button>
+          </div>
         </div>
       </div>
     </div>

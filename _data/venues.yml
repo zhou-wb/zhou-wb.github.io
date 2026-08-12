@@ -7,3 +7,30 @@
 
 "Vision":
   color: "#009f36"
+
+"Nature Communications":
+  url: https://www.nature.com/ncomms/
+  color: "#ef5138"
+
+"ACM SIGGRAPH":
+  url: https://www.siggraph.org/
+  color: "#8f2f3b"
+
+"IEEE TVCG":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=2945
+  color: "#00629b"
+
+"IEEE CVMJ":
+  color: "#7255a3"
+
+"SID Display Week":
+  url: https://www.displayweek.org/
+  color: "#c78316"
+
+"Optics Letters":
+  url: https://opg.optica.org/ol/home.cfm
+  color: "#00879b"
+
+"Springer HCII":
+  url: https://www.hci.international/
+  color: "#df6c21"

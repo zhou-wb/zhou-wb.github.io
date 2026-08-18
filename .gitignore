@@ -11,3 +11,9 @@ assets/libs/
 node_modules/
 vendor
 .idea
+
+# Media is hosted in Tencent COS and kept locally for coscli sync.
+/assets/img/
+/assets/pdf/
+/assets/video/
+/assets/audio/

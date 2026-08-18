@@ -29,7 +29,7 @@
         {% if entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
         {% else %}
-          {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
+          {% assign entry_path = site.asset_cdn | append: '/img/publication_preview/' | append: entry.preview %}
           {%
             include figure.liquid
             loading="eager"
@@ -221,14 +221,16 @@
         {% if entry.pdf contains '://' %}
           <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          {% assign entry_pdf_path = site.asset_cdn | append: '/pdf/' | append: entry.pdf %}
+          <a href="{{ entry_pdf_path }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
         {% endif %}
       {% endif %}
       {% if entry.supp %}
         {% if entry.supp contains '://' %}
           <a href="{{ entry.supp }}" class="btn btn-sm z-depth-0" role="button">Supp</a>
         {% else %}
-          <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Supp</a>
+          {% assign entry_supp_path = site.asset_cdn | append: '/pdf/' | append: entry.supp %}
+          <a href="{{ entry_supp_path }}" class="btn btn-sm z-depth-0" role="button">Supp</a>
         {% endif %}
       {% endif %}
       {% if entry.video and site.enable_video_embedding %}
@@ -246,14 +248,16 @@
         {% if entry.poster contains '://' %}
           <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
         {% else %}
-          <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
+          {% assign entry_poster_path = site.asset_cdn | append: '/pdf/' | append: entry.poster %}
+          <a href="{{ entry_poster_path }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
         {% endif %}
       {% endif %}
       {% if entry.slides %}
         {% if entry.slides contains '://' %}
           <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
         {% else %}
-          <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
+          {% assign entry_slides_path = site.asset_cdn | append: '/pdf/' | append: entry.slides %}
+          <a href="{{ entry_slides_path }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
         {% endif %}
       {% endif %}
       {% if entry.website %}
